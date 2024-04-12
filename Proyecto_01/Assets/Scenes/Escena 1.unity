@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46610937a1168334c97ead2a3328a210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventario: {fileID: 0}
+  inventario: {fileID: 746176332}
   cuadrado: 0
 --- !u!1 &102510726
 GameObject:
