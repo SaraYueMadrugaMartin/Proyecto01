@@ -1,42 +1,53 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Interaccion : MonoBehaviour
 {
-    [SerializeField] private GameObject llave01;
     [SerializeField] private GameObject puerta;
-
+    List<string> elementosInteractuar = new List<string>{"Interaccion", "Llave", "Puerta"};
     private bool cogerObjeto;
     private GameObject objetoContacto;
-    private bool tieneLlave01 = false;
+    private bool puertaBloqueada = true;
 
     private void Start()
     {
-        // Al inicio, asegúrate de que la llave no esté presente
-        if (llave01 != null)
-            tieneLlave01 = false;
+        //ComprobarEstadoPuerta();
     }
 
     void Update()
     {
         if (cogerObjeto && Input.GetKeyDown(KeyCode.E))
         {
-            PickUp();
-
             if (objetoContacto != null && objetoContacto.tag == "Llave")
             {
-                tieneLlave01 = true;
+                Destroy(objetoContacto);
+                puertaBloqueada = false;
+                Debug.Log("Has recogido una llave");
             }
-        }
-
-        if (tieneLlave01 && objetoContacto != null && objetoContacto.tag == "Puerta" && Input.GetKeyDown(KeyCode.E))
-        {
-            PuertaAbierta();
+            else if (objetoContacto != null && objetoContacto.tag == "Interaccion")
+            {
+                Destroy(objetoContacto);
+                Debug.Log("Has recogido un arma");
+            }
+            else if (objetoContacto != null && objetoContacto.tag == "Puerta")
+            {
+                if (!puertaBloqueada)
+                {
+                    Debug.Log("¡Has abierto la puerta!");
+                    AbrirPuerta();
+                }
+                else
+                {
+                    Debug.Log("La puerta está cerrada. Necesitas una llave.");
+                }
+            }
         }
     }
 
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Interaccion") || other.CompareTag("Llave") || other.CompareTag("Puerta"))
+        if (elementosInteractuar.Contains(other.tag))
         {
             Debug.Log("¿Coger el objeto?");
             cogerObjeto = true;
@@ -46,34 +57,27 @@ public class Interaccion : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Interaccion") || other.CompareTag("Llave") || other.CompareTag("Puerta"))
+        if (elementosInteractuar.Contains(other.tag))
         {
             cogerObjeto = false;
             objetoContacto = null;
-            Debug.Log("No hay objetos cerca para interactuar");
         }
     }
 
-    private void PickUp()
+    private void ComprobarEstadoPuerta()
     {
-        if (objetoContacto != null)
+        if (puertaBloqueada)
         {
-            Destroy(objetoContacto);
-            Debug.Log("Has recogido un objeto");
-        }
-    }
-
-    private void PuertaAbierta()
-    {
-        // Si el jugador tiene la llave, abre la puerta
-        if (tieneLlave01 && puerta != null)
-        {
-            Destroy(puerta);
-            Debug.Log("Puerta abierta");
+            Debug.Log("La puerta está cerrada.");
         }
         else
         {
-            Debug.Log("Necesitas la llave para abrir esta puerta");
+            Debug.Log("La puerta está abierta.");
         }
+    }
+
+    private void AbrirPuerta()
+    {
+        puerta.SetActive(false);
     }
 }
