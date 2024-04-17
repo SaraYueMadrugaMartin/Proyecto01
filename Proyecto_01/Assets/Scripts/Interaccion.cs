@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Interaccion : MonoBehaviour
 {
-    [SerializeField] private Puerta puerta;
     [SerializeField] private Image imagenInventario;
 
     private Inventario inventario;
+    private Puerta puerta;
 
     List<string> elementosInteractuar = new List<string>{"Bate", "Llave", "Tinta", "Documento"};
     private bool cogerObjeto;
@@ -69,6 +69,7 @@ public class Interaccion : MonoBehaviour
             else if (objetoContacto.tag == "Bate")
             {
                 objetoContacto.SetActive(false);
+                //inventario.objetoRecogido = true;
                 Debug.Log("Has recogido un arma");
             }
             else if (objetoContacto.tag == "Tinta")
