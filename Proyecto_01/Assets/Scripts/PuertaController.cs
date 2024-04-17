@@ -6,7 +6,7 @@ public class Puerta : MonoBehaviour
     [SerializeField] private GameObject panelPregunta;
     [SerializeField] private GameObject llaveClave;
 
-    private bool puertaBloqueada = true;
+    public bool puertaBloqueada = true;
     public bool jugadorTocando = false;
 
     private void Start()

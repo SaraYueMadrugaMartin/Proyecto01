@@ -21,6 +21,12 @@ public class Interaccion : MonoBehaviour
         {
             Debug.LogError("¡No se encontró el componente Inventario en la escena!");
         }
+
+        puerta = FindObjectOfType<Puerta>();
+        if (puerta == null)
+        {
+            Debug.LogError("¡No se encontró el componente Inventario en la escena!");
+        }
     }
 
     void Update()
