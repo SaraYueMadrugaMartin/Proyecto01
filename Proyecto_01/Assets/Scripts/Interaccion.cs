@@ -5,21 +5,17 @@ using UnityEngine.UI;
 
 public class Interaccion : MonoBehaviour
 {
-    [SerializeField] private GameObject puerta;
-    [SerializeField] private GameObject llaveClave;
+    [SerializeField] private Puerta puerta;
     [SerializeField] private Image imagenInventario;
 
     private Inventario inventario;
 
-    List<string> elementosInteractuar = new List<string>{"Bate", "Llave", "Puerta", "Tinta", "Documento"};
+    List<string> elementosInteractuar = new List<string>{"Bate", "Llave", "Tinta", "Documento"};
     private bool cogerObjeto;
     private GameObject objetoContacto;
-    private bool puertaBloqueada = true;
 
     private void Start()
     {
-        //ComprobarEstadoPuerta();
-
         inventario = FindObjectOfType<Inventario>();
         if (inventario == null)
         {
@@ -31,42 +27,7 @@ public class Interaccion : MonoBehaviour
     {
         if (cogerObjeto && Input.GetKeyDown(KeyCode.E))
         {
-            if (objetoContacto != null)
-            {
-                if (objetoContacto == llaveClave)
-                {
-                    objetoContacto.SetActive(false);
-                    puertaBloqueada = false;
-                    Debug.Log("Has recogido la llave clave. ¡La puerta está desbloqueada!");
-                }
-                else if (objetoContacto.tag == "Bate")
-                {
-                    objetoContacto.SetActive(false);
-                    Debug.Log("Has recogido un arma");
-                }
-                else if (objetoContacto.tag == "Tinta")
-                {
-                    objetoContacto.SetActive(false);
-                    Debug.Log("Has recogido un bote de tinta");
-                }
-                else if (objetoContacto.tag == "Documento")
-                {
-                    objetoContacto.SetActive(false);
-                    Debug.Log("Has recogido un documento");
-                }
-                else if (objetoContacto.tag == "Puerta")
-                {
-                    if (!puertaBloqueada)
-                    {
-                        Debug.Log("¡Has abierto la puerta!");
-                        AbrirPuerta();
-                    }
-                    else
-                    {
-                        Debug.Log("La puerta está cerrada. Necesitas la llave clave para abrirla.");
-                    }
-                }
-            }
+            CogerObjetos();
         }
     }
 
@@ -95,23 +56,33 @@ public class Interaccion : MonoBehaviour
         }
     }
 
-    private void ComprobarEstadoPuerta()
+    private void CogerObjetos()
     {
-        if (puertaBloqueada)
+        if (objetoContacto != null)
         {
-            Debug.Log("La puerta está cerrada.");
-        }
-        else
-        {
-            Debug.Log("La puerta está abierta.");
+            if (objetoContacto.tag == "Llave")
+            {
+                objetoContacto.SetActive(false);
+                puerta.ActualizarEstadoPuerta();
+                Debug.Log("Has recogido la llave clave");
+            }
+            else if (objetoContacto.tag == "Bate")
+            {
+                objetoContacto.SetActive(false);
+                Debug.Log("Has recogido un arma");
+            }
+            else if (objetoContacto.tag == "Tinta")
+            {
+                objetoContacto.SetActive(false);
+                Debug.Log("Has recogido un bote de tinta");
+            }
+            else if (objetoContacto.tag == "Documento")
+            {
+                objetoContacto.SetActive(false);
+                Debug.Log("Has recogido un documento");
+            }
         }
     }
-
-    private void AbrirPuerta()
-    {
-        puerta.SetActive(false);
-    }
-
     private void MostrarImagenObjeto(GameObject objeto)
     {
         Sprite spriteObjeto = objeto.GetComponent<SpriteRenderer>().sprite;
