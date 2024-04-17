@@ -7,12 +7,12 @@ public class Inventario : MonoBehaviour
     [SerializeField] private GameObject inventario;
     [SerializeField] private List<GameObject> objetos = new List<GameObject>();
     public static Inventario Instance;
-    private bool estadoInvent = false;
+    private bool estadoInvent = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Instance = this;
     }
 
     // Update is called once per frame
@@ -31,5 +31,11 @@ public class Inventario : MonoBehaviour
                 estadoInvent = false;
             }
         }
+    }
+
+    public void AgregarObjeto(GameObject objeto)
+    {
+        objetos.Add(objeto);
+        //objeto.SetActive(false);
     }
 }

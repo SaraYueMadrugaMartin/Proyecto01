@@ -4,11 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Interaccion
   - Puerta
   - CambioNivel
   - Arma
   - Llave
+  - Documento
+  - Tinta
+  - Bate
   layers:
   - Default
   - TransparentFX

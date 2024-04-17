@@ -1,10 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Interaccion : MonoBehaviour
 {
     [SerializeField] private GameObject puerta;
-    List<string> elementosInteractuar = new List<string>{"Interaccion", "Llave", "Puerta"};
+    [SerializeField] private GameObject llaveClave;
+    [SerializeField] private Image imagenInventario;
+
+    private Inventario inventario;
+
+    List<string> elementosInteractuar = new List<string>{"Bate", "Llave", "Puerta", "Tinta", "Documento"};
     private bool cogerObjeto;
     private GameObject objetoContacto;
     private bool puertaBloqueada = true;
@@ -12,33 +19,52 @@ public class Interaccion : MonoBehaviour
     private void Start()
     {
         //ComprobarEstadoPuerta();
+
+        inventario = FindObjectOfType<Inventario>();
+        if (inventario == null)
+        {
+            Debug.LogError("¡No se encontró el componente Inventario en la escena!");
+        }
     }
 
     void Update()
     {
         if (cogerObjeto && Input.GetKeyDown(KeyCode.E))
         {
-            if (objetoContacto != null && objetoContacto.tag == "Llave")
+            if (objetoContacto != null)
             {
-                Destroy(objetoContacto);
-                puertaBloqueada = false;
-                Debug.Log("Has recogido una llave");
-            }
-            else if (objetoContacto != null && objetoContacto.tag == "Interaccion")
-            {
-                Destroy(objetoContacto);
-                Debug.Log("Has recogido un arma");
-            }
-            else if (objetoContacto != null && objetoContacto.tag == "Puerta")
-            {
-                if (!puertaBloqueada)
+                if (objetoContacto == llaveClave)
                 {
-                    Debug.Log("¡Has abierto la puerta!");
-                    AbrirPuerta();
+                    objetoContacto.SetActive(false);
+                    puertaBloqueada = false;
+                    Debug.Log("Has recogido la llave clave. ¡La puerta está desbloqueada!");
                 }
-                else
+                else if (objetoContacto.tag == "Bate")
                 {
-                    Debug.Log("La puerta está cerrada. Necesitas una llave.");
+                    objetoContacto.SetActive(false);
+                    Debug.Log("Has recogido un arma");
+                }
+                else if (objetoContacto.tag == "Tinta")
+                {
+                    objetoContacto.SetActive(false);
+                    Debug.Log("Has recogido un bote de tinta");
+                }
+                else if (objetoContacto.tag == "Documento")
+                {
+                    objetoContacto.SetActive(false);
+                    Debug.Log("Has recogido un documento");
+                }
+                else if (objetoContacto.tag == "Puerta")
+                {
+                    if (!puertaBloqueada)
+                    {
+                        Debug.Log("¡Has abierto la puerta!");
+                        AbrirPuerta();
+                    }
+                    else
+                    {
+                        Debug.Log("La puerta está cerrada. Necesitas la llave clave para abrirla.");
+                    }
                 }
             }
         }
@@ -52,6 +78,11 @@ public class Interaccion : MonoBehaviour
             Debug.Log("¿Coger el objeto?");
             cogerObjeto = true;
             objetoContacto = other.gameObject;
+
+            if (inventario != null && other.CompareTag("Llave") || other.CompareTag("Bate") || other.CompareTag("Tinta") || other.CompareTag("Documento"))
+            {
+                inventario.AgregarObjeto(other.gameObject);
+            }
         }
     }
 
@@ -79,5 +110,12 @@ public class Interaccion : MonoBehaviour
     private void AbrirPuerta()
     {
         puerta.SetActive(false);
+    }
+
+    private void MostrarImagenObjeto(GameObject objeto)
+    {
+        Sprite spriteObjeto = objeto.GetComponent<SpriteRenderer>().sprite;
+
+        imagenInventario.sprite = spriteObjeto;
     }
 }
