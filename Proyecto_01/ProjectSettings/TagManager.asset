@@ -9,6 +9,8 @@ TagManager:
   - CambioNivel
   - Llave
   - Documento
+  - Tinta
+  - Bate
   layers:
   - Default
   - TransparentFX
