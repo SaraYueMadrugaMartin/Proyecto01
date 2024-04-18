@@ -1,0 +1,363 @@
+fileFormatVersion: 2
+guid: 77a870f5c82cb2242a076ff2a93b219e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 65
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cab_objetos_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 64
+        height: 192
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d9af97502a66a14aad02e27f506fefa
+      internalID: 1184080771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cab_objetos_52
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 704
+        width: 64
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ac73757738999748b6fd6dfd57cd920
+      internalID: -1575926413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cab_objetos_55
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 640
+        width: 128
+        height: 192
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93803dcca3a5255409c7dde783de0363
+      internalID: -1707860385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cab_objetos_58
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 576
+        width: 64
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74435d48a7f9a4948b62ba16b23011fa
+      internalID: -1719595910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cab_objetos_61
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 64
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29ed5e58b94c4c44aaa580243544cf53
+      internalID: 768055032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cab_objetos_62
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 576
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7695820de7a0cbf42b875a3355e8efaa
+      internalID: -226767806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cab_objetos_69
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 64
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48e90140c7879854baf25e4f7813bfd7
+      internalID: 1492641696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      cab_objetos_0: -624410473
+      cab_objetos_1: -406446289
+      cab_objetos_10: 553465250
+      cab_objetos_11: -641812103
+      cab_objetos_12: -1309223344
+      cab_objetos_13: -150184740
+      cab_objetos_14: 2000111654
+      cab_objetos_15: -1311516423
+      cab_objetos_16: 779574636
+      cab_objetos_17: 1886979815
+      cab_objetos_18: -207113882
+      cab_objetos_19: -174319888
+      cab_objetos_2: -1690827775
+      cab_objetos_20: 437651386
+      cab_objetos_21: -751204132
+      cab_objetos_22: -45006461
+      cab_objetos_23: -1250846541
+      cab_objetos_24: -2122236741
+      cab_objetos_25: 543750625
+      cab_objetos_26: 1893294183
+      cab_objetos_27: -1923377238
+      cab_objetos_28: 972506001
+      cab_objetos_29: -1766357255
+      cab_objetos_3: 1512601284
+      cab_objetos_30: -2085698169
+      cab_objetos_31: 2064340640
+      cab_objetos_32: -1244542288
+      cab_objetos_33: 1268212184
+      cab_objetos_34: -1624699
+      cab_objetos_35: -1428233064
+      cab_objetos_36: 1184080771
+      cab_objetos_37: -1727331370
+      cab_objetos_38: 806247164
+      cab_objetos_39: -1885175546
+      cab_objetos_4: -2062954029
+      cab_objetos_40: -1277828184
+      cab_objetos_41: 1118029277
+      cab_objetos_42: -736773732
+      cab_objetos_43: 1884138948
+      cab_objetos_44: 1550372159
+      cab_objetos_45: -1764533744
+      cab_objetos_46: 1962326380
+      cab_objetos_47: 418223776
+      cab_objetos_48: -1143162848
+      cab_objetos_49: 1092611536
+      cab_objetos_5: -964443385
+      cab_objetos_50: 1502916667
+      cab_objetos_51: -187003894
+      cab_objetos_52: -1575926413
+      cab_objetos_53: 2106214907
+      cab_objetos_54: 402071210
+      cab_objetos_55: -1707860385
+      cab_objetos_56: -991666910
+      cab_objetos_57: -128963552
+      cab_objetos_58: -1719595910
+      cab_objetos_59: 1272919901
+      cab_objetos_6: 1959073922
+      cab_objetos_60: 952876631
+      cab_objetos_61: 768055032
+      cab_objetos_62: -226767806
+      cab_objetos_63: 1219470147
+      cab_objetos_64: 1470039638
+      cab_objetos_65: -1407128639
+      cab_objetos_66: -2008696160
+      cab_objetos_67: 515133461
+      cab_objetos_68: 1627233476
+      cab_objetos_69: 1492641696
+      cab_objetos_7: -446153794
+      cab_objetos_70: 164555876
+      cab_objetos_71: 1077756571
+      cab_objetos_72: -1371027761
+      cab_objetos_73: -497563026
+      cab_objetos_74: -1528694941
+      cab_objetos_75: -2106576806
+      cab_objetos_8: -1732032927
+      cab_objetos_9: 2110491304
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
