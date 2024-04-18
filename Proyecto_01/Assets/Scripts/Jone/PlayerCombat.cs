@@ -1,12 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    public Animator anim;
+    Animator anim;
 
     public Transform puntoAtaque;
 
@@ -28,7 +27,7 @@ public class PlayerCombat : MonoBehaviour
     void Ataque()
     {
         // Reproducir animación ataque
-        anim.SetTrigger("Ataque");
+        //anim.SetTrigger("Ataque");
 
         // Detectar enemigos en rango de ataque 
         Collider2D[] golpeaEnemigos = Physics2D.OverlapCircleAll(puntoAtaque.position, rangoAtaque, enemigos);
@@ -36,7 +35,7 @@ public class PlayerCombat : MonoBehaviour
         // Hacerles daño
         foreach (Collider2D enemigo in  golpeaEnemigos) 
         {
-            //Debug.Log("Golpeo " +  enemigo.name);
+            Debug.Log("Golpeo " +  enemigo.name);
             enemigo.GetComponent<Enemigo>().recibeDaño(dañoAtaque);
         }
     }

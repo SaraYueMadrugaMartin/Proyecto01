@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // Movimiento
     [SerializeField] float movimiento = 5f;
     float multiplicador = 1;
 
     Animator anim;
     Rigidbody2D rb;
-    // Start is called before the first frame update
+
     void Start()
     {
         anim = GetComponent<Animator>();
