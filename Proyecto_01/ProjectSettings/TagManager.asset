@@ -50,6 +50,6 @@ TagManager:
   - name: Furniture
     uniqueID: 1046529329
     locked: 0
-  - name: Player
-    uniqueID: 165125961
+  - name: Foreground
+    uniqueID: 4189068739
     locked: 0

@@ -25,10 +25,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Velocidad()
     {
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
             multiplicador = 1.6f;
+            anim.SetBool("estaCorriendo", true);
+        }            
         else
+        {
             multiplicador = 1f;
+            anim.SetBool("estaCorriendo", false);
+        }            
     }
 
     private void Mover()
