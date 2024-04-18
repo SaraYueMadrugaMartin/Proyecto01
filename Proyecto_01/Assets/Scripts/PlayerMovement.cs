@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector2(Mathf.Sign(velocidadX), 1f);
         }
-        Debug.Log(velocidadX);
+        //Debug.Log(velocidadX);
     }
 
     // Update is called once per frame
