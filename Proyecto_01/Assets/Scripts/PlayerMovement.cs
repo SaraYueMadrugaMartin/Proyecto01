@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Velocidad();
         anim.SetFloat("Velocidad", multiplicador);
-        Debug.Log(multiplicador);
         Mover();
     }
 
@@ -32,6 +31,12 @@ public class PlayerMovement : MonoBehaviour
         {
             multiplicador = 1.6f;
             anim.SetBool("estaCorriendo", true);
+        }
+        else if (Input.GetKey(KeyCode.LeftControl))
+        {
+            multiplicador = 0.8f;
+            // Aquí iría la animación de sigilo o de andar agachado, ahora mismo es la animación de andar pero más lenta
+            anim.SetBool("estaCorriendo", false);
         }
         else
         {
