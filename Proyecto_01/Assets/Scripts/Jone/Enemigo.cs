@@ -5,25 +5,26 @@ using UnityEngine;
 
 public class Enemigo : MonoBehaviour
 {
-    PlayerStats playerStats;
-
+    // Salud enemigo
     public int saludMax = 100;
-
     int saludActual;
 
-    
-    // Start is called before the first frame update
+    int corrEnemigo = 20;
+
+    Animator anim;
+
     void Start()
     {
         saludActual = saludMax;
-        playerStats = GetComponent<PlayerStats>(); 
+        anim = GetComponent<Animator>();
     }
 
     public void recibeDaño(int daño)
     {
         saludActual -= daño;
 
-        // Animación de recibir daño
+        anim.SetTrigger("recibeDaño");
+        // Sonido recibir daño
 
         if (saludActual <= 0)
         {
@@ -33,15 +34,15 @@ public class Enemigo : MonoBehaviour
 
     void Muere()
     {
-        Debug.Log("Enemigo muere");
+        anim.SetBool("seMuere", true);
+        // Sonido muerte
 
-        // Animación de muerte
-
-        // Desactivar enemigo
-        Destroy(this.gameObject, 1f);
+        // Destroy(this.gameObject, 1f);    // Si decidimos que queremos directamente eliminar al enemigo
+        GetComponent<Collider2D>().enabled = false;
+        this.enabled = false;
 
         // Corrupcion jugador
-        playerStats.contadorCorr += 1;
-        Debug.Log("playerStats.contadorCorr");
+        PlayerStats.contadorCorr +=1;
+        PlayerStats.corrupcion += corrEnemigo;
     }
 }

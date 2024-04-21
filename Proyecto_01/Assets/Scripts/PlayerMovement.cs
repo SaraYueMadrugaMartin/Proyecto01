@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Velocidad();
+        anim.SetFloat("Velocidad", multiplicador);
+        Debug.Log(multiplicador);
         Mover();
     }
 
@@ -30,12 +32,31 @@ public class PlayerMovement : MonoBehaviour
         {
             multiplicador = 1.6f;
             anim.SetBool("estaCorriendo", true);
-        }            
+        }
         else
         {
             multiplicador = 1f;
             anim.SetBool("estaCorriendo", false);
-        }            
+        }
+        if (PlayerStats.corrupcion >= 25)
+        {
+            if (PlayerStats.corrupcion < 50)
+            {
+                multiplicador -= 0.1f;                
+            }
+            else if (PlayerStats.corrupcion < 75)
+            {
+                multiplicador -= 0.2f;
+            }
+            else if (PlayerStats.corrupcion < 90)
+            {
+                multiplicador -= 0.3f;
+            }
+            else 
+            {
+                multiplicador -= 0.4f;
+            }
+        }                      
     }
 
     private void Mover()
