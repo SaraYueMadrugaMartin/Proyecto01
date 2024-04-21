@@ -12,6 +12,14 @@ public class Inventario : MonoBehaviour
     public static Inventario Instance;
     private bool estadoInvent = false;
 
+    public bool TieneObjetosRequeridos
+    {
+        get
+        {
+            return ObjetosGuardarPartida();
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,5 +54,24 @@ public class Inventario : MonoBehaviour
         {
             MostrarObjetoInventario(indiceObjeto);
         }
+    }
+
+    private bool ObjetosGuardarPartida()
+    {
+        bool tieneTinta = false;
+        bool tieneDiario = false;
+
+        foreach (GameObject objeto in objetos)
+        {
+            if (objeto.CompareTag("Tinta"))
+            {
+                tieneTinta = true;
+            }
+            else if (objeto.CompareTag("Documento"))
+            {
+                tieneDiario = true;
+            }
+        }
+        return tieneTinta && tieneDiario;
     }
 }
