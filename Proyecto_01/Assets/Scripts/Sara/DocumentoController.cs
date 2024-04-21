@@ -7,15 +7,12 @@ public class DocumentoController : MonoBehaviour
 {
     [SerializeField] private GameObject mensajeDoc;
 
-    private bool jugadorTocando = false;
-
-    // Start is called before the first frame update
+    public bool jugadorTocando = false;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(jugadorTocando && Input.GetKeyDown("e"))
