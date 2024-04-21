@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gramola : MonoBehaviour
 {
-    public bool estaTocando = false;
+    private bool estaTocando = false;
 
     private void Update()
     {
