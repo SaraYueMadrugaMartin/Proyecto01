@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Puerta : MonoBehaviour
 {
@@ -48,12 +51,26 @@ public class Puerta : MonoBehaviour
 
     public void ActualizarEstadoPuerta()
     {
+        if (llaveClave != null)
+        {
+            // Asumimos que el inventario es un GameObject que tiene el componente Inventario
+            Inventario inventario = GameObject.FindObjectOfType<Inventario>();
+            if (inventario != null && inventario.TieneObjeto("Llave"))
+            {
+                puertaBloqueada = false;
+                Debug.Log("La puerta está desbloqueada.");
+            }
+        }
+    }
+
+    /*public void ActualizarEstadoPuerta()
+    {
         if (llaveClave != null && !llaveClave.activeSelf)
         {
             puertaBloqueada = false;
             Debug.Log("La puerta está desbloqueada.");
         }
-    }
+    }*/
 
     public void UsarLlave()
     {

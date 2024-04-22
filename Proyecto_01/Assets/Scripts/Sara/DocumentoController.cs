@@ -17,6 +17,7 @@ public class DocumentoController : MonoBehaviour
     {
         if(jugadorTocando && Input.GetKeyDown("e"))
         {
+            Time.timeScale = 0;
             mensajeDoc.SetActive(true);
         }
     }
@@ -39,6 +40,7 @@ public class DocumentoController : MonoBehaviour
 
     public void SalirDocumento()
     {
+        Time.timeScale = 1;
         mensajeDoc.SetActive(false);
     }
 }
