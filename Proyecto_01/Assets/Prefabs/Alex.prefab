@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 3484492688635596638}
   - component: {fileID: 4568942737067351269}
   - component: {fileID: 2381573492617584633}
-  - component: {fileID: 5713604908899829596}
-  - component: {fileID: 5530628550972111339}
   - component: {fileID: 860544264551438172}
   - component: {fileID: 7018651186929212950}
   - component: {fileID: 9042997406271618111}
@@ -169,34 +167,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movimiento: 5
---- !u!114 &5713604908899829596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 151545767565334535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3655d7c2eafd874e98f753581cad387, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5530628550972111339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 151545767565334535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46610937a1168334c97ead2a3328a210, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventario: {fileID: 0}
-  objetos: []
-  imagenesObjetos: []
-  huecosInventario: []
 --- !u!114 &860544264551438172
 MonoBehaviour:
   m_ObjectHideFlags: 0
