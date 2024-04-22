@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Interaccion : MonoBehaviour
 {
-    [SerializeField] private Image imagenInventario;
+    /*[SerializeField] private Image imagenInventario;
 
     private Inventario inventario;
     private Puerta puerta;
@@ -95,5 +95,5 @@ public class Interaccion : MonoBehaviour
         Sprite spriteObjeto = objeto.GetComponent<SpriteRenderer>().sprite;
 
         imagenInventario.sprite = spriteObjeto;
-    }
+    }*/
 }
