@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 public class Puntero : MonoBehaviour
 {
     private Transform transformPuntero;
+    bool miraDerecha = true;
 
     private void Awake()
     {
@@ -18,10 +19,19 @@ public class Puntero : MonoBehaviour
 
         Vector3 direccionPuntero = (posRaton - transform.position).normalized;
         float angulo = Mathf.Atan2(direccionPuntero.y, direccionPuntero.x) * Mathf.Rad2Deg;
+        //float altura = Mathf.Sin(angulo);
+        
         // Puedo intentar limitar el ángulo o que la rotación depanda solo de Y
+        //altura = Mathf.LerpAngle(-70f, 70f, altura);
+        //Debug.Log(altura);
         transformPuntero.eulerAngles = new Vector3(0, 0, angulo);
 
-        Vector3 localScale = Vector3.one;
+        float velocidadX = Input.GetAxis("Horizontal");
+        if (velocidadX > 0 && miraDerecha)
+            Flip();
+        if (velocidadX < 0 && !miraDerecha)
+            Flip();
+        /*Vector3 localScale = Vector3.one;
         if (angulo > 90 || angulo < -90)
         {
             localScale.y = -1f;
@@ -30,7 +40,16 @@ public class Puntero : MonoBehaviour
             localScale.y = +1f;
         }
 
-        transformPuntero.localScale = localScale;
+        transformPuntero.localScale = localScale;*/
+    }
+
+    void Flip()
+    {
+        Vector3 currentScale = gameObject.transform.localScale;
+        currentScale.x *= -1;
+        gameObject.transform.localScale = currentScale;
+
+        miraDerecha = !miraDerecha;
     }
 
 

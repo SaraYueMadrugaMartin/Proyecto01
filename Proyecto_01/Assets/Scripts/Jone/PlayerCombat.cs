@@ -49,6 +49,29 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
+    public void recibeDaño(float daño)
+    {
+        PlayerStats.saludActual -= daño;
+        Debug.Log(PlayerStats.saludActual);
+
+        anim.SetTrigger("recibeDaño");
+        // Sonido recibir daño
+
+        if (PlayerStats.saludActual <= 0)
+        {
+            Muere();
+        }
+    }
+
+    private void Muere()
+    {
+        anim.SetBool("muere", true);
+        // Sonido muerte
+
+        // Pantalla muerte
+        // Reinicio escena con el último punto de guardado
+    }
+
     void OnDrawGizmosSelected()
     {
         if (puntoAtaque == null)

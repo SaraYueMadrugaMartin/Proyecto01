@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Velocidad();
-        Debug.Log(multiplicador);
+        // Debug.Log(multiplicador);
         anim.SetFloat("Velocidad", multiplicador);
         Mover();
     }
@@ -84,11 +84,5 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector2(Mathf.Sign(velocidadX), 1f);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

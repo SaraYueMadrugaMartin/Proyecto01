@@ -10,5 +10,11 @@ public class PlayerStats : MonoBehaviour
     static public int monedasCorr = 0;
 
     // Salud
+    static public float saludMax = 100;
+    static public float saludActual;
 
+    private void Start()
+    {
+        saludActual = saludMax;
+    }
 }
