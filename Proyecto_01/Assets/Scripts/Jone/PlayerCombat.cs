@@ -1,12 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    public Animator anim;
+    Animator anim;
 
     public Transform puntoAtaque;
 
@@ -15,20 +14,30 @@ public class PlayerCombat : MonoBehaviour
     public LayerMask enemigos;
 
     public int dañoAtaque = 50;
-    
-    // Update is called once per frame
+    public float ratioAtaque = 2f;
+    float tiempoSiguienteAtaque = 0f;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Time.time >= tiempoSiguienteAtaque)
         {
-            Ataque();
-        }
+            if (Input.GetMouseButtonDown(0))
+            {
+                Ataque();
+                tiempoSiguienteAtaque = Time.time + 1f / ratioAtaque;
+            }
+        }       
     }
 
     void Ataque()
     {
-        // Reproducir animación ataque
         anim.SetTrigger("Ataque");
+        // Sonido ataque
 
         // Detectar enemigos en rango de ataque 
         Collider2D[] golpeaEnemigos = Physics2D.OverlapCircleAll(puntoAtaque.position, rangoAtaque, enemigos);
@@ -36,9 +45,31 @@ public class PlayerCombat : MonoBehaviour
         // Hacerles daño
         foreach (Collider2D enemigo in  golpeaEnemigos) 
         {
-            //Debug.Log("Golpeo " +  enemigo.name);
             enemigo.GetComponent<Enemigo>().recibeDaño(dañoAtaque);
         }
+    }
+
+    public void recibeDaño(float daño)
+    {
+        PlayerStats.saludActual -= daño;
+        Debug.Log(PlayerStats.saludActual);
+
+        anim.SetTrigger("recibeDaño");
+        // Sonido recibir daño
+
+        if (PlayerStats.saludActual <= 0)
+        {
+            Muere();
+        }
+    }
+
+    private void Muere()
+    {
+        anim.SetBool("muere", true);
+        // Sonido muerte
+
+        // Pantalla muerte
+        // Reinicio escena con el último punto de guardado
     }
 
     void OnDrawGizmosSelected()
