@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     // Movimiento
     [SerializeField] float movimiento = 5f;
     float multiplicador = 1;
+    private Vector2 posicionInicial;
 
     Animator anim;
     Rigidbody2D rb;
@@ -16,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+
+        posicionInicial = transform.position;
     }
 
     private void FixedUpdate()
@@ -24,6 +27,58 @@ public class PlayerMovement : MonoBehaviour
         // Debug.Log(multiplicador);
         anim.SetFloat("Velocidad", multiplicador);
         Mover();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            SaveData();
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            LoadData();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            DeleteSavedData();
+        }
+    }
+
+    private void LoadData()
+    {
+        PlayerData playerData = SaveManager.LoadPlayerData();
+        if(playerData != null)
+        {
+            transform.position = new Vector2(playerData.posicion[0], playerData.posicion[1]);
+            Debug.Log("Datos cargados");
+        }
+        else
+        {
+            transform.position = posicionInicial;
+            Debug.Log("No se encontraron datos guardados. Cargando posici√≥n inicial del jugador.");
+        }
+        
+    }
+
+    private void SaveData()
+    {
+        if (Inventario.Instance.TieneObjetosRequeridos)
+        {
+            SaveManager.SavePlayerData(this);
+            Debug.Log("Datos guardados");
+        }
+        else
+        {
+            Debug.Log("No se pueden guardar los datos porque no se tienen los objetos requeridos.");
+        }
+    }
+
+    private void DeleteSavedData()
+    {
+        SaveManager.DeleteSavedData();
     }
 
     private void Velocidad()
@@ -36,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.LeftControl))
         {
             multiplicador = 0.8f;
-            // AquÌ irÌa la animaciÛn de sigilo o de andar agachado, ahora mismo es la animaciÛn de andar pero m·s lenta
+            // Aqu√≠ ir√≠a la animaci√≥n de sigilo o de andar agachado, ahora mismo es la animaci√≥n de andar pero m√°s lenta
             anim.SetBool("estaCorriendo", false);
         }
         else
@@ -84,5 +139,6 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector2(Mathf.Sign(velocidadX), 1f);
         }
+
     }
 }
