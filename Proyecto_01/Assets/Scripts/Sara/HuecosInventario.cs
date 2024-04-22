@@ -31,4 +31,13 @@ public class HuecosInventario : MonoBehaviour
         estaCompleto = true;
         fotoItem.sprite = sprite;
     }
+
+    public void VaciarHueco()
+    {
+        nombreItem = "";
+        cantidad = 0;
+        sprite = null;
+        estaCompleto = false;
+        fotoItem.sprite = null;
+    }
 }
