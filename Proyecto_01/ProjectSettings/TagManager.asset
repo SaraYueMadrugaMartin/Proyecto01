@@ -57,3 +57,6 @@ TagManager:
   - name: Foreground
     uniqueID: 4189068739
     locked: 0
+  - name: Visibilidad
+    uniqueID: 2987023181
+    locked: 0
