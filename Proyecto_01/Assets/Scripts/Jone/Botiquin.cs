@@ -6,6 +6,7 @@ public class Botiquin : MonoBehaviour
 {
     private bool estaTocando = false;
 
+
     private void Update()
     {
         if (estaTocando && Input.GetKeyDown(KeyCode.E))
@@ -22,8 +23,7 @@ public class Botiquin : MonoBehaviour
             {
                 PlayerStats.saludActual = 100;
             }
-            Debug.Log(PlayerStats.saludActual);
-            Destroy(gameObject);
+            Debug.Log("Salud :" + PlayerStats.saludActual);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

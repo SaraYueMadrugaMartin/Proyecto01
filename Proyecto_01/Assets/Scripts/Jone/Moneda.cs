@@ -12,7 +12,6 @@ public class Moneda : MonoBehaviour
         {
             PlayerStats.monedasCorr += 1;
             Debug.Log("Tengo " + PlayerStats.monedasCorr + " monedas.");
-            Destroy(this.gameObject);
         }
     }
 

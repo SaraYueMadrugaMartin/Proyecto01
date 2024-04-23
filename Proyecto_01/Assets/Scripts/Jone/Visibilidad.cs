@@ -7,12 +7,10 @@ public class Visibilidad : MonoBehaviour
 {
     bool estaDentro = false;
     SpriteRenderer spr;
-    SpriteShapeRenderer spr2;
 
     private void Start()
     {
         spr = GetComponent<SpriteRenderer>();
-        spr2 = GetComponent<SpriteShapeRenderer>();
     }
 
     private void Update()
@@ -20,12 +18,10 @@ public class Visibilidad : MonoBehaviour
         if (estaDentro)
         {
             spr.enabled = false;
-            spr2.enabled = false;
         }      
         if (!estaDentro)
         {
             spr.enabled = true;
-            spr2.enabled = true;
         }          
     }
 
