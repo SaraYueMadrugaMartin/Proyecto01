@@ -1,29 +1,10 @@
-<<<<<<< HEAD
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-=======
 using System;
 using System.Collections;
 using System.Collections.Generic;
->>>>>>> 0bbaf9bf9d88cabc38382d704a1424094f38f980
 using UnityEngine;
 
 public class Enemigo : MonoBehaviour
 {
-<<<<<<< HEAD
-    public int saludMax = 100;
-
-    int saludActual;
-
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        saludActual = saludMax;
-    }
-
-=======
     // Salud enemigo
     public int saludMax = 100;
     int saludActual;
@@ -91,21 +72,14 @@ public class Enemigo : MonoBehaviour
        // Gizmos.DrawWireSphere(player.transform.position, rangoDeteccion);
 
     }
->>>>>>> 0bbaf9bf9d88cabc38382d704a1424094f38f980
     public void recibeDaño(int daño)
     {
         saludActual -= daño;
 
-<<<<<<< HEAD
-        // Animación de daño
-
-        if (saludActual < 0)
-=======
         anim.SetTrigger("recibeDaño");
         // Sonido recibir daño
 
         if (saludActual <= 0)
->>>>>>> 0bbaf9bf9d88cabc38382d704a1424094f38f980
         {
             Muere();
         }
@@ -113,14 +87,6 @@ public class Enemigo : MonoBehaviour
 
     void Muere()
     {
-<<<<<<< HEAD
-        //Debug.Log("Enemigo muere");
-
-        // Animación de muerte
-
-        // Desactivar enemigo
-        Destroy(this.gameObject, 2f);
-=======
         anim.SetBool("seMuere", true);
         // Sonido muerte
 
@@ -132,6 +98,5 @@ public class Enemigo : MonoBehaviour
         PlayerStats.contadorCorr +=1;
         PlayerStats.corrupcion += corrEnemigo;
         Debug.Log("Corrupción: " + PlayerStats.corrupcion + "%");
->>>>>>> 0bbaf9bf9d88cabc38382d704a1424094f38f980
     }
 }

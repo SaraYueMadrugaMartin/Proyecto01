@@ -1,29 +1,16 @@
-<<<<<<< HEAD
-ï»¿using System.Collections;
-=======
 using System.Collections;
->>>>>>> 0bbaf9bf9d88cabc38382d704a1424094f38f980
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Interaccion : MonoBehaviour
 {
-<<<<<<< HEAD
-    [SerializeField] private Image imagenInventario;
-
-    private Inventario inventario;
-    private PuertaController puerta;
-
-    List<string> elementosInteractuar = new List<string>{"Bate", "Llave", "Tinta", "Documento"};
-=======
     /*[SerializeField] private Image imagenInventario;
 
     private Inventario inventario;
     private Puerta puerta;
 
     List<string> elementosInteractuar = new List<string> { "Bate", "Llave", "Tinta", "Documento" };
->>>>>>> 0bbaf9bf9d88cabc38382d704a1424094f38f980
     private bool cogerObjeto;
     private GameObject objetoContacto;
 
@@ -32,15 +19,6 @@ public class Interaccion : MonoBehaviour
         inventario = FindObjectOfType<Inventario>();
         if (inventario == null)
         {
-<<<<<<< HEAD
-            Debug.LogError("Â¡No se encontrÃ³ el componente Inventario en la escena!");
-        }
-
-        puerta = FindObjectOfType<PuertaController>();
-        if (puerta == null)
-        {
-            Debug.LogError("Â¡No se encontrÃ³ el componente Inventario en la escena!");
-=======
             Debug.LogError("¡No se encontró el componente Inventario en la escena!");
         }
 
@@ -48,7 +26,6 @@ public class Interaccion : MonoBehaviour
         if (puerta == null)
         {
             Debug.LogError("¡No se encontró el componente Inventario en la escena!");
->>>>>>> 0bbaf9bf9d88cabc38382d704a1424094f38f980
         }
     }
 
@@ -65,11 +42,7 @@ public class Interaccion : MonoBehaviour
     {
         if (elementosInteractuar.Contains(other.tag))
         {
-<<<<<<< HEAD
-            Debug.Log("Â¿Coger el objeto?");
-=======
             Debug.Log("¿Coger el objeto?");
->>>>>>> 0bbaf9bf9d88cabc38382d704a1424094f38f980
             cogerObjeto = true;
             objetoContacto = other.gameObject;
 
@@ -122,10 +95,5 @@ public class Interaccion : MonoBehaviour
         Sprite spriteObjeto = objeto.GetComponent<SpriteRenderer>().sprite;
 
         imagenInventario.sprite = spriteObjeto;
-<<<<<<< HEAD
-    }
-}
-=======
     }*/
 }
->>>>>>> 0bbaf9bf9d88cabc38382d704a1424094f38f980

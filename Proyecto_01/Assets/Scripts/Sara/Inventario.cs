@@ -7,20 +7,13 @@ public class Inventario : MonoBehaviour
 {
     [SerializeField] private GameObject inventario;
     [SerializeField] private List<GameObject> objetos = new List<GameObject>();
-<<<<<<< HEAD
-    [SerializeField] private List<Image> imagenesObjetos = new List<Image>(); // Lista de imágenes de los objetos
-=======
     [SerializeField] private List<Image> imagenesObjetos = new List<Image>();
 
     public HuecosInventario[] huecosInventario;
->>>>>>> 0bbaf9bf9d88cabc38382d704a1424094f38f980
 
     public static Inventario Instance;
     private bool estadoInvent = false;
 
-<<<<<<< HEAD
-    // Start is called before the first frame update
-=======
     public bool TieneObjetosRequeridos
     {
         get
@@ -40,26 +33,11 @@ public class Inventario : MonoBehaviour
         }
         return false;
     }
->>>>>>> 0bbaf9bf9d88cabc38382d704a1424094f38f980
     void Start()
     {
         Instance = this;
     }
 
-<<<<<<< HEAD
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown("i"))
-        {
-            estadoInvent = !estadoInvent; // Alternar el estado del inventario
-            inventario.SetActive(estadoInvent);
-        }
-    }
-
-    // Método para mostrar el objeto en el inventario
-    private void MostrarObjetoInventario(int indice)
-=======
     void Update()
     {
         if (Input.GetKeyDown("i") && estadoInvent)
@@ -111,16 +89,11 @@ public class Inventario : MonoBehaviour
 
     // Método para mostrar el objeto en el inventario
     /*private void MostrarObjetoInventario(int indice)
->>>>>>> 0bbaf9bf9d88cabc38382d704a1424094f38f980
     {
         imagenesObjetos[indice].gameObject.SetActive(true); // Activar la imagen correspondiente al objeto en el inventario
     }
 
-<<<<<<< HEAD
-    public void AgregarObjeto(GameObject objeto)
-=======
     public void AgregarObjeto(GameObject)
->>>>>>> 0bbaf9bf9d88cabc38382d704a1424094f38f980
     {
         objetos.Add(objeto);
 
@@ -132,8 +105,6 @@ public class Inventario : MonoBehaviour
         {
             MostrarObjetoInventario(indiceObjeto);
         }
-<<<<<<< HEAD
-=======
     }*/
 
     private bool ObjetosGuardarPartida()
@@ -153,6 +124,5 @@ public class Inventario : MonoBehaviour
             }
         }
         return tieneTinta && tieneDiario;
->>>>>>> 0bbaf9bf9d88cabc38382d704a1424094f38f980
     }
 }

@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Interaccion
+  - Puerta
+  - CambioNivel
+  - Llave
+  - Documento
+  - Tinta
+  - Bate
   layers:
   - Default
   - TransparentFX
@@ -11,7 +18,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Enemigos
   - 
   - 
   - 
@@ -40,4 +47,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2804421491
+    locked: 0
+  - name: Furniture
+    uniqueID: 1046529329
+    locked: 0
+  - name: Foreground
+    uniqueID: 4189068739
+    locked: 0
+  - name: Visibilidad
+    uniqueID: 2987023181
     locked: 0
