@@ -23,6 +23,7 @@ public class Inventario : MonoBehaviour
         }
         return false;
     }
+
     void Start()
     {
         Instance = this;
@@ -52,16 +53,15 @@ public class Inventario : MonoBehaviour
             if (huecosInventario[i].estaCompleto == false)
             {
                 huecosInventario[i].AñadirObjeto(nombreItem, sprite);
-                if (nombreItem == "Llave")
+                // Llamar a ActualizarEstadoPuerta después de agregar la llave al inventario
+                Puerta puerta = FindObjectOfType<Puerta>();
+                if (puerta != null)
                 {
-                    Puerta puerta = GameObject.FindObjectOfType<Puerta>();
-                    if (puerta != null)
-                    {
-                        puerta.ActualizarEstadoPuerta();
-                    }
+                    puerta.ActualizarEstadoPuerta();
                 }
                 return;
             }
         }
     }
+
 }

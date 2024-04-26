@@ -22,7 +22,7 @@ public class Items : MonoBehaviour
         {
             inventario.AñadirObjeto(nombreItem, sprite);
             gameObject.SetActive(false);
-            //Destroy(gameObject); // DUDA: ¿Es mejor destruirlos o desactivarlos?
+            //Destroy(gameObject);
         }
     }
 

@@ -7,15 +7,22 @@ public class Puerta : MonoBehaviour
 {
     [SerializeField] private GameObject panelMensajeNo;
     [SerializeField] private GameObject panelPregunta;
-    [SerializeField] private GameObject llaveClave;
+    [SerializeField] private Inventario inventario;
+    [SerializeField] private test llaveRequerida;
+
+    //public test idLlaveCorrecta;
 
     public bool puertaBloqueada = true;
     public bool jugadorTocando = false;
 
     private void Start()
     {
-
+        if (llaveRequerida != null)
+        {
+            llaveRequerida = inventario.TieneObjeto(llaveRequerida.name) ? llaveRequerida : null;
+        }
     }
+
 
     private void Update()
     {
@@ -51,26 +58,12 @@ public class Puerta : MonoBehaviour
 
     public void ActualizarEstadoPuerta()
     {
-        if (llaveClave != null)
-        {
-            // Asumimos que el inventario es un GameObject que tiene el componente Inventario
-            Inventario inventario = GameObject.FindObjectOfType<Inventario>();
-            if (inventario != null && inventario.TieneObjeto("Llave"))
-            {
-                puertaBloqueada = false;
-                Debug.Log("La puerta está desbloqueada.");
-            }
-        }
-    }
-
-    /*public void ActualizarEstadoPuerta()
-    {
-        if (llaveClave != null && !llaveClave.activeSelf)
+        if (inventario.TieneObjeto("Llave"))
         {
             puertaBloqueada = false;
             Debug.Log("La puerta está desbloqueada.");
         }
-    }*/
+    }
 
     public void UsarLlave()
     {
