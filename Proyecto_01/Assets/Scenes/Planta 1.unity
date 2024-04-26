@@ -5190,6 +5190,10 @@ PrefabInstance:
       propertyPath: imagenInventario
       value: 
       objectReference: {fileID: 1319263860}
+    - target: {fileID: 6641413085884475241, guid: 45cdac99eda295e4f98f9a08d25a3587, type: 3}
+      propertyPath: movimiento
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7621307403010707313, guid: 45cdac99eda295e4f98f9a08d25a3587, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.15
