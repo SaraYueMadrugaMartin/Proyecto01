@@ -65,15 +65,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void SaveData()
     {
-        if (Inventario.Instance.TieneObjetosRequeridos)
-        {
-            SaveManager.SavePlayerData(this);
-            Debug.Log("Datos guardados");
-        }
-        else
-        {
-            Debug.Log("No se pueden guardar los datos porque no se tienen los objetos requeridos.");
-        }
+        PlayerData data = new PlayerData(this);
+        SaveManager.SavePlayerData(this);
+        Debug.Log("Posición del jugador guardada en: " + transform.position);
     }
 
     private void DeleteSavedData()
