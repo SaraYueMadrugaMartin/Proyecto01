@@ -54,11 +54,11 @@ public class Inventario : MonoBehaviour
             {
                 huecosInventario[i].AñadirObjeto(nombreItem, sprite);
                 // Llamar a ActualizarEstadoPuerta después de agregar la llave al inventario
-                Puerta puerta = FindObjectOfType<Puerta>();
+                /*Puerta puerta = FindObjectOfType<Puerta>();
                 if (puerta != null)
                 {
                     puerta.ActualizarEstadoPuerta();
-                }
+                }*/
                 return;
             }
         }
