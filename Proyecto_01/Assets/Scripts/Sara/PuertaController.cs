@@ -9,17 +9,16 @@ public class PuertaController : MonoBehaviour
     [SerializeField] private GameObject[] puertas;
     [SerializeField] private GameObject[] llaves;
 
-    private bool[] doorStates; // Array para contener el estado de cada puerta
+    private bool[] doorStates;
     public bool jugadorTocando = false;
-    private int indicePuerta = 0; // Índice de la puerta con la que se interactúa
+    private int indicePuerta = 0;
 
     private void Start()
     {
-        // Inicializar el array de estadosPuertas
         doorStates = new bool[puertas.Length];
         for (int i = 0; i < doorStates.Length; i++)
         {
-            doorStates[i] = false; // Todas las puertas comienzan cerradas
+            doorStates[i] = false;
         }
     }
 
@@ -52,22 +51,18 @@ public class PuertaController : MonoBehaviour
 
     public void InteractuarConPuerta()
     {
-        // Comprobar si la puerta está cerrada y si se ha recolectado la llave correspondiente
         if (doorStates[indicePuerta] && !inventario.TieneObjeto(llaves[indicePuerta].name))
         {
             Debug.Log("Esta puerta está cerrada. Necesitas encontrar la llave primero.");
             panelMensajeNo.SetActive(true);
-            return; // Salir del método si la puerta está cerrada y la llave no ha sido recolectada
+            return;
         }
 
-        // Abrir la puerta
         puertas[indicePuerta].SetActive(false);
         Debug.Log("Puerta abierta.");
 
-        // Establecer el estado de la puerta como abierta
         doorStates[indicePuerta] = true;
 
-        // Mostrar panel de pregunta si se tiene la llave
         if (inventario.TieneObjeto(llaves[indicePuerta].name))
         {
             panelPregunta.SetActive(true);
@@ -76,13 +71,10 @@ public class PuertaController : MonoBehaviour
 
     public void UsarLlave()
     {
-        // Destruir la puerta con la que se está interactuando
         Destroy(puertas[indicePuerta]);
 
-        // Eliminar la llave del inventario
         inventario.VaciarHueco(llaves[indicePuerta].name);
 
-        // Ocultar el panel de pregunta
         panelPregunta.SetActive(false);
     }
 
