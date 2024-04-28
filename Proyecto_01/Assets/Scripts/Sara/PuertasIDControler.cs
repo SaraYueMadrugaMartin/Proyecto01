@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class PuertasIDControler : MonoBehaviour
 {
-    [SerializeField] private int puertaID; // Cambia a privado o protegido si es necesario
+    [SerializeField] private PlantillaPuertas puertaAsociada;
+    [SerializeField] private test llaveAsociada;
 
-    public int ObtenerID()
+    public void CompararIDs()
     {
-        return puertaID;
+        if(puertaAsociada.puertasID == llaveAsociada.ID)
+        {
+            Debug.Log("La llave es correcta.");
+        }
+        else
+        {
+            Debug.Log("La llave no es la correcta. Necesitas otra.");
+        }
     }
 }

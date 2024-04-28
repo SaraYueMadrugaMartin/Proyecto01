@@ -7,4 +7,5 @@ using UnityEngine;
 public class PlantillaPuertas : ScriptableObject
 {
     public int puertasID;
+    public bool puertaBloqueada = true;
 }

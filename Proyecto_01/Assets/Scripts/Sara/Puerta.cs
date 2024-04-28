@@ -9,8 +9,7 @@ public class Puerta : MonoBehaviour
     [SerializeField] private GameObject panelPregunta;
     [SerializeField] private Inventario inventario;
 
-    [SerializeField] private test llaveAsociada;
-    [SerializeField] private PlantillaPuertas puertaAsociada;
+    private PuertasIDControler compararID;
 
     //public test idLlaveCorrecta;
 
@@ -19,7 +18,7 @@ public class Puerta : MonoBehaviour
 
     private void Start()
     {
-
+        ActualizarEstadoPuerta();
     }
 
 
@@ -28,7 +27,7 @@ public class Puerta : MonoBehaviour
         if(jugadorTocando && Input.GetKeyDown("e"))
         {
             ActualizarEstadoPuerta();
-            if(puertaBloqueada)
+            if(puertaAsociada.puertaBloqueada)
             {
                 panelMensajeNo.SetActive(true);
             }
@@ -58,11 +57,8 @@ public class Puerta : MonoBehaviour
 
     public void ActualizarEstadoPuerta()
     {
-        if (inventario.TieneObjeto("Llave") && llaveAsociada.ID == puertaAsociada.puertasID)
-        {
-            puertaBloqueada = false;
-            Debug.Log("La puerta está desbloqueada.");
-        }
+        /*puertaAsociada.puertaBloqueada = !inventario.TieneObjeto("Llave") || llaveAsociada.ID != puertaAsociada.puertasID;
+        Debug.Log("La puerta está: " + (puertaAsociada.puertaBloqueada ? "bloqueada" : "desbloqueada"));*/
     }
 
     public void UsarLlave()
