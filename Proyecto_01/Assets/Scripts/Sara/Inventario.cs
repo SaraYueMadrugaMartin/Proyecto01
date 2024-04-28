@@ -64,4 +64,17 @@ public class Inventario : MonoBehaviour
         }
     }
 
+    public void VaciarHueco(string nombreItem)
+    {
+        // Buscar el hueco del inventario correspondiente y vaciarlo
+        foreach (HuecosInventario hueco in huecosInventario)
+        {
+            if (hueco.nombreItem == nombreItem)
+            {
+                hueco.VaciarHueco();
+                break;
+            }
+        }
+    }
+
 }

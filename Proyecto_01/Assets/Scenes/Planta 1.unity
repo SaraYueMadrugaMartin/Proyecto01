@@ -2812,8 +2812,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1671288724}
-        m_TargetAssemblyTypeName: Puerta, Assembly-CSharp
+      - m_Target: {fileID: 963630884}
+        m_TargetAssemblyTypeName: PuertaController, Assembly-CSharp
         m_MethodName: UsarLlave
         m_Mode: 1
         m_Arguments:
@@ -5875,8 +5875,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1671288724}
-        m_TargetAssemblyTypeName: Puerta, Assembly-CSharp
+      - m_Target: {fileID: 963630884}
+        m_TargetAssemblyTypeName: PuertaController, Assembly-CSharp
         m_MethodName: NoUsarLlave
         m_Mode: 1
         m_Arguments:
@@ -6037,6 +6037,62 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+--- !u!1 &963630881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 963630883}
+  - component: {fileID: 963630884}
+  m_Layer: 0
+  m_Name: PuertasController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &963630883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963630881}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.2755566, y: -1.1991342, z: -0.07560176}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1671288723}
+  - {fileID: 2114128092}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963630884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963630881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f37d67177d8146c42ba0619a7d222ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelMensajeNo: {fileID: 787048197}
+  panelPregunta: {fileID: 1027270354}
+  inventario: {fileID: 765543274}
+  puertas:
+  - {fileID: 1671288719}
+  - {fileID: 2114128087}
+  llaves:
+  - {fileID: 1795782122}
+  - {fileID: 2070191559}
+  jugadorTocando: 0
 --- !u!4 &972735007 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7186271440242810868, guid: a9a0014e90a5cd741b58529b15d22252, type: 3}
@@ -10187,11 +10243,9 @@ GameObject:
   - component: {fileID: 1671288723}
   - component: {fileID: 1671288722}
   - component: {fileID: 1671288721}
-  - component: {fileID: 1671288724}
-  - component: {fileID: 1671288725}
   m_Layer: 0
-  m_Name: Puerta
-  m_TagString: Puerta
+  m_Name: Puerta01
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10228,7 +10282,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01437223, y: 0.0037751198}
+  m_Offset: {x: -0.0076926947, y: -0.11645794}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -10239,7 +10293,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0287445, y: 1.7877579}
+  m_Size: {x: 0.93523, y: 2.028224}
   m_EdgeRadius: 0
 --- !u!61 &1671288722
 BoxCollider2D:
@@ -10294,45 +10348,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671288719}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.519, y: -5.276, z: -0.043753073}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.2434435, y: -4.0768657, z: 0.031848684}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 963630883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1671288724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1671288719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92c8b685f4310794cad6a0024d7fe5b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelMensajeNo: {fileID: 787048197}
-  panelPregunta: {fileID: 1027270354}
-  inventario: {fileID: 765543274}
-  llaveAsociada: {fileID: 11400000, guid: de4445561210e3b4fa909379d6874427, type: 2}
-  puertaAsociada: {fileID: 11400000, guid: 0f4f0c409ab8f4a4db8170076fbfd15d, type: 2}
-  puertaBloqueada: 1
-  jugadorTocando: 0
---- !u!114 &1671288725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1671288719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9273756b57c70ed4d97b5aff6210a327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  puertaID: 4444
 --- !u!1001 &1688818221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10775,7 +10797,7 @@ GameObject:
   - component: {fileID: 1795782124}
   - component: {fileID: 1795782123}
   m_Layer: 0
-  m_Name: Llave
+  m_Name: Llave01
   m_TagString: Llave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34085,7 +34107,7 @@ GameObject:
   - component: {fileID: 2070191563}
   - component: {fileID: 2070191562}
   m_Layer: 0
-  m_Name: Llave (1)
+  m_Name: Llave02
   m_TagString: Llave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34315,47 +34337,13 @@ GameObject:
   - component: {fileID: 2114128092}
   - component: {fileID: 2114128091}
   - component: {fileID: 2114128090}
-  - component: {fileID: 2114128089}
-  - component: {fileID: 2114128088}
   m_Layer: 0
-  m_Name: Puerta (1)
-  m_TagString: Puerta
+  m_Name: Puerta02
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2114128088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2114128087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9273756b57c70ed4d97b5aff6210a327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  puertaID: 4444
---- !u!114 &2114128089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2114128087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92c8b685f4310794cad6a0024d7fe5b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelMensajeNo: {fileID: 787048197}
-  panelPregunta: {fileID: 1027270354}
-  inventario: {fileID: 765543274}
-  llaveAsociada: {fileID: 11400000, guid: de4445561210e3b4fa909379d6874427, type: 2}
-  puertaAsociada: {fileID: 11400000, guid: 0f4f0c409ab8f4a4db8170076fbfd15d, type: 2}
-  puertaBloqueada: 1
-  jugadorTocando: 0
 --- !u!61 &2114128090
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34454,12 +34442,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2114128087}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 6.87, y: -0.27, z: -0.043753073}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 4.5944433, y: 0.92913425, z: 0.031848684}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 963630883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &2138643760
 GameObject:
@@ -34787,10 +34775,9 @@ SceneRoots:
   - {fileID: 488445269}
   - {fileID: 765543273}
   - {fileID: 1478406146}
-  - {fileID: 1671288723}
-  - {fileID: 2114128092}
   - {fileID: 553832707}
   - {fileID: 369936254}
   - {fileID: 296730798}
   - {fileID: 881496544}
   - {fileID: 1957419915}
+  - {fileID: 963630883}

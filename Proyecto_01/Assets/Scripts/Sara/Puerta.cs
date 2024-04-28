@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Puerta : MonoBehaviour
 {
-    [SerializeField] private GameObject panelMensajeNo;
+    /*[SerializeField] private GameObject panelMensajeNo;
     [SerializeField] private GameObject panelPregunta;
     [SerializeField] private Inventario inventario;
 
@@ -58,7 +58,7 @@ public class Puerta : MonoBehaviour
     public void ActualizarEstadoPuerta()
     {
         /*puertaAsociada.puertaBloqueada = !inventario.TieneObjeto("Llave") || llaveAsociada.ID != puertaAsociada.puertasID;
-        Debug.Log("La puerta está: " + (puertaAsociada.puertaBloqueada ? "bloqueada" : "desbloqueada"));*/
+        Debug.Log("La puerta está: " + (puertaAsociada.puertaBloqueada ? "bloqueada" : "desbloqueada"));
     }
 
     public void UsarLlave()
@@ -70,5 +70,5 @@ public class Puerta : MonoBehaviour
     public void NoUsarLlave()
     {
         panelPregunta.SetActive(false);
-    }
+    }*/
 }
