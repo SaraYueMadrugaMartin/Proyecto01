@@ -27,7 +27,7 @@ public class Puerta : MonoBehaviour
         if(jugadorTocando && Input.GetKeyDown("e"))
         {
             ActualizarEstadoPuerta();
-            if(puertaAsociada.puertaBloqueada)
+            if(puertaBloqueada)
             {
                 panelMensajeNo.SetActive(true);
             }
