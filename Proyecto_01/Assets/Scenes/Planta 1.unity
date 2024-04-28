@@ -2813,7 +2813,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 963630884}
-        m_TargetAssemblyTypeName: PuertaController, Assembly-CSharp
+        m_TargetAssemblyTypeName: PuertasIDControler, Assembly-CSharp
         m_MethodName: UsarLlave
         m_Mode: 1
         m_Arguments:
@@ -5876,7 +5876,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 963630884}
-        m_TargetAssemblyTypeName: PuertaController, Assembly-CSharp
+        m_TargetAssemblyTypeName: PuertasIDControler, Assembly-CSharp
         m_MethodName: NoUsarLlave
         m_Mode: 1
         m_Arguments:
@@ -6080,19 +6080,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 963630881}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f37d67177d8146c42ba0619a7d222ae6, type: 3}
+  m_Script: {fileID: 11500000, guid: 9273756b57c70ed4d97b5aff6210a327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelMensajeNo: {fileID: 787048197}
   panelPregunta: {fileID: 1027270354}
-  inventario: {fileID: 765543274}
-  puertas:
-  - {fileID: 1671288719}
-  - {fileID: 2114128087}
-  llaves:
-  - {fileID: 1795782122}
-  - {fileID: 2070191559}
-  jugadorTocando: 0
 --- !u!4 &972735007 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7186271440242810868, guid: a9a0014e90a5cd741b58529b15d22252, type: 3}
@@ -10243,6 +10234,7 @@ GameObject:
   - component: {fileID: 1671288723}
   - component: {fileID: 1671288722}
   - component: {fileID: 1671288721}
+  - component: {fileID: 1671288724}
   m_Layer: 0
   m_Name: Puerta01
   m_TagString: Untagged
@@ -10355,6 +10347,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 963630883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1671288724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671288719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c8b685f4310794cad6a0024d7fe5b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puertaAsociada: {fileID: 11400000, guid: 940f1fb557c571c45b6902c17d7bb85f, type: 2}
+  inventario: {fileID: 765543274}
+  panelMensajeNo: {fileID: 787048197}
+  panelPregunta: {fileID: 1027270354}
 --- !u!1001 &1688818221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10796,6 +10804,7 @@ GameObject:
   - component: {fileID: 1795782125}
   - component: {fileID: 1795782124}
   - component: {fileID: 1795782123}
+  - component: {fileID: 1795782126}
   m_Layer: 0
   m_Name: Llave01
   m_TagString: Llave
@@ -10878,6 +10887,19 @@ Transform:
   - {fileID: 976025634}
   m_Father: {fileID: 553832707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -92.238}
+--- !u!114 &1795782126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795782122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e501114784ef0bc4fbcbe73178c91b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  llaveAsociada: {fileID: 11400000, guid: de4445561210e3b4fa909379d6874427, type: 2}
 --- !u!1 &1824730331
 GameObject:
   m_ObjectHideFlags: 0
@@ -34337,6 +34359,7 @@ GameObject:
   - component: {fileID: 2114128092}
   - component: {fileID: 2114128091}
   - component: {fileID: 2114128090}
+  - component: {fileID: 2114128093}
   m_Layer: 0
   m_Name: Puerta02
   m_TagString: Untagged
@@ -34449,6 +34472,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 963630883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!114 &2114128093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114128087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c8b685f4310794cad6a0024d7fe5b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puertaAsociada: {fileID: 0}
+  inventario: {fileID: 0}
+  panelMensajeNo: {fileID: 0}
+  panelPregunta: {fileID: 0}
 --- !u!1 &2138643760
 GameObject:
   m_ObjectHideFlags: 0

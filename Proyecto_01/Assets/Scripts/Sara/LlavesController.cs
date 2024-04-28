@@ -3,11 +3,15 @@ using UnityEngine;
 
 public class LlavesController : MonoBehaviour
 {
-    [SerializeField] private int llaveID; // Cambia a privado o protegido si es necesario
+    [SerializeField] private PlantillaLlaves llaveAsociada;
+    public static int llaveID;
 
+    private void Start()
+    {
+        llaveID = ObtenerID();
+    }
     public int ObtenerID()
     {
-        return llaveID;
+        return llaveAsociada.devuelveID();
     }
-
 }

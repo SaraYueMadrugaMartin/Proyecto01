@@ -5,8 +5,12 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Sara/keys")]
 
-public class test : ScriptableObject
+public class PlantillaLlaves : ScriptableObject
 {
     public int ID;
     
+    public int devuelveID()
+    {
+        return ID;
+    }
 }

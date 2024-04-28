@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PuertaController : MonoBehaviour
 {
-    [SerializeField] private GameObject panelMensajeNo;
+    /*[SerializeField] private GameObject panelMensajeNo;
     [SerializeField] private GameObject panelPregunta;
     [SerializeField] private Inventario inventario;
 
@@ -81,5 +81,5 @@ public class PuertaController : MonoBehaviour
     public void NoUsarLlave()
     {
         panelPregunta.SetActive(false);
-    }
+    }*/
 }

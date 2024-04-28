@@ -5,29 +5,21 @@ using UnityEngine.UI;
 
 public class Puerta : MonoBehaviour
 {
-    /*[SerializeField] private GameObject panelMensajeNo;
-    [SerializeField] private GameObject panelPregunta;
+    [SerializeField] private PlantillaPuertas puertaAsociada;
+    //[SerializeField] private PlantillaLlaves llaveAsociada;
     [SerializeField] private Inventario inventario;
 
-    private PuertasIDControler compararID;
-
-    //public test idLlaveCorrecta;
-
-    public bool puertaBloqueada = true;
-    public bool jugadorTocando = false;
-
-    private void Start()
-    {
-        ActualizarEstadoPuerta();
-    }
-
+    public static bool jugadorTocando;
+    [SerializeField] private GameObject panelMensajeNo;
+    [SerializeField] private GameObject panelPregunta;
+    //public bool puertaBloqueada = true;
 
     private void Update()
     {
-        if(jugadorTocando && Input.GetKeyDown("e"))
+        if (jugadorTocando && Input.GetKeyDown("e"))
         {
             ActualizarEstadoPuerta();
-            if(puertaBloqueada)
+            if (puertaAsociada.puertaBloqueada)
             {
                 panelMensajeNo.SetActive(true);
             }
@@ -35,6 +27,12 @@ public class Puerta : MonoBehaviour
             {
                 panelPregunta.SetActive(true);
             }
+        }
+
+        if (PuertasIDControler.destruye)
+        {
+            DestruirPuerta();
+            PuertasIDControler.destruye = false;
         }
     }
 
@@ -57,18 +55,30 @@ public class Puerta : MonoBehaviour
 
     public void ActualizarEstadoPuerta()
     {
-        /*puertaAsociada.puertaBloqueada = !inventario.TieneObjeto("Llave") || llaveAsociada.ID != puertaAsociada.puertasID;
+        if (inventario.TieneObjeto("Llave") && CompararIDs())
+            puertaAsociada.puertaBloqueada = false;
+        else if (!inventario.TieneObjeto("Llave") || !CompararIDs())
+            puertaAsociada.puertaBloqueada = true;
+        //puertaAsociada.puertaBloqueada = !inventario.TieneObjeto("Llave") || llaveAsociada.ID != puertaAsociada.puertasID;
         Debug.Log("La puerta está: " + (puertaAsociada.puertaBloqueada ? "bloqueada" : "desbloqueada"));
     }
 
-    public void UsarLlave()
+    bool CompararIDs()
     {
-        gameObject.SetActive(false);
-        panelPregunta.SetActive(false);
+        if (puertaAsociada.puertasID == LlavesController.llaveID)
+        {
+            Debug.Log("La llave es correcta.");
+            return true;
+        }
+        else
+        {
+            Debug.Log("La llave no es la correcta. Necesitas otra.");
+            return false;
+        }
     }
 
-    public void NoUsarLlave()
+    public void DestruirPuerta()
     {
-        panelPregunta.SetActive(false);
-    }*/
+        this.gameObject.SetActive(false);
+    }
 }
