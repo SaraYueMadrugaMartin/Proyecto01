@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 131731376748dbd41b708e1708b70884, type: 3}
-  m_Name: Key2
+  m_Script: {fileID: 11500000, guid: bb7cd3acbbc6a914a873ad19a8096c3f, type: 3}
+  m_Name: Puerta2
   m_EditorClassIdentifier: 
-  ID: 5555
+  puertasID: 222
+  puertaBloqueada: 1

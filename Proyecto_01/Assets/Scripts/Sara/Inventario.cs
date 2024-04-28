@@ -11,6 +11,7 @@ public class Inventario : MonoBehaviour
 
     public static Inventario Instance;
     private bool estadoInvent = false;
+    private int llaveID = 0;
 
     public bool TieneObjeto(string nombreItem)
     {
@@ -75,5 +76,13 @@ public class Inventario : MonoBehaviour
                 break;
             }
         }
+    }
+    public void RecibeIDLlave(int ID)
+    {
+        llaveID = ID;
+    }
+    public int BuscaIDLlave()
+    {
+        return llaveID;
     }
 }

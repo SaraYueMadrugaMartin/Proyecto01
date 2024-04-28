@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "Sara/keys")]
+[CreateAssetMenu(menuName = "ScriptableObjects/Keys")]
 
 public class PlantillaLlaves : ScriptableObject
 {

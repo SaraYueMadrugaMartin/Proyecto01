@@ -21,6 +21,13 @@ public class Items : MonoBehaviour
         if(cogerObjeto && Input.GetKeyDown("e"))
         {
             inventario.AñadirObjeto(nombreItem, sprite);
+            if (nombreItem == "Llave")
+            {
+                LlavesController llave = GetComponent<LlavesController>();
+                int llaveID = llave.ObtenerID();
+                Debug.Log("El ID de la llave es: " +  llaveID); 
+                inventario.RecibeIDLlave(llaveID);
+            }
             gameObject.SetActive(false);
             //Destroy(gameObject);
         }
