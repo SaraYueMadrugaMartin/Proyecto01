@@ -11,18 +11,7 @@ public class HuecosInventario : MonoBehaviour
     public int cantidad;
     public Sprite sprite;
     public bool estaCompleto;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Vector2 coordItem;
 
     public void AñadirObjeto(string nombreItem, Sprite sprite)
     {
@@ -30,6 +19,7 @@ public class HuecosInventario : MonoBehaviour
         this.sprite = sprite;
         estaCompleto = true;
         fotoItem.sprite = sprite;
+        GuardarCoordenadas();
     }
 
     public void VaciarHueco()
@@ -39,5 +29,11 @@ public class HuecosInventario : MonoBehaviour
         sprite = null;
         estaCompleto = false;
         fotoItem.sprite = null;
+    }
+
+    private void GuardarCoordenadas()
+    {
+        Vector3 posicionObjeto = transform.position;
+        coordItem = new Vector2(posicionObjeto.x, posicionObjeto.y);
     }
 }

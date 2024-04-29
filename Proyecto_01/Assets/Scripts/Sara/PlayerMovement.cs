@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     float multiplicador = 1;
     private Vector2 posicionInicial;
 
+    [SerializeField] private GameObject[] items;
+
     Animator anim;
     Rigidbody2D rb;
 
