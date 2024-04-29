@@ -54,12 +54,6 @@ public class Inventario : MonoBehaviour
             if (huecosInventario[i].estaCompleto == false)
             {
                 huecosInventario[i].AñadirObjeto(nombreItem, sprite);
-                // Llamar a ActualizarEstadoPuerta después de agregar la llave al inventario
-                /*Puerta puerta = FindObjectOfType<Puerta>();
-                if (puerta != null)
-                {
-                    puerta.ActualizarEstadoPuerta();
-                }*/
                 return;
             }
         }
@@ -67,7 +61,6 @@ public class Inventario : MonoBehaviour
 
     public void VaciarHueco(string nombreItem)
     {
-        // Buscar el hueco del inventario correspondiente y vaciarlo
         foreach (HuecosInventario hueco in huecosInventario)
         {
             if (hueco.nombreItem == nombreItem)

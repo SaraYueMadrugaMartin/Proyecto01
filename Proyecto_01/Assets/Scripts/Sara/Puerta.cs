@@ -9,7 +9,7 @@ public class Puerta : MonoBehaviour
     //[SerializeField] private PlantillaLlaves llaveAsociada;
     [SerializeField] private Inventario inventario;
 
-    public static bool jugadorTocando;
+    public bool jugadorTocando; // "static" lo he eliminado porque sino detectaba otras puertas y se abrían los dos paneles.
     [SerializeField] private GameObject panelMensajeNo;
     [SerializeField] private GameObject panelPregunta;
     //public bool puertaBloqueada = true;
@@ -18,7 +18,7 @@ public class Puerta : MonoBehaviour
     {
         if (jugadorTocando && Input.GetKeyDown("e"))
         {
-            ActualizarEstadoPuerta();
+            
             if (puertaAsociada.puertaBloqueada)
             {
                 panelMensajeNo.SetActive(true);
@@ -41,6 +41,7 @@ public class Puerta : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             jugadorTocando = true;
+            ActualizarEstadoPuerta();
         }
     }
 
@@ -58,6 +59,7 @@ public class Puerta : MonoBehaviour
         if (inventario.TieneObjeto("Llave"))
         {
             int llaveID = inventario.BuscaIDLlave();
+
             if (CompararIDs(llaveID))
                 puertaAsociada.puertaBloqueada = false;
             else
