@@ -6,23 +6,12 @@ using UnityEngine.UI;
 public class HuecosInventario : MonoBehaviour
 {
     [SerializeField] private Image fotoItem;
-    
+
     public string nombreItem;
     public int cantidad;
     public Sprite sprite;
     public bool estaCompleto;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Vector2 coordItem;
 
     public void AñadirObjeto(string nombreItem, Sprite sprite)
     {

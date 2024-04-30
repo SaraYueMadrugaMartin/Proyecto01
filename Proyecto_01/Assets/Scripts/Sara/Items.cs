@@ -18,9 +18,16 @@ public class Items : MonoBehaviour
 
     private void Update()
     {
-        if(cogerObjeto && Input.GetKeyDown("e"))
+        if (cogerObjeto && Input.GetKeyDown("e"))
         {
             inventario.AñadirObjeto(nombreItem, sprite);
+            if (nombreItem == "Llave")
+            {
+                LlavesController llave = GetComponent<LlavesController>();
+                int llaveID = llave.ObtenerID();
+                Debug.Log("El ID de la llave es: " + llaveID);
+                inventario.RecibeIDLlave(llaveID);
+            }
             gameObject.SetActive(false);
             //Destroy(gameObject);
         }
@@ -28,7 +35,7 @@ public class Items : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.gameObject.tag == "Player")
+        if (collider.gameObject.tag == "Player")
         {
             cogerObjeto = true;
         }
