@@ -17,6 +17,7 @@ public class Gramola : MonoBehaviour
             {
                 PlayerStats.monedasCorr -= 1;
                 // Reproduce música y espera a que termine el audio
+                FindObjectOfType<AudioManager>().Play("Gramola");
                 PlayerStats.corrupcion = 0;
                 Debug.Log("Gasta moneda");
             }
