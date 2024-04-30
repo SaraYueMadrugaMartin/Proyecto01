@@ -11,6 +11,7 @@ public class Inventario : MonoBehaviour
 
     public static Inventario Instance;
     private bool estadoInvent = false;
+    private int llaveID = 0;
 
     public bool TieneObjeto(string nombreItem)
     {
@@ -37,7 +38,7 @@ public class Inventario : MonoBehaviour
             inventario.SetActive(false);
             estadoInvent = false;
         }
-        else if(Input.GetKeyDown("i") && !estadoInvent)
+        else if (Input.GetKeyDown("i") && !estadoInvent)
         {
             Time.timeScale = 0;
             inventario.SetActive(true);
@@ -53,15 +54,28 @@ public class Inventario : MonoBehaviour
             if (huecosInventario[i].estaCompleto == false)
             {
                 huecosInventario[i].AñadirObjeto(nombreItem, sprite);
-                // Llamar a ActualizarEstadoPuerta después de agregar la llave al inventario
-                Puerta puerta = FindObjectOfType<Puerta>();
-                if (puerta != null)
-                {
-                    puerta.ActualizarEstadoPuerta();
-                }
                 return;
             }
         }
     }
 
+    public void VaciarHueco(string nombreItem)
+    {
+        foreach (HuecosInventario hueco in huecosInventario)
+        {
+            if (hueco.nombreItem == nombreItem)
+            {
+                hueco.VaciarHueco();
+                break;
+            }
+        }
+    }
+    public void RecibeIDLlave(int ID)
+    {
+        llaveID = ID;
+    }
+    public int BuscaIDLlave()
+    {
+        return llaveID;
+    }
 }
