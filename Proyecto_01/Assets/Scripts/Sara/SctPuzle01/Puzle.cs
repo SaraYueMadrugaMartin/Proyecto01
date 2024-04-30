@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Puzle : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class Puzle : MonoBehaviour
     [SerializeField] private int numeroCorrecto;
     [SerializeField] private bool codigoCorrecto;
 
-    private int totalNumerosCorrectos;
+    private static int totalNumerosCorrectos; // Lo pongo en static para que el contador sume entre los scripts, sino lo hace de manera individual
 
     void Start()
     {
@@ -35,6 +37,7 @@ public class Puzle : MonoBehaviour
         {
             PulsarBotonDerecho();
             PulsarBotonIzquierdo();
+            VerificarCodigoCompleto();
         }
     }
 
@@ -69,19 +72,34 @@ public class Puzle : MonoBehaviour
     {
         if (numeros[indiceActual] == numeros[numeroCorrecto])
         {
-            totalNumerosCorrectos++;
+            if (!codigoCorrecto)
+            {
+                totalNumerosCorrectos++;
+                Debug.Log("Número Correcto: " + totalNumerosCorrectos);
+            }
             codigoCorrecto = true;
-            Debug.Log("Numero Correcto" + totalNumerosCorrectos);
         }
         else
         {
+            if (codigoCorrecto)
+            {
+                totalNumerosCorrectos--;
+                Debug.Log("Este número no es correcto. Total de números correctos: " + totalNumerosCorrectos);
+            }
             codigoCorrecto = false;
-            Debug.Log("Este número no es correcto" + totalNumerosCorrectos);
         }
     }
 
+
     public void VerificarCodigoCompleto()
     {
-
+        if(totalNumerosCorrectos == 4)
+        {
+            SceneManager.LoadScene("PruebasSara");
+        }
+        else
+        {
+            Debug.Log("Este no es el código correcto");
+        }
     }
 }

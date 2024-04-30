@@ -314,7 +314,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 772893147}
         m_TargetAssemblyTypeName: Puzle, Assembly-CSharp
-        m_MethodName: VerificarCodigo
+        m_MethodName: VerificarCodigoCompleto
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -929,7 +929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6274444055599823850, guid: b0791f6ee8672f343aac834b3da7ea8f, type: 3}
       propertyPath: numeroCorrecto
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
