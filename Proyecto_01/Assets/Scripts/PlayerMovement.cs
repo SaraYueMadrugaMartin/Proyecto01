@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,14 +10,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float movimiento = 5f;
     float multiplicador = 1;
     private Vector2 posicionInicial;
+    private bool miraDerecha = true;
+    private Puntero puntero;
 
     Animator anim;
-    Rigidbody2D rb;
 
     void Start()
     {
         anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
+        puntero = GetComponent<Puntero>();
 
         posicionInicial = transform.position;
     }
@@ -128,11 +130,23 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(0, velocidadY, 0);
 
         // Girar Sprite
-        bool seMueve = Mathf.Abs(velocidadX) > Mathf.Epsilon;
-        if (seMueve)
+        if (velocidadX > 0 && !miraDerecha)
         {
-            transform.localScale = new Vector2(Mathf.Sign(velocidadX), 1f);
+            Flip();
+            puntero.VolteaPuntero();
         }
-
+        if (velocidadX < 0 && miraDerecha)
+        {
+            Flip();
+            puntero.VolteaPuntero();
+        }
+    }
+    private void Flip()
+    {
+        Debug.Log("Le da la vuelta al personaje");
+        miraDerecha = !miraDerecha;
+        Vector3 currentScale = gameObject.transform.localScale;
+        currentScale.x *= -1;
+        gameObject.transform.localScale = currentScale;
     }
 }
