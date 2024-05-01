@@ -9,10 +9,12 @@ public class LucesTodas : MonoBehaviour
     Light2D luzGlobal;
     
     private bool apagaLuces = false;
+    private float intensidadGlobal;
 
     void Start()
     {
         luzGlobal = GetComponent<Light2D>();
+        intensidadGlobal = luzGlobal.intensity;
     }
 
     void Update()
@@ -30,7 +32,7 @@ public class LucesTodas : MonoBehaviour
         else // Se encienden todas las luces
         {
             luces.SetActive(true);
-            luzGlobal.intensity = 0.1f;
+            luzGlobal.intensity = intensidadGlobal;
         }           
     }
 }
