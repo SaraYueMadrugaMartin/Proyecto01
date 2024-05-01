@@ -24,7 +24,13 @@ public class Puntero : MonoBehaviour
         float angulo = Mathf.Atan2(direccionPuntero.y, direccionPuntero.x) * Mathf.Rad2Deg;
 
         angulo = Mathf.Clamp(angulo, anguloMin, anguloMax);
+        Debug.Log(angulo);
         transformPuntero.eulerAngles = new Vector3(0, 0, angulo);
+
+        Vector3 posMax = new Vector3(Mathf.Cos(anguloMax * Mathf.Deg2Rad)* 5, Mathf.Sin(anguloMax * Mathf.Deg2Rad) * 5, 0); 
+        Debug.DrawRay(transformPuntero.position, posMax, Color.yellow);
+        Vector3 posMin = new Vector3(Mathf.Cos(anguloMin * Mathf.Deg2Rad) * 5, Mathf.Sin(anguloMin * Mathf.Deg2Rad) * 5, 0);
+        Debug.DrawRay(transformPuntero.position, posMin, Color.yellow);
     }
 
     public void VolteaPuntero()
@@ -32,7 +38,7 @@ public class Puntero : MonoBehaviour
         Vector3 currentScale = transformPuntero.localScale;
         currentScale.x *= -1;
         transformPuntero.localScale = currentScale;
-        CambiaAngulos();
+        //CambiaAngulos();
     }
 
     void CambiaAngulos()
