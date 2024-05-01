@@ -38,7 +38,7 @@ public class Puntero : MonoBehaviour
         Vector3 currentScale = transformPuntero.localScale;
         currentScale.x *= -1;
         transformPuntero.localScale = currentScale;
-        //CambiaAngulos();
+        CambiaAngulos();
     }
 
     void CambiaAngulos()
