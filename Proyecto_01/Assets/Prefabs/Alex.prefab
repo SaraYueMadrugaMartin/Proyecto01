@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: 860544264551438172}
   - component: {fileID: 7018651186929212950}
   - component: {fileID: 9042997406271618111}
-  - component: {fileID: 3270119697688907022}
   - component: {fileID: 214370915905652149}
   - component: {fileID: 3848088546549619551}
+  - component: {fileID: 7134268257680894210}
   m_Layer: 3
   m_Name: Alex
   m_TagString: Player
@@ -216,27 +216,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anguloMax: 60
   anguloMin: -60
---- !u!95 &3270119697688907022
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 151545767565334535}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 293bb3817aec8da40b6c67391bf492b2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &214370915905652149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,10 +255,31 @@ MonoBehaviour:
   - {x: 0.2536826, y: 0.015348434, z: 0}
   m_ShapePathHash: 730477509
   m_Mesh: {fileID: 0}
-  m_InstanceId: 136624
+  m_InstanceId: 31482
   m_LocalBounds:
     m_Center: {x: 0.024941444, y: 0.054582775, z: 0}
     m_Extent: {x: 0.22874117, y: 0.03923434, z: 0}
+--- !u!95 &7134268257680894210
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151545767565334535}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 293bb3817aec8da40b6c67391bf492b2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2658250704887154478
 GameObject:
   m_ObjectHideFlags: 0
