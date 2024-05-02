@@ -24,7 +24,7 @@ public class Puntero : MonoBehaviour
         float angulo = Mathf.Atan2(direccionPuntero.y, direccionPuntero.x) * Mathf.Rad2Deg;
 
         angulo = Mathf.Clamp(angulo, anguloMin, anguloMax);
-        Debug.Log(angulo);
+        //Debug.Log(angulo);
         transformPuntero.eulerAngles = new Vector3(0, 0, angulo);
 
         Vector3 posMax = new Vector3(Mathf.Cos(anguloMax * Mathf.Deg2Rad)* 5, Mathf.Sin(anguloMax * Mathf.Deg2Rad) * 5, 0); 
@@ -54,7 +54,6 @@ public class Puntero : MonoBehaviour
             anguloMin -= 180f;
             anguloMax -= 180f;
         }
-        Debug.Log(anguloMin + ", " + anguloMax);
     }
 
     public static Vector3 GetMouseWorldPosition()

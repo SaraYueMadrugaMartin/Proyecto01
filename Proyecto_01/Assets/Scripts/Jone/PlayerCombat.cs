@@ -17,6 +17,8 @@ public class PlayerCombat : MonoBehaviour
     public float ratioAtaque = 2f;
     float tiempoSiguienteAtaque = 0f;
 
+    public static bool atacando = false;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -26,12 +28,14 @@ public class PlayerCombat : MonoBehaviour
     {
         if (Time.time >= tiempoSiguienteAtaque)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !Input.GetMouseButton(1))
             {
+                atacando = true;
                 Ataque();
                 tiempoSiguienteAtaque = Time.time + 1f / ratioAtaque;
-            }
-        }       
+                StartCoroutine(CambiarValorDespuesDeEsperar());
+            }           
+        }
     }
 
     void Ataque()
@@ -47,6 +51,12 @@ public class PlayerCombat : MonoBehaviour
         {
             enemigo.GetComponent<Enemigo>().recibeDaño(dañoAtaque);
         }
+    }
+
+    private IEnumerator CambiarValorDespuesDeEsperar()
+    {
+        yield return new WaitForSeconds(0.8f);
+        atacando = false;
     }
 
     public void recibeDaño(float daño)

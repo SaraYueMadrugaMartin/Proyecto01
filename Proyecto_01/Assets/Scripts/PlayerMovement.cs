@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
+//using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 posicionInicial;
     private bool miraDerecha = true;
     private Puntero puntero;
+    private GameObject pistola;
 
     Animator anim;
 
@@ -19,22 +20,25 @@ public class PlayerMovement : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         puntero = GetComponent<Puntero>();
+        pistola = transform.Find("Puntero").gameObject;
 
         posicionInicial = transform.position;
     }
 
     private void FixedUpdate()
     {
-        if (!Pistola.apuntando)
+        if (!Pistola.apuntando && !PlayerCombat.atacando)
         {
             anim.SetBool("estaApuntando", false);
             puntero.enabled = false;
+            pistola.SetActive(false);
             Velocidad();
             anim.SetFloat("Velocidad", multiplicador);
             Mover();
         }
-        else
+        else if (Pistola.apuntando)
         {
+            pistola.SetActive(true);
             puntero.enabled = true;
             anim.SetBool("estaApuntando", true);
         }       
