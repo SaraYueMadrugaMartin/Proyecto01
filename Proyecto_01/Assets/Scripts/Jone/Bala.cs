@@ -8,6 +8,7 @@ public class Bala : MonoBehaviour
     [SerializeField] float velocidad = 20f;
     [SerializeField] float duracion = 2f;
     [SerializeField] int daño = 50;
+    [SerializeField] LayerMask capaEvitar;
 
     float tiempoVida;
 
@@ -33,15 +34,24 @@ public class Bala : MonoBehaviour
         transform.position += transform.right * velocidad * Time.deltaTime;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D otro)
     {
-        Enemigo enemigo = collision.GetComponent<Enemigo>();
+        // Verificar si el collider pertenece a la capa que queremos evitar
+        if (capaEvitar == (capaEvitar | (1 << otro.gameObject.layer)))
+        {
+            // Ignorar temporalmente las colisiones entre esta capa y la capa del otro collider
+            Physics2D.IgnoreLayerCollision(gameObject.layer, otro.gameObject.layer, true);
+        }
+
+        Debug.Log("Ha colisionado con algo");
+
+        Enemigo enemigo = otro.GetComponent<Enemigo>();
         if (enemigo != null)
         {
             enemigo.recibeDaño(daño);
         }
 
-        //Instantiate(efectoImpacto, transform.position, transform.rotation);
+        // Incluir un efecto de colisión
 
         //Destroy(gameObject);
     }

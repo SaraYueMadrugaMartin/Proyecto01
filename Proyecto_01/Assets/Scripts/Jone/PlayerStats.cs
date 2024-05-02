@@ -13,6 +13,8 @@ public class PlayerStats : MonoBehaviour
     static public float saludMax = 100;
     static public float saludActual; // Barra salud
 
+    static public int municion = 0;
+
     private void Start()
     {
         saludActual = saludMax;

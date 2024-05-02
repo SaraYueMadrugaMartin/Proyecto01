@@ -38,9 +38,15 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (Pistola.apuntando)
         {
-            pistola.SetActive(true);
-            puntero.enabled = true;
-            anim.SetBool("estaApuntando", true);
+            if (Pistola.recargando)
+            {
+                anim.SetTrigger("recarga");
+            } else
+            {
+                pistola.SetActive(true);
+                puntero.enabled = true;
+                anim.SetBool("estaApuntando", true);
+            }      
         }       
     }
 
