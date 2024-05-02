@@ -37,6 +37,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8545224061742901005}
   - {fileID: 4834426370599046420}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -124,8 +125,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.019949079, y: -0.17954135}
-  m_Size: {x: 0.5810702, y: 1.3616319}
+  m_Offset: {x: -0.019949079, y: 0.7118557}
+  m_Size: {x: 0.5810702, y: 1.5833026}
   m_Direction: 0
 --- !u!50 &4568942737067351269
 Rigidbody2D:
@@ -180,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puntoAtaque: {fileID: 8545224061742901005}
-  rangoAtaque: 0.5
+  rangoAtaque: 0.6
   enemigos:
     serializedVersion: 2
     m_Bits: 64
@@ -210,6 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d11f6fe75917242a0437804b556eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anguloMax: 60
+  anguloMin: -60
 --- !u!95 &3270119697688907022
 Animator:
   serializedVersion: 5
@@ -339,12 +342,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7677874815699630668}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.259, y: 0.07, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.297, y: 0.88, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4834426370599046420}
+  m_Father: {fileID: 7621307403010707313}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8019250240113710611
 GameObject:
@@ -372,12 +375,11 @@ Transform:
   m_GameObject: {fileID: 8019250240113710611}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.006, y: 0.743, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3165689811335727022}
-  - {fileID: 8545224061742901005}
   m_Father: {fileID: 7621307403010707313}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &387062395379744887
@@ -392,3 +394,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d11f6fe75917242a0437804b556eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anguloMax: 60
+  anguloMin: -60

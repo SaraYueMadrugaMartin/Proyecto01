@@ -25,10 +25,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Velocidad();
-        // Debug.Log(multiplicador);
-        anim.SetFloat("Velocidad", multiplicador);
-        Mover();
+        if (!Pistola.apuntando)
+        {
+            anim.SetBool("estaApuntando", false);
+            puntero.enabled = false;
+            Velocidad();
+            anim.SetFloat("Velocidad", multiplicador);
+            Mover();
+        }
+        else
+        {
+            puntero.enabled = true;
+            anim.SetBool("estaApuntando", true);
+        }       
     }
 
     void Update()
