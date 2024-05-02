@@ -1,18 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bala : MonoBehaviour
 {
     [SerializeField] float velocidad = 20f;
+    [SerializeField] float duracion = 2f;
     [SerializeField] int daño = 50;
-    Rigidbody2D rb;
+
+    float tiempoVida;
+
     [SerializeField] GameObject efectoImpacto;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        rb.velocity = transform.right * velocidad;
+        tiempoVida = duracion;
+    }
+
+    private void Update()
+    {
+        tiempoVida -= Time.deltaTime;
+        if(tiempoVida < 0)
+        {
+            tiempoVida = duracion;
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        transform.position += transform.right * velocidad * Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,8 +41,8 @@ public class Bala : MonoBehaviour
             enemigo.recibeDaño(daño);
         }
 
-        Instantiate(efectoImpacto, transform.position, transform.rotation);
+        //Instantiate(efectoImpacto, transform.position, transform.rotation);
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

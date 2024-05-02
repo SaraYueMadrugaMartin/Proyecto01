@@ -5,7 +5,6 @@ using UnityEngine;
 public class Pistola : MonoBehaviour
 {
     [SerializeField] Transform puntoDisparo;
-    public GameObject balaPrefab;
     public static bool apuntando = false;
 
     // Update is called once per frame
@@ -25,6 +24,9 @@ public class Pistola : MonoBehaviour
 
     void Dispara()
     {
-        Instantiate(balaPrefab, puntoDisparo.position, puntoDisparo.rotation);
+        GameObject objetoBala = PoolingBalas.instancia.GetBala();       
+
+        objetoBala.transform.position = puntoDisparo.position;
+        objetoBala.transform.rotation = puntoDisparo.rotation;
     }
 }
