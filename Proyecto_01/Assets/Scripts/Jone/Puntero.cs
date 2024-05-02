@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class Puntero : MonoBehaviour
 {
     private Transform transformPuntero;
-    bool miraDerecha = true;
+    [SerializeField] float anguloMax = 60f;
+    [SerializeField] float anguloMin = -60f;
+    private bool cambiaAngulos = false;
 
     private void Awake()
     {
@@ -19,40 +22,39 @@ public class Puntero : MonoBehaviour
 
         Vector3 direccionPuntero = (posRaton - transform.position).normalized;
         float angulo = Mathf.Atan2(direccionPuntero.y, direccionPuntero.x) * Mathf.Rad2Deg;
-        //float altura = Mathf.Sin(angulo);
-        
-        // Puedo intentar limitar el ángulo o que la rotación depanda solo de Y
-        //altura = Mathf.LerpAngle(-70f, 70f, altura);
-        //Debug.Log(altura);
+
+        angulo = Mathf.Clamp(angulo, anguloMin, anguloMax);
+        //Debug.Log(angulo);
         transformPuntero.eulerAngles = new Vector3(0, 0, angulo);
 
-        float velocidadX = Input.GetAxis("Horizontal");
-        if (velocidadX > 0 && miraDerecha)
-            Flip();
-        if (velocidadX < 0 && !miraDerecha)
-            Flip();
-        /*Vector3 localScale = Vector3.one;
-        if (angulo > 90 || angulo < -90)
-        {
-            localScale.y = -1f;
-        } else
-        {
-            localScale.y = +1f;
-        }
-
-        transformPuntero.localScale = localScale;*/
+        Vector3 posMax = new Vector3(Mathf.Cos(anguloMax * Mathf.Deg2Rad)* 5, Mathf.Sin(anguloMax * Mathf.Deg2Rad) * 5, 0); 
+        Debug.DrawRay(transformPuntero.position, posMax, Color.yellow);
+        Vector3 posMin = new Vector3(Mathf.Cos(anguloMin * Mathf.Deg2Rad) * 5, Mathf.Sin(anguloMin * Mathf.Deg2Rad) * 5, 0);
+        Debug.DrawRay(transformPuntero.position, posMin, Color.yellow);
     }
 
-    void Flip()
+    public void VolteaPuntero()
     {
-        Vector3 currentScale = gameObject.transform.localScale;
+        Vector3 currentScale = transformPuntero.localScale;
         currentScale.x *= -1;
-        gameObject.transform.localScale = currentScale;
-
-        miraDerecha = !miraDerecha;
+        transformPuntero.localScale = currentScale;
+        CambiaAngulos();
     }
 
-
+    void CambiaAngulos()
+    {
+        cambiaAngulos = !cambiaAngulos;
+        if (cambiaAngulos)
+        {
+            anguloMin += 180f;
+            anguloMax += 180f;
+        }
+        else
+        {
+            anguloMin -= 180f;
+            anguloMax -= 180f;
+        }
+    }
 
     public static Vector3 GetMouseWorldPosition()
     {
