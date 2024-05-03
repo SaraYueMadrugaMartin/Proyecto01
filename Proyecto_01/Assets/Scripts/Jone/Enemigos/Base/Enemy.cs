@@ -9,11 +9,48 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable
     public Rigidbody2D RB { get; set; }
     public bool IsFacingRight { get; set; } = true;
 
+    #region Variables Máquina Estado
+
+    public EnemyStateMachine StateMachine { get; set; }
+    public EnemyIdleState IdleState { get; set; }
+    public EnemyChaseState ChaseState { get; set; }
+    public EnemyAttackState AttackState { get; set; }
+
+    #endregion
+
+    #region Idle Variables
+
+    public float RandomMovementRange = 2f;
+    public float RandomMovementSpeed = 1f;
+
+    #endregion
+
+    private void Awake()
+    {
+        StateMachine = new EnemyStateMachine();
+
+        IdleState = new EnemyIdleState(this, StateMachine);
+        ChaseState = new EnemyChaseState(this, StateMachine);
+        AttackState = new EnemyAttackState(this, StateMachine);
+    }
+
     private void Start()
     {
         CurrentHealth = MaxHealth;
 
         RB = GetComponent<Rigidbody2D>();
+
+        StateMachine.Initialize(IdleState);
+    }
+
+    private void Update()
+    {
+        StateMachine.CurrentEnemyState.FrameUpdate();
+    }
+
+    private void FixedUpdate()
+    {
+        StateMachine.CurrentEnemyState.PhysicsUpdate();
     }
 
     #region Funciones de Salud/Muerte
@@ -21,7 +58,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable
     {
         CurrentHealth -= damageAmount;
 
-        if(CurrentHealth <= 0f)
+        if (CurrentHealth <= 0f)
         {
             Die();
         }
@@ -44,16 +81,32 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable
     {
         if (IsFacingRight && velocity.x < 0f)
         {
-            Vector3 rotator = new Vector3(transform.rotation.x, 100f, transform.rotation.z);
-            transform.rotation = Quaternion.Euler(rotator);
+            Vector3 currentScale = transform.localScale;
+            currentScale.x *= -1;
+            transform.localScale = currentScale;
             IsFacingRight = !IsFacingRight;
         }
         else if (!IsFacingRight && velocity.x > 0f)
         {
-            Vector3 rotator = new Vector3(transform.rotation.x, 0f, transform.rotation.z);
-            transform.rotation = Quaternion.Euler(rotator);
+            Vector3 currentScale = transform.localScale;
+            currentScale.x *= -1;
+            transform.localScale = currentScale;
             IsFacingRight = !IsFacingRight;
         }
     }
+    #endregion
+
+    #region Animaciones
+
+    private void AnimationTriggerEvent(AnimationTriggerType triggerType)
+    {
+        StateMachine.CurrentEnemyState.AnimationTriggerEvent(triggerType);
+    }
+    public enum AnimationTriggerType
+    {
+        EnemyDamaged,
+        PlayFootsepSound
+    }
+
     #endregion
 }
