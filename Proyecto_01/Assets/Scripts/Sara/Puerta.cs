@@ -6,19 +6,17 @@ using UnityEngine.UI;
 public class Puerta : MonoBehaviour
 {
     [SerializeField] private PlantillaPuertas puertaAsociada;
-    //[SerializeField] private PlantillaLlaves llaveAsociada;
     [SerializeField] private Inventario inventario;
 
     public bool jugadorTocando; // "static" lo he eliminado porque sino detectaba otras puertas y se abrían los dos paneles.
+
     [SerializeField] private GameObject panelMensajeNo;
     [SerializeField] private GameObject panelPregunta;
-    //public bool puertaBloqueada = true;
 
     private void Update()
     {
         if (jugadorTocando && Input.GetKeyDown("e"))
         {
-
             if (puertaAsociada.puertaBloqueada)
             {
                 panelMensajeNo.SetActive(true);

@@ -9,7 +9,7 @@ public class PuertasIDControler : MonoBehaviour
     [SerializeField] private FadeAnimation fadeAnimation;
     [SerializeField] private GameObject player;
 
-    private Vector2 posicionTransicion = new Vector2(8.51f, 0.51f);
+    [SerializeField] private Vector2 posicionTransicion = new Vector2(8.51f, 0.51f);
 
     public static bool destruye = false;
 
