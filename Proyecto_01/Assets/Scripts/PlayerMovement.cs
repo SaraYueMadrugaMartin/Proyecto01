@@ -27,27 +27,30 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!Pistola.apuntando && !PlayerCombat.atacando)
+        if (!Pistola.apuntando && !PlayerCombat.atacando && !Pistola.recargando)
         {
             anim.SetBool("estaApuntando", false);
+            anim.SetBool("estaRecargando", false);
             puntero.enabled = false;
             pistola.SetActive(false);
             Velocidad();
             anim.SetFloat("Velocidad", multiplicador);
             Mover();
         }
-        else if (Pistola.apuntando)
+        else if (Pistola.apuntando && Pistola.recargando)
         {
-            if (Pistola.recargando)
-            {
-                anim.SetTrigger("recarga");
-            } else
-            {
-                pistola.SetActive(true);
-                puntero.enabled = true;
-                anim.SetBool("estaApuntando", true);
-            }      
-        }       
+            pistola.SetActive(false);
+            puntero.enabled = false;
+            anim.SetBool("estaApuntando", false);
+            anim.SetBool("estaRecargando", true);
+        }
+        else if (Pistola.apuntando && !Pistola.recargando)
+        {
+            pistola.SetActive(true);
+            puntero.enabled = true;
+            anim.SetBool("estaApuntando", true);
+            anim.SetBool("estaRecargando", false);
+        }
     }
 
     void Update()

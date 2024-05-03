@@ -75,7 +75,7 @@ public class Pistola : MonoBehaviour
 
     private IEnumerator CambiarValorDespuesDeEsperar()
     {
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.6f);
         recargando = false;
     }
 }
