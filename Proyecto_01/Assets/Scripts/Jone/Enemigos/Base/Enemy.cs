@@ -18,12 +18,13 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     public EnemyIdleState IdleState { get; set; }
     public EnemyChaseState ChaseState { get; set; }
     public EnemyAttackState AttackState { get; set; }
-    
+
 
     #endregion
 
     #region Idle Variables
 
+    public Rigidbody2D BulletPrefab;
     public float RandomMovementRange = 2f;
     public float RandomMovementSpeed = 1f;
 
