@@ -6,9 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Puzle01.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MenuPrincipal.unity
+    guid: 46ee62db116b4074b9afa0b388a5a9eb
+  - enabled: 1
+    path: "Assets/Scenes/Caba\xF1a.unity"
+    guid: 13e1123cb387660409dd5298e6265278
+  - enabled: 1
+    path: Assets/Scenes/Planta 1.unity
+    guid: a269da0270e4958418675f112260bb40
+  - enabled: 1
+    path: Assets/Scenes/PruebasJone.unity
+    guid: 92be9d4afa634124d81bcedff04b4161
   - enabled: 1
     path: Assets/Scenes/PruebasSara.unity
     guid: 99842c4b9ce07bb42b3ad9da22db371d
+  - enabled: 1
+    path: Assets/Scenes/Puzle01.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
