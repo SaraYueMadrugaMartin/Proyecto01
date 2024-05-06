@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CambioNivel : MonoBehaviour
+public class SiguienteEscena : MonoBehaviour
 {
-    // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
@@ -18,9 +17,6 @@ public class CambioNivel : MonoBehaviour
     {
         int escenaActual = SceneManager.GetActiveScene().buildIndex;
         int siguienteEscena = escenaActual + 1;
-        if (siguienteEscena == 2)
-            SceneManager.LoadScene(0);
-        else
-            SceneManager.LoadScene(siguienteEscena);
+        SceneManager.LoadScene(siguienteEscena);
     }
 }
