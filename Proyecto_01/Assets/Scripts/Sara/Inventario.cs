@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class Inventario : MonoBehaviour
 {
     [SerializeField] private GameObject inventario;
+    //[SerializeField] private GameObject panelInformacion;
+    [SerializeField] private GameObject playerStats;
+    [SerializeField] private List<ObjetoPanelInfo> objetosPanelesInformacion;
+
+    [SerializeField] private GameObject botonAtrasInfo;
 
     public HuecosInventario[] huecosInventario;
 
@@ -70,6 +75,64 @@ public class Inventario : MonoBehaviour
             }
         }
     }
+
+    public void DeseleccionarObjetos()
+    {
+        for(int i = 0; i < huecosInventario.Length; i++)
+        {
+            huecosInventario[i].panelSeleccion.SetActive(false);
+            huecosInventario[i].panelBotones.SetActive(false);
+            huecosInventario[i].objetoSeleccionado = false;
+        }
+    }
+
+    public void InfoObjetos()
+    {
+        for (int i = 0; i < huecosInventario.Length; i++)
+        {
+            if (huecosInventario[i].objetoSeleccionado)
+            {
+                string nombreObjeto = huecosInventario[i].nombreItem;
+
+                ObjetoPanelInfo objetoPanelInfo = objetosPanelesInformacion.Find(obj => obj.nombreObjeto == nombreObjeto);
+                if (objetoPanelInfo != null)
+                {
+                    DesactivarPanelesInformacion();
+                    playerStats.SetActive(false);
+                    objetoPanelInfo.panelInfo.SetActive(true);
+                    botonAtrasInfo.SetActive(true);
+                }
+                break;
+            }
+        }
+    }
+
+    private void DesactivarPanelesInformacion()
+    {
+        foreach (ObjetoPanelInfo objetoPanelInfo in objetosPanelesInformacion)
+        {
+            if (objetoPanelInfo.panelInfo != null)
+            {
+                objetoPanelInfo.panelInfo.SetActive(false);
+                botonAtrasInfo.SetActive(false);
+            }
+        }
+    }
+
+    public void QuitarPanelesInformacion()
+    {
+        foreach (ObjetoPanelInfo objetoPanelInfo in objetosPanelesInformacion)
+        {
+            if (objetoPanelInfo.panelInfo != null)
+            {
+                objetoPanelInfo.panelInfo.SetActive(false);
+                playerStats.SetActive(true);
+                botonAtrasInfo.SetActive(false);
+            }
+        }
+    }
+
+
     public void RecibeIDLlave(int ID)
     {
         llaveID = ID;
@@ -78,4 +141,11 @@ public class Inventario : MonoBehaviour
     {
         return llaveID;
     }
+}
+
+[System.Serializable]
+public class ObjetoPanelInfo
+{
+    public string nombreObjeto;
+    public GameObject panelInfo;
 }
