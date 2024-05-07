@@ -9,10 +9,11 @@ public class Inventario : MonoBehaviour
     //[SerializeField] private GameObject panelInformacion;
     [SerializeField] private GameObject playerStats;
     [SerializeField] private List<ObjetoPanelInfo> objetosPanelesInformacion;
-
     [SerializeField] private GameObject botonAtrasInfo;
 
     public HuecosInventario[] huecosInventario;
+
+    private Items devolverItems;
 
     public static Inventario Instance;
     private bool estadoInvent = false;
@@ -33,6 +34,7 @@ public class Inventario : MonoBehaviour
     void Start()
     {
         Instance = this;
+        devolverItems = FindObjectOfType<Items>();
     }
 
     void Update()
@@ -78,13 +80,17 @@ public class Inventario : MonoBehaviour
 
     public void DeseleccionarObjetos()
     {
-        for(int i = 0; i < huecosInventario.Length; i++)
+        foreach (HuecosInventario hueco in huecosInventario)
         {
-            huecosInventario[i].panelSeleccion.SetActive(false);
-            huecosInventario[i].panelBotones.SetActive(false);
-            huecosInventario[i].objetoSeleccionado = false;
+            hueco.panelSeleccion.SetActive(false);
+            foreach (var panelBoton in hueco.panelesBotones.Values)
+            {
+                panelBoton.SetActive(false);
+            }
+            hueco.objetoSeleccionado = false;
         }
     }
+
 
     public void InfoObjetos()
     {
@@ -131,7 +137,6 @@ public class Inventario : MonoBehaviour
             }
         }
     }
-
 
     public void RecibeIDLlave(int ID)
     {

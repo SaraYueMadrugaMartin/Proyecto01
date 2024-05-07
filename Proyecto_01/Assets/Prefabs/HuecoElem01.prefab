@@ -97,7 +97,8 @@ MonoBehaviour:
   estaCompleto: 0
   coordItem: {x: 0, y: 0}
   panelSeleccion: {fileID: 8892128668815513959}
-  panelBotones: {fileID: 0}
+  panelBotonesDocumentos: {fileID: 0}
+  panelBotonesArmas: {fileID: 0}
   objetoSeleccionado: 0
 --- !u!1 &4669262854142738240
 GameObject:

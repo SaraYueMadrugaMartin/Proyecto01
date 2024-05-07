@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class HuecosInventario : MonoBehaviour, IPointerClickHandler
 {
@@ -14,12 +15,20 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
     public Vector2 coordItem;
 
     public GameObject panelSeleccion;
-    public GameObject panelBotones;
+    public Dictionary<string, GameObject> panelesBotones = new Dictionary<string, GameObject>();
     public bool objetoSeleccionado;
+
+    public GameObject panelBotonesDocumento;
+    public GameObject panelBotonesArma;
+    public GameObject panelBotonesBotiquin;
 
     private void Start()
     {
         inventario = GameObject.Find("Canvas").GetComponent<Inventario>();
+
+        panelesBotones.Add("Documento", panelBotonesDocumento);
+        panelesBotones.Add("Bate", panelBotonesArma);
+        panelesBotones.Add("Botiquin", panelBotonesBotiquin);
     }
 
     public void AñadirObjeto(string nombreItem, Sprite sprite)
@@ -55,31 +64,35 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
     public void ClickDerecho()
     {
         panelSeleccion.SetActive(false);
-        panelBotones.SetActive(false);
+        foreach (var panelBoton in panelesBotones.Values)
+        {
+            panelBoton.SetActive(false);
+        }
         objetoSeleccionado = false;
     }
 
     public void ClickIzquierdo(PointerEventData eventData)
     {
-        if(inventario != null && inventario.TieneObjeto(nombreItem))
+        inventario.DeseleccionarObjetos();
+        panelSeleccion.SetActive(true);
+        objetoSeleccionado = true;
+
+        // Expresión de Unity que convierte una posición de coordenadas de pantalla a coordenadas en el mundo.
+        Vector3 posicionRaton = Camera.main.ScreenToWorldPoint(eventData.position);
+
+        // Creamos la variable de posicionHuecos para obtener sus posiciones en el mundo (sus coordenadas).
+        Vector3 posicionHuecos = transform.position;
+
+        // Creamos la variable de panelPosicion y la igualamos a la posicionHuecos, así las coordenadas serán las mismas.
+        Vector3 panelPosicion = posicionHuecos;
+
+        // Establecemos que la posición del panel de Botones sea la misma que la variable de panelPosicion que hemos calculado antes.
+
+        // Verificar si existe un panel para este tipo de objeto y activarlo
+        if (panelesBotones.ContainsKey(nombreItem))
         {
-            inventario.DeseleccionarObjetos();
-            panelSeleccion.SetActive(true);
-            objetoSeleccionado = true;
-
-            // Expresión de Unity que convierte una posición de coordenadas de pantalla a coordenadas en el mundo.
-            Vector3 posicionRaton = Camera.main.ScreenToWorldPoint(eventData.position);
-
-            // Creamos la variable de posicionHuecos para obtener sus posiciones en el mundo (sus coordenadas).
-            Vector3 posicionHuecos = transform.position;
-
-            // Creamos la variable de panelPosicion y la igualamos a la posicionHuecos, así las coordenadas serán las mismas.
-            Vector3 panelPosicion = posicionHuecos;
-
-            // Establecemos que la posición del panel de Botones sea la misma que la variable de panelPosicion que hemos calculado antes.
-            panelBotones.transform.position = panelPosicion;
-            panelBotones.SetActive(true);
+            panelesBotones[nombreItem].SetActive(true);
+            panelesBotones[nombreItem].transform.position = panelPosicion;
         }
     }
 }
-
