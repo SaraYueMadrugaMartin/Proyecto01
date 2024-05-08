@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Inventario : MonoBehaviour
 {
     [SerializeField] private GameObject inventario;
-    //[SerializeField] private GameObject panelInformacion;
     [SerializeField] private GameObject playerStats;
     [SerializeField] private List<ObjetoPanelInfo> objetosPanelesInformacion;
     [SerializeField] private GameObject botonAtrasInfo;
@@ -136,6 +135,11 @@ public class Inventario : MonoBehaviour
                 botonAtrasInfo.SetActive(false);
             }
         }
+    }
+
+    public void DejarObjeto()
+    {
+
     }
 
     public void RecibeIDLlave(int ID)

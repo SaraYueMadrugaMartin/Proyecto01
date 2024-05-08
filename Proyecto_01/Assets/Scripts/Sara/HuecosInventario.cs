@@ -12,15 +12,16 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
     public int cantidad;
     public Sprite sprite;
     public bool estaCompleto;
-    public Vector2 coordItem;
+    //public Vector2 coordItem;
 
     public GameObject panelSeleccion;
     public Dictionary<string, GameObject> panelesBotones = new Dictionary<string, GameObject>();
     public bool objetoSeleccionado;
 
-    public GameObject panelBotonesDocumento;
-    public GameObject panelBotonesArma;
-    public GameObject panelBotonesBotiquin;
+    [SerializeField] private GameObject panelBotonesDocumento;
+    [SerializeField] private GameObject panelBotonesArma;
+    [SerializeField] private GameObject panelBotonesBotiquin;
+    [SerializeField] private GameObject panelBotonesTinta;
 
     private void Start()
     {
@@ -29,6 +30,7 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
         panelesBotones.Add("Documento", panelBotonesDocumento);
         panelesBotones.Add("Bate", panelBotonesArma);
         panelesBotones.Add("Botiquin", panelBotonesBotiquin);
+        panelesBotones.Add("Tinta", panelBotonesTinta);
     }
 
     public void AñadirObjeto(string nombreItem, Sprite sprite)
@@ -85,8 +87,6 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
 
         // Creamos la variable de panelPosicion y la igualamos a la posicionHuecos, así las coordenadas serán las mismas.
         Vector3 panelPosicion = posicionHuecos;
-
-        // Establecemos que la posición del panel de Botones sea la misma que la variable de panelPosicion que hemos calculado antes.
 
         // Verificar si existe un panel para este tipo de objeto y activarlo
         if (panelesBotones.ContainsKey(nombreItem))
