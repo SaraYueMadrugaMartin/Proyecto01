@@ -9,7 +9,8 @@ public class Puntero : MonoBehaviour
     private Transform transformPuntero;
     [SerializeField] float anguloMax = 60f;
     [SerializeField] float anguloMin = -60f;
-    private bool cambiaAngulos = false;
+    private bool cambiaAngulos = true;
+
 
     private void Awake()
     {
@@ -19,13 +20,15 @@ public class Puntero : MonoBehaviour
     private void Update()
     {
         Vector3 posRaton = GetMouseWorldPosition();
-
+       
         Vector3 direccionPuntero = (posRaton - transform.position).normalized;
         float angulo = Mathf.Atan2(direccionPuntero.y, direccionPuntero.x) * Mathf.Rad2Deg;
-
+        if (!cambiaAngulos)
+            angulo -= 180;
+        Debug.Log("Angulo PreClamp: " + angulo);
         angulo = Mathf.Clamp(angulo, anguloMin, anguloMax);
-        //Debug.Log(angulo);
-        transformPuntero.eulerAngles = new Vector3(0, 0, angulo);
+        Debug.Log("Angulo PostClamp:" + angulo);
+        transformPuntero.localEulerAngles = new Vector3(0, 0, angulo);
 
         Vector3 posMax = new Vector3(Mathf.Cos(anguloMax * Mathf.Deg2Rad)* 5, Mathf.Sin(anguloMax * Mathf.Deg2Rad) * 5, 0); 
         Debug.DrawRay(transformPuntero.position, posMax, Color.yellow);
@@ -33,33 +36,38 @@ public class Puntero : MonoBehaviour
         Debug.DrawRay(transformPuntero.position, posMin, Color.yellow);
     }
 
-    public void VolteaPuntero()
+    public void VolteaPuntero(bool miraDerecha)
     {
+        cambiaAngulos = miraDerecha;
         Vector3 currentScale = transformPuntero.localScale;
-        currentScale.x *= -1;
+        currentScale.z *= -1;
         transformPuntero.localScale = currentScale;
-        CambiaAngulos();
+        //CambiaAngulos(miraDerecha);
+        anguloMin = -60;
+        anguloMax = 60;
     }
 
-    void CambiaAngulos()
+    public void CambiaAngulos(bool cambiaAngulos)
     {
-        cambiaAngulos = !cambiaAngulos;
+        Debug.Log(cambiaAngulos + " Angulo ");
+        //cambiaAngulos = !cambiaAngulos;
         if (cambiaAngulos)
         {
-            anguloMin += 180f;
-            anguloMax += 180f;
+            anguloMin = -60;
+            anguloMax = 60;
         }
-        else
+        /*else
         {
-            anguloMin -= 180f;
-            anguloMax -= 180f;
-        }
+            anguloMin = -120;
+            anguloMax = 120;
+        }*/
     }
 
     public static Vector3 GetMouseWorldPosition()
     {
         Vector3 vec = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
         vec.z = 0f;
+        //Debug.Log("mouse world" + vec);
         return vec;
     }
 
