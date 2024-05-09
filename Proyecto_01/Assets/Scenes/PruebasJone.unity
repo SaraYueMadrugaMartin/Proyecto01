@@ -5469,11 +5469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d82e2120fdb3c945b4498bafbc23e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1023046163 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
-  m_PrefabInstance: {fileID: 1899678480}
-  m_PrefabAsset: {fileID: 0}
+
 --- !u!224 &1029992001 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2546075195849337163, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
@@ -16024,6 +16020,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3807032368256232443, guid: 0fd5312d24020c14aba70875bf73f930, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194295362488453135, guid: 0fd5312d24020c14aba70875bf73f930, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5867388766557962391, guid: 0fd5312d24020c14aba70875bf73f930, type: 3}
       propertyPath: m_Name
       value: Municion (3)
@@ -19517,11 +19521,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1761833610991766301, guid: 0fd5312d24020c14aba70875bf73f930, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1
+      value: 0.24
       objectReference: {fileID: 0}
     - target: {fileID: 1761833610991766301, guid: 0fd5312d24020c14aba70875bf73f930, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 1761833610991766301, guid: 0fd5312d24020c14aba70875bf73f930, type: 3}
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
