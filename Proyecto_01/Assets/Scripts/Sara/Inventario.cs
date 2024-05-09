@@ -33,7 +33,6 @@ public class Inventario : MonoBehaviour
     void Start()
     {
         Instance = this;
-        devolverItems = FindObjectOfType<Items>();
     }
 
     void Update()
@@ -135,11 +134,6 @@ public class Inventario : MonoBehaviour
                 botonAtrasInfo.SetActive(false);
             }
         }
-    }
-
-    public void DejarObjeto()
-    {
-
     }
 
     public void RecibeIDLlave(int ID)
