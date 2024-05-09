@@ -7,6 +7,21 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    #region Player Stats
+
+    // Corrupción
+    static public int contadorCorr = 0; // Enemigos totales asesinados
+    static public float corrupcion = 0; // Barra de corrupción
+    static public int monedasCorr = 0;
+
+    // Salud
+    static public float saludMax = 100;
+    static public float saludActual; // Barra salud
+
+    static public int municion = 0;
+
+    #endregion
+
     #region Variables Máquina Estado
 
     public PlayerStateMachine StateMachine { get; set; }
@@ -31,6 +46,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        saludActual = saludMax;
+
         StateMachine.Initialize(Corr0State);
     }
 

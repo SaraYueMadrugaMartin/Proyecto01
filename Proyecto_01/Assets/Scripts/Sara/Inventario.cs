@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Inventario : MonoBehaviour
 {
     [SerializeField] private GameObject inventario;
-    [SerializeField] private GameObject playerStats;
+    // [SerializeField] private GameObject playerStats;
     [SerializeField] private List<ObjetoPanelInfo> objetosPanelesInformacion;
     [SerializeField] private GameObject botonAtrasInfo;
 
@@ -102,7 +102,7 @@ public class Inventario : MonoBehaviour
                 if (objetoPanelInfo != null)
                 {
                     DesactivarPanelesInformacion();
-                    playerStats.SetActive(false);
+                    // playerStats.SetActive(false);
                     objetoPanelInfo.panelInfo.SetActive(true);
                     botonAtrasInfo.SetActive(true);
                 }
@@ -130,7 +130,7 @@ public class Inventario : MonoBehaviour
             if (objetoPanelInfo.panelInfo != null)
             {
                 objetoPanelInfo.panelInfo.SetActive(false);
-                playerStats.SetActive(true);
+                // playerStats.SetActive(true);
                 botonAtrasInfo.SetActive(false);
             }
         }

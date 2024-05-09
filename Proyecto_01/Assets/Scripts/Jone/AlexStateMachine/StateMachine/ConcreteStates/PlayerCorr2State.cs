@@ -24,9 +24,9 @@ public class PlayerCorr2State : PlayerState
     {
         base.FrameUpdate();
         // Aquí se comprueba la condición para el cambio de estado y se llama a change state de PlayerStateMachine
-        if (PlayerStats.corrupcion >= 75)
+        if (Player.corrupcion >= 75)
             player.StateMachine.ChangeState(player.Corr3State);
-        else if (PlayerStats.corrupcion < 25)
+        else if (Player.corrupcion < 25)
             player.StateMachine.ChangeState(player.Corr0State);
     }
 }

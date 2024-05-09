@@ -10,8 +10,7 @@ public class Moneda : MonoBehaviour
     {
         if (estaTocando && Input.GetKeyDown(KeyCode.E))
         {
-            PlayerStats.monedasCorr += 1;
-            Debug.Log("Tengo " + PlayerStats.monedasCorr + " monedas.");
+            Player.monedasCorr += 1;
         }
     }
 

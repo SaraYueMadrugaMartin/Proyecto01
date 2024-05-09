@@ -95,8 +95,8 @@ public class Enemigo : MonoBehaviour
         this.enabled = false;
 
         // Corrupcion jugador
-        PlayerStats.contadorCorr +=1;
-        PlayerStats.corrupcion += corrEnemigo;
-        Debug.Log("Corrupción: " + PlayerStats.corrupcion + "%");
+        Player.contadorCorr +=1;
+        Player.corrupcion += corrEnemigo;
+        Debug.Log("Corrupción: " + Player.corrupcion + "%");
     }
 }

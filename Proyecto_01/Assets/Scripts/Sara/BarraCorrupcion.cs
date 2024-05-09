@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BarraCorrupcion : MonoBehaviour
 {
-    private PlayerStats playerStats;
+    private Player player;
     [SerializeField] private Slider slider;
 
     public void Corrupcion()

@@ -13,12 +13,12 @@ public class Gramola : MonoBehaviour
             Debug.Log("Interactua");
             // Salta texto de interacción "Tienes X monedas. ¿Desea usar 1 moneda para escuchar una canción?" con botones sí o no
             // En el caso de que le de a que sí
-            if (PlayerStats.monedasCorr >= 1)
+            if (Player.monedasCorr >= 1)
             {
-                PlayerStats.monedasCorr -= 1;
+                Player.monedasCorr -= 1;
                 // Reproduce música y espera a que termine el audio
                 FindObjectOfType<AudioManager>().Play("Gramola");
-                PlayerStats.corrupcion = 0;
+                Player.corrupcion = 0;
                 Debug.Log("Gasta moneda");
             }
             else

@@ -117,17 +117,17 @@ public class PlayerMovement : MonoBehaviour
             multiplicador = 1f;
             anim.SetBool("estaCorriendo", false);
         }
-        if (PlayerStats.corrupcion >= 25)
+        if (Player.corrupcion >= 25)
         {
-            if (PlayerStats.corrupcion < 50)
+            if (Player.corrupcion < 50)
             {
                 multiplicador -= 0.1f;                
             }
-            else if (PlayerStats.corrupcion < 75)
+            else if (Player.corrupcion < 75)
             {
                 multiplicador -= 0.2f;
             }
-            else if (PlayerStats.corrupcion < 90)
+            else if (Player.corrupcion < 90)
             {
                 multiplicador -= 0.3f;
             }

@@ -18,12 +18,12 @@ public class Botiquin : MonoBehaviour
             // En el caso de que le de a que sí
 
             // Efecto recuperar salud
-            PlayerStats.saludActual += 50;
-            if (PlayerStats.saludActual > 100 )
+            Player.saludActual += 50;
+            if (Player.saludActual > 100 )
             {
-                PlayerStats.saludActual = 100;
+                Player.saludActual = 100;
             }
-            Debug.Log("Salud :" + PlayerStats.saludActual);
+            Debug.Log("Salud :" + Player.saludActual);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
