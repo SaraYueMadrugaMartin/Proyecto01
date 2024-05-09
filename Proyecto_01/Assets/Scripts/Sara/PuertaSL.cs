@@ -9,8 +9,10 @@ public class PuertaSL : MonoBehaviour
     [SerializeField] private Vector2 posNuevaAbajo;
     [SerializeField] private FadeAnimation fadeAnimation;
 
-    private bool jugadorTocandoAbajo;
-    private bool jugadorTocandoArriba;
+    [SerializeField] private bool jugadorTocandoAbajo;
+    [SerializeField] private bool jugadorTocandoArriba;
+    [SerializeField] private bool jugadorTocandoIzquierda;
+    [SerializeField] private bool jugadorTocandoDerecha;
 
     void Start()
     {
@@ -18,29 +20,51 @@ public class PuertaSL : MonoBehaviour
     }
 
     void Update()
-    {
+    {        
         if(jugadorTocandoAbajo && Input.GetKeyDown("e"))
         {
             Invoke("CambioPosicionArriba", 0.3f);
             fadeAnimation.FadeOut();
+            jugadorTocandoAbajo = false;
+            Debug.Log("La posición del jugador es: " + player.transform.position);
         }
         else if(jugadorTocandoArriba && Input.GetKeyDown("e"))
         {
             Invoke("CambioPosicionAbajo", 0.3f);
             fadeAnimation.FadeOut();
+            jugadorTocandoArriba = false;
+            Debug.Log("La posición del jugador es: " + player.transform.position);
+        }
+        else if (jugadorTocandoDerecha && Input.GetKeyDown("e"))
+        {
+            Invoke("CambioPosicionAbajo", 0.3f);
+            fadeAnimation.FadeOut();
+            jugadorTocandoDerecha = false;
+            Debug.Log("La posición del jugador es: " + player.transform.position);
+        }
+        else if (jugadorTocandoIzquierda && Input.GetKeyDown("e"))
+        {
+            Invoke("CambioPosicionArriba", 0.3f);
+            fadeAnimation.FadeOut();
+            jugadorTocandoIzquierda = false;
+            Debug.Log("La posición del jugador es: " + player.transform.position);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             Vector2 obtenerPosPlayer = other.transform.position - transform.position;
 
-            if(obtenerPosPlayer.y < 0 || obtenerPosPlayer.x < 0)
-                    jugadorTocandoAbajo = true;
-            else if (obtenerPosPlayer.y > 0 || obtenerPosPlayer.x > 0)
-                    jugadorTocandoArriba = true;
+            if (obtenerPosPlayer.y < 0)
+                jugadorTocandoAbajo = true;
+            else if (obtenerPosPlayer.y > 0)
+                jugadorTocandoArriba = true;
+            else if (obtenerPosPlayer.x < 0)
+                jugadorTocandoIzquierda = true;
+            else if(obtenerPosPlayer.x > 0)
+                jugadorTocandoDerecha = true;
         }
     }
 
@@ -50,6 +74,8 @@ public class PuertaSL : MonoBehaviour
         {
             jugadorTocandoAbajo = false;
             jugadorTocandoArriba = false;
+            jugadorTocandoDerecha = false;
+            jugadorTocandoIzquierda = false;    
         }
     }
 
