@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class BarraCorrupcion : MonoBehaviour
 {
-    public Slider slider;
+    private PlayerStats playerStats;
+    [SerializeField] private Slider slider;
 
-    public void Corrupcion(int corrupcion)
+    public void Corrupcion()
     {
-        slider.value = corrupcion;
+
     }
 }
