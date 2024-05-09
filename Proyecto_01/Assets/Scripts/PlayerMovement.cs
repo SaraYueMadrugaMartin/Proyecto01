@@ -155,12 +155,12 @@ public class PlayerMovement : MonoBehaviour
         if (velocidadX > 0 && !miraDerecha)
         {
             Flip();
-            puntero.VolteaPuntero(miraDerecha);
+            puntero.VolteaPuntero();
         }
         if (velocidadX < 0 && miraDerecha)
         {
             Flip();
-            puntero.VolteaPuntero(miraDerecha);
+            puntero.VolteaPuntero();
         }
     }
     private void Flip()

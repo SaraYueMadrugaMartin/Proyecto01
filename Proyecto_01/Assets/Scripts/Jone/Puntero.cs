@@ -9,7 +9,8 @@ public class Puntero : MonoBehaviour
     private Transform transformPuntero;
     [SerializeField] float anguloMax = 60f;
     [SerializeField] float anguloMin = -60f;
-    private bool cambiaAngulos = true;
+    private float angulo = 0f;
+    public static bool cambiaAngulos = false;
 
 
     private void Awake()
@@ -19,69 +20,44 @@ public class Puntero : MonoBehaviour
 
     private void Update()
     {
-        Vector3 posRaton = GetMouseWorldPosition();
+        Vector3 posRaton = GetMouseWorldPosition(); // Posición ratón
        
-        Vector3 direccionPuntero = (posRaton - transform.position).normalized;
-        float angulo = Mathf.Atan2(direccionPuntero.y, direccionPuntero.x) * Mathf.Rad2Deg;
-        if (!cambiaAngulos)
-            angulo -= 180;
-        Debug.Log("Angulo PreClamp: " + angulo);
-        angulo = Mathf.Clamp(angulo, anguloMin, anguloMax);
-        Debug.Log("Angulo PostClamp:" + angulo);
-        transformPuntero.localEulerAngles = new Vector3(0, 0, angulo);
+        Vector3 direccionPuntero = (posRaton - transformPuntero.position).normalized;
 
-        Vector3 posMax = new Vector3(Mathf.Cos(anguloMax * Mathf.Deg2Rad)* 5, Mathf.Sin(anguloMax * Mathf.Deg2Rad) * 5, 0); 
-        Debug.DrawRay(transformPuntero.position, posMax, Color.yellow);
-        Vector3 posMin = new Vector3(Mathf.Cos(anguloMin * Mathf.Deg2Rad) * 5, Mathf.Sin(anguloMin * Mathf.Deg2Rad) * 5, 0);
-        Debug.DrawRay(transformPuntero.position, posMin, Color.yellow);
+        angulo = Mathf.Atan2(direccionPuntero.y, direccionPuntero.x) * Mathf.Rad2Deg;
+
+        if (cambiaAngulos)
+        {
+            angulo = CambiaAngulos(angulo);
+        }
+
+        angulo = Mathf.Clamp(angulo, anguloMin, anguloMax);
+
+        transformPuntero.localEulerAngles = new Vector3(0, 0, angulo);
     }
 
-    public void VolteaPuntero(bool miraDerecha)
+    public void VolteaPuntero()
     {
-        cambiaAngulos = miraDerecha;
+        cambiaAngulos = !cambiaAngulos;
         Vector3 currentScale = transformPuntero.localScale;
         currentScale.z *= -1;
         transformPuntero.localScale = currentScale;
-        //CambiaAngulos(miraDerecha);
-        anguloMin = -60;
-        anguloMax = 60;
     }
 
-    public void CambiaAngulos(bool cambiaAngulos)
+    private float CambiaAngulos(float angulo)
     {
-        Debug.Log(cambiaAngulos + " Angulo ");
-        //cambiaAngulos = !cambiaAngulos;
-        if (cambiaAngulos)
-        {
-            anguloMin = -60;
-            anguloMax = 60;
-        }
-        /*else
-        {
-            anguloMin = -120;
-            anguloMax = 120;
-        }*/
+        if (angulo > 0)
+            angulo = (angulo - 180f) * -1;
+        else
+            angulo = (angulo + 180f) * -1;
+        return angulo;
     }
 
-    public static Vector3 GetMouseWorldPosition()
+    // Función para obtener el vector que indica la posición del ratón
+    private Vector3 GetMouseWorldPosition()
     {
-        Vector3 vec = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
-        vec.z = 0f;
-        //Debug.Log("mouse world" + vec);
+        Vector3 vec = Camera.main.ScreenToWorldPoint(Input.mousePosition); // Utiliza la posición del ratón respecto a la cámara
+        vec.z = 0f; // Porque estamos en 2D
         return vec;
-    }
-
-    public static Vector3 GetMouseWorldPositionWithZ()
-    {
-        return GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
-    }
-    public static Vector3 GetMouseWorldPositionWithZ(Camera worldCamera)
-    {
-        return GetMouseWorldPositionWithZ(Input.mousePosition, worldCamera);
-    }
-    public static Vector3 GetMouseWorldPositionWithZ(Vector3 screenPosition, Camera worldCamera)
-    {
-        Vector3 worldPosition = worldCamera.ScreenToWorldPoint(screenPosition);
-        return worldPosition;
     }
 }

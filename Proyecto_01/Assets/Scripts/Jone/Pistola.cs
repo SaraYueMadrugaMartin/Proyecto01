@@ -9,6 +9,7 @@ public class Pistola : MonoBehaviour
     public static bool recargando = false;
     private Animator animPistola, animBrazo;
     private int cargador = 6;
+    public static bool direccionDerecha = true;
 
     private void Start()
     {
@@ -49,6 +50,12 @@ public class Pistola : MonoBehaviour
     {
         animPistola.SetTrigger("dispara");
         animBrazo.SetTrigger("dispara");
+
+        // Establece la dirección de la bala
+        if (!Puntero.cambiaAngulos)
+            direccionDerecha = true;
+        else
+            direccionDerecha = false;
 
         GameObject objetoBala = PoolingBalas.instancia.GetBala();
 
