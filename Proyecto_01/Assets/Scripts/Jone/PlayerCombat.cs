@@ -61,13 +61,13 @@ public class PlayerCombat : MonoBehaviour
 
     public void recibeDaño(float daño)
     {
-        PlayerStats.saludActual -= daño;
-        Debug.Log("Salud: " + PlayerStats.saludActual);
+        Player.saludActual -= daño;
+        Debug.Log("Salud: " + Player.saludActual);
 
         anim.SetTrigger("recibeDaño");
         // Sonido recibir daño
 
-        if (PlayerStats.saludActual <= 0)
+        if (Player.saludActual <= 0)
         {
             Muere();
         }

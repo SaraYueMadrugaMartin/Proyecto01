@@ -67,13 +67,13 @@ public class Pistola : MonoBehaviour
 
     private void Recarga()
     {
-        if (PlayerStats.municion > 0)
+        if (Player.municion > 0)
         {
             recargando = true;
             StartCoroutine(CambiarValorDespuesDeEsperar());
             Debug.Log("Recargado");
             cargador = 6;
-            PlayerStats.municion -= 6;
+            Player.municion -= 6;
         } else
         {
             Debug.Log("No hay suficiente munición"); // Implementar texto de aviso

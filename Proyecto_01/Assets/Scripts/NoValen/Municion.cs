@@ -12,9 +12,9 @@ public class Municion : MonoBehaviour
         {
             Debug.Log("Recoge munición");
 
-            PlayerStats.municion += 12;
+            Player.municion += 12;
 
-            Debug.Log("Municion:" + PlayerStats.municion);
+            Debug.Log("Municion:" + Player.municion);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
