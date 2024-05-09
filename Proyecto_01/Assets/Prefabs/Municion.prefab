@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 3212200301681392597}
   - component: {fileID: 8177875943219710679}
   - component: {fileID: 1761833610991766301}
-  - component: {fileID: 3807032368256232443}
   - component: {fileID: 5194295362488453135}
   m_Layer: 0
   m_Name: Municion
@@ -218,18 +217,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3807032368256232443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5867388766557962391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 965ffb13bbb1e15418a140a945df92cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5194295362488453135
 MonoBehaviour:
   m_ObjectHideFlags: 0

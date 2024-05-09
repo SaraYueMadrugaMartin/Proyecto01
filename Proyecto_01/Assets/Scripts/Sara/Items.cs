@@ -27,7 +27,8 @@ public class Items : MonoBehaviour
                 int llaveID = llave.ObtenerID();
                 Debug.Log("El ID de la llave es: " + llaveID);
                 inventario.RecibeIDLlave(llaveID);
-            }
+            } else if (nombreItem == "Municion")
+                PlayerStats.municion += 12;
             gameObject.SetActive(false);
             //Destroy(gameObject);
         }
