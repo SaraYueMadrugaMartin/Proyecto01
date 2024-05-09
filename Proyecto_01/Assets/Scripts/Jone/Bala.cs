@@ -31,8 +31,11 @@ public class Bala : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position += transform.right * velocidad * Time.deltaTime;
-    }
+        if(Pistola.direccionDerecha)
+            transform.position += transform.right * velocidad * Time.deltaTime;
+        else
+            transform.position -= transform.right * velocidad * Time.deltaTime;
+    }   
 
     private void OnTriggerEnter2D(Collider2D otro)
     {
