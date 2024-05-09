@@ -52,6 +52,7 @@ public class Bala : MonoBehaviour
         if (enemigo != null)
         {
             enemigo.recibeDaño(daño);
+            gameObject.SetActive(false); // Desactivar el objeto cuando entra en contacto con el enemigo. Destruir no porque sino solo se dispara 1 bala.
         }
 
         // Incluir un efecto de colisión

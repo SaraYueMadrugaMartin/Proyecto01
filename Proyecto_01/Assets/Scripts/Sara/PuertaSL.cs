@@ -18,19 +18,23 @@ public class PuertaSL : MonoBehaviour
         {
             if (jugadorTocandoArriba)
             {
-                CambioPosicionAbajo();
+                Invoke("CambioPosicionAbajo", 0.3f);
+                fadeAnimation.FadeOut();
             }
             else if (jugadorTocandoAbajo)
             {
-                CambioPosicionArriba();
+                Invoke("CambioPosicionArriba", 0.3f);
+                fadeAnimation.FadeOut();
             }
             else if (jugadorTocandoDerecha)
             {
-                CambioPosicionIzquierda();
+                Invoke("CambioPosicionIzquierda", 0.3f);
+                fadeAnimation.FadeOut();
             }
             else if (jugadorTocandoIzquierda)
             {
-                CambioPosicionDerecha();
+                Invoke("CambioPosicionDerecha", 0.3f);
+                fadeAnimation.FadeOut();
             }
         }
     }
@@ -80,25 +84,25 @@ public class PuertaSL : MonoBehaviour
 
     private void CambioPosicionArriba()
     {
-        player.transform.position = posNuevaArriba;
-        fadeAnimation.FadeOut();
+        //fadeAnimation.FadeOut();
+        player.transform.position = posNuevaArriba;        
     }
 
     private void CambioPosicionAbajo()
     {
+        //fadeAnimation.FadeOut();
         player.transform.position = posNuevaAbajo;
-        fadeAnimation.FadeOut();
     }
 
     private void CambioPosicionDerecha()
     {
+        //fadeAnimation.FadeOut();
         player.transform.position = posNuevaArriba;
-        fadeAnimation.FadeOut();
     }
 
     private void CambioPosicionIzquierda()
     {
+        //fadeAnimation.FadeOut();
         player.transform.position = posNuevaAbajo;
-        fadeAnimation.FadeOut();
     }
 }
