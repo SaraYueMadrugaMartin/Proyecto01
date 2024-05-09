@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PuertaSL : MonoBehaviour
@@ -9,83 +7,98 @@ public class PuertaSL : MonoBehaviour
     [SerializeField] private Vector2 posNuevaAbajo;
     [SerializeField] private FadeAnimation fadeAnimation;
 
-    [SerializeField] private bool jugadorTocandoAbajo;
     [SerializeField] private bool jugadorTocandoArriba;
-    [SerializeField] private bool jugadorTocandoIzquierda;
+    [SerializeField] private bool jugadorTocandoAbajo;
     [SerializeField] private bool jugadorTocandoDerecha;
+    [SerializeField] private bool jugadorTocandoIzquierda;
 
-    void Start()
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (jugadorTocandoArriba)
+            {
+                CambioPosicionAbajo();
+            }
+            else if (jugadorTocandoAbajo)
+            {
+                CambioPosicionArriba();
+            }
+            else if (jugadorTocandoDerecha)
+            {
+                CambioPosicionIzquierda();
+            }
+            else if (jugadorTocandoIzquierda)
+            {
+                CambioPosicionDerecha();
+            }
+        }
     }
 
-    void Update()
-    {        
-        if(jugadorTocandoAbajo && Input.GetKeyDown("e"))
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
         {
-            Invoke("CambioPosicionArriba", 0.3f);
-            fadeAnimation.FadeOut();
-            jugadorTocandoAbajo = false;
-            Debug.Log("La posición del jugador es: " + player.transform.position);
-        }
-        else if(jugadorTocandoArriba && Input.GetKeyDown("e"))
-        {
-            Invoke("CambioPosicionAbajo", 0.3f);
-            fadeAnimation.FadeOut();
-            jugadorTocandoArriba = false;
-            Debug.Log("La posición del jugador es: " + player.transform.position);
-        }
-        else if (jugadorTocandoDerecha && Input.GetKeyDown("e"))
-        {
-            Invoke("CambioPosicionAbajo", 0.3f);
-            fadeAnimation.FadeOut();
-            jugadorTocandoDerecha = false;
-            Debug.Log("La posición del jugador es: " + player.transform.position);
-        }
-        else if (jugadorTocandoIzquierda && Input.GetKeyDown("e"))
-        {
-            Invoke("CambioPosicionArriba", 0.3f);
-            fadeAnimation.FadeOut();
-            jugadorTocandoIzquierda = false;
-            Debug.Log("La posición del jugador es: " + player.transform.position);
+            Vector2 playerPosition = other.transform.position;
+            Vector2 doorPosition = transform.position;
+
+            float distanciaY = Mathf.Abs(playerPosition.y - doorPosition.y);
+            float distanciaX = Mathf.Abs(playerPosition.x - doorPosition.x);
+
+            if (distanciaY > distanciaX)
+            {
+                jugadorTocandoArriba = playerPosition.y > doorPosition.y;
+                jugadorTocandoAbajo = playerPosition.y < doorPosition.y;
+                jugadorTocandoIzquierda = false;
+                jugadorTocandoDerecha = false;
+            }
+            else
+            {
+                jugadorTocandoIzquierda = playerPosition.x < doorPosition.x;
+                jugadorTocandoDerecha = playerPosition.x > doorPosition.x;
+                jugadorTocandoArriba = false;
+                jugadorTocandoAbajo = false;
+            }
         }
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            Vector2 obtenerPosPlayer = other.transform.position - transform.position;
-
-            if (obtenerPosPlayer.y < 0)
-                jugadorTocandoAbajo = true;
-            else if (obtenerPosPlayer.y > 0)
-                jugadorTocandoArriba = true;
-            else if (obtenerPosPlayer.x < 0)
-                jugadorTocandoIzquierda = true;
-            else if(obtenerPosPlayer.x > 0)
-                jugadorTocandoDerecha = true;
-        }
+        OnTriggerEnter2D(other);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            jugadorTocandoAbajo = false;
             jugadorTocandoArriba = false;
+            jugadorTocandoAbajo = false;
             jugadorTocandoDerecha = false;
-            jugadorTocandoIzquierda = false;    
+            jugadorTocandoIzquierda = false;
         }
     }
 
-    public void CambioPosicionArriba()
+    private void CambioPosicionArriba()
     {
         player.transform.position = posNuevaArriba;
+        fadeAnimation.FadeOut();
     }
 
-    public void CambioPosicionAbajo()
+    private void CambioPosicionAbajo()
     {
         player.transform.position = posNuevaAbajo;
+        fadeAnimation.FadeOut();
+    }
+
+    private void CambioPosicionDerecha()
+    {
+        player.transform.position = posNuevaArriba;
+        fadeAnimation.FadeOut();
+    }
+
+    private void CambioPosicionIzquierda()
+    {
+        player.transform.position = posNuevaAbajo;
+        fadeAnimation.FadeOut();
     }
 }
