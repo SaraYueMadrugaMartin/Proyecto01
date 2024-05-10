@@ -165,7 +165,6 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Flip()
     {
-        Debug.Log("Le da la vuelta al personaje");
         miraDerecha = !miraDerecha;
         Vector3 currentScale = gameObject.transform.localScale;
         currentScale.x *= -1;

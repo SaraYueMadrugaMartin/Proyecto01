@@ -1154,8 +1154,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49105, y: 0.14635003, z: 0}
-    m_Extent: {x: 1.49205, y: 1.16435, z: 0}
+    m_Center: {x: 0.492, y: 0.1462, z: 0}
+    m_Extent: {x: 1.4915, y: 1.1643, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1236,8 +1236,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.39525, y: 0.7513, z: 0}
-    m_Extent: {x: 0.89765, y: 0.92120004, z: 0}
+    m_Center: {x: -0.3951, y: 0.75155, z: 0}
+    m_Extent: {x: 0.8981, y: 0.92115, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1637,8 +1637,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49244997, y: 0.14695, z: 0}
-    m_Extent: {x: 1.49215, y: 1.16365, z: 0}
+    m_Center: {x: 0.49145, y: 0.1469, z: 0}
+    m_Extent: {x: 1.4913499, y: 1.1644001, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1922,7 +1922,7 @@ GameObject:
   - component: {fileID: 211837522}
   - component: {fileID: 211837521}
   m_Layer: 0
-  m_Name: Puerta03
+  m_Name: Puerta2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1955,11 +1955,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c8b685f4310794cad6a0024d7fe5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puertaAsociada: {fileID: 11400000, guid: 954dcc544da6b094cbd2db2a292b168f, type: 2}
+  puertaAsociada: {fileID: 11400000, guid: 60689c64f59de1d4cb6f3e93be6dcb75, type: 2}
   inventario: {fileID: 12703911}
   jugadorTocando: 0
   panelMensajeNo: {fileID: 1976720719}
   panelPregunta: {fileID: 758965668}
+  idPuerta: 2
+  controladorPuertas: {fileID: 1031844142}
 --- !u!61 &211837522
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2936,7 +2938,7 @@ GameObject:
   - component: {fileID: 282116540}
   - component: {fileID: 282116539}
   m_Layer: 0
-  m_Name: Puerta01
+  m_Name: Puerta1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2974,6 +2976,8 @@ MonoBehaviour:
   jugadorTocando: 0
   panelMensajeNo: {fileID: 1976720719}
   panelPregunta: {fileID: 758965668}
+  idPuerta: 1
+  controladorPuertas: {fileID: 1031844142}
 --- !u!61 &282116540
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6157,8 +6161,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1326512495}
-  - {fileID: 1054244793}
   - {fileID: 8437564468273187862}
+  - {fileID: 1054244793}
   - {fileID: 942060827}
   - {fileID: 22058071}
   - {fileID: 2000843571}
@@ -7791,8 +7795,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49220002, y: 0.14674997, z: 0}
-    m_Extent: {x: 1.4923, y: 1.16415, z: 0}
+    m_Center: {x: 0.4918, y: 0.14655, z: 0}
+    m_Extent: {x: 1.4927001, y: 1.1642499, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -13179,8 +13183,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49215, y: 0.14725, z: 0}
-    m_Extent: {x: 1.4921501, y: 1.1640501, z: 0}
+    m_Center: {x: 0.49200004, y: 0.1469, z: 0}
+    m_Extent: {x: 1.4923999, y: 1.1642001, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -13462,8 +13466,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49234998, y: 0.14630002, z: 0}
-    m_Extent: {x: 1.49175, y: 1.1635001, z: 0}
+    m_Center: {x: 0.49195, y: 0.14695, z: 0}
+    m_Extent: {x: 1.49165, y: 1.16355, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -13652,8 +13656,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 282116538}
-  - {fileID: 1890283344}
   - {fileID: 211837520}
+  - {fileID: 1890283344}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1031844142
@@ -13831,9 +13835,13 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.020463765
       objectReference: {fileID: 0}
+    - target: {fileID: 360952679934068120, guid: 4cbf46735dc6bed46b1fc73cd93b93be, type: 3}
+      propertyPath: llaveAsociada
+      value: 
+      objectReference: {fileID: 11400000, guid: 1c1a50431d147c340b40d25412c80576, type: 2}
     - target: {fileID: 6104036027349863789, guid: 4cbf46735dc6bed46b1fc73cd93b93be, type: 3}
       propertyPath: m_Name
-      value: Llave02
+      value: Llave03
       objectReference: {fileID: 0}
     - target: {fileID: 8437564470216719104, guid: 4cbf46735dc6bed46b1fc73cd93b93be, type: 3}
       propertyPath: m_LocalScale.x
@@ -15378,8 +15386,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.39475, y: 0.7511, z: 0}
-    m_Extent: {x: 0.89825, y: 0.92179996, z: 0}
+    m_Center: {x: -0.39485002, y: 0.7509, z: 0}
+    m_Extent: {x: 0.89715004, y: 0.9219, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -17325,8 +17333,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49189997, y: 0.14639997, z: 0}
-    m_Extent: {x: 1.4928, y: 1.164, z: 0}
+    m_Center: {x: 0.49264997, y: 0.14719999, z: 0}
+    m_Extent: {x: 1.4920499, y: 1.1638, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -20891,7 +20899,7 @@ GameObject:
   - component: {fileID: 1890283346}
   - component: {fileID: 1890283345}
   m_Layer: 0
-  m_Name: Puerta02
+  m_Name: Puerta3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20924,11 +20932,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c8b685f4310794cad6a0024d7fe5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puertaAsociada: {fileID: 11400000, guid: 60689c64f59de1d4cb6f3e93be6dcb75, type: 2}
+  puertaAsociada: {fileID: 11400000, guid: 954dcc544da6b094cbd2db2a292b168f, type: 2}
   inventario: {fileID: 12703911}
   jugadorTocando: 0
   panelMensajeNo: {fileID: 1976720719}
   panelPregunta: {fileID: 758965668}
+  idPuerta: 3
+  controladorPuertas: {fileID: 1031844142}
 --- !u!61 &1890283346
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45165,7 +45175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e501114784ef0bc4fbcbe73178c91b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  llaveAsociada: {fileID: 11400000, guid: 1c1a50431d147c340b40d25412c80576, type: 2}
+  llaveAsociada: {fileID: 11400000, guid: 1eee23566f4ff9849931929e6d03931f, type: 2}
 --- !u!114 &1608679682249179650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45337,7 +45347,7 @@ GameObject:
   - component: {fileID: 1608679682249179650}
   - component: {fileID: 360952679468036750}
   m_Layer: 0
-  m_Name: Fusible_Llave03
+  m_Name: Fusible_Llave02
   m_TagString: Llave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

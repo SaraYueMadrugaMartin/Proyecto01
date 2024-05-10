@@ -8,29 +8,32 @@ public class Puerta : MonoBehaviour
     [SerializeField] private PlantillaPuertas puertaAsociada;
     [SerializeField] private Inventario inventario;
 
-    public bool jugadorTocando; // "static" lo he eliminado porque sino detectaba otras puertas y se abrían los dos paneles.
+    public bool jugadorTocando; 
 
     [SerializeField] private GameObject panelMensajeNo;
     [SerializeField] private GameObject panelPregunta;
+
+    public int idPuerta;
+    public PuertasIDControler controladorPuertas;
 
     private void Update()
     {
         if (jugadorTocando && Input.GetKeyDown("e"))
         {
-            if (puertaAsociada.puertaBloqueada)
-            {
-                panelMensajeNo.SetActive(true);
-            }
-            else
-            {
-                panelPregunta.SetActive(true);
-            }
+            InteractuarConPuerta();
         }
+    }
 
-        if (PuertasIDControler.destruye)
+    public void InteractuarConPuerta()
+    {
+        if (puertaAsociada.puertaBloqueada)
         {
-            DestruirPuerta();
-            PuertasIDControler.destruye = false;
+            panelMensajeNo.SetActive(true);
+        }
+        else
+        {
+            panelPregunta.SetActive(true);
+            controladorPuertas.NotificarDestruccionPuerta(this);
         }
     }
 
@@ -66,18 +69,6 @@ public class Puerta : MonoBehaviour
         else
             puertaAsociada.puertaBloqueada = true;
 
-        /*if (inventario.TieneObjeto("Fusible"))
-        {
-            int llaveID = inventario.BuscaIDLlave();
-
-            if (CompararIDs(llaveID))
-                puertaAsociada.puertaBloqueada = false;
-            else
-                puertaAsociada.puertaBloqueada = true;
-        }
-        else
-            puertaAsociada.puertaBloqueada = true;*/
-
         Debug.Log("La puerta está: " + (puertaAsociada.puertaBloqueada ? "bloqueada" : "desbloqueada"));
     }
 
@@ -97,7 +88,15 @@ public class Puerta : MonoBehaviour
 
     public void DestruirPuerta()
     {
-        this.gameObject.SetActive(false);
-        Debug.Log("Destruye puerta: " + this.gameObject.name);
+        // Obtener el ID de la puerta actual
+        int idActual = idPuerta;
+
+        // Comparar el ID de la puerta actual con el ID almacenado en el script
+        if (idActual == idPuerta)
+        {
+            // Desactivar solo esta puerta
+            gameObject.SetActive(false);
+            Debug.Log("Destruye puerta: " + gameObject.name);
+        }    
     }
 }
