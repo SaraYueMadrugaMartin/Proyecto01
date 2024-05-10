@@ -1,6 +1,6 @@
 [System.Serializable]
 
-public class PlayerData
+public class PlayerData //Se puede clase o struct
 {
     public float[] posicion = new float[3];
 
