@@ -10,6 +10,7 @@ public class PuertasIDControler : MonoBehaviour
     [SerializeField] private GameObject player;
 
     [SerializeField] private Vector2 posicionTransicion = new Vector2(8.51f, 0.51f);
+    [SerializeField] private Vector2 posicionTransicion02;
 
     public static bool destruye = false;
 
@@ -29,7 +30,10 @@ public class PuertasIDControler : MonoBehaviour
 
     public void CambioPosicionPlayer()
     {
-        player.transform.position = posicionTransicion;
+        if (inventario.TieneObjeto("Llave"))
+            player.transform.position = posicionTransicion;
+        else if (inventario.TieneObjeto("Fusible"))
+            player.transform.position = posicionTransicion02;
     }
 
     public void NotificarDestruccionPuerta(Puerta puerta)

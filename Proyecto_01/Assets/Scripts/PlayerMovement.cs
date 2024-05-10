@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Update()
+    /*void Update()
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
     private void DeleteSavedData()
     {
         SaveManager.DeleteSavedData();
-    }
+    }*/
 
     private void Velocidad()
     {
@@ -169,5 +169,10 @@ public class PlayerMovement : MonoBehaviour
         Vector3 currentScale = gameObject.transform.localScale;
         currentScale.x *= -1;
         gameObject.transform.localScale = currentScale;
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
     }
 }

@@ -1,6 +1,2 @@
-[System.Serializable]
+using System.Numerics;
 
-public class SceneState
-{
-
-}
