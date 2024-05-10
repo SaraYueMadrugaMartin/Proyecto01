@@ -1,9 +1,4 @@
 using UnityEngine;
-using Unity.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
-using BBUnity.Actions;
-using BBUnity.Managers;
 
 [System.Serializable]
 
@@ -25,6 +20,7 @@ public class SaveManager: MonoBehaviour
     private SceneState savedSceneState;
 
     PlayerMovement infoPlayer;
+    Items infoItems;
 
     void Awake()
     {
@@ -50,19 +46,53 @@ public class SaveManager: MonoBehaviour
 
     public void GuardarEstadoEscena()
     {
-        infoPlayer = FindObjectOfType<PlayerMovement>();
-
         SceneState sceneState = new SceneState();
+
+        //Jugador
+        infoPlayer = FindObjectOfType<PlayerMovement>();
 
         //sceneState.vida = acciones.GetVida();
         sceneState.posicionPlayer = infoPlayer.GetPosition();
         //sceneState.enemigos = UIManager.instance.contenedorEnemigos;
         //sceneState.time = timer;
 
+        //Items
+        infoItems = FindObjectOfType<Items>();
+        sceneState.posicionItems = infoItems.GetPositionItem();
+        sceneState.objetoActivo = infoItems.SetObjetoActivo(bool);
+
         // Guardamos el estado de la escena en formato JSON
         string sceneStateJson = JsonUtility.ToJson(sceneState);
         PlayerPrefs.SetString("SavedSceneState", sceneStateJson);
         PlayerPrefs.Save();
+
+    }
+
+    public void CargarEstadoEscena()
+    {
+        if (PlayerPrefs.HasKey("SavedSceneState"))
+        {
+            string sceneStateJson = PlayerPrefs.GetString("SavedSceneState");
+
+            Debug.Log(sceneStateJson);
+            savedSceneState = JsonUtility.FromJson<SceneState>(sceneStateJson);
+
+            //acciones.SetVida(savedSceneState.vida);
+            //Debug.Log("Vida" + savedSceneState.vida);
+            infoPlayer.SetPosition(savedSceneState.posicionPlayer);
+            Debug.Log("Posición" + savedSceneState.posicionPlayer);
+            //SceneManager.LoadScene(1);
+            //savedSceneState.enemigos = UIManager.instance.contenedorEnemigos;
+            //savedSceneState.time = timer;
+            //Debug.Log("Tiempo" + savedSceneState.time);
+            //UIManager.instance.actualizaTextoTiempo(timer);
+            //juegoParado = false;
+
+            infoItems.SetPositionItem(savedSceneState.posicionItems);
+            infoItems.SetObjetoActivo(savedSceneState.objetoActivo);
+            Debug.Log("Posición del item: " + savedSceneState.posicionItems);
+            // Aquí deberías activar o desactivar el objeto según el estado guardado
+        }
     }
 
     /*public static void SavePlayerData(PlayerMovement player)

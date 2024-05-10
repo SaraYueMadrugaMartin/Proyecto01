@@ -49,4 +49,24 @@ public class Items : MonoBehaviour
             cogerObjeto = false;
         }
     }
+
+    public Vector2 GetPositionItem()
+    {
+        return transform.position;
+    }
+
+    public bool GetObjetoActivo()
+    {
+        return gameObject.activeSelf;
+    }
+
+    public void SetObjetoActivo(bool estaActivo)
+    {
+        gameObject.SetActive(estaActivo);
+    }
+
+    public void SetPositionItem(Vector2 newPosition)
+    {
+        transform.position = newPosition;
+    }
 }

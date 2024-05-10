@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    SaveManager saveManager;
+
     // Movimiento
     [SerializeField] float movimiento = 5f;
     float multiplicador = 1;
@@ -18,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        saveManager = SaveManager.instance;
+        //saveManager = new SaveManager();
+
         anim = GetComponent<Animator>();
         puntero = GetComponent<Puntero>();
         pistola = transform.Find("Puntero").gameObject;
@@ -53,25 +58,27 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    /*void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            SaveData();
+            saveManager.GuardarEstadoEscena();
+            Debug.Log("Se han guardado los datos.");
         }
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            LoadData();
+            saveManager.CargarEstadoEscena();
+            Debug.Log("Datos cargados.");
         }
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            DeleteSavedData();
+            //DeleteSavedData();
         }
     }
 
-    private void LoadData()
+    /*private void LoadData()
     {
         PlayerData playerData = SaveManager.LoadPlayerData();
         if(playerData != null)
@@ -174,5 +181,10 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 GetPosition()
     {
         return transform.position;
+    }
+
+    public void SetPosition(Vector2 newPosition)
+    {
+        transform.position = newPosition;
     }
 }
