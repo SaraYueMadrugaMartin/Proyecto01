@@ -5,6 +5,8 @@ using System.IO;
 
 public static class SaveManager
 {
+
+
     public static void SavePlayerData(PlayerMovement player)
     {
         PlayerData playerData = new PlayerData(player);

@@ -66,6 +66,18 @@ public class Puerta : MonoBehaviour
         else
             puertaAsociada.puertaBloqueada = true;
 
+        if (inventario.TieneObjeto("Fusible"))
+        {
+            int llaveID = inventario.BuscaIDLlave();
+
+            if (CompararIDs(llaveID))
+                puertaAsociada.puertaBloqueada = false;
+            else
+                puertaAsociada.puertaBloqueada = true;
+        }
+        else
+            puertaAsociada.puertaBloqueada = true;
+
         Debug.Log("La puerta está: " + (puertaAsociada.puertaBloqueada ? "bloqueada" : "desbloqueada"));
     }
 
