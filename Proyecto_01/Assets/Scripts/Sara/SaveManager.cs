@@ -7,10 +7,13 @@ public struct SceneState
     public string nombreItem;
     public Vector2 posicionItems;
     public bool objetoActivo;
+    public bool objetoRecogido;
 
     public Vector2 posicionPlayer;
 
     public bool puertaDesbloqueada;
+
+    public Vector2 posicionInicialItems;
 }
 
 public class SaveManager: MonoBehaviour
@@ -58,8 +61,7 @@ public class SaveManager: MonoBehaviour
 
         //Items
         infoItems = FindObjectOfType<Items>();
-        sceneState.posicionItems = infoItems.GetPositionItem();
-        sceneState.objetoActivo = infoItems.SetObjetoActivo(bool);
+
 
         // Guardamos el estado de la escena en formato JSON
         string sceneStateJson = JsonUtility.ToJson(sceneState);
@@ -88,11 +90,28 @@ public class SaveManager: MonoBehaviour
             //UIManager.instance.actualizaTextoTiempo(timer);
             //juegoParado = false;
 
-            infoItems.SetPositionItem(savedSceneState.posicionItems);
-            infoItems.SetObjetoActivo(savedSceneState.objetoActivo);
-            Debug.Log("Posición del item: " + savedSceneState.posicionItems);
-            // Aquí deberías activar o desactivar el objeto según el estado guardado
+
+
+            // Esto establece la posición del objeto en cuestión, no del SaveManager
+            GameObject itemObject = GameObject.Find(savedSceneState.nombreItem);
+            if (itemObject != null)
+            {
+                itemObject.transform.position = savedSceneState.posicionInicialItems;
+            }
+
+            if (!savedSceneState.objetoRecogido && savedSceneState.objetoActivo)
+            {
+                EliminarObjetoDelInventario(savedSceneState.nombreItem);
+                Debug.Log("El objeto ha sido devuelto");
+            }
         }
+    }
+
+
+    private void EliminarObjetoDelInventario(string nombreItem)
+    {
+        Inventario inventario = FindObjectOfType<Inventario>();
+        inventario.VaciarHueco(nombreItem);
     }
 
     /*public static void SavePlayerData(PlayerMovement player)

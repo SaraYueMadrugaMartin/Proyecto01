@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Items : MonoBehaviour
 {
-    [SerializeField] private string nombreItem;
+    [SerializeField] public string nombreItem;
     [SerializeField] private Sprite sprite;
-
+    private Inventario inventario;
     private bool cogerObjeto = false;
 
-    private Inventario inventario;
+    public Vector2 posicionInicial;
+    public bool objetoRecogido = false;
+    //public Vector2 coordIniciales;
 
     void Start()
     {
         inventario = GameObject.Find("Canvas").GetComponent<Inventario>();
+        posicionInicial = transform.position;
     }
 
     private void Update()
@@ -48,25 +51,5 @@ public class Items : MonoBehaviour
         {
             cogerObjeto = false;
         }
-    }
-
-    public Vector2 GetPositionItem()
-    {
-        return transform.position;
-    }
-
-    public bool GetObjetoActivo()
-    {
-        return gameObject.activeSelf;
-    }
-
-    public void SetObjetoActivo(bool estaActivo)
-    {
-        gameObject.SetActive(estaActivo);
-    }
-
-    public void SetPositionItem(Vector2 newPosition)
-    {
-        transform.position = newPosition;
     }
 }
