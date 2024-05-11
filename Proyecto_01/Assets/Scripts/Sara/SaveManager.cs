@@ -24,7 +24,7 @@ public class SaveManager: MonoBehaviour
 
     PlayerMovement infoPlayer;
     Puerta infoPuerta;
-    public Items infoItems;
+    Items infoItems;
 
     //private GameObject ultimoObjetoRecogido;
 
@@ -74,7 +74,7 @@ public class SaveManager: MonoBehaviour
         //PUERTAS
         infoPuerta = FindObjectOfType<Puerta>();
         sceneState.puertaDesbloqueada = infoPuerta.GetPuertaBloqueada();
-        Debug.Log("Se ha guardado el dato de que la puerta está: " + sceneState.puertaDesbloqueada);
+        Debug.Log("La " + infoPuerta.name + " está " + sceneState.puertaDesbloqueada);
 
         // Guardamos el estado de la escena en formato JSON
         string sceneStateJson = JsonUtility.ToJson(sceneState);

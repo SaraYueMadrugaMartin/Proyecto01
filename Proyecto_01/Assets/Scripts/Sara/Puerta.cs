@@ -71,13 +71,11 @@ public class Puerta : MonoBehaviour
             else
             {
                 puertaAsociada.puertaBloqueada = true;
-                puertaBloqueada = true;
             }               
         }
         else
         {
             puertaAsociada.puertaBloqueada = true;
-            puertaBloqueada = true;
         }
         Debug.Log("La puerta está: " + (puertaAsociada.puertaBloqueada ? "bloqueada" : "desbloqueada"));
     }
