@@ -19,7 +19,7 @@ public class MuertePlayer : MonoBehaviour
 
     public void VolverPantallaInicio()
     {
-        SceneManager.LoadScene("00_MenuPrincipal");
+        SceneManager.LoadScene(0);
     }
 
     public void SalirJuego()
