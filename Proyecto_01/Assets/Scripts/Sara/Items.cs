@@ -9,8 +9,11 @@ public class Items : MonoBehaviour
     private Inventario inventario;
     private bool cogerObjeto = false;
 
+
+
     public Vector2 posicionInicial;
     public bool objetoRecogido = false;
+    public Items ultimoObjetoRecogido;
     //public Vector2 coordIniciales;
 
     void Start()
@@ -24,6 +27,9 @@ public class Items : MonoBehaviour
         if (cogerObjeto && Input.GetKeyDown("e"))
         {
             inventario.AñadirObjeto(nombreItem, sprite);
+            objetoRecogido = true;
+            ultimoObjetoRecogido = this;
+
             if (nombreItem == "Llave")
             {
                 LlavesController llave = GetComponent<LlavesController>();
@@ -51,5 +57,21 @@ public class Items : MonoBehaviour
         {
             cogerObjeto = false;
         }
+    }
+
+    public bool GetObjetoRecogido()
+    {
+        return objetoRecogido;
+    }
+
+    public void SetObjetoRecogido(bool estaObjetoActivo)
+    {
+        objetoRecogido = estaObjetoActivo;
+        gameObject.SetActive(estaObjetoActivo);
+    }
+
+    public Items ObtenerUltimoObjetoInteractuado()
+    {
+        return ultimoObjetoRecogido;
     }
 }

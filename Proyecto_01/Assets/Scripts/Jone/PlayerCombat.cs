@@ -7,6 +7,8 @@ public class PlayerCombat : MonoBehaviour
 {
     Animator anim;
 
+    [SerializeField] private GameObject panelMuerte;
+
     public Transform puntoAtaque;
 
     [SerializeField] float rangoAtaque = 0.5f;
@@ -69,13 +71,14 @@ public class PlayerCombat : MonoBehaviour
 
         if (Player.saludActual <= 0)
         {
-            Muere();
+            Muere();            
         }
     }
 
     private void Muere()
     {
         anim.SetBool("muere", true);
+        Invoke("MostrarPanelMuerte", 1.5f);
         // Sonido muerte
 
         // Pantalla muerte
@@ -87,5 +90,10 @@ public class PlayerCombat : MonoBehaviour
         if (puntoAtaque == null)
             return;
         Gizmos.DrawWireSphere(puntoAtaque.position, rangoAtaque);
+    }
+
+    private void MostrarPanelMuerte()
+    {
+        panelMuerte.SetActive(true);
     }
 }

@@ -16,6 +16,8 @@ public class Puerta : MonoBehaviour
     public int idPuerta;
     public PuertasIDControler controladorPuertas;
 
+    private bool puertaBloqueada = true;
+
     private void Update()
     {
         if (jugadorTocando && Input.GetKeyDown("e"))
@@ -62,13 +64,21 @@ public class Puerta : MonoBehaviour
             int llaveID = inventario.BuscaIDLlave();
 
             if (CompararIDs(llaveID))
+            {
                 puertaAsociada.puertaBloqueada = false;
+                puertaBloqueada = false;
+            }
             else
+            {
                 puertaAsociada.puertaBloqueada = true;
+                puertaBloqueada = true;
+            }               
         }
         else
+        {
             puertaAsociada.puertaBloqueada = true;
-
+            puertaBloqueada = true;
+        }
         Debug.Log("La puerta está: " + (puertaAsociada.puertaBloqueada ? "bloqueada" : "desbloqueada"));
     }
 
@@ -98,5 +108,15 @@ public class Puerta : MonoBehaviour
             gameObject.SetActive(false);
             Debug.Log("Destruye puerta: " + gameObject.name);
         }    
+    }
+
+    public bool GetPuertaBloqueada()
+    {
+        return puertaBloqueada;
+    }
+
+    public void SetPuertaBloqueada(bool value)
+    {
+        puertaBloqueada = value;
     }
 }
