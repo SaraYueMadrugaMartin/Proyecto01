@@ -5,18 +5,19 @@ using UnityEngine.UI;
 
 public class Puerta : MonoBehaviour
 {
-    [SerializeField] private PlantillaPuertas puertaAsociada;
+    [SerializeField] private PlantillaPuertas puertaAsociada; // ID creada para cada puerta y poder comparar con la ID de las llaves.
     [SerializeField] private Inventario inventario;
-
-    public bool jugadorTocando; 
 
     [SerializeField] private GameObject panelMensajeNo;
     [SerializeField] private GameObject panelPregunta;
 
-    public int idPuerta;
     public PuertasIDControler controladorPuertas;
 
-    private bool puertaBloqueada = true;
+    public bool jugadorTocando; 
+
+    public int idPuerta;
+
+    public bool puertaBloqueada = true;
 
     private void Update()
     {
