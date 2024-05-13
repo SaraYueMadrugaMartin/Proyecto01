@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Inventario : MonoBehaviour
 {
     [SerializeField] private GameObject inventario;
-    // [SerializeField] private GameObject playerStats;
+    [SerializeField] private GameObject playerStats;
     [SerializeField] private List<ObjetoPanelInfo> objetosPanelesInformacion;
     [SerializeField] private GameObject botonAtrasInfo;
 
@@ -56,10 +57,20 @@ public class Inventario : MonoBehaviour
         Debug.Log("Añadiendo objeto al inventario: " + nombreItem);
         for (int i = 0; i < huecosInventario.Length; i++)
         {
-            if (huecosInventario[i].estaCompleto == false)
+            if (!InventarioCompleto())
             {
-                huecosInventario[i].AñadirObjeto(nombreItem, sprite);
-                return;
+                foreach (HuecosInventario hueco in huecosInventario)
+                {
+                    if (!hueco.estaCompleto)
+                    {
+                        hueco.AñadirObjeto(nombreItem, sprite);
+                        return; // Parar el bucle cuando encuentra el hueco vacío y añade el nuevo objeto.
+                    }
+                }
+            }
+            else
+            {
+                Debug.Log("No hay hueco para añadir más objetos.");
             }
         }
     }
@@ -74,6 +85,12 @@ public class Inventario : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public bool InventarioCompleto()
+    {
+        int huecosLlenos = huecosInventario.Count(hueco => hueco.estaCompleto);
+        return huecosLlenos >= 9;
     }
 
     public void DeseleccionarObjetos()
@@ -102,7 +119,7 @@ public class Inventario : MonoBehaviour
                 if (objetoPanelInfo != null)
                 {
                     DesactivarPanelesInformacion();
-                    // playerStats.SetActive(false);
+                    playerStats.SetActive(false);
                     objetoPanelInfo.panelInfo.SetActive(true);
                     botonAtrasInfo.SetActive(true);
                 }
@@ -130,7 +147,7 @@ public class Inventario : MonoBehaviour
             if (objetoPanelInfo.panelInfo != null)
             {
                 objetoPanelInfo.panelInfo.SetActive(false);
-                // playerStats.SetActive(true);
+                playerStats.SetActive(true);
                 botonAtrasInfo.SetActive(false);
             }
         }

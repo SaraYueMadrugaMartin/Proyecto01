@@ -43,12 +43,19 @@ public class PuertasIDControler : MonoBehaviour
 
     public void DestruirPuerta(int idPuerta)
     {
-        // Encuentra la puerta con el ID correspondiente y desactívala
-        GameObject puertaADestruir = GameObject.Find("Puerta" + idPuerta);
-        if (puertaADestruir != null)
+        // Encuentra la puerta con el ID correspondiente
+        GameObject puertaObjeto = GameObject.Find("Puerta" + idPuerta);
+        if (puertaObjeto != null)
         {
-            puertaADestruir.SetActive(false);
-            Debug.Log("Puerta " + idPuerta + " destruida.");
+            // Obtén todos los colliders asociados a la puerta
+            Collider2D[] collidersPuerta = puertaObjeto.GetComponents<Collider2D>();
+
+            // Desactiva todos los colliders
+            foreach (Collider2D colliderPuerta in collidersPuerta)
+            {
+                colliderPuerta.enabled = false;
+                Debug.Log("Collider de la puerta " + idPuerta + " desactivado.");
+            }
         }
         else
         {

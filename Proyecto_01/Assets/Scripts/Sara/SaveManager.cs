@@ -1,19 +1,27 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
+public struct PuertaState
+{
+    public int idPuerta;
+    public bool puertaBloqueada;
+    public bool puertaActivada;
+    public bool[] collidersActivos;
+}
 
-public struct SceneState
+public struct ItemState
 {
     public string nombreItem;
-    public Vector2 posicionItems;
-    //public bool objetoActivo;
     public bool objetoRecogido;
+}
 
+[System.Serializable]
+public struct SceneState
+{    
     public Vector2 posicionPlayer;
 
-    public bool puertaDesbloqueada;
-
-    public Vector2 posicionInicialItems;
+    public List<PuertaState> puertasState; // Lista para guardar la información de PuertaState.
 }
 
 public class SaveManager: MonoBehaviour
@@ -23,10 +31,6 @@ public class SaveManager: MonoBehaviour
     private SceneState savedSceneState;
 
     PlayerMovement infoPlayer;
-    Puerta infoPuerta;
-    Items infoItems;
-
-    //private GameObject ultimoObjetoRecogido;
 
     void Awake()
     {
@@ -54,13 +58,13 @@ public class SaveManager: MonoBehaviour
     {
         SceneState sceneState = new SceneState();
 
-        //Jugador
+        // JUGADOR
         infoPlayer = FindObjectOfType<PlayerMovement>();
         sceneState.posicionPlayer = infoPlayer.GetPosition();
 
 
-        //Items
-        infoItems = FindObjectOfType<Items>(); // Si pongo esto, encuentra el primer objeto con este script, así que sale como que se ha recogido la Moneda, aún guardando antes de haber recogido nada.
+        // ITEMS (NO FUNCIONA NADA)
+        /*infoItems = FindObjectOfType<Items>(); // Si pongo esto, encuentra el primer objeto con este script, así que sale como que se ha recogido la Moneda, aún guardando antes de haber recogido nada.
         if (infoItems.ultimoObjetoRecogido != null)
         {
             sceneState.nombreItem = infoItems.nombreItem;
@@ -68,13 +72,31 @@ public class SaveManager: MonoBehaviour
             Debug.Log("Se ha guardado el dato de que el objeto recogido es: " + sceneState.nombreItem);
         }
         else
-            Debug.Log("Ningún objeto se ha guardado");
+            Debug.Log("Ningún objeto se ha guardado");*/
 
 
         //PUERTAS
-        infoPuerta = FindObjectOfType<Puerta>();
-        sceneState.puertaDesbloqueada = infoPuerta.GetPuertaBloqueada();
-        Debug.Log("La " + infoPuerta.name + " está " + sceneState.puertaDesbloqueada);
+        Puerta[] puertas = FindObjectsOfType<Puerta>(); // Creamos un array de Puertas y buscamos todos los objetos de tipo "Puerta". 
+        sceneState.puertasState = new List<PuertaState>();
+
+        foreach (Puerta puerta in puertas) // Recorremos cada elemento de "puertas".
+        {
+            PuertaState puertaState = new PuertaState();
+
+            puertaState.idPuerta = puerta.idPuerta;
+            puertaState.puertaBloqueada = puerta.GetPuertaBloqueada();
+            puertaState.puertaActivada = puerta.gameObject.activeSelf;
+
+            puertaState.collidersActivos = new bool[puerta.puertaColliders.Length];
+            for (int i = 0; i < puerta.puertaColliders.Length; i++)
+            {
+                puertaState.collidersActivos[i] = puerta.puertaColliders[i].enabled;
+            }
+
+            sceneState.puertasState.Add(puertaState);
+
+            Debug.Log("Puerta ID: " + puerta.idPuerta + ", Bloqueada: " + puertaState.puertaBloqueada + ", Activada: " + puertaState.puertaActivada);
+        }
 
         // Guardamos el estado de la escena en formato JSON
         string sceneStateJson = JsonUtility.ToJson(sceneState);
@@ -93,17 +115,28 @@ public class SaveManager: MonoBehaviour
             savedSceneState = JsonUtility.FromJson<SceneState>(sceneStateJson);
 
             //PLAYER
-            infoPlayer.SetPosition(savedSceneState.posicionPlayer);
-            Debug.Log("Posición" + savedSceneState.posicionPlayer);
+            PlayerMovement playerMovement = FindObjectOfType<PlayerMovement>();
+            if (playerMovement != null)
+            {
+                playerMovement.SetPosition(savedSceneState.posicionPlayer);
+                Debug.Log("Posición" + savedSceneState.posicionPlayer);
+            }
 
 
-            //ITEMS
-            infoItems.SetObjetoRecogido(savedSceneState.objetoRecogido);
-            Debug.Log("El objeto " + savedSceneState.nombreItem + "está: " + savedSceneState.objetoRecogido);
+            //ITEMS (NO FUNCIONA NADA)
+            /*infoItems.SetObjetoRecogido(savedSceneState.objetoRecogido);
+            Debug.Log("El objeto " + savedSceneState.nombreItem + "está: " + savedSceneState.objetoRecogido);*/
 
             //PUERTAS
-            infoPuerta.SetPuertaBloqueada(savedSceneState.puertaDesbloqueada);
-            Debug.Log("Se ha guardado la información de que la puerta está: " + savedSceneState.puertaDesbloqueada);
+            /*foreach (PuertaState puertaState in savedSceneState.puertasState)
+            {
+                Puerta puerta = FindPuertaById(puertaState.idPuerta);
+                if (puerta != null)
+                {
+                    puerta.SetPuertaBloqueada(puertaState.puertaBloqueada);
+                    Debug.Log("Puerta ID " + puertaState.idPuerta + " está bloqueada: " + puertaState.puertaBloqueada);
+                }
+            }
 
             /*GameObject itemObject = GameObject.Find(savedSceneState.nombreItem);
             if (itemObject != null)
@@ -116,9 +149,48 @@ public class SaveManager: MonoBehaviour
                 EliminarObjetoDelInventario(savedSceneState.nombreItem);
                 Debug.Log("El objeto ha sido devuelto");
             }*/
+
+            //PUERTAS
+            foreach (PuertaState puertaState in savedSceneState.puertasState)
+            {
+                Puerta puerta = GetPuertaID(puertaState.idPuerta);
+                if (puerta != null)
+                {
+                    puerta.SetPuertaBloqueada(puertaState.puertaBloqueada);
+                    puerta.gameObject.SetActive(puertaState.puertaActivada);
+
+                    for (int i = 0; i < puerta.puertaColliders.Length; i++) // Recorremos los colliders de las puertas para saber si deben activarse de nuevo o no.
+                    {
+                        puerta.puertaColliders[i].enabled = puertaState.collidersActivos[i];
+                    }
+
+                    Debug.Log("Puerta ID " + puertaState.idPuerta + " - Bloqueada: " + puertaState.puertaBloqueada + ", Activada: " + puertaState.puertaActivada);
+                }
+                else
+                {
+                    Debug.LogWarning("No se pudo encontrar la puerta con ID: " + puertaState.idPuerta);
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No se encontró ningún estado guardado de la escena.");
         }
     }
 
+    private Puerta GetPuertaID(int idPuerta)
+    {
+        // Itera sobre todas las puertas en tu escena y devuelve la puerta con el ID dado
+        Puerta[] puertas = FindObjectsOfType<Puerta>();
+        foreach (Puerta puerta in puertas)
+        {
+            if (puerta.idPuerta == idPuerta)
+            {
+                return puerta;
+            }
+        }
+        return null;
+    }
 
     private void EliminarObjetoDelInventario(string nombreItem)
     {
@@ -126,6 +198,7 @@ public class SaveManager: MonoBehaviour
         inventario.VaciarHueco(nombreItem);
     }
 
+    //ANTIGUO SAVE SYSTEM
     /*public static void SavePlayerData(PlayerMovement player)
     {
         PlayerData playerData = new PlayerData(player);

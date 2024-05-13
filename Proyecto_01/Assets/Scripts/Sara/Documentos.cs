@@ -7,19 +7,24 @@ public class Documentos : MonoBehaviour
 {
     [SerializeField] private GameObject panelAsociado;
 
+    private Inventario inventario;
+
     public bool jugadorTocando = false;
 
-    void Start()
+    private void Start()
     {
-
+        inventario = FindObjectOfType<Inventario>();
     }
 
     void Update()
     {
         if (jugadorTocando && Input.GetKeyDown("e"))
         {
-            Time.timeScale = 0;
-            panelAsociado.SetActive(true);
+            if (!inventario.InventarioCompleto())
+            {
+                Time.timeScale = 0;
+                panelAsociado.SetActive(true);
+            }            
         }
     }
 
@@ -44,10 +49,6 @@ public class Documentos : MonoBehaviour
         Time.timeScale = 1;
         panelAsociado.SetActive(false);
     }
-
-
-
-
 
     /*[SerializeField] private GameObject mensajeDoc;
 

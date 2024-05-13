@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventario: {fileID: 2105903909}
+  playerStats: {fileID: 1842654488}
   objetosPanelesInformacion:
   - nombreObjeto: Bate
     panelInfo: {fileID: 1667326077}
@@ -419,7 +420,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20315811318065b4caa70fff2510d16b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoItems: {fileID: 0}
 --- !u!4 &15345429
 Transform:
   m_ObjectHideFlags: 0
@@ -1200,8 +1200,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49189997, y: 0.1469, z: 0}
-    m_Extent: {x: 1.4927, y: 1.1638999, z: 0}
+    m_Center: {x: 0.491, y: 0.14630002, z: 0}
+    m_Extent: {x: 1.4919, y: 1.164, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1282,8 +1282,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.39505002, y: 0.75115, z: 0}
-    m_Extent: {x: 0.89685, y: 0.92125, z: 0}
+    m_Center: {x: -0.3951, y: 0.75045, z: 0}
+    m_Extent: {x: 0.8973, y: 0.92174995, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1683,8 +1683,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49184996, y: 0.14695, z: 0}
-    m_Extent: {x: 1.4927499, y: 1.16395, z: 0}
+    m_Center: {x: 0.49175, y: 0.14600003, z: 0}
+    m_Extent: {x: 1.49225, y: 1.1639, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -2270,11 +2270,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puertaAsociada: {fileID: 11400000, guid: 60689c64f59de1d4cb6f3e93be6dcb75, type: 2}
   inventario: {fileID: 12703911}
-  jugadorTocando: 0
   panelMensajeNo: {fileID: 1976720719}
   panelPregunta: {fileID: 758965668}
-  idPuerta: 2
   controladorPuertas: {fileID: 1031844142}
+  jugadorTocando: 0
+  idPuerta: 2
+  puertaBloqueada: 1
+  puertaColliders:
+  - {fileID: 0}
 --- !u!61 &211837522
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3286,11 +3289,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puertaAsociada: {fileID: 11400000, guid: 006a9df224aad7044a2b47d5e1180da5, type: 2}
   inventario: {fileID: 12703911}
-  jugadorTocando: 0
   panelMensajeNo: {fileID: 1976720719}
   panelPregunta: {fileID: 758965668}
-  idPuerta: 1
   controladorPuertas: {fileID: 1031844142}
+  jugadorTocando: 0
+  idPuerta: 1
+  puertaBloqueada: 1
+  puertaColliders:
+  - {fileID: 0}
 --- !u!61 &282116540
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8108,8 +8114,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49185002, y: 0.14649999, z: 0}
-    m_Extent: {x: 1.49235, y: 1.164, z: 0}
+    m_Center: {x: 0.49119997, y: 0.14750004, z: 0}
+    m_Extent: {x: 1.492, y: 1.1638, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -13500,8 +13506,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49255, y: 0.14705002, z: 0}
-    m_Extent: {x: 1.4920499, y: 1.16365, z: 0}
+    m_Center: {x: 0.4925, y: 0.14625001, z: 0}
+    m_Extent: {x: 1.4919, y: 1.16345, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -13783,8 +13789,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.491, y: 0.14605004, z: 0}
-    m_Extent: {x: 1.4918001, y: 1.1637499, z: 0}
+    m_Center: {x: 0.4926, y: 0.14634997, z: 0}
+    m_Extent: {x: 1.4921, y: 1.16395, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -15704,8 +15710,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.39475, y: 0.75135, z: 0}
-    m_Extent: {x: 0.89745, y: 0.92185, z: 0}
+    m_Center: {x: -0.3952, y: 0.751, z: 0}
+    m_Extent: {x: 0.8973, y: 0.92179996, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -17785,8 +17791,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49235, y: 0.14695, z: 0}
-    m_Extent: {x: 1.4914501, y: 1.16355, z: 0}
+    m_Center: {x: 0.4918, y: 0.14670002, z: 0}
+    m_Extent: {x: 1.4926, y: 1.163, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -21817,11 +21823,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puertaAsociada: {fileID: 11400000, guid: 954dcc544da6b094cbd2db2a292b168f, type: 2}
   inventario: {fileID: 12703911}
-  jugadorTocando: 0
   panelMensajeNo: {fileID: 1976720719}
   panelPregunta: {fileID: 758965668}
-  idPuerta: 3
   controladorPuertas: {fileID: 1031844142}
+  jugadorTocando: 0
+  idPuerta: 3
+  puertaBloqueada: 1
+  puertaColliders:
+  - {fileID: 0}
 --- !u!61 &1890283346
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45498,6 +45507,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034784207}
   m_CullTransparentMesh: 1
+--- !u!1 &2054473349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2054473351}
+  - component: {fileID: 2054473350}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2054473350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054473349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710bb7522cf04af47853c5e89311915c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveManager: {fileID: 0}
+--- !u!4 &2054473351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054473349}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.376707, y: -9.433722, z: -0.008899917}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2062477265
 GameObject:
   m_ObjectHideFlags: 0
@@ -46570,7 +46624,7 @@ Transform:
   m_GameObject: {fileID: 6104036028353935995}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.6995528, w: 0.71458095}
-  m_LocalPosition: {x: 12.17, y: -6.29, z: 0.02411536}
+  m_LocalPosition: {x: 12.153, y: -6.287, z: 0.02411536}
   m_LocalScale: {x: 0.34543803, y: 0.34543803, z: 0.34543803}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -46668,3 +46722,4 @@ SceneRoots:
   - {fileID: 1031844141}
   - {fileID: 2062477266}
   - {fileID: 15345429}
+  - {fileID: 2054473351}
