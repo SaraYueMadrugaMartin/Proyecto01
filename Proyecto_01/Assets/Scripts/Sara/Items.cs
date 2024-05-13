@@ -26,20 +26,29 @@ public class Items : MonoBehaviour
     {
         if (cogerObjeto && Input.GetKeyDown("e"))
         {
-            inventario.AñadirObjeto(nombreItem, sprite);
-            objetoRecogido = true;
-            ultimoObjetoRecogido = this;
-
-            if (nombreItem == "Llave")
+            if (!inventario.InventarioCompleto())
             {
-                LlavesController llave = GetComponent<LlavesController>();
-                int llaveID = llave.ObtenerID();
-                Debug.Log("El ID de la llave es: " + llaveID);
-                inventario.RecibeIDLlave(llaveID);
-            } else if (nombreItem == "Municion")
-                Player.municion += 12;
-            gameObject.SetActive(false);
-            //Destroy(gameObject);
+                inventario.AñadirObjeto(nombreItem, sprite);
+                objetoRecogido = true;
+                ultimoObjetoRecogido = this;
+
+                if (nombreItem == "Llave")
+                {
+                    LlavesController llave = GetComponent<LlavesController>();
+                    int llaveID = llave.ObtenerID();
+                    Debug.Log("El ID de la llave es: " + llaveID);
+                    inventario.RecibeIDLlave(llaveID);
+                }
+                else if (nombreItem == "Municion")
+                    Player.municion += 12;
+
+                gameObject.SetActive(false);
+                //Destroy(gameObject);
+            }
+            else
+            {
+                Debug.Log("¡El inventario está lleno! No se puede recoger el objeto.");
+            }
         }
     }
 
@@ -59,7 +68,7 @@ public class Items : MonoBehaviour
         }
     }
 
-    public bool GetObjetoRecogido()
+    /*public bool GetObjetoRecogido()
     {
         return objetoRecogido;
     }
@@ -73,5 +82,5 @@ public class Items : MonoBehaviour
     public Items ObtenerUltimoObjetoInteractuado()
     {
         return ultimoObjetoRecogido;
-    }
+    }*/
 }

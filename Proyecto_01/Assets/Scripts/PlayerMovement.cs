@@ -6,7 +6,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    SaveManager saveManager;
+    //SaveManager saveManager;
+
+    GameManager gameManager;
 
     // Movimiento
     [SerializeField] float movimiento = 5f;
@@ -20,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        saveManager = SaveManager.instance;
+        gameManager = GameManager.instance;
         //saveManager = new SaveManager();
 
         anim = GetComponent<Animator>();
@@ -62,13 +64,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            saveManager.GuardarEstadoEscena();
+            gameManager.GuardarDatosEscena();
             Debug.Log("Se han guardado los datos.");
         }
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            saveManager.CargarEstadoEscena();
+            gameManager.ReiniciarEscena();
             Debug.Log("Datos cargados.");
         }
 

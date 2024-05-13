@@ -10,13 +10,16 @@ public struct PuertaState
     public bool[] collidersActivos;
 }
 
+public struct ItemState
+{
+    public string nombreItem;
+    public bool objetoRecogido;
+}
+
 [System.Serializable]
 public struct SceneState
 {    
     public Vector2 posicionPlayer;
-
-    public string nombreItem;
-    public bool objetoRecogido;
 
     public List<PuertaState> puertasState; // Lista para guardar la información de PuertaState.
 }
@@ -84,6 +87,12 @@ public class SaveManager: MonoBehaviour
             puertaState.puertaBloqueada = puerta.GetPuertaBloqueada();
             puertaState.puertaActivada = puerta.gameObject.activeSelf;
 
+            puertaState.collidersActivos = new bool[puerta.puertaColliders.Length];
+            for (int i = 0; i < puerta.puertaColliders.Length; i++)
+            {
+                puertaState.collidersActivos[i] = puerta.puertaColliders[i].enabled;
+            }
+
             sceneState.puertasState.Add(puertaState);
 
             Debug.Log("Puerta ID: " + puerta.idPuerta + ", Bloqueada: " + puertaState.puertaBloqueada + ", Activada: " + puertaState.puertaActivada);
@@ -106,8 +115,12 @@ public class SaveManager: MonoBehaviour
             savedSceneState = JsonUtility.FromJson<SceneState>(sceneStateJson);
 
             //PLAYER
-            infoPlayer.SetPosition(savedSceneState.posicionPlayer);
-            Debug.Log("Posición" + savedSceneState.posicionPlayer);
+            PlayerMovement playerMovement = FindObjectOfType<PlayerMovement>();
+            if (playerMovement != null)
+            {
+                playerMovement.SetPosition(savedSceneState.posicionPlayer);
+                Debug.Log("Posición" + savedSceneState.posicionPlayer);
+            }
 
 
             //ITEMS (NO FUNCIONA NADA)
@@ -138,12 +151,6 @@ public class SaveManager: MonoBehaviour
             }*/
 
             //PUERTAS
-            //Puerta[] puertas = FindObjectsOfType<Puerta>();
-            /*foreach (Puerta puerta in puertas)
-            {
-                puerta.gameObject.SetActive(true);
-            }*/
-
             foreach (PuertaState puertaState in savedSceneState.puertasState)
             {
                 Puerta puerta = GetPuertaID(puertaState.idPuerta);
@@ -151,6 +158,11 @@ public class SaveManager: MonoBehaviour
                 {
                     puerta.SetPuertaBloqueada(puertaState.puertaBloqueada);
                     puerta.gameObject.SetActive(puertaState.puertaActivada);
+
+                    for (int i = 0; i < puerta.puertaColliders.Length; i++) // Recorremos los colliders de las puertas para saber si deben activarse de nuevo o no.
+                    {
+                        puerta.puertaColliders[i].enabled = puertaState.collidersActivos[i];
+                    }
 
                     Debug.Log("Puerta ID " + puertaState.idPuerta + " - Bloqueada: " + puertaState.puertaBloqueada + ", Activada: " + puertaState.puertaActivada);
                 }
