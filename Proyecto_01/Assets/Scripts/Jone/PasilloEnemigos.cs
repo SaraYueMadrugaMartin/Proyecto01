@@ -1,20 +1,36 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PasilloEnemigos : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Awake()
-    {
-        int totalBalas = Player.contadorCorr;
+    public int cantidadHijosActivar = 4; //Player.contadorCorr;
 
-        for (int i = 0; i < totalBalas; i++)
+    private void Start()
+    {
+        ActivarHijosSegunContador();
+    }
+
+    void ActivarHijosSegunContador()
+    {
+        int hijosActivados = 0;
+
+        // Recorremos todos los hijos del objeto padre
+        foreach (Transform hijo in transform)
         {
-            /*if (!balas[i].activeInHierarchy)
+            // Activamos el hijo si no hemos alcanzado la cantidad máxima
+            if (hijosActivados < cantidadHijosActivar)
             {
-                balas[i].SetActive(true);
-            }*/
+                hijo.gameObject.SetActive(true);
+                hijosActivados++;
+            }
+            else
+            {
+                // Desactivamos los hijos restantes si ya hemos alcanzado la cantidad máxima
+                hijo.gameObject.SetActive(false);
+            }
         }
     }
+
 }
