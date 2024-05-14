@@ -11,15 +11,16 @@ public class Enemigo : MonoBehaviour
 
     // Para seguir al jugador
     [SerializeField] GameObject player;
-    [SerializeField] float rangoDeteccion = 5f;
+    [SerializeField] float rangoDeteccionBase = 5f;
     [SerializeField] float velocidad = 1f;
     float distancia;
+    float rangoDeteccion;
 
     // Para atacar al jugador
     [SerializeField] float rangoAtaque = 2f;
     float tiempoEspera = 2f;
     float tiempoSiguienteAtaque = 0f;
-    float dañoAtaque = 20f;
+    float dañoAtaque = 20f;   
 
     int corrEnemigo = 20;
 
@@ -29,11 +30,17 @@ public class Enemigo : MonoBehaviour
     {
         saludActual = saludMax;
         anim = GetComponent<Animator>();
+        rangoDeteccion = rangoDeteccionBase;
     }
     private void Update()
     {
         distancia = Vector2.Distance(transform.position, player.transform.position);
         //Vector2 direccion = player.transform.position - transform.position;
+
+        if (PlayerMovement.sigilo)
+            rangoDeteccion -= 1.5f;
+        else
+            rangoDeteccion = rangoDeteccionBase;
 
         if (distancia < rangoDeteccion && distancia > rangoAtaque)
         {

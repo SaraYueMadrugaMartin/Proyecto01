@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private bool miraDerecha = true;
     private Puntero puntero;
     private GameObject pistola;
+    public static bool sigilo = false;
 
     Animator anim;
 
@@ -112,17 +113,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
+            sigilo = false;
             multiplicador = 1.6f;
             anim.SetBool("estaCorriendo", true);
         }
         else if (Input.GetKey(KeyCode.LeftControl))
         {
+            sigilo = true;
             multiplicador = 0.8f;
             // Aquí iría la animación de sigilo o de andar agachado, ahora mismo es la animación de andar pero más lenta
             anim.SetBool("estaCorriendo", false);
         }
         else
         {
+            sigilo = false;
             multiplicador = 1f;
             anim.SetBool("estaCorriendo", false);
         }
