@@ -11,12 +11,10 @@ public class PasilloEnemigos : MonoBehaviour
 
         for (int i = 0; i < totalBalas; i++)
         {
-            if (!balas[i].activeInHierarchy)
+            /*if (!balas[i].activeInHierarchy)
             {
                 balas[i].SetActive(true);
-                return balas[i];
-            }
+            }*/
         }
-        return null;
     }
 }
