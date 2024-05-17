@@ -19,7 +19,7 @@ public class Cinematica : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > (duracion - 30)) //Esto hay que cambiarlo está así para que sea más corto en las pruebas
+        if (Time.time > (duracion))
         {
             CambioEscena();
         }      
