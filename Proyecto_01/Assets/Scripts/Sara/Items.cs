@@ -9,7 +9,7 @@ public class Items : MonoBehaviour
     private Inventario inventario;
     private bool cogerObjeto = false;
 
-
+    private PanelesInteracciones panelesInteracciones;
 
     public Vector2 posicionInicial;
     public bool objetoRecogido = false;
@@ -19,6 +19,7 @@ public class Items : MonoBehaviour
     void Start()
     {
         inventario = GameObject.Find("Canvas").GetComponent<Inventario>();
+        panelesInteracciones = FindObjectOfType<PanelesInteracciones>();
         posicionInicial = transform.position;
     }
 
@@ -29,8 +30,9 @@ public class Items : MonoBehaviour
             if (!inventario.InventarioCompleto())
             {
                 inventario.AñadirObjeto(nombreItem, sprite);
+                panelesInteracciones.AparecerPanelInteraccion(nombreItem);
                 objetoRecogido = true;
-                ultimoObjetoRecogido = this;
+                //ultimoObjetoRecogido = this;
 
                 if (nombreItem == "Llave")
                 {

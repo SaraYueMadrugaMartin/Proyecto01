@@ -74,40 +74,7 @@ public class PlayerMovement : MonoBehaviour
             gameManager.ReiniciarEscena();
             Debug.Log("Datos cargados.");
         }
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            //DeleteSavedData();
-        }
     }
-
-    /*private void LoadData()
-    {
-        PlayerData playerData = SaveManager.LoadPlayerData();
-        if(playerData != null)
-        {
-            transform.position = new Vector2(playerData.posicion[0], playerData.posicion[1]);
-            Debug.Log("Datos cargados");
-        }
-        else
-        {
-            transform.position = posicionInicial;
-            Debug.Log("No se encontraron datos guardados. Cargando posición inicial del jugador.");
-        }
-        
-    }
-
-    private void SaveData()
-    {
-        PlayerData data = new PlayerData(this);
-        SaveManager.SavePlayerData(this);
-        Debug.Log("Posición del jugador guardada en: " + transform.position);
-    }
-
-    private void DeleteSavedData()
-    {
-        SaveManager.DeleteSavedData();
-    }*/
 
     private void Velocidad()
     {
