@@ -9,17 +9,17 @@ public class Items : MonoBehaviour
     private Inventario inventario;
     private bool cogerObjeto = false;
 
-    private PanelesInteracciones panelesInteracciones;
+    private PanelesInteracciones panelesInteracciones, panelAvisoInventarioCompleto;
 
     public Vector2 posicionInicial;
     public bool objetoRecogido = false;
     public Items ultimoObjetoRecogido;
-    //public Vector2 coordIniciales;
 
     void Start()
     {
         inventario = GameObject.Find("Canvas").GetComponent<Inventario>();
         panelesInteracciones = FindObjectOfType<PanelesInteracciones>();
+        panelAvisoInventarioCompleto = FindObjectOfType<PanelesInteracciones>();
         posicionInicial = transform.position;
     }
 
@@ -32,7 +32,6 @@ public class Items : MonoBehaviour
                 inventario.AñadirObjeto(nombreItem, sprite);
                 panelesInteracciones.AparecerPanelInteraccion(nombreItem);
                 objetoRecogido = true;
-                //ultimoObjetoRecogido = this;
 
                 if (nombreItem == "Llave")
                 {
@@ -45,10 +44,10 @@ public class Items : MonoBehaviour
                     Player.municion += 12;
 
                 gameObject.SetActive(false);
-                //Destroy(gameObject);
             }
             else
             {
+                panelAvisoInventarioCompleto.AparecerPanelAvisoInventarioCompleto();
                 Debug.Log("¡El inventario está lleno! No se puede recoger el objeto.");
             }
         }
@@ -69,20 +68,4 @@ public class Items : MonoBehaviour
             cogerObjeto = false;
         }
     }
-
-    /*public bool GetObjetoRecogido()
-    {
-        return objetoRecogido;
-    }
-
-    public void SetObjetoRecogido(bool estaObjetoActivo)
-    {
-        objetoRecogido = estaObjetoActivo;
-        gameObject.SetActive(estaObjetoActivo);
-    }
-
-    public Items ObtenerUltimoObjetoInteractuado()
-    {
-        return ultimoObjetoRecogido;
-    }*/
 }

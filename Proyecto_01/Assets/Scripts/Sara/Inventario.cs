@@ -68,10 +68,6 @@ public class Inventario : MonoBehaviour
                     }
                 }
             }
-            else
-            {
-                Debug.Log("No hay hueco para añadir más objetos.");
-            }
         }
     }
 

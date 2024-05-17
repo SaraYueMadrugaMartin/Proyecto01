@@ -6,18 +6,14 @@ using UnityEngine;
 public class PanelesInteracciones : MonoBehaviour
 {
     [SerializeField] private GameObject panelInteraccion;
+    [SerializeField] private GameObject panelAvisoInventarioCompleto;
+
     [SerializeField] private TextMeshProUGUI infoPanelInteraccion;
-    [SerializeField] private float duracionPanel = 2f;
 
     void Start()
     {
         panelInteraccion.SetActive(false);
-        //infoPanelInteraccion = new TextMeshProUGUI();
-    }
-
-    void Update()
-    {
-        
+        panelAvisoInventarioCompleto.SetActive(false);
     }
 
     public void AparecerPanelInteraccion(string nombreItem)
@@ -55,9 +51,21 @@ public class PanelesInteracciones : MonoBehaviour
         StartCoroutine(DesactivarPanelInteraccion());
     }
 
+    public void AparecerPanelAvisoInventarioCompleto()
+    {
+        panelAvisoInventarioCompleto.SetActive(true);
+        StartCoroutine(DesactivarPanelAvisoInventarioCompleto());
+    }
+
     IEnumerator DesactivarPanelInteraccion()
     {
-        yield return new WaitForSeconds(duracionPanel);
+        yield return new WaitForSeconds(2f);
         panelInteraccion.SetActive(false);
+    }
+
+    IEnumerator DesactivarPanelAvisoInventarioCompleto()
+    {
+        yield return new WaitForSeconds(3f);
+        panelAvisoInventarioCompleto.SetActive(false);
     }
 }
