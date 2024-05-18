@@ -95,6 +95,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombreItem: Documento
   sprite: {fileID: 21300000, guid: b89694916d39e5247a3daf476498bb73, type: 3}
+  posicionInicial: {x: 0, y: 0}
+  objetoRecogido: 0
+  ultimoObjetoRecogido: {fileID: 0}
 --- !u!114 &952692190637484056
 MonoBehaviour:
   m_ObjectHideFlags: 0

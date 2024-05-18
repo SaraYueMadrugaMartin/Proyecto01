@@ -11,6 +11,9 @@ public class Inventario : MonoBehaviour
     [SerializeField] private List<ObjetoPanelInfo> objetosPanelesInformacion;
     [SerializeField] private GameObject botonAtrasInfo;
 
+    private List<Items> objetosRegistrados = new List<Items>();
+
+
     public HuecosInventario[] huecosInventario;
 
     private Items devolverItems;
@@ -64,6 +67,18 @@ public class Inventario : MonoBehaviour
                     if (!hueco.estaCompleto)
                     {
                         hueco.AñadirObjeto(nombreItem, sprite);
+
+                        // Buscar el objeto en la escena y registrarlo
+                        Items item = FindObjectsOfType<Items>().FirstOrDefault(obj => obj.nombreItem == nombreItem);
+                        if (item != null)
+                        {
+                            RegistrarObjeto(item);
+                        }
+                        else
+                        {
+                            Debug.LogWarning("No se encontró el objeto en la escena: " + nombreItem);
+                        }
+
                         return; // Parar el bucle cuando encuentra el hueco vacío y añade el nuevo objeto.
                     }
                 }
@@ -156,6 +171,58 @@ public class Inventario : MonoBehaviour
     public int BuscaIDLlave()
     {
         return llaveID;
+    }
+
+    public void DejarObjeto()
+    {
+        Debug.Log("Intentando dejar objeto...");
+
+        for (int i = 0; i < huecosInventario.Length; i++)
+        {
+            if (huecosInventario[i].objetoSeleccionado)
+            {
+                string nombreObjeto = huecosInventario[i].nombreItem;
+
+                Debug.Log("Objeto seleccionado: " + nombreObjeto);
+
+                if (!string.IsNullOrEmpty(nombreObjeto))
+                {
+                    // Buscamos el objeto en la lista de objetos registrados
+                    Items objeto = objetosRegistrados.FirstOrDefault(item => item.nombreItem == nombreObjeto);
+
+                    if (objeto != null)
+                    {
+                        Vector3 posicionJugador = GameObject.FindWithTag("Player").transform.position;
+                        objeto.MoverYActivar(posicionJugador);
+                        foreach (var panelBoton in huecosInventario[i].panelesBotones.Values)
+                        {
+                            panelBoton.SetActive(false);
+                        }
+                        huecosInventario[i].panelSeleccion.SetActive(false);
+                        huecosInventario[i].VaciarHueco();
+
+                        Debug.Log("Objeto dejado: " + nombreObjeto);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    public void RegistrarObjeto(Items item)
+    {
+        if (!objetosRegistrados.Contains(item))
+        {
+            objetosRegistrados.Add(item);
+        }
+    }
+
+    public void DesregistrarObjeto(Items item)
+    {
+        if (objetosRegistrados.Contains(item))
+        {
+            objetosRegistrados.Remove(item);
+        }
     }
 }
 

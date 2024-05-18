@@ -15,12 +15,30 @@ public class Items : MonoBehaviour
     public bool objetoRecogido = false;
     public Items ultimoObjetoRecogido;
 
+    private Collider2D itemCollider;
+    private GameObject[] propiedadesHijosItems;
+
     void Start()
     {
         inventario = GameObject.Find("Canvas").GetComponent<Inventario>();
         panelesInteracciones = FindObjectOfType<PanelesInteracciones>();
         panelAvisoInventarioCompleto = FindObjectOfType<PanelesInteracciones>();
         posicionInicial = transform.position;
+        itemCollider = GetComponent<Collider2D>();
+        Transform[] hijosTransform = GetComponentsInChildren<Transform>(includeInactive: true);
+        List<GameObject> hijosGameObjects = new List<GameObject>();
+
+        foreach (Transform hijoTransform in hijosTransform)
+        {
+            if (hijoTransform.gameObject != this.gameObject) // Excluir el propio objeto
+            {
+                hijosGameObjects.Add(hijoTransform.gameObject);
+            }
+        }
+
+        propiedadesHijosItems = hijosGameObjects.ToArray();
+        //spriteItem = transform.Find("Sprite").gameObject;
+        //RegistrarObjeto();
     }
 
     private void Update()
@@ -43,7 +61,8 @@ public class Items : MonoBehaviour
                 else if (nombreItem == "Municion")
                     Player.municion += 12;
 
-                gameObject.SetActive(false);
+                DesactivarItem();
+                //gameObject.SetActive(false);
             }
             else
             {
@@ -67,5 +86,37 @@ public class Items : MonoBehaviour
         {
             cogerObjeto = false;
         }
+    }
+
+    public void MoverYActivar(Vector3 nuevaPosicion)
+    {
+        transform.position = nuevaPosicion;
+        ActivarItem();
+        Debug.Log("Objeto movido y activado en la posición: " + nuevaPosicion);
+    }
+
+    private void DesactivarItem()
+    {
+        itemCollider.enabled = false;
+        if (propiedadesHijosItems != null)
+        {
+            foreach (GameObject hijo in propiedadesHijosItems)
+            {
+                hijo.SetActive(false);
+            }
+        }
+    }
+
+    private void ActivarItem()
+    {
+        itemCollider.enabled = true;
+        if (propiedadesHijosItems != null)
+        {
+            foreach (GameObject hijo in propiedadesHijosItems)
+            {
+                hijo.SetActive(true);
+            }
+        }
+        gameObject.SetActive(true);
     }
 }

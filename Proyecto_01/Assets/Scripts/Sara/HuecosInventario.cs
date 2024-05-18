@@ -22,6 +22,8 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
     [SerializeField] private GameObject panelBotonesArma;
     [SerializeField] private GameObject panelBotonesBotiquin;
     [SerializeField] private GameObject panelBotonesTinta;
+    [SerializeField] private GameObject panelBotonesDiario;
+    [SerializeField] private GameObject panelBotonesMunicion;
 
     private void Start()
     {
@@ -31,6 +33,8 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
         panelesBotones.Add("Bate", panelBotonesArma);
         panelesBotones.Add("Botiquin", panelBotonesBotiquin);
         panelesBotones.Add("Tinta", panelBotonesTinta);
+        panelesBotones.Add("Diario", panelBotonesDiario);
+        panelesBotones.Add("Municion", panelBotonesMunicion);
     }
 
     public void AñadirObjeto(string nombreItem, Sprite sprite)

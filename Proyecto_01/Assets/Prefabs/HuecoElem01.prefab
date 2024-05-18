@@ -95,13 +95,14 @@ MonoBehaviour:
   cantidad: 0
   sprite: {fileID: 0}
   estaCompleto: 0
-  coordItem: {x: 0, y: 0}
   panelSeleccion: {fileID: 8892128668815513959}
   objetoSeleccionado: 0
   panelBotonesDocumento: {fileID: 0}
   panelBotonesArma: {fileID: 0}
   panelBotonesBotiquin: {fileID: 0}
   panelBotonesTinta: {fileID: 0}
+  panelBotonesDiario: {fileID: 0}
+  panelBotonesMunicion: {fileID: 0}
 --- !u!1 &4669262854142738240
 GameObject:
   m_ObjectHideFlags: 0
