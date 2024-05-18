@@ -6,22 +6,28 @@ using UnityEngine.U2D;
 public class Visibilidad : MonoBehaviour
 {
     bool estaDentro = false;
-    SpriteRenderer spr;
+    SpriteRenderer[] spr;
 
     private void Start()
     {
-        spr = GetComponent<SpriteRenderer>();
+        spr = GetComponentsInChildren<SpriteRenderer>();
     }
 
     private void Update()
     {
         if (estaDentro)
         {
-            spr.enabled = false;
+            foreach (SpriteRenderer sprite in spr)
+            {
+                sprite.enabled = false;
+            }
         }      
         if (!estaDentro)
         {
-            spr.enabled = true;
+            foreach (SpriteRenderer sprite in spr)
+            {
+                sprite.enabled = true;
+            }
         }          
     }
 
