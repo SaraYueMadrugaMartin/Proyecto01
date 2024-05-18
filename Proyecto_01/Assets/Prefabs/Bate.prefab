@@ -93,7 +93,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7204230893123283307}
-  - component: {fileID: 5856090720335572615}
   - component: {fileID: 131525367367990719}
   - component: {fileID: 670022604389553594}
   m_Layer: 0
@@ -119,53 +118,6 @@ Transform:
   - {fileID: 6972782101073508103}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -67.117}
---- !u!68 &5856090720335572615
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4030933599566728657}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.2869555, y: 0.2594091}
-  - {x: -0.2870673, y: 0.19837473}
-  - {x: 0.24003981, y: -0.28435037}
-  - {x: 0.30692035, y: -0.24570175}
-  - {x: 0.3020473, y: -0.20411436}
-  - {x: -0.08199033, y: 0.13281912}
-  - {x: -0.22559303, y: 0.26980215}
-  - {x: -0.27737227, y: 0.26587325}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!61 &131525367367990719
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -225,3 +177,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombreItem: Bate
   sprite: {fileID: 21300000, guid: 73b5ae46db9aca54c9d6bc46bc7184e6, type: 3}
+  posicionInicial: {x: 0, y: 0}
+  objetoRecogido: 0
+  ultimoObjetoRecogido: {fileID: 0}
