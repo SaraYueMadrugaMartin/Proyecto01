@@ -2377,8 +2377,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49135, y: 0.14630002, z: 0}
-    m_Extent: {x: 1.4920499, y: 1.1644001, z: 0}
+    m_Center: {x: 0.4921, y: 0.1469, z: 0}
+    m_Extent: {x: 1.4921, y: 1.1644001, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -2543,8 +2543,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.3944, y: 0.75119996, z: 0}
-    m_Extent: {x: 0.8979, y: 0.9216, z: 0}
+    m_Center: {x: -0.39515, y: 0.7511, z: 0}
+    m_Extent: {x: 0.89735, y: 0.9212, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -50203,8 +50203,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49175, y: 0.14670002, z: 0}
-    m_Extent: {x: 1.49255, y: 1.1644, z: 0}
+    m_Center: {x: 0.49209997, y: 0.14670002, z: 0}
+    m_Extent: {x: 1.4919, y: 1.1631, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -50409,7 +50409,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.15991545, y: 2.0925002}
+  m_Offset: {x: 0.13096666, y: 3.5067337}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -50420,7 +50420,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.92163754, y: 3.7200613}
+  m_Size: {x: 1.1725254, y: 1.1424832}
   m_EdgeRadius: 0
 --- !u!61 &127859752
 BoxCollider2D:
@@ -50454,7 +50454,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.15466475, y: 2.1136968}
+  m_Offset: {x: 0.1594894, y: 3.5019088}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -50465,7 +50465,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9084754, y: 2.9646878}
+  m_Size: {x: 1.0146203, y: 0.82230663}
   m_EdgeRadius: 0
 --- !u!1 &188152791
 GameObject:
@@ -51094,7 +51094,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.21360326, y: 0.39421302}
+  m_Offset: {x: -0.21360326, y: 0.34787673}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -51105,7 +51105,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7573636, y: 1.1637111}
+  m_Size: {x: 1.7573636, y: 1.2563837}
   m_EdgeRadius: 0
 --- !u!61 &206514002
 BoxCollider2D:
@@ -51139,7 +51139,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.47869563, y: 0.47694978}
+  m_Offset: {x: -0.66404223, y: 0.4306134}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -51150,7 +51150,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.0288463, y: 1.1137532}
+  m_Size: {x: 1.658153, y: 1.2064259}
   m_EdgeRadius: 0
 --- !u!4 &214383045 stripped
 Transform:
@@ -52852,7 +52852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5578002713425186680, guid: de4d7126493d6eb4aa92a307fa5ef6c9, type: 3}
       propertyPath: m_Size.x
-      value: 0.8468666
+      value: 0.8275676
       objectReference: {fileID: 0}
     - target: {fileID: 5578002713425186680, guid: de4d7126493d6eb4aa92a307fa5ef6c9, type: 3}
       propertyPath: m_Size.y
@@ -52864,7 +52864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5578002713425186680, guid: de4d7126493d6eb4aa92a307fa5ef6c9, type: 3}
       propertyPath: m_Offset.x
-      value: 0.06484127
+      value: 0.055191755
       objectReference: {fileID: 0}
     - target: {fileID: 5578002713425186680, guid: de4d7126493d6eb4aa92a307fa5ef6c9, type: 3}
       propertyPath: m_Offset.y
@@ -55279,8 +55279,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49205, y: 0.14684999, z: 0}
-    m_Extent: {x: 1.4925499, y: 1.16405, z: 0}
+    m_Center: {x: 0.49260002, y: 0.14649999, z: 0}
+    m_Extent: {x: 1.4918001, y: 1.1632, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -58028,8 +58028,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49175, y: 0.1469, z: 0}
-    m_Extent: {x: 1.49205, y: 1.1638999, z: 0}
+    m_Center: {x: 0.49195004, y: 0.14680004, z: 0}
+    m_Extent: {x: 1.49245, y: 1.1645, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -58910,8 +58910,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49124998, y: 0.14745003, z: 0}
-    m_Extent: {x: 1.49195, y: 1.1637499, z: 0}
+    m_Center: {x: 0.49120003, y: 0.14625001, z: 0}
+    m_Extent: {x: 1.4916, y: 1.16405, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -61016,7 +61016,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1191063250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61280,8 +61280,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.3951, y: 0.75065005, z: 0}
-    m_Extent: {x: 0.8971, y: 0.92125, z: 0}
+    m_Center: {x: -0.39564997, y: 0.75060004, z: 0}
+    m_Extent: {x: 0.89795, y: 0.9214, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -64079,8 +64079,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49120003, y: 0.14659995, z: 0}
-    m_Extent: {x: 1.4918001, y: 1.1642001, z: 0}
+    m_Center: {x: 0.4921, y: 0.1462, z: 0}
+    m_Extent: {x: 1.4913, y: 1.1643, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
