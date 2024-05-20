@@ -9,8 +9,8 @@ public class PuertaSL : MonoBehaviour
 
     [SerializeField] private bool jugadorTocandoArriba;
     [SerializeField] private bool jugadorTocandoAbajo;
-    [SerializeField] private bool jugadorTocandoDerecha;
-    [SerializeField] private bool jugadorTocandoIzquierda;
+    //[SerializeField] private bool jugadorTocandoDerecha;
+    //[SerializeField] private bool jugadorTocandoIzquierda;
 
     private void Update()
     {
@@ -26,7 +26,7 @@ public class PuertaSL : MonoBehaviour
                 Invoke("CambioPosicionArriba", 0.3f);
                 fadeAnimation.FadeOut();
             }
-            else if (jugadorTocandoDerecha)
+            /*else if (jugadorTocandoDerecha)
             {
                 Invoke("CambioPosicionIzquierda", 0.3f);
                 fadeAnimation.FadeOut();
@@ -35,7 +35,7 @@ public class PuertaSL : MonoBehaviour
             {
                 Invoke("CambioPosicionDerecha", 0.3f);
                 fadeAnimation.FadeOut();
-            }
+            }*/
         }
     }
 
@@ -53,13 +53,13 @@ public class PuertaSL : MonoBehaviour
             {
                 jugadorTocandoArriba = playerPosition.y > doorPosition.y;
                 jugadorTocandoAbajo = playerPosition.y < doorPosition.y;
-                jugadorTocandoIzquierda = false;
-                jugadorTocandoDerecha = false;
+                //jugadorTocandoIzquierda = false;
+                //jugadorTocandoDerecha = false;
             }
             else
             {
-                jugadorTocandoIzquierda = playerPosition.x < doorPosition.x;
-                jugadorTocandoDerecha = playerPosition.x > doorPosition.x;
+                //jugadorTocandoIzquierda = playerPosition.x < doorPosition.x;
+                //jugadorTocandoDerecha = playerPosition.x > doorPosition.x;
                 jugadorTocandoArriba = false;
                 jugadorTocandoAbajo = false;
             }
@@ -77,8 +77,8 @@ public class PuertaSL : MonoBehaviour
         {
             jugadorTocandoArriba = false;
             jugadorTocandoAbajo = false;
-            jugadorTocandoDerecha = false;
-            jugadorTocandoIzquierda = false;
+            //jugadorTocandoDerecha = false;
+            //jugadorTocandoIzquierda = false;
         }
     }
 
@@ -94,7 +94,7 @@ public class PuertaSL : MonoBehaviour
         player.transform.position = posNuevaAbajo;
     }
 
-    private void CambioPosicionDerecha()
+    /*private void CambioPosicionDerecha()
     {
         //fadeAnimation.FadeOut();
         player.transform.position = posNuevaArriba;
@@ -104,5 +104,5 @@ public class PuertaSL : MonoBehaviour
     {
         //fadeAnimation.FadeOut();
         player.transform.position = posNuevaAbajo;
-    }
+    }*/
 }
