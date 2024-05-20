@@ -16,7 +16,7 @@ public class Inventario : MonoBehaviour
 
     public HuecosInventario[] huecosInventario;
 
-    private Items devolverItems;
+    //private Items devolverItems;
 
     public static Inventario Instance;
     private bool estadoInvent = false;
