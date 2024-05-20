@@ -7,7 +7,7 @@ public class Puerta : MonoBehaviour
 {
     [SerializeField] public PlantillaPuertas puertaAsociada; // Referenciamos el scriptable para asignar a cada puerta y poder comparar con la ID de las llaves.
     [SerializeField] private Inventario inventario;
-
+    [SerializeField] private TutorialGeneralController tutoController;
     [SerializeField] private GameObject panelMensajeNo;
     [SerializeField] private GameObject panelPregunta;
 
@@ -31,6 +31,8 @@ public class Puerta : MonoBehaviour
         if (jugadorTocando && Input.GetKeyDown("e"))
         {
             InteractuarConPuerta();
+            tutoController.ActivarPanelTuto01();
+
             //RecibeIDPuerta(idPuerta);
             Debug.Log("Esta es la puerta con ID: " + idPuerta);
         }
