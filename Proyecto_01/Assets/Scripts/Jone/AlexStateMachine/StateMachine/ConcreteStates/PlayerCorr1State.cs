@@ -13,6 +13,8 @@ public class PlayerCorr1State : PlayerState
         base.EnterState();
         // Stats base de velocidad y daño de ataque
         base.CambiaAnimaciones(1);
+        Player.multiplicadorVelocidad = 0.9f;
+        Player.multiplicadorAtaque = 1.1f;
     }
 
     public override void ExitState()

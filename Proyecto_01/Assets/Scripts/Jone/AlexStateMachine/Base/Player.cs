@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    #region Player Stats
+    #region Variables Player Stats
 
     // Corrupción
     static public int contadorCorr = 0; // Enemigos totales asesinados
@@ -20,6 +20,16 @@ public class Player : MonoBehaviour
     static public float saludActual; // Barra salud
 
     static public int municion = 0;
+
+    #endregion
+
+    #region Variables Player Movement
+    static public float multiplicadorVelocidad = 1f;
+
+    #endregion
+
+    #region Variables Player Combat
+    static public float multiplicadorAtaque = 1f;
 
     #endregion
 
