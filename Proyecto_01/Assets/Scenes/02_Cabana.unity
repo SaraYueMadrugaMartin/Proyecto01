@@ -400,6 +400,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14721240}
   m_CullTransparentMesh: 1
+--- !u!1 &15309056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3605400357685110331, guid: e67dfd8476dfa174cab0ca71d2addebf, type: 3}
+  m_PrefabInstance: {fileID: 1430644606}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &26096770
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,10 +883,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 30.888
       objectReference: {fileID: 0}
+    - target: {fileID: 6809596308415756246, guid: e67dfd8476dfa174cab0ca71d2addebf, type: 3}
+      propertyPath: panelAsociado
+      value: 
+      objectReference: {fileID: 836062412}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3605400357685110331, guid: e67dfd8476dfa174cab0ca71d2addebf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 932142965}
   m_SourcePrefab: {fileID: 100100000, guid: e67dfd8476dfa174cab0ca71d2addebf, type: 3}
 --- !u!1 &63208949
 GameObject:
@@ -1037,8 +1049,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.3957, y: 0.75084996, z: 0}
-    m_Extent: {x: 0.89750004, y: 0.92195, z: 0}
+    m_Center: {x: -0.39475, y: 0.75075, z: 0}
+    m_Extent: {x: 0.89705, y: 0.92144996, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1053,6 +1065,11 @@ MonoBehaviour:
   - {x: -0.33260727, y: 0.35121298, z: 0}
   - {x: 0.0028133392, y: 1.1732469, z: 0}
   - {x: -0.5057478, y: 1.1470208, z: 0}
+--- !u!1 &92062128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3605400357685110331, guid: e67dfd8476dfa174cab0ca71d2addebf, type: 3}
+  m_PrefabInstance: {fileID: 59507288}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &93997631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,7 +1229,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 932142962}
+      - m_Target: {fileID: 932142965}
         m_TargetAssemblyTypeName: Documentos, Assembly-CSharp
         m_MethodName: SalirDocs
         m_Mode: 1
@@ -1328,8 +1345,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49255, y: 0.14649999, z: 0}
-    m_Extent: {x: 1.4920499, y: 1.1638, z: 0}
+    m_Center: {x: 0.49154997, y: 0.14684999, z: 0}
+    m_Extent: {x: 1.49165, y: 1.16445, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -3984,7 +4001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.7058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4460,7 +4477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.7058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6207,7 +6224,6 @@ GameObject:
   - component: {fileID: 531373144}
   - component: {fileID: 531373143}
   - component: {fileID: 531373147}
-  - component: {fileID: 531373148}
   m_Layer: 5
   m_Name: Tutorial
   m_TagString: Untagged
@@ -6322,19 +6338,6 @@ MonoBehaviour:
   - Tengo que ir a buscarla.
   velocidadTexto: 0.05
   audioSource: {fileID: 1135706491}
---- !u!114 &531373148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 531373142}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da1cfd29b8416f74cac5ebbfaf288f50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelTutorial01: {fileID: 1433092233}
 --- !u!1 &535917539
 GameObject:
   m_ObjectHideFlags: 0
@@ -6499,27 +6502,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 111.585
       objectReference: {fileID: 0}
+    - target: {fileID: 6809596308415756246, guid: e67dfd8476dfa174cab0ca71d2addebf, type: 3}
+      propertyPath: panelAsociado
+      value: 
+      objectReference: {fileID: 220368506}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3605400357685110331, guid: e67dfd8476dfa174cab0ca71d2addebf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1564943985}
   m_SourcePrefab: {fileID: 100100000, guid: e67dfd8476dfa174cab0ca71d2addebf, type: 3}
 --- !u!4 &552866243 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6434688989803020471, guid: e67dfd8476dfa174cab0ca71d2addebf, type: 3}
   m_PrefabInstance: {fileID: 552866239}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &552866244 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6809596308415756246, guid: e67dfd8476dfa174cab0ca71d2addebf, type: 3}
-  m_PrefabInstance: {fileID: 552866239}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa79e5638cbe9074dbf7e5ce48fe07c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &559232488
 GameObject:
   m_ObjectHideFlags: 0
@@ -7655,10 +7654,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 836062413}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -17.499973}
-  m_SizeDelta: {x: 0, y: -35.000057}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 573.1599, y: 729}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &673011437
 MonoBehaviour:
@@ -7680,7 +7679,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: DOCUMENTO 2
+  m_text: "Desde que murieron los abuelos hemos venido muy poco a pasar el fin de
+    semana en el bosque. Alex parece que ya no le gusta nadar en el lago conmigo
+    ni hacer nada en general. Me encanta este lugar, ojal\xE1 no tener que irnos
+    nunca."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7707,8 +7709,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 64.3
-  m_fontSizeBase: 64.3
+  m_fontSize: 52
+  m_fontSizeBase: 52
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -42490,7 +42492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.7058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -42865,8 +42867,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49235, y: 0.14710003, z: 0}
-    m_Extent: {x: 1.4914501, y: 1.1633999, z: 0}
+    m_Center: {x: 0.4923, y: 0.14644998, z: 0}
+    m_Extent: {x: 1.4921, y: 1.1637499, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -43063,7 +43065,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puertaAsociada: {fileID: 11400000, guid: 60689c64f59de1d4cb6f3e93be6dcb75, type: 2}
   inventario: {fileID: 671693455}
-  tutoController: {fileID: 531373148}
   panelMensajeNo: {fileID: 1219873406}
   panelPregunta: {fileID: 1701128208}
   controladorPuertas: {fileID: 591400402}
@@ -43771,17 +43772,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6434688989803020471, guid: e67dfd8476dfa174cab0ca71d2addebf, type: 3}
   m_PrefabInstance: {fileID: 59507288}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &932142962 stripped
+--- !u!114 &932142965
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6809596308415756246, guid: e67dfd8476dfa174cab0ca71d2addebf, type: 3}
-  m_PrefabInstance: {fileID: 59507288}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 92062128}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa79e5638cbe9074dbf7e5ce48fe07c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelAsociado: {fileID: 836062412}
+  jugadorTocando: 0
 --- !u!1 &934402175
 GameObject:
   m_ObjectHideFlags: 0
@@ -44681,8 +44685,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49215, y: 0.14640003, z: 0}
-    m_Extent: {x: 1.49155, y: 1.1642001, z: 0}
+    m_Center: {x: 0.49124998, y: 0.14674997, z: 0}
+    m_Extent: {x: 1.4921501, y: 1.16355, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -46506,10 +46510,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 220368507}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -17.499973}
-  m_SizeDelta: {x: 0, y: -35.000057}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.0000035762787, y: 10}
+  m_SizeDelta: {x: 559.6672, y: 622.9871}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1145916267
 MonoBehaviour:
@@ -46531,7 +46535,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: DOCUMENTO 3
+  m_text: "A veces por las noches escucho algo que viene de debajo del suelo, es
+    como un ruido muy feo y algo que se arrastra. Alex dice que son imaginaciones
+    m\xEDas. Pero si eso fuese verdad por qu\xE9 nunca quiere bajar al s\xF3tano\u2026 "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -46558,8 +46564,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 64.3
-  m_fontSizeBase: 64.3
+  m_fontSize: 52
+  m_fontSizeBase: 52
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -47500,7 +47506,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1430644611}
+      - m_Target: {fileID: 1430644614}
         m_TargetAssemblyTypeName: Documentos, Assembly-CSharp
         m_MethodName: SalirDocs
         m_Mode: 1
@@ -48101,8 +48107,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.39540002, y: 0.7512, z: 0}
-    m_Extent: {x: 0.89779997, y: 0.9214, z: 0}
+    m_Center: {x: -0.39580002, y: 0.7515, z: 0}
+    m_Extent: {x: 0.89760005, y: 0.9217, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -48881,24 +48887,30 @@ PrefabInstance:
     - {fileID: 952692190637484056, guid: e67dfd8476dfa174cab0ca71d2addebf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3605400357685110331, guid: e67dfd8476dfa174cab0ca71d2addebf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1430644614}
   m_SourcePrefab: {fileID: 100100000, guid: e67dfd8476dfa174cab0ca71d2addebf, type: 3}
 --- !u!4 &1430644610 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6434688989803020471, guid: e67dfd8476dfa174cab0ca71d2addebf, type: 3}
   m_PrefabInstance: {fileID: 1430644606}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1430644611 stripped
+--- !u!114 &1430644614
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6809596308415756246, guid: e67dfd8476dfa174cab0ca71d2addebf, type: 3}
-  m_PrefabInstance: {fileID: 1430644606}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 15309056}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa79e5638cbe9074dbf7e5ce48fe07c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelAsociado: {fileID: 290074408}
+  jugadorTocando: 0
 --- !u!1 &1433092233
 GameObject:
   m_ObjectHideFlags: 0
@@ -49276,8 +49288,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.3952, y: 0.75115, z: 0}
-    m_Extent: {x: 0.8972, y: 0.92145, z: 0}
+    m_Center: {x: -0.39519998, y: 0.75095004, z: 0}
+    m_Extent: {x: 0.89769995, y: 0.92245, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -50278,6 +50290,25 @@ Transform:
   - {fileID: 436931448}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1564943982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3605400357685110331, guid: e67dfd8476dfa174cab0ca71d2addebf, type: 3}
+  m_PrefabInstance: {fileID: 552866239}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1564943985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564943982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa79e5638cbe9074dbf7e5ce48fe07c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelAsociado: {fileID: 220368506}
+  jugadorTocando: 0
 --- !u!1001 &1571684149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52053,8 +52084,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49205, y: 0.14684999, z: 0}
-    m_Extent: {x: 1.49265, y: 1.16435, z: 0}
+    m_Center: {x: 0.49210003, y: 0.14615, z: 0}
+    m_Extent: {x: 1.4916, y: 1.16395, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -52871,8 +52902,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.395, y: 0.75020003, z: 0}
-    m_Extent: {x: 0.89820004, y: 0.92149997, z: 0}
+    m_Center: {x: -0.39540002, y: 0.75115, z: 0}
+    m_Extent: {x: 0.89779997, y: 0.92205, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -53188,8 +53219,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49175, y: 0.14590001, z: 0}
-    m_Extent: {x: 1.49185, y: 1.1638, z: 0}
+    m_Center: {x: 0.49165002, y: 0.14669997, z: 0}
+    m_Extent: {x: 1.49125, y: 1.1643, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -54299,7 +54330,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puertaAsociada: {fileID: 11400000, guid: 006a9df224aad7044a2b47d5e1180da5, type: 2}
   inventario: {fileID: 671693455}
-  tutoController: {fileID: 531373148}
   panelMensajeNo: {fileID: 1219873406}
   panelPregunta: {fileID: 1701128208}
   controladorPuertas: {fileID: 591400402}
@@ -54762,8 +54792,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.39440003, y: 0.75095, z: 0}
-    m_Extent: {x: 0.89760005, y: 0.92205, z: 0}
+    m_Center: {x: -0.3944, y: 0.75130004, z: 0}
+    m_Extent: {x: 0.898, y: 0.9214, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -54844,8 +54874,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49165, y: 0.14670002, z: 0}
-    m_Extent: {x: 1.49235, y: 1.1644, z: 0}
+    m_Center: {x: 0.4914, y: 0.14645004, z: 0}
+    m_Extent: {x: 1.4919, y: 1.16415, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -55026,10 +55056,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 290074409}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -17.499973}
-  m_SizeDelta: {x: 0, y: -35.000057}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000015258789, y: -0.000015258789}
+  m_SizeDelta: {x: 559.66736, y: 725.145}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2013686795
 MonoBehaviour:
@@ -55051,7 +55081,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: DOCUMENTO 1
+  m_text: "No te he despertado porque parec\xEDa que estabas muy cansada. Cuando
+    despiertes quiero jugar a un juego. Te da intriga, \xBFa qu\xE9 s\xED? \xBFPor
+    qu\xE9 no me encuentras primero y te digo de qu\xE9 se trata?\n\r\n-Tu dulce
+    hermanita "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -55078,8 +55111,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 64.3
-  m_fontSizeBase: 64.3
+  m_fontSize: 52
+  m_fontSizeBase: 52
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -55847,8 +55880,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.39415002, y: 0.75115, z: 0}
-    m_Extent: {x: 0.89785004, y: 0.92174995, z: 0}
+    m_Center: {x: -0.39505002, y: 0.75114995, z: 0}
+    m_Extent: {x: 0.89814997, y: 0.92165, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -56332,7 +56365,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 552866244}
+      - m_Target: {fileID: 1564943985}
         m_TargetAssemblyTypeName: Documentos, Assembly-CSharp
         m_MethodName: SalirDocs
         m_Mode: 1

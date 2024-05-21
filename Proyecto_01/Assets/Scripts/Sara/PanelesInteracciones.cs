@@ -22,9 +22,6 @@ public class PanelesInteracciones : MonoBehaviour
 
         switch (nombreItem)
         {
-            case "Documento":
-                infoPanelInteraccion.text = "Se ha añadido al inventario un documento.";
-                break;
             case "Llave":
                 infoPanelInteraccion.text = "Se ha añadido al inventario una llave.";
                 break;
