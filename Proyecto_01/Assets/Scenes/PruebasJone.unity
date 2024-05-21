@@ -4665,6 +4665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5788f60d0beb0cc4889475684ff808f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movimiento: 2
 --- !u!224 &850854542 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2546075195849337163, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
@@ -15319,6 +15320,10 @@ PrefabInstance:
       propertyPath: balas
       value: 
       objectReference: {fileID: 974342023}
+    - target: {fileID: 6641413085884475241, guid: 45cdac99eda295e4f98f9a08d25a3587, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7621307403010707313, guid: 45cdac99eda295e4f98f9a08d25a3587, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.17
@@ -16142,6 +16147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventario: {fileID: 957806105}
+  playerStats: {fileID: 0}
   objetosPanelesInformacion: []
   botonAtrasInfo: {fileID: 0}
   huecosInventario:

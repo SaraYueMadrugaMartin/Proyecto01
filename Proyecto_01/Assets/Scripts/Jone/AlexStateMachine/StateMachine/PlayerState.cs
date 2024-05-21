@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerState
 {
@@ -18,11 +20,11 @@ public class PlayerState
     public virtual void EnterState() { }
     public virtual void ExitState() { }
     public virtual void FrameUpdate() { }
-
-    // public virtual void PhysicsUpdate() { }
+    public virtual void FixedUpdate() { }
 
     public virtual void CambiaAnimaciones(int estado)
     {
        ControladorAnimaciones.corrAnimaciones(estado);
     }
+    
 }

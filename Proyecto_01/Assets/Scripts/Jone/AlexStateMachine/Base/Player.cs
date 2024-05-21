@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    Animator anim;
     #region Variables Player Stats
 
     // Corrupción
@@ -24,12 +25,15 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Variables Player Movement
+    [SerializeField] float movimiento = 2f;
     static public float multiplicadorVelocidad = 1f;
+    private bool miraDerecha = true;
 
     #endregion
 
     #region Variables Player Combat
     static public float multiplicadorAtaque = 1f;
+    private Puntero puntero;
 
     #endregion
 
@@ -57,6 +61,9 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
+        puntero = GetComponent<Puntero>();
+
         saludActual = saludMax;
 
         StateMachine.Initialize(Corr0State);
@@ -65,5 +72,59 @@ public class Player : MonoBehaviour
     private void Update()
     {
         StateMachine.CurrentPlayerState.FrameUpdate();
+    }
+
+    private void FixedUpdate()
+    {
+        StateMachine.CurrentPlayerState.FixedUpdate();
+        Velocidad();
+        Mover();
+    }
+
+    private void Velocidad()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            multiplicadorVelocidad += 0.6f;
+            anim.Play(ControladorAnimaciones.diccionarioAnimaciones[3]); // Run animation
+        }
+        else if (Input.GetKey(KeyCode.LeftControl))
+        {
+            multiplicadorVelocidad -= 0.2f;
+            // Anim sigilo
+        }
+    }
+    private void Mover()
+    {
+        float velocidadX = Input.GetAxis("Horizontal") * movimiento * multiplicadorVelocidad * Time.deltaTime;
+        float velocidadY = Input.GetAxis("Vertical") * movimiento * multiplicadorVelocidad * Time.deltaTime;
+
+        if (velocidadX != 0f || velocidadY != 0f)
+            anim.Play(ControladorAnimaciones.diccionarioAnimaciones[2]); // Walk animation
+        else
+            anim.Play(ControladorAnimaciones.diccionarioAnimaciones[1]); // Idle animation
+
+        transform.Translate(velocidadX, 0, 0);
+        transform.Translate(0, velocidadY, 0);
+
+        // Girar Sprite
+        if (velocidadX > 0 && !miraDerecha)
+        {
+            Flip();
+            puntero.VolteaPuntero();
+        }
+        if (velocidadX < 0 && miraDerecha)
+        {
+            Flip();
+            puntero.VolteaPuntero();
+        }
+    }
+
+    private void Flip()
+    {
+        miraDerecha = !miraDerecha;
+        Vector3 currentScale = gameObject.transform.localScale;
+        currentScale.x *= -1;
+        gameObject.transform.localScale = currentScale;
     }
 }
