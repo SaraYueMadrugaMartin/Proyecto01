@@ -14,7 +14,7 @@ public class PlayerCorr0State : PlayerState
     {
         base.EnterState();
         // Stats base de velocidad y daño de ataque
-        base.CambiaAnimaciones(0);
+        base.CambiaAnimaciones(0, Player.armaEquipada);
         Player.multiplicadorVelocidad = 1;
         Player.multiplicadorAtaque = 1;
     }

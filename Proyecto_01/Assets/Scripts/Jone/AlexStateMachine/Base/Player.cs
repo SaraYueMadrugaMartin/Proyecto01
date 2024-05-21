@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     #region Variables Player Combat
     static public float multiplicadorAtaque = 1f;
     private Puntero puntero;
+    static public int armaEquipada = 0;
 
     #endregion
 
@@ -86,7 +87,7 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             multiplicadorVelocidad += 0.6f;
-            anim.Play(ControladorAnimaciones.diccionarioAnimaciones[3]); // Run animation
+            anim.Play(ControladorAnimaciones.diccionarioAnimaciones[4]); // Run animation
         }
         else if (Input.GetKey(KeyCode.LeftControl))
         {

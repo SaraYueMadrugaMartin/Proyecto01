@@ -19,12 +19,15 @@ public class PlayerState
 
     public virtual void EnterState() { }
     public virtual void ExitState() { }
-    public virtual void FrameUpdate() { }
+    public virtual void FrameUpdate()
+    {
+        // Si se cambia el arma equipada hay que llamar a cambia animaciones con la nueva arma y el estado en el que estemos
+    }
     public virtual void FixedUpdate() { }
 
-    public virtual void CambiaAnimaciones(int estado)
+    public virtual void CambiaAnimaciones(int estado, int arma)
     {
-       ControladorAnimaciones.corrAnimaciones(estado);
+       ControladorAnimaciones.corrAnimaciones(estado, arma);
     }
     
 }
