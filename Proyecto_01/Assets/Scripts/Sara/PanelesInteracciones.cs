@@ -59,13 +59,13 @@ public class PanelesInteracciones : MonoBehaviour
 
     IEnumerator DesactivarPanelInteraccion()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSecondsRealtime(1f);
         panelInteraccion.SetActive(false);
     }
 
     IEnumerator DesactivarPanelAvisoInventarioCompleto()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSecondsRealtime(2f);
         panelAvisoInventarioCompleto.SetActive(false);
     }
 }

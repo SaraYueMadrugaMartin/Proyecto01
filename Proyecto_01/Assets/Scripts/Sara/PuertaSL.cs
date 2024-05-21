@@ -7,8 +7,8 @@ public class PuertaSL : MonoBehaviour
     [SerializeField] private Vector2 posNuevaAbajo;
     [SerializeField] private FadeAnimation fadeAnimation;
 
-    private bool jugadorTocandoArriba = false;
-    private bool jugadorTocandoAbajo = false;
+    [SerializeField] private bool jugadorTocandoArriba = false;
+    [SerializeField] private bool jugadorTocandoAbajo = false;
 
 
 

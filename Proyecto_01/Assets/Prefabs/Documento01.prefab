@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6434688989803020471}
   - component: {fileID: 4650800340112364176}
   - component: {fileID: 865984073162287330}
-  - component: {fileID: 952692190637484056}
+  - component: {fileID: 6809596308415756246}
   m_Layer: 0
   m_Name: Documento01
   m_TagString: Untagged
@@ -98,7 +98,7 @@ MonoBehaviour:
   posicionInicial: {x: 0, y: 0}
   objetoRecogido: 0
   ultimoObjetoRecogido: {fileID: 0}
---- !u!114 &952692190637484056
+--- !u!114 &6809596308415756246
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -13,7 +13,14 @@ public class DialogosSystem : MonoBehaviour
     [SerializeField] private string[] frasesDialogoAlex01;
 
     [SerializeField] private float velocidadTexto;
+
+    [SerializeField] private AudioSource audioSource;
     private int index; // Lo creamos para conocer la posición en la que se encuentra en el array de las frases.
+
+    private void Awake()
+    {
+        Time.timeScale = 0f; // Nada más empezar la escena, el tiempo del juego se detenga.
+    }
 
     void Start()
     {        
@@ -41,12 +48,12 @@ public class DialogosSystem : MonoBehaviour
     void ComenzarDialogos()
     {
         index = 0; // Iniciamos el índice en 0.        
-        StartCoroutine(Frase());
+        StartCoroutine(Frase()); // Empieza a escribir las frases.
     }
 
     IEnumerator EsperaInicial()
     {
-        yield return new WaitForSeconds(esperaInicio);
+        yield return new WaitForSecondsRealtime(esperaInicio); // Utilizamos WaitForSecondsRealTime para que el Time.timeScale no afecte a las corrutinas y se puedan ejecutar.
         panelDialogo.SetActive(true);
         dialogoAlex01.text = string.Empty; // Vaciamos el texto para empezar a escribir la nueva frase.
         ComenzarDialogos();
@@ -58,23 +65,42 @@ public class DialogosSystem : MonoBehaviour
         foreach(char letra in frasesDialogoAlex01[index].ToCharArray())
         {
             dialogoAlex01.text += letra;
-            yield return new WaitForSeconds(velocidadTexto); // Definimos el tiempo que queremos que pase entre caracteres, para simular la escritura.
+            yield return new WaitForSecondsRealtime(velocidadTexto); // Definimos el tiempo que queremos que pase entre caracteres, para simular la escritura.
         }
     }
 
     void SiguienteFrase()
     {
         // Si el índice es menor que el array de frases -1
-        if(index < frasesDialogoAlex01.Length - 1)
+        if (index < frasesDialogoAlex01.Length - 1)
         {
-            index ++; // Incrementamos uno el índice para pasar a la siguiente frase.
-            dialogoAlex01.text = string.Empty; // Vaciamos el texto para empezar a escribir la nueva frase.
-            StartCoroutine(Frase());
+            index++; // Aumentamos el índice +1.
+            dialogoAlex01.text = string.Empty; // Vacía el texto para empezar a escribir la nueva frase.
+
+            // Reproducimos el audio después de la frase número 2. (He metido una frase vacía en medio, se corresponde con el audio).
+            if (index == 2)
+            {
+                panelDialogo.SetActive(false);
+                StartCoroutine(EsperarYReproducirAudio());
+            }
+            else
+            {
+                panelDialogo.SetActive(true);
+                StartCoroutine(Frase());
+            }
         }
         else
         {
             panelDialogo.SetActive(false); // Si no lo cumple, quiere decir que estamos en la última frase, así que desactivamos el GameObject.
             dialogoAlex01.text = string.Empty;
+            Time.timeScale = 1.0f; // Al terminar la última frase, el juego deja de estar pausado.
         }
+    }
+
+    IEnumerator EsperarYReproducirAudio()
+    {
+        audioSource.Play();
+        yield return new WaitForSecondsRealtime(audioSource.clip.length);
+        SiguienteFrase();
     }
 }
