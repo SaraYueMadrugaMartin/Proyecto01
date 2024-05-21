@@ -21,12 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/04_Planta1.unity
     guid: a269da0270e4958418675f112260bb40
   - enabled: 1
-    path: Assets/Scenes/05_Planta2.unity
-    guid: cc260d99d96743e419599322895fe3e5
-  - enabled: 1
-    path: Assets/Scenes/06_VHS1.unity
-    guid: 8dbc7b22cb105f848b7104fc7ff9804f
-  - enabled: 1
     path: Assets/Scenes/07_Planta3.unity
     guid: 5629081c3a4867a4c993c1094c131ab9
   - enabled: 1
