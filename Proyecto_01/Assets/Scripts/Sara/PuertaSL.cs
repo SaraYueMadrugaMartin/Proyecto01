@@ -7,10 +7,8 @@ public class PuertaSL : MonoBehaviour
     [SerializeField] private Vector2 posNuevaAbajo;
     [SerializeField] private FadeAnimation fadeAnimation;
 
-    [SerializeField] private bool jugadorTocandoArriba = false;
-    [SerializeField] private bool jugadorTocandoAbajo = false;
-
-
+    private bool jugadorTocandoArriba;
+    private bool jugadorTocandoAbajo;
 
     private void Update()
     {
@@ -26,7 +24,6 @@ public class PuertaSL : MonoBehaviour
                 Invoke("CambioPosicionArriba", 0.3f);
                 fadeAnimation.FadeOut();
             }
-
         }
     }
 
@@ -39,7 +36,11 @@ public class PuertaSL : MonoBehaviour
 
             if (playerPosition.y > (posNuevaAbajo.y + 1))
             {
-
+                jugadorTocandoArriba = true;
+                jugadorTocandoAbajo = false;
+            }
+            else
+            {
                 jugadorTocandoArriba = false;
                 jugadorTocandoAbajo = true;
             }
@@ -57,18 +58,16 @@ public class PuertaSL : MonoBehaviour
         {
             jugadorTocandoArriba = false;
             jugadorTocandoAbajo = false;
-
         }
     }
 
     private void CambioPosicionArriba()
     {
-        player.transform.position = posNuevaArriba;        
+        player.transform.position = posNuevaArriba;
     }
 
     private void CambioPosicionAbajo()
     {
-
         player.transform.position = posNuevaAbajo;
     }
 }
