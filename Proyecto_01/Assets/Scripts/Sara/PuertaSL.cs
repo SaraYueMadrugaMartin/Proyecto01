@@ -7,6 +7,9 @@ public class PuertaSL : MonoBehaviour
     [SerializeField] private Vector2 posNuevaAbajo;
     [SerializeField] private FadeAnimation fadeAnimation;
 
+    private bool jugadorTocandoArriba = false;
+    private bool jugadorTocandoAbajo = false;
+
 
 
     private void Update()
@@ -67,5 +70,5 @@ public class PuertaSL : MonoBehaviour
     {
 
         player.transform.position = posNuevaAbajo;
-    }*/
+    }
 }
