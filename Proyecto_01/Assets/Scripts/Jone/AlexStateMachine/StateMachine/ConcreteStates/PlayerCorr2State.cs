@@ -12,7 +12,7 @@ public class PlayerCorr2State : PlayerState
     {
         base.EnterState();
         // Stats base de velocidad y daño de ataque
-        // Animaciones base de estado 0
+        base.CambiaAnimaciones(2);
     }
 
     public override void ExitState()

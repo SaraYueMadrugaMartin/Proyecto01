@@ -12,7 +12,8 @@ public class Player : MonoBehaviour
     // Corrupción
     static public int contadorCorr = 0; // Enemigos totales asesinados
     static public float corrupcion = 0; // Barra de corrupción
-    static public int monedasCorr = 0;
+    static public int estadoCorr = 0; // Identificador del estado de corrupción
+    static public int monedasCorr = 0; // Contador de monedas para usar en gramola y bajar corrupción
 
     // Salud
     static public float saludMax = 100;

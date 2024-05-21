@@ -21,5 +21,21 @@ public class PlayerState
 
     // public virtual void PhysicsUpdate() { }
 
-    //public virtual void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType) { }
+    public virtual void CambiaAnimaciones(int estado)
+    {
+        switch (estado)
+        {
+            case 0:
+                // Llamar al estado de animaciones 0
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+                break;
+        }
+    }
 }
