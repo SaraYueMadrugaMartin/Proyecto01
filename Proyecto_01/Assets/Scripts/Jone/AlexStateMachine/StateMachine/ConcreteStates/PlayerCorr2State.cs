@@ -11,8 +11,8 @@ public class PlayerCorr2State : PlayerState
     public override void EnterState()
     {
         base.EnterState();
-        // Stats base de velocidad y daño de ataque
-        base.CambiaAnimaciones(2, Player.armaEquipada);
+        Player.estadoCorr = 2;
+        base.CambiaAnimaciones(Player.estadoCorr, Player.armaEquipada);
         Player.multiplicadorVelocidad = 0.8f;
         Player.multiplicadorAtaque = 1.2f;
     }
