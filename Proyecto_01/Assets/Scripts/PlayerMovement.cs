@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
     // Movimiento
     [SerializeField] float movimiento = 5f;
     float multiplicador = 1;
-    private Vector2 posicionInicial;
     private bool miraDerecha = true;
     private Puntero puntero;
     private GameObject pistola;
@@ -29,8 +28,6 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         puntero = GetComponent<Puntero>();
         pistola = transform.Find("Puntero").gameObject;
-
-        posicionInicial = transform.position;
     }
 
     private void FixedUpdate()

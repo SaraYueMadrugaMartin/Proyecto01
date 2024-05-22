@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerState
 {
@@ -17,9 +19,15 @@ public class PlayerState
 
     public virtual void EnterState() { }
     public virtual void ExitState() { }
-    public virtual void FrameUpdate() { }
+    public virtual void FrameUpdate()
+    {
+        // Si se cambia el arma equipada hay que llamar a cambia animaciones con la nueva arma y el estado en el que estemos
+    }
+    public virtual void FixedUpdate() { }
 
-    // public virtual void PhysicsUpdate() { }
-
-    //public virtual void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType) { }
+    public virtual void CambiaAnimaciones(int estado, int arma)
+    {
+       ControladorAnimaciones.corrAnimaciones(estado, arma);
+    }
+    
 }
