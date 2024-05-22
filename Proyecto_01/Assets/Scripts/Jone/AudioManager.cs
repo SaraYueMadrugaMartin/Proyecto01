@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
+    // volumen general que multiplique los volumenes de todas las pistas
+
     void Awake()
     {
         // Estructura Singleton
@@ -30,7 +32,7 @@ public class AudioManager : MonoBehaviour
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
 
-            s.source.volume = s.volumen;
+            s.source.volume = s.volumen; // aquí se multiplica
             s.source.pitch = s.tono;
             s.source.loop = s.loop;
         }
