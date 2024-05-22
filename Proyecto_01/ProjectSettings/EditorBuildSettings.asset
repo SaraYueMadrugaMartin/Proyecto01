@@ -21,19 +21,16 @@ EditorBuildSettings:
     path: Assets/Scenes/04_Planta1.unity
     guid: a269da0270e4958418675f112260bb40
   - enabled: 1
-    path: Assets/Scenes/07_Planta3.unity
-    guid: 5629081c3a4867a4c993c1094c131ab9
-  - enabled: 1
-    path: Assets/Scenes/09_VHS2.unity
+    path: Assets/Scenes/06_VHS2.unity
     guid: 651ce921a77ef5a41aff41130db6f864
   - enabled: 1
-    path: Assets/Scenes/08_SalaFinal.unity
+    path: Assets/Scenes/05_SalaFinal.unity
     guid: 3c65d82280d5f454ba55f7daf4f1283f
   - enabled: 1
-    path: Assets/Scenes/10_FinalBueno.unity
+    path: Assets/Scenes/07_FinalBueno.unity
     guid: 0f5535c62827531409af3635f99a4e40
   - enabled: 1
-    path: Assets/Scenes/11_FinalMalo.unity
+    path: Assets/Scenes/08_FinalMalo.unity
     guid: cab1906bb3592af41bb81430096c665a
   - enabled: 1
     path: Assets/Scenes/PruebasJone.unity
