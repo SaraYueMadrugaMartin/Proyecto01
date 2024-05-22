@@ -22,6 +22,7 @@ public class PlayerState
     public virtual void FrameUpdate()
     {
         // Si se cambia el arma equipada hay que llamar a cambia animaciones con la nueva arma y el estado en el que estemos
+        // Aquí tiene que hacer la comprobación de velocidad
     }
     public virtual void FixedUpdate() { }
 
