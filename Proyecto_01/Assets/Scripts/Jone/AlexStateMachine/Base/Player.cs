@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     static public float multiplicadorVelocidad = 1f;
     private bool miraDerecha = true;
     private bool estaCorriendo = false;
-    private bool estaSigilo = false;
+    public static bool estaSigilo = false;
     private bool cambiaEstado = false;
 
     #endregion

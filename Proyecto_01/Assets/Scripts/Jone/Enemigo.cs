@@ -12,9 +12,10 @@ public class Enemigo : MonoBehaviour
     // Para seguir al jugador
     [SerializeField] GameObject player;
     [SerializeField] float rangoDeteccionBase = 5f;
+    [SerializeField] float rangoDeteccionSigilo = 3.5f;
+    private float rangoDeteccion;
     [SerializeField] float velocidad = 1f;
     float distancia;
-    float rangoDeteccion;
 
     // Para atacar al jugador
     [SerializeField] float rangoAtaque = 2f;
@@ -37,8 +38,8 @@ public class Enemigo : MonoBehaviour
         distancia = Vector2.Distance(transform.position, player.transform.position);
         //Vector2 direccion = player.transform.position - transform.position;
 
-        if (PlayerMovement.sigilo)
-            rangoDeteccion -= 1.5f;
+        if (Player.estaSigilo)
+            rangoDeteccion = rangoDeteccionSigilo;
         else
             rangoDeteccion = rangoDeteccionBase;
 
