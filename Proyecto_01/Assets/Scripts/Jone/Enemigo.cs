@@ -16,6 +16,7 @@ public class Enemigo : MonoBehaviour
     private float rangoDeteccion;
     [SerializeField] float velocidad = 1f;
     float distancia;
+    private bool miraDerecha = true;
 
     // Para atacar al jugador
     [SerializeField] float rangoAtaque = 2f;
@@ -36,7 +37,6 @@ public class Enemigo : MonoBehaviour
     private void Update()
     {
         distancia = Vector2.Distance(transform.position, player.transform.position);
-        //Vector2 direccion = player.transform.position - transform.position;
 
         if (Player.estaSigilo)
             rangoDeteccion = rangoDeteccionSigilo;
@@ -55,8 +55,26 @@ public class Enemigo : MonoBehaviour
         {
             anim.SetBool("seMueve", false);
         }
-        
+
+        // Girar Sprite dependiendo de la dirección en la que camina el enemigo
+        if (player.transform.position.x > transform.position.x && !miraDerecha)
+        {
+            Flip();
+        }
+        else if (player.transform.position.x < transform.position.x && miraDerecha)
+        {
+            Flip();
+        }
     }
+
+    private void Flip()
+    {
+        miraDerecha = !miraDerecha;
+        Vector3 currentScale = gameObject.transform.localScale;
+        currentScale.x *= -1;
+        gameObject.transform.localScale = currentScale;
+    }
+
 
     private void EstadoSeguimiento()
     {

@@ -26,7 +26,20 @@ public class PlayerState
     public virtual void FrameUpdate()
     {
         // Si se cambia el arma equipada hay que llamar a cambia animaciones con la nueva arma y el estado en el que estemos
-
+        switch (Player.armaEquipada)
+        {
+            case 0:
+                // Sin arma, no puede atacar
+            break;
+            case 1:
+                // Con bate
+                // Se desactiva puntero?
+            break;
+            case 2:
+                // Con pistola
+                // Deja de poder hacer ataque cuerpo a cuerpo
+            break;
+        }
         // Control de velocidad
         if (Player.estaCorriendo)
         {
