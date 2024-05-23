@@ -11,10 +11,11 @@ public class PlayerCorr1State : PlayerState
     public override void EnterState()
     {
         base.EnterState();
-        // Stats base de velocidad y daño de ataque
-        base.CambiaAnimaciones(1, Player.armaEquipada);
-        Player.multiplicadorVelocidad = 0.9f;
-        Player.multiplicadorAtaque = 1.1f;
+        Player.estadoCorr = 1;
+        base.CambiaAnimaciones(Player.estadoCorr, Player.armaEquipada);
+        velocidadBase = 0.9f;
+        velocidadCorriendo = 1.5f;
+        velocidadSigilo = 0.7f;
     }
 
     public override void ExitState()

@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     [SerializeField] float movimiento = 2f;
     static public float multiplicadorVelocidad = 1f;
     private bool miraDerecha = true;
+    public static bool estaCorriendo = false;
+    public static bool estaSigilo = false;
 
     #endregion
 
@@ -86,14 +88,20 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            multiplicadorVelocidad += 0.6f;
-            anim.Play(ControladorAnimaciones.diccionarioAnimaciones[4]); // Run animation
+            estaCorriendo = true;
+            //anim.Play(ControladorAnimaciones.diccionarioAnimaciones[4]); // Run animation
         }
         else if (Input.GetKey(KeyCode.LeftControl))
         {
-            multiplicadorVelocidad -= 0.2f;
+            estaSigilo = true;
             // Anim sigilo
         }
+        else
+        {
+            estaCorriendo = false;
+            estaSigilo = false;
+        }
+       
     }
     private void Mover()
     {
@@ -101,9 +109,9 @@ public class Player : MonoBehaviour
         float velocidadY = Input.GetAxis("Vertical") * movimiento * multiplicadorVelocidad * Time.deltaTime;
 
         if (velocidadX != 0f || velocidadY != 0f)
-            anim.Play(ControladorAnimaciones.diccionarioAnimaciones[2]); // Walk animation
+            ;//anim.Play(ControladorAnimaciones.diccionarioAnimaciones[2]); // Walk animation
         else
-            anim.Play(ControladorAnimaciones.diccionarioAnimaciones[1]); // Idle animation
+            ;//anim.Play(ControladorAnimaciones.diccionarioAnimaciones[1]); // Idle animation
 
         transform.Translate(velocidadX, 0, 0);
         transform.Translate(0, velocidadY, 0);
