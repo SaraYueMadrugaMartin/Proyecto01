@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 [System.Serializable]
 public struct PuertaState
@@ -20,12 +21,21 @@ public struct ItemState
 }
 
 [System.Serializable]
+public struct InventarioState
+{
+    public bool objetoEnInventario;
+    public string nombreItem;
+    public Sprite spriteItem;
+}
+
+[System.Serializable]
 public struct SceneState
 {    
     public Vector2 posicionPlayer;
 
     public List<PuertaState> puertasState; // Lista para guardar la información de PuertaState.
     public List<ItemState> itemsState; // Lista para guardar la información de ItemState.
+    public List<InventarioState> inventarioState;
 }
 
 public class SaveManager: MonoBehaviour
@@ -51,10 +61,18 @@ public class SaveManager: MonoBehaviour
 
     private void Start()
     {
+        // Al darle a Play, se quedaban guardados los últimos datos, por eso lo limpio al principio (temporal).
+        PlayerPrefs.DeleteKey("SavedSceneState");
+
         if (PlayerPrefs.HasKey("SavedSceneState"))
         {
             string sceneStateJson = PlayerPrefs.GetString("SavedSceneState");
             savedSceneState = JsonUtility.FromJson<SceneState>(sceneStateJson);
+        }
+        else
+        {
+            savedSceneState = new SceneState();
+            Debug.Log("La escena se ha iniciado en un estado limpio sin datos previamente guardados.");
         }
     }
 
@@ -85,7 +103,30 @@ public class SaveManager: MonoBehaviour
             }
 
             sceneState.itemsState.Add(itemState);
-            Debug.Log("Se ha guardado el dato de que el objeto recogido es: " + itemState.nombreItem + " - " + itemState.objetoRecogido);
+            //Debug.Log("Se ha guardado el dato de que el objeto recogido es: " + itemState.nombreItem + " - " + itemState.objetoRecogido);
+        }
+
+        // INVENTARIO
+        Inventario inventario = FindObjectOfType<Inventario>();
+        sceneState.inventarioState = new List<InventarioState>();
+        if (inventario != null)
+        {
+            foreach (var hueco in inventario.huecosInventario)
+            {
+                InventarioState inventarioState = new InventarioState();
+
+                inventarioState.objetoEnInventario = inventario.GetObjetoEnInventario();
+
+                if (hueco.estaCompleto)
+                {
+                    inventarioState.nombreItem = hueco.nombreItem;
+                    inventarioState.spriteItem = hueco.sprite;
+                }
+
+                sceneState.inventarioState.Add(inventarioState);
+
+                Debug.Log("Se ha guardado el inventario: " + (inventarioState.objetoEnInventario ? hueco.nombreItem : "Hueco vacío"));
+            }
         }
 
         //PUERTAS
@@ -124,7 +165,7 @@ public class SaveManager: MonoBehaviour
         {
             string sceneStateJson = PlayerPrefs.GetString("SavedSceneState");
 
-            Debug.Log(sceneStateJson);
+            //Debug.Log(sceneStateJson);
             savedSceneState = JsonUtility.FromJson<SceneState>(sceneStateJson);
 
             //PLAYER
@@ -163,17 +204,12 @@ public class SaveManager: MonoBehaviour
                                     }
                                 }
                             }
-                            else
-                            {
-                                Debug.LogWarning("spriteRenderers es null para el objeto: " + itemState.nombreItem);
-                            }
-
                             if (item.objetoRecogido)
                             {
                                 item.DesactivarItem();
                             }
 
-                            Debug.Log("El objeto " + itemState.nombreItem + " está: " + (itemState.objetoRecogido ? "Recogido" : "No recogido"));
+                            //Debug.Log("El objeto " + itemState.nombreItem + " está: " + (itemState.objetoRecogido ? "Recogido" : "No recogido"));
                         }
                     }
                 }
@@ -181,6 +217,45 @@ public class SaveManager: MonoBehaviour
                 {
                     Debug.LogWarning("No se encontraron estados de items guardados.");
                 }*/
+            }
+
+            // INVENTARIO
+            Inventario inventario = FindObjectOfType<Inventario>();
+            if (inventario != null && savedSceneState.inventarioState != null)
+            {
+                Debug.Log("Llega hasta aquí");
+                for (int i = 0; i < savedSceneState.inventarioState.Count; i++)
+                {
+                    var inventarioState = savedSceneState.inventarioState[i];
+                    Debug.Log("Procesando InventarioState: " + (inventarioState.objetoEnInventario ? inventarioState.nombreItem : "Hueco vacío"));
+
+                    // Si el objeto está en el inventario
+                    if (inventarioState.objetoEnInventario)
+                    {
+                        // Busca el objeto asociado al nombre en el array items
+                        Items item = Array.Find(items, x => x.nombreItem == inventarioState.nombreItem);
+                        if (item != null)
+                        {
+                            // Añade el objeto al inventario utilizando su nombre y sprite, en el hueco correspondiente
+                            if (i < inventario.huecosInventario.Length)
+                            {
+                                var sprite = item.GetSpriteItems(); // Obtener el sprite del objeto
+                                inventario.AñadirObjeto(inventarioState.nombreItem, inventarioState.spriteItem); // Añadir el objeto al hueco correspondiente
+                                Debug.Log("Objeto añadido al hueco: " + item.nombreItem);
+                            }
+                            else
+                            {
+                                // Si el índice es mayor o igual a la cantidad de huecos en el inventario, mostrar un mensaje de advertencia
+                                Debug.LogWarning("No hay suficientes huecos en el inventario para agregar el objeto: " + item.nombreItem);
+                            }
+                        }
+                        else
+                        {
+                            // Si el objeto no se encuentra en la escena, mostrar un mensaje de advertencia
+                            Debug.LogWarning("No se encontró el item en la escena: " + inventarioState.nombreItem);
+                        }
+                    }
+                }
             }
 
             //PUERTAS

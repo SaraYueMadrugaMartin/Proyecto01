@@ -4,6 +4,13 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class ObjetoPanelInfo
+{
+    public string nombreObjeto;
+    public GameObject panelInfo;
+}
+
 public class Inventario : MonoBehaviour
 {
     [SerializeField] private GameObject inventario;
@@ -15,6 +22,9 @@ public class Inventario : MonoBehaviour
 
 
     public HuecosInventario[] huecosInventario;
+
+    public bool objetoEnInventario = false;
+    private List<bool> objetoEstaEnInventario;
 
     //private Items devolverItems;
 
@@ -37,6 +47,7 @@ public class Inventario : MonoBehaviour
     void Start()
     {
         Instance = this;
+        objetoEstaEnInventario = new List<bool>();
     }
 
     void Update()
@@ -62,11 +73,13 @@ public class Inventario : MonoBehaviour
         {
             if (!InventarioCompleto())
             {
+                ObjetoEstaEnInventario(true);
                 foreach (HuecosInventario hueco in huecosInventario)
                 {
                     if (!hueco.estaCompleto)
                     {
                         hueco.AñadirObjeto(nombreItem, sprite);
+                        objetoEnInventario = true;
 
                         // Buscar el objeto en la escena y registrarlo
                         Items item = FindObjectsOfType<Items>().FirstOrDefault(obj => obj.nombreItem == nombreItem);
@@ -116,7 +129,6 @@ public class Inventario : MonoBehaviour
             hueco.objetoSeleccionado = false;
         }
     }
-
 
     public void InfoObjetos()
     {
@@ -224,11 +236,14 @@ public class Inventario : MonoBehaviour
             objetosRegistrados.Remove(item);
         }
     }
-}
 
-[System.Serializable]
-public class ObjetoPanelInfo
-{
-    public string nombreObjeto;
-    public GameObject panelInfo;
+    private void ObjetoEstaEnInventario(bool value)
+    {
+        objetoEstaEnInventario.Add(value);
+    }
+
+    public bool GetObjetoEnInventario()
+    {
+        return objetoEnInventario;
+    }
 }

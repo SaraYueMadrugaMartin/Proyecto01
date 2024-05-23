@@ -13,7 +13,7 @@ public class Items : MonoBehaviour
 
     public Vector2 posicionInicial;
     public bool objetoRecogido = false;
-    public Items ultimoObjetoRecogido;
+    //public Items ultimoObjetoRecogido;
 
     //private Collider2D itemCollider;
     //private GameObject[] propiedadesHijosItems;
@@ -57,8 +57,8 @@ public class Items : MonoBehaviour
                 panelesInteracciones.AparecerPanelInteraccion(nombreItem);
                 objetoRecogido = true;
                 ObjetoRecogido(true);
-                string boolListString = string.Join(", ", objetoHaSidoRecogido);
-                Debug.Log("Objeto: " + nombreItem + " " + boolListString);
+                //string boolListString = string.Join(", ", objetoHaSidoRecogido); // Para el Debug.
+                //Debug.Log("Objeto: " + nombreItem + " " + boolListString);
 
                 if (nombreItem == "Llave")
                 {
@@ -113,6 +113,11 @@ public class Items : MonoBehaviour
         return propiedadesHijosItems;
     }*/
 
+    public Sprite GetSpriteItems()
+    {
+        return sprite;
+    }
+
     public SpriteRenderer[] GetSpriteRenderers()
     {
         return spriteRenderers;
@@ -148,5 +153,4 @@ public class Items : MonoBehaviour
             }
         }
     }
-
 }
