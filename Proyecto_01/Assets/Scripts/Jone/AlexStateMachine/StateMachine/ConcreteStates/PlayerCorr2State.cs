@@ -13,8 +13,9 @@ public class PlayerCorr2State : PlayerState
         base.EnterState();
         Player.estadoCorr = 2;
         base.CambiaAnimaciones(Player.estadoCorr, Player.armaEquipada);
-        Player.multiplicadorVelocidad = 0.8f;
-        Player.multiplicadorAtaque = 1.2f;
+        velocidadBase = 0.8f;
+        velocidadCorriendo = 1.4f;
+        velocidadSigilo = 0.6f;
     }
 
     public override void ExitState()

@@ -15,8 +15,9 @@ public class PlayerCorr0State : PlayerState
         base.EnterState();
         Player.estadoCorr = 0;
         base.CambiaAnimaciones(Player.estadoCorr, Player.armaEquipada);
-        Player.multiplicadorVelocidad = 1;
-        Player.multiplicadorAtaque = 1;
+        velocidadBase = 1f;
+        velocidadCorriendo = 1.6f;
+        velocidadSigilo = 0.8f;
     }
 
     public override void ExitState()
@@ -26,7 +27,8 @@ public class PlayerCorr0State : PlayerState
 
     public override void FrameUpdate()
     {
-        base.FrameUpdate();
+        base.FrameUpdate();       
+
         // Aquí se comprueba la condición para el cambio de estado y se llama a change state de PlayerStateMachine
         if (Player.corrupcion >= 25)
             player.StateMachine.ChangeState(player.Corr1State);
