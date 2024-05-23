@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,10 +11,12 @@ public struct PuertaState
     public bool[] collidersActivos;
 }
 
+[System.Serializable]
 public struct ItemState
 {
     public string nombreItem;
     public bool objetoRecogido;
+    public bool[] spritesActivos;
 }
 
 [System.Serializable]
@@ -22,6 +25,7 @@ public struct SceneState
     public Vector2 posicionPlayer;
 
     public List<PuertaState> puertasState; // Lista para guardar la información de PuertaState.
+    public List<ItemState> itemsState; // Lista para guardar la información de ItemState.
 }
 
 public class SaveManager: MonoBehaviour
@@ -63,17 +67,26 @@ public class SaveManager: MonoBehaviour
         sceneState.posicionPlayer = infoPlayer.GetPosition();
 
 
-        // ITEMS (NO FUNCIONA NADA)
-        /*infoItems = FindObjectOfType<Items>(); // Si pongo esto, encuentra el primer objeto con este script, así que sale como que se ha recogido la Moneda, aún guardando antes de haber recogido nada.
-        if (infoItems.ultimoObjetoRecogido != null)
-        {
-            sceneState.nombreItem = infoItems.nombreItem;
-            sceneState.objetoRecogido = infoItems.GetObjetoRecogido();
-            Debug.Log("Se ha guardado el dato de que el objeto recogido es: " + sceneState.nombreItem);
-        }
-        else
-            Debug.Log("Ningún objeto se ha guardado");*/
+        // ITEMS
+        Items[] items = FindObjectsOfType<Items>();
+        sceneState.itemsState = new List<ItemState>();
 
+        foreach (Items item in items)
+        {
+            ItemState itemState = new ItemState();
+
+            itemState.nombreItem = item.nombreItem;
+            itemState.objetoRecogido = item.GetObjetoRecogido();
+            itemState.spritesActivos = new bool[item.GetSpriteRenderers().Length];
+
+            for (int i = 0; i < item.GetSpriteRenderers().Length; i++)
+            {
+                itemState.spritesActivos[i] = item.GetSpriteRenderers()[i].enabled;
+            }
+
+            sceneState.itemsState.Add(itemState);
+            Debug.Log("Se ha guardado el dato de que el objeto recogido es: " + itemState.nombreItem + " - " + itemState.objetoRecogido);
+        }
 
         //PUERTAS
         Puerta[] puertas = FindObjectsOfType<Puerta>(); // Creamos un array de Puertas y buscamos todos los objetos de tipo "Puerta". 
@@ -123,32 +136,52 @@ public class SaveManager: MonoBehaviour
             }
 
 
-            //ITEMS (NO FUNCIONA NADA)
-            /*infoItems.SetObjetoRecogido(savedSceneState.objetoRecogido);
-            Debug.Log("El objeto " + savedSceneState.nombreItem + "está: " + savedSceneState.objetoRecogido);*/
-
-            //PUERTAS
-            /*foreach (PuertaState puertaState in savedSceneState.puertasState)
+            //ITEMS
+            Items[] items = FindObjectsOfType<Items>();
+            if (items != null)
             {
-                Puerta puerta = FindPuertaById(puertaState.idPuerta);
-                if (puerta != null)
+                Debug.Log("Número de objetos Items encontrados: " + items.Length);
+                if (savedSceneState.itemsState != null)
                 {
-                    puerta.SetPuertaBloqueada(puertaState.puertaBloqueada);
-                    Debug.Log("Puerta ID " + puertaState.idPuerta + " está bloqueada: " + puertaState.puertaBloqueada);
+                    foreach (ItemState itemState in savedSceneState.itemsState)
+                    {
+                        Debug.Log("Procesando ItemState: " + itemState.nombreItem);
+                        Items item = Array.Find(items, x => x.nombreItem == itemState.nombreItem);
+                        if (item != null)
+                        {
+                            item.objetoRecogido = itemState.objetoRecogido;
+
+                            // Actualiza el estado de los SpriteRenderer
+                            var spriteRenderers = item.GetSpriteRenderers();
+                            if (spriteRenderers != null)
+                            {
+                                for (int i = 0; i < spriteRenderers.Length; i++)
+                                {
+                                    if (i < itemState.spritesActivos.Length) // Verificar que el índice sea válido
+                                    {
+                                        spriteRenderers[i].enabled = itemState.spritesActivos[i];
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                Debug.LogWarning("spriteRenderers es null para el objeto: " + itemState.nombreItem);
+                            }
+
+                            if (item.objetoRecogido)
+                            {
+                                item.DesactivarItem();
+                            }
+
+                            Debug.Log("El objeto " + itemState.nombreItem + " está: " + (itemState.objetoRecogido ? "Recogido" : "No recogido"));
+                        }
+                    }
                 }
+                /*else
+                {
+                    Debug.LogWarning("No se encontraron estados de items guardados.");
+                }*/
             }
-
-            /*GameObject itemObject = GameObject.Find(savedSceneState.nombreItem);
-            if (itemObject != null)
-            {
-                itemObject.transform.position = savedSceneState.posicionInicialItems;
-            }
-
-            if (!savedSceneState.objetoRecogido && savedSceneState.objetoActivo)
-            {
-                EliminarObjetoDelInventario(savedSceneState.nombreItem);
-                Debug.Log("El objeto ha sido devuelto");
-            }*/
 
             //PUERTAS
             foreach (PuertaState puertaState in savedSceneState.puertasState)
@@ -166,10 +199,10 @@ public class SaveManager: MonoBehaviour
 
                     Debug.Log("Puerta ID " + puertaState.idPuerta + " - Bloqueada: " + puertaState.puertaBloqueada + ", Activada: " + puertaState.puertaActivada);
                 }
-                else
+                /*else
                 {
                     Debug.LogWarning("No se pudo encontrar la puerta con ID: " + puertaState.idPuerta);
-                }
+                }*/
             }
         }
         else
@@ -197,46 +230,4 @@ public class SaveManager: MonoBehaviour
         Inventario inventario = FindObjectOfType<Inventario>();
         inventario.VaciarHueco(nombreItem);
     }
-
-    //ANTIGUO SAVE SYSTEM
-    /*public static void SavePlayerData(PlayerMovement player)
-    {
-        PlayerData playerData = new PlayerData(player);
-        string dataPath = Application.persistentDataPath + "/player.save";
-        FileStream fileStream = new FileStream(dataPath, FileMode.Create);
-        BinaryFormatter formatter = new BinaryFormatter();
-        formatter.Serialize(fileStream, playerData);
-        fileStream.Close();
-    }
-
-    public static PlayerData LoadPlayerData()
-    {
-        string dataPath = Application.persistentDataPath + "/player.save";
-        if(File.Exists(dataPath))
-        {
-            FileStream fileStream = new FileStream(dataPath, FileMode .Open);
-            BinaryFormatter formatter = new BinaryFormatter();
-            PlayerData playerData = (PlayerData )formatter.Deserialize(fileStream);
-            fileStream.Close ();
-            return playerData;
-        }
-        else
-        {
-            return null;
-        }
-    }
-
-    public static void DeleteSavedData()
-    {
-        string dataPath = Application.persistentDataPath + "/player.save";
-        if (File.Exists(dataPath))
-        {
-            File.Delete(dataPath);
-            Debug.Log("Se han borrado los datos.");
-        }
-        else
-        {
-            Debug.LogWarning("No hay datos guardados para eliminar.");
-        }
-    }*/
 }

@@ -15,8 +15,11 @@ public class Items : MonoBehaviour
     public bool objetoRecogido = false;
     public Items ultimoObjetoRecogido;
 
-    private Collider2D itemCollider;
-    private GameObject[] propiedadesHijosItems;
+    //private Collider2D itemCollider;
+    //private GameObject[] propiedadesHijosItems;
+    private SpriteRenderer[] spriteRenderers;
+
+    private List<bool> objetoHaSidoRecogido;
 
     void Start()
     {
@@ -24,9 +27,12 @@ public class Items : MonoBehaviour
         panelesInteracciones = FindObjectOfType<PanelesInteracciones>();
         panelAvisoInventarioCompleto = FindObjectOfType<PanelesInteracciones>();
         posicionInicial = transform.position;
-        itemCollider = GetComponent<Collider2D>();
+        //itemCollider = GetComponent<Collider2D>();
         Transform[] hijosTransform = GetComponentsInChildren<Transform>(includeInactive: true);
         List<GameObject> hijosGameObjects = new List<GameObject>();
+        objetoHaSidoRecogido = new List<bool>();
+
+        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 
         foreach (Transform hijoTransform in hijosTransform)
         {
@@ -36,7 +42,7 @@ public class Items : MonoBehaviour
             }
         }
 
-        propiedadesHijosItems = hijosGameObjects.ToArray();
+        //propiedadesHijosItems = hijosGameObjects.ToArray();
         //spriteItem = transform.Find("Sprite").gameObject;
         //RegistrarObjeto();
     }
@@ -50,6 +56,9 @@ public class Items : MonoBehaviour
                 inventario.AñadirObjeto(nombreItem, sprite);
                 panelesInteracciones.AparecerPanelInteraccion(nombreItem);
                 objetoRecogido = true;
+                ObjetoRecogido(true);
+                string boolListString = string.Join(", ", objetoHaSidoRecogido);
+                Debug.Log("Objeto: " + nombreItem + " " + boolListString);
 
                 if (nombreItem == "Llave")
                 {
@@ -63,6 +72,7 @@ public class Items : MonoBehaviour
 
                 DesactivarItem();
                 //gameObject.SetActive(false);
+
             }
             else
             {
@@ -88,6 +98,26 @@ public class Items : MonoBehaviour
         }
     }
 
+    private void ObjetoRecogido(bool value)
+    {
+        objetoHaSidoRecogido.Add(value);
+    }
+
+    public bool GetObjetoRecogido()
+    {
+        return objetoRecogido;
+    }
+
+    /*public GameObject[] GetPropiedadesHijosItems()
+    {
+        return propiedadesHijosItems;
+    }*/
+
+    public SpriteRenderer[] GetSpriteRenderers()
+    {
+        return spriteRenderers;
+    }
+
     public void MoverYActivar(Vector3 nuevaPosicion)
     {
         transform.position = nuevaPosicion;
@@ -95,28 +125,28 @@ public class Items : MonoBehaviour
         Debug.Log("Objeto movido y activado en la posición: " + nuevaPosicion);
     }
 
-    private void DesactivarItem()
+    public void DesactivarItem()
     {
-        itemCollider.enabled = false;
-        if (propiedadesHijosItems != null)
+        SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        if (spriteRenderers != null)
         {
-            foreach (GameObject hijo in propiedadesHijosItems)
+            foreach (SpriteRenderer renderer in spriteRenderers)
             {
-                hijo.SetActive(false);
+                renderer.enabled = false;
             }
         }
     }
 
     private void ActivarItem()
     {
-        itemCollider.enabled = true;
-        if (propiedadesHijosItems != null)
+        SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        if (spriteRenderers != null)
         {
-            foreach (GameObject hijo in propiedadesHijosItems)
+            foreach (SpriteRenderer renderer in spriteRenderers)
             {
-                hijo.SetActive(true);
+                renderer.enabled = true;
             }
         }
-        gameObject.SetActive(true);
     }
+
 }
