@@ -33,7 +33,7 @@ public struct InventarioState
 public struct SceneState
 {    
     public Vector2 posicionPlayer;
-    public Quaternion rotacionPlayer;
+    public bool playerMiraDerecha;
 
     public List<PuertaState> puertasState; // Lista para guardar la información de PuertaState.
     public List<ItemState> itemsState; // Lista para guardar la información de ItemState.
@@ -85,8 +85,8 @@ public class SaveManager: MonoBehaviour
         // JUGADOR
         infoPlayer = FindObjectOfType<PlayerMovement>();
         sceneState.posicionPlayer = infoPlayer.GetPosition();
-        sceneState.rotacionPlayer = infoPlayer.GetRotation();
-
+        sceneState.playerMiraDerecha = infoPlayer.GetMiraDerecha();
+        Debug.Log("El jugador mira hacia la: " + sceneState.playerMiraDerecha);
 
         // ITEMS
         Items[] items = FindObjectsOfType<Items>();
@@ -107,7 +107,6 @@ public class SaveManager: MonoBehaviour
             }
 
             sceneState.itemsState.Add(itemState);
-            //Debug.Log("Se ha guardado el dato de que el objeto recogido es: " + itemState.nombreItem + " - " + itemState.objetoRecogido);
         }
 
         // INVENTARIO
@@ -128,8 +127,6 @@ public class SaveManager: MonoBehaviour
                 }
 
                 sceneState.inventarioState.Add(inventarioState);
-
-                //Debug.Log("Se ha guardado el inventario: " + (inventarioState.objetoEnInventario ? hueco.nombreItem : "Hueco vacío"));
             }
         }
 
@@ -177,8 +174,8 @@ public class SaveManager: MonoBehaviour
             if (playerMovement != null)
             {
                 playerMovement.SetPosition(savedSceneState.posicionPlayer);
-                playerMovement.SetRotation(savedSceneState.rotacionPlayer);
-                //Debug.Log("Posición" + savedSceneState.posicionPlayer);
+                playerMovement.SetMiraDerecha(savedSceneState.playerMiraDerecha);
+                Debug.Log("El jugador mira hacia la: " + savedSceneState.playerMiraDerecha);
             }
 
 
@@ -213,22 +210,15 @@ public class SaveManager: MonoBehaviour
                             {
                                 item.DesactivarItem();
                             }
-
-                            //Debug.Log("El objeto " + itemState.nombreItem + " está: " + (itemState.objetoRecogido ? "Recogido" : "No recogido"));
                         }
                     }
                 }
-                /*else
-                {
-                    Debug.LogWarning("No se encontraron estados de items guardados.");
-                }*/
             }
 
             // INVENTARIO
             Inventario inventario = FindObjectOfType<Inventario>();
             if (inventario != null && savedSceneState.inventarioState != null)
             {
-                Debug.Log("Llega hasta aquí");
                 for (int i = 0; i < savedSceneState.inventarioState.Count; i++)
                 {
                     var inventarioState = savedSceneState.inventarioState[i];
@@ -249,16 +239,6 @@ public class SaveManager: MonoBehaviour
                                 inventario.AñadirObjeto(inventarioState.nombreItem, sprite); // Añadir el objeto al hueco correspondiente
                                 Debug.Log("Objeto añadido al hueco: " + item.nombreItem);
                             }
-                            else
-                            {
-                                // Si el índice es mayor o igual a la cantidad de huecos en el inventario, mostrar un mensaje de advertencia
-                                Debug.LogWarning("No hay suficientes huecos en el inventario para agregar el objeto: " + item.nombreItem);
-                            }
-                        }
-                        else
-                        {
-                            // Si el objeto no se encuentra en la escena, mostrar un mensaje de advertencia
-                            Debug.LogWarning("No se encontró el item en la escena: " + inventarioState.nombreItem);
                         }
                     }
                 }
@@ -280,10 +260,6 @@ public class SaveManager: MonoBehaviour
 
                     Debug.Log("Puerta ID " + puertaState.idPuerta + " - Bloqueada: " + puertaState.puertaBloqueada + ", Activada: " + puertaState.puertaActivada);
                 }
-                /*else
-                {
-                    Debug.LogWarning("No se pudo encontrar la puerta con ID: " + puertaState.idPuerta);
-                }*/
             }
         }
         else
@@ -304,11 +280,5 @@ public class SaveManager: MonoBehaviour
             }
         }
         return null;
-    }
-
-    private void EliminarObjetoDelInventario(string nombreItem)
-    {
-        Inventario inventario = FindObjectOfType<Inventario>();
-        inventario.VaciarHueco(nombreItem);
     }
 }

@@ -153,18 +153,20 @@ public class PlayerMovement : MonoBehaviour
         return transform.position;
     }
 
-    public Quaternion GetRotation()
-    {
-        return transform.rotation;
-    }
-
     public void SetPosition(Vector2 newPosition)
     {
         transform.position = newPosition;
     }
-
-    public void SetRotation(Quaternion newRotation)
+    public bool GetMiraDerecha()
     {
-        transform.rotation = newRotation;
+        return miraDerecha;
+    }
+
+    public void SetMiraDerecha(bool value)
+    {
+        if (miraDerecha != value)
+        {
+            Flip(); // Si 'miraDerecha' es diferente de 'value', llamamos a la función 'Flip()'.
+        }
     }
 }
