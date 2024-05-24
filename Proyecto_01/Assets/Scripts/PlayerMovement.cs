@@ -153,8 +153,18 @@ public class PlayerMovement : MonoBehaviour
         return transform.position;
     }
 
+    public Quaternion GetRotation()
+    {
+        return transform.rotation;
+    }
+
     public void SetPosition(Vector2 newPosition)
     {
         transform.position = newPosition;
+    }
+
+    public void SetRotation(Quaternion newRotation)
+    {
+        transform.rotation = newRotation;
     }
 }

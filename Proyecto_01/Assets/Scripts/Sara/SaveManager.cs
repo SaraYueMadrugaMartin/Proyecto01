@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 [System.Serializable]
 public struct PuertaState
@@ -10,18 +12,31 @@ public struct PuertaState
     public bool[] collidersActivos;
 }
 
+[System.Serializable]
 public struct ItemState
 {
     public string nombreItem;
     public bool objetoRecogido;
+    public bool[] spritesActivos;
+}
+
+[System.Serializable]
+public struct InventarioState
+{
+    public bool objetoEnInventario;
+    public string nombreItem;
+    public Sprite spriteItem;
 }
 
 [System.Serializable]
 public struct SceneState
 {    
     public Vector2 posicionPlayer;
+    public Quaternion rotacionPlayer;
 
     public List<PuertaState> puertasState; // Lista para guardar la información de PuertaState.
+    public List<ItemState> itemsState; // Lista para guardar la información de ItemState.
+    public List<InventarioState> inventarioState;
 }
 
 public class SaveManager: MonoBehaviour
@@ -47,10 +62,18 @@ public class SaveManager: MonoBehaviour
 
     private void Start()
     {
+        // Al darle a Play, se quedaban guardados los últimos datos, por eso lo limpio al principio (temporal).
+        PlayerPrefs.DeleteKey("SavedSceneState");
+
         if (PlayerPrefs.HasKey("SavedSceneState"))
         {
             string sceneStateJson = PlayerPrefs.GetString("SavedSceneState");
             savedSceneState = JsonUtility.FromJson<SceneState>(sceneStateJson);
+        }
+        else
+        {
+            savedSceneState = new SceneState();
+            Debug.Log("La escena se ha iniciado en un estado limpio sin datos previamente guardados.");
         }
     }
 
@@ -61,19 +84,52 @@ public class SaveManager: MonoBehaviour
         // JUGADOR
         infoPlayer = FindObjectOfType<PlayerMovement>();
         sceneState.posicionPlayer = infoPlayer.GetPosition();
+        sceneState.rotacionPlayer = infoPlayer.GetRotation();
 
 
-        // ITEMS (NO FUNCIONA NADA)
-        /*infoItems = FindObjectOfType<Items>(); // Si pongo esto, encuentra el primer objeto con este script, así que sale como que se ha recogido la Moneda, aún guardando antes de haber recogido nada.
-        if (infoItems.ultimoObjetoRecogido != null)
+        // ITEMS
+        Items[] items = FindObjectsOfType<Items>();
+        sceneState.itemsState = new List<ItemState>();
+
+        foreach (Items item in items)
         {
-            sceneState.nombreItem = infoItems.nombreItem;
-            sceneState.objetoRecogido = infoItems.GetObjetoRecogido();
-            Debug.Log("Se ha guardado el dato de que el objeto recogido es: " + sceneState.nombreItem);
-        }
-        else
-            Debug.Log("Ningún objeto se ha guardado");*/
+            ItemState itemState = new ItemState();
 
+            itemState.nombreItem = item.nombreItem;
+            itemState.objetoRecogido = item.GetObjetoRecogido();
+            itemState.spritesActivos = new bool[item.GetSpriteRenderers().Length];
+
+            for (int i = 0; i < item.GetSpriteRenderers().Length; i++)
+            {
+                itemState.spritesActivos[i] = item.GetSpriteRenderers()[i].enabled;
+            }
+
+            sceneState.itemsState.Add(itemState);
+            //Debug.Log("Se ha guardado el dato de que el objeto recogido es: " + itemState.nombreItem + " - " + itemState.objetoRecogido);
+        }
+
+        // INVENTARIO
+        Inventario inventario = FindObjectOfType<Inventario>(); // Buscamos el objeto que contiene el componente "Inventario".
+        sceneState.inventarioState = new List<InventarioState>(); // Lista donde almacenamos el estado del inventario.
+        if (inventario != null)
+        {
+            foreach (var hueco in inventario.huecosInventario)
+            {
+                InventarioState inventarioState = new InventarioState();
+
+                inventarioState.objetoEnInventario = inventario.GetObjetoEnInventario();
+
+                if (hueco.estaCompleto)
+                {
+                    inventarioState.nombreItem = hueco.nombreItem;
+                    inventarioState.spriteItem = hueco.sprite;
+                }
+
+                sceneState.inventarioState.Add(inventarioState);
+
+                Debug.Log("Se ha guardado el inventario: " + (inventarioState.objetoEnInventario ? hueco.nombreItem : "Hueco vacío"));
+            }
+        }
 
         //PUERTAS
         Puerta[] puertas = FindObjectsOfType<Puerta>(); // Creamos un array de Puertas y buscamos todos los objetos de tipo "Puerta". 
@@ -111,7 +167,7 @@ public class SaveManager: MonoBehaviour
         {
             string sceneStateJson = PlayerPrefs.GetString("SavedSceneState");
 
-            Debug.Log(sceneStateJson);
+            //Debug.Log(sceneStateJson);
             savedSceneState = JsonUtility.FromJson<SceneState>(sceneStateJson);
 
             //PLAYER
@@ -119,36 +175,92 @@ public class SaveManager: MonoBehaviour
             if (playerMovement != null)
             {
                 playerMovement.SetPosition(savedSceneState.posicionPlayer);
-                Debug.Log("Posición" + savedSceneState.posicionPlayer);
+                playerMovement.SetRotation(savedSceneState.rotacionPlayer);
+                //Debug.Log("Posición" + savedSceneState.posicionPlayer);
             }
 
 
-            //ITEMS (NO FUNCIONA NADA)
-            /*infoItems.SetObjetoRecogido(savedSceneState.objetoRecogido);
-            Debug.Log("El objeto " + savedSceneState.nombreItem + "está: " + savedSceneState.objetoRecogido);*/
-
-            //PUERTAS
-            /*foreach (PuertaState puertaState in savedSceneState.puertasState)
+            //ITEMS
+            Items[] items = FindObjectsOfType<Items>();
+            if (items != null)
             {
-                Puerta puerta = FindPuertaById(puertaState.idPuerta);
-                if (puerta != null)
+                Debug.Log("Número de objetos Items encontrados: " + items.Length);
+                if (savedSceneState.itemsState != null)
                 {
-                    puerta.SetPuertaBloqueada(puertaState.puertaBloqueada);
-                    Debug.Log("Puerta ID " + puertaState.idPuerta + " está bloqueada: " + puertaState.puertaBloqueada);
+                    foreach (ItemState itemState in savedSceneState.itemsState)
+                    {
+                        Debug.Log("Procesando ItemState: " + itemState.nombreItem);
+                        Items item = Array.Find(items, x => x.nombreItem == itemState.nombreItem);
+                        if (item != null)
+                        {
+                            item.objetoRecogido = itemState.objetoRecogido;
+
+                            // Actualiza el estado de los SpriteRenderer
+                            var spriteRenderers = item.GetSpriteRenderers();
+                            if (spriteRenderers != null)
+                            {
+                                for (int i = 0; i < spriteRenderers.Length; i++)
+                                {
+                                    if (i < itemState.spritesActivos.Length) // Verificar que el índice sea válido
+                                    {
+                                        spriteRenderers[i].enabled = itemState.spritesActivos[i];
+                                    }
+                                }
+                            }
+                            if (item.objetoRecogido)
+                            {
+                                item.DesactivarItem();
+                            }
+
+                            //Debug.Log("El objeto " + itemState.nombreItem + " está: " + (itemState.objetoRecogido ? "Recogido" : "No recogido"));
+                        }
+                    }
+                }
+                /*else
+                {
+                    Debug.LogWarning("No se encontraron estados de items guardados.");
+                }*/
+            }
+
+            // INVENTARIO
+            Inventario inventario = FindObjectOfType<Inventario>();
+            if (inventario != null && savedSceneState.inventarioState != null)
+            {
+                Debug.Log("Llega hasta aquí");
+                for (int i = 0; i < savedSceneState.inventarioState.Count; i++)
+                {
+                    var inventarioState = savedSceneState.inventarioState[i];
+
+                    Debug.Log("Procesando InventarioState: " + (inventarioState.objetoEnInventario ? inventarioState.nombreItem : "Hueco vacío"));
+
+                    // Si el objeto está en el inventario
+                    if (inventarioState.objetoEnInventario)
+                    {
+                        // Busca el objeto asociado al nombre en el array items
+                        Items item = Array.Find(items, x => x.nombreItem == inventarioState.nombreItem);
+                        if (item != null)
+                        {
+                            // Añade el objeto al inventario utilizando su nombre y sprite, en el hueco correspondiente
+                            if (i < inventario.huecosInventario.Length)
+                            {
+                                var sprite = item.GetSpriteItems(); // Obtener el sprite del objeto
+                                inventario.AñadirObjeto(inventarioState.nombreItem, sprite); // Añadir el objeto al hueco correspondiente
+                                Debug.Log("Objeto añadido al hueco: " + item.nombreItem);
+                            }
+                            else
+                            {
+                                // Si el índice es mayor o igual a la cantidad de huecos en el inventario, mostrar un mensaje de advertencia
+                                Debug.LogWarning("No hay suficientes huecos en el inventario para agregar el objeto: " + item.nombreItem);
+                            }
+                        }
+                        else
+                        {
+                            // Si el objeto no se encuentra en la escena, mostrar un mensaje de advertencia
+                            Debug.LogWarning("No se encontró el item en la escena: " + inventarioState.nombreItem);
+                        }
+                    }
                 }
             }
-
-            /*GameObject itemObject = GameObject.Find(savedSceneState.nombreItem);
-            if (itemObject != null)
-            {
-                itemObject.transform.position = savedSceneState.posicionInicialItems;
-            }
-
-            if (!savedSceneState.objetoRecogido && savedSceneState.objetoActivo)
-            {
-                EliminarObjetoDelInventario(savedSceneState.nombreItem);
-                Debug.Log("El objeto ha sido devuelto");
-            }*/
 
             //PUERTAS
             foreach (PuertaState puertaState in savedSceneState.puertasState)
@@ -166,10 +278,10 @@ public class SaveManager: MonoBehaviour
 
                     Debug.Log("Puerta ID " + puertaState.idPuerta + " - Bloqueada: " + puertaState.puertaBloqueada + ", Activada: " + puertaState.puertaActivada);
                 }
-                else
+                /*else
                 {
                     Debug.LogWarning("No se pudo encontrar la puerta con ID: " + puertaState.idPuerta);
-                }
+                }*/
             }
         }
         else
@@ -197,46 +309,4 @@ public class SaveManager: MonoBehaviour
         Inventario inventario = FindObjectOfType<Inventario>();
         inventario.VaciarHueco(nombreItem);
     }
-
-    //ANTIGUO SAVE SYSTEM
-    /*public static void SavePlayerData(PlayerMovement player)
-    {
-        PlayerData playerData = new PlayerData(player);
-        string dataPath = Application.persistentDataPath + "/player.save";
-        FileStream fileStream = new FileStream(dataPath, FileMode.Create);
-        BinaryFormatter formatter = new BinaryFormatter();
-        formatter.Serialize(fileStream, playerData);
-        fileStream.Close();
-    }
-
-    public static PlayerData LoadPlayerData()
-    {
-        string dataPath = Application.persistentDataPath + "/player.save";
-        if(File.Exists(dataPath))
-        {
-            FileStream fileStream = new FileStream(dataPath, FileMode .Open);
-            BinaryFormatter formatter = new BinaryFormatter();
-            PlayerData playerData = (PlayerData )formatter.Deserialize(fileStream);
-            fileStream.Close ();
-            return playerData;
-        }
-        else
-        {
-            return null;
-        }
-    }
-
-    public static void DeleteSavedData()
-    {
-        string dataPath = Application.persistentDataPath + "/player.save";
-        if (File.Exists(dataPath))
-        {
-            File.Delete(dataPath);
-            Debug.Log("Se han borrado los datos.");
-        }
-        else
-        {
-            Debug.LogWarning("No hay datos guardados para eliminar.");
-        }
-    }*/
 }
