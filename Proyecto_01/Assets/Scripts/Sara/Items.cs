@@ -161,7 +161,7 @@ public class Items : MonoBehaviour
         }
     }
 
-    public void SetIDsItem(string newID)
+    public void SetIDsItem(int newID)
     {
         if (idsItems != null)
         {
@@ -170,8 +170,16 @@ public class Items : MonoBehaviour
     }
 
     // Método para obtener el ID del item
-    public string GetIDsItem()
+    public int GetIDsItem()
     {
-        return idsItems.GetIDsItem();
+        if (idsItems != null)
+        {
+            return idsItems.GetIDsItem();
+        }
+        else
+        {
+            Debug.LogError("idsItems es null en el objeto: " + nombreItem);
+            return -1; // Valor por defecto o código de error
+        }
     }
 }

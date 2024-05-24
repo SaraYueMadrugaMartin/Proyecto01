@@ -6,14 +6,14 @@ using UnityEngine;
 
 public class IDsItems : ScriptableObject
 {
-    public string IDsItem;
+    public int IDsItem;
 
-    public string GetIDsItem()
+    public int GetIDsItem()
     {
         return IDsItem;
     }
 
-    public void SetIDsItem(string newID)
+    public void SetIDsItem(int newID)
     {
         IDsItem = newID;
     }
