@@ -17,6 +17,7 @@ public struct ItemState
 {
     public string nombreItem;
     public bool objetoRecogido;
+    public Vector2 posicionItem;
     public bool[] spritesActivos;
 }
 
@@ -97,6 +98,7 @@ public class SaveManager: MonoBehaviour
 
             itemState.nombreItem = item.nombreItem;
             itemState.objetoRecogido = item.GetObjetoRecogido();
+            itemState.posicionItem = item.GetPosition();
             itemState.spritesActivos = new bool[item.GetSpriteRenderers().Length];
 
             for (int i = 0; i < item.GetSpriteRenderers().Length; i++)
@@ -127,7 +129,7 @@ public class SaveManager: MonoBehaviour
 
                 sceneState.inventarioState.Add(inventarioState);
 
-                Debug.Log("Se ha guardado el inventario: " + (inventarioState.objetoEnInventario ? hueco.nombreItem : "Hueco vacío"));
+                //Debug.Log("Se ha guardado el inventario: " + (inventarioState.objetoEnInventario ? hueco.nombreItem : "Hueco vacío"));
             }
         }
 
@@ -194,7 +196,7 @@ public class SaveManager: MonoBehaviour
                         if (item != null)
                         {
                             item.objetoRecogido = itemState.objetoRecogido;
-
+                            item.SetPosition(itemState.posicionItem);
                             // Actualiza el estado de los SpriteRenderer
                             var spriteRenderers = item.GetSpriteRenderers();
                             if (spriteRenderers != null)

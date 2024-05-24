@@ -98,7 +98,7 @@ public class Items : MonoBehaviour
         }
     }
 
-    private void ObjetoRecogido(bool value)
+    public void ObjetoRecogido(bool value)
     {
         objetoHaSidoRecogido.Add(value);
     }
@@ -116,6 +116,16 @@ public class Items : MonoBehaviour
     public Sprite GetSpriteItems()
     {
         return sprite;
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+
+    public void SetPosition(Vector2 newPosition)
+    {
+        transform.position = newPosition;
     }
 
     public SpriteRenderer[] GetSpriteRenderers()

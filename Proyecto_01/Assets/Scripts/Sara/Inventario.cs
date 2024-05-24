@@ -18,6 +18,8 @@ public class Inventario : MonoBehaviour
     [SerializeField] private List<ObjetoPanelInfo> objetosPanelesInformacion;
     [SerializeField] private GameObject botonAtrasInfo;
 
+    private Items[] items;
+
     private List<Items> objetosRegistrados = new List<Items>();
 
 
@@ -47,6 +49,7 @@ public class Inventario : MonoBehaviour
     void Start()
     {
         Instance = this;
+        items = FindObjectsOfType<Items>();
         //objetoEstaEnInventario = new List<bool>();
     }
 
@@ -204,8 +207,15 @@ public class Inventario : MonoBehaviour
 
                     if (objeto != null)
                     {
+                        foreach (Items item in items)
+                        {
+                            item.objetoRecogido = false;
+                            item.ObjetoRecogido(false);
+                        }
+
                         Vector3 posicionJugador = GameObject.FindWithTag("Player").transform.position;
                         objeto.MoverYActivar(posicionJugador);
+
                         foreach (var panelBoton in huecosInventario[i].panelesBotones.Values)
                         {
                             panelBoton.SetActive(false);
