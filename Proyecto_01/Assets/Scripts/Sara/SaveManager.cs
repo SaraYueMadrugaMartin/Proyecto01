@@ -15,6 +15,7 @@ public struct PuertaState
 [System.Serializable]
 public struct ItemState
 {
+    public int idItem;
     public string nombreItem;
     public bool objetoRecogido;
     public Vector2 posicionItem;
@@ -97,6 +98,8 @@ public class SaveManager: MonoBehaviour
             ItemState itemState = new ItemState();
 
             itemState.nombreItem = item.nombreItem;
+            itemState.idItem = item.GetIDsItem();
+            Debug.Log("Se ha guardado el objeto: " + itemState.nombreItem + " con ID: " + itemState.idItem);
             itemState.objetoRecogido = item.GetObjetoRecogido();
             itemState.posicionItem = item.GetPosition();
             itemState.spritesActivos = new bool[item.GetSpriteRenderers().Length];
@@ -175,7 +178,6 @@ public class SaveManager: MonoBehaviour
             {
                 playerMovement.SetPosition(savedSceneState.posicionPlayer);
                 playerMovement.SetMiraDerecha(savedSceneState.playerMiraDerecha);
-                Debug.Log("El jugador mira hacia la: " + savedSceneState.playerMiraDerecha);
             }
 
 
@@ -183,13 +185,11 @@ public class SaveManager: MonoBehaviour
             Items[] items = FindObjectsOfType<Items>();
             if (items != null)
             {
-                Debug.Log("Número de objetos Items encontrados: " + items.Length);
                 if (savedSceneState.itemsState != null)
                 {
                     foreach (ItemState itemState in savedSceneState.itemsState)
                     {
-                        Debug.Log("Procesando ItemState: " + itemState.nombreItem);
-                        Items item = Array.Find(items, x => x.nombreItem == itemState.nombreItem);
+                        Items item = Array.Find(items, x => x.GetIDsItem() == itemState.idItem);
                         if (item != null)
                         {
                             item.objetoRecogido = itemState.objetoRecogido;
@@ -223,8 +223,6 @@ public class SaveManager: MonoBehaviour
                 {
                     var inventarioState = savedSceneState.inventarioState[i];
 
-                    Debug.Log("Procesando InventarioState: " + (inventarioState.objetoEnInventario ? inventarioState.nombreItem : "Hueco vacío"));
-
                     // Si el objeto está en el inventario
                     if (inventarioState.objetoEnInventario)
                     {
@@ -237,7 +235,6 @@ public class SaveManager: MonoBehaviour
                             {
                                 var sprite = item.GetSpriteItems(); // Obtener el sprite del objeto
                                 inventario.AñadirObjeto(inventarioState.nombreItem, sprite); // Añadir el objeto al hueco correspondiente
-                                Debug.Log("Objeto añadido al hueco: " + item.nombreItem);
                             }
                         }
                     }
@@ -261,10 +258,6 @@ public class SaveManager: MonoBehaviour
                     Debug.Log("Puerta ID " + puertaState.idPuerta + " - Bloqueada: " + puertaState.puertaBloqueada + ", Activada: " + puertaState.puertaActivada);
                 }
             }
-        }
-        else
-        {
-            Debug.LogWarning("No se encontró ningún estado guardado de la escena.");
         }
     }
 
