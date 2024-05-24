@@ -164,6 +164,26 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Funciones Ataque
+
+    public void EquiparArma(int arma)
+    {
+        switch (arma)
+        {
+            case 0:
+                Debug.Log("No tengo ningún arma equipada");
+                armaEquipada = 0;
+                break;
+            case 1:
+                Debug.Log("Equipo bate");
+                armaEquipada = 1;
+                break;
+            case 2:
+                Debug.Log("Equipo pistola");
+                armaEquipada = 2;
+                break;
+        }
+        ControladorAnimaciones.corrAnimaciones(estadoCorr, armaEquipada);
+    }
     private void Ataque()
     {
         if (armaEquipada != 0)
@@ -267,6 +287,7 @@ public class Player : MonoBehaviour
     }
     #endregion
 
+    #region Funciones Damage
     // Función que se llama desde el ataque de los enemigos
     public void recibeDamage (float damage)
     {
@@ -291,7 +312,7 @@ public class Player : MonoBehaviour
     {
         panelMuerte.SetActive(true);
     }
-
+    #endregion
     // Para ver el punto de ataque de Alex
     void OnDrawGizmosSelected()
     {

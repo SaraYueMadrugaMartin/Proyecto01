@@ -57,23 +57,7 @@ public class PlayerState
     }
     public virtual void FixedUpdate() { }
 
-
-    public void EquiparArma(int arma)
-    {
-        switch (arma)
-        {
-            case 0:
-                Player.armaEquipada = 0;
-                break;
-            case 1:
-                Player.armaEquipada = 1;
-                break;
-            case 2:
-                Player.armaEquipada = 2;
-                break;
-        }
-        CambiaAnimaciones(Player.estadoCorr, Player.armaEquipada);
-    }
+    
     public virtual void CambiaAnimaciones(int estado, int arma)
     {
        ControladorAnimaciones.corrAnimaciones(estado, arma);
