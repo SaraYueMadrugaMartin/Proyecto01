@@ -98,9 +98,9 @@ public class Enemigo : MonoBehaviour
        // Gizmos.DrawWireSphere(player.transform.position, rangoDeteccion);
 
     }
-    public void recibeDaño(int daño)
+    public void recibeDaño(float daño)
     {
-        saludActual -= daño;
+        saludActual -= (int)daño;
 
         anim.SetTrigger("recibeDaño");
         // Sonido recibir daño

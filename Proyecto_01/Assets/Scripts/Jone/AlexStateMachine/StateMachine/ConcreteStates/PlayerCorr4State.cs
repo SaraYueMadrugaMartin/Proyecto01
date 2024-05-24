@@ -16,6 +16,8 @@ public class PlayerCorr4State : PlayerState
         velocidadBase = 0.6f;
         velocidadCorriendo = 1.2f;
         velocidadSigilo = 0.4f;
+
+        Player.multiplicadorAtaque = 1.4f;
     }
 
     public override void ExitState()
