@@ -51,7 +51,7 @@ public class PlayerCombat : MonoBehaviour
         // Hacerles daño
         foreach (Collider2D enemigo in  golpeaEnemigos) 
         {
-            enemigo.GetComponent<Enemigo>().recibeDaño(dañoAtaque);
+            enemigo.GetComponent<Enemigo>().recibeDamage(dañoAtaque);
         }
     }
 

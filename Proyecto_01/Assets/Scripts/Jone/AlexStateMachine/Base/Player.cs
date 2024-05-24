@@ -44,7 +44,13 @@ public class Player : MonoBehaviour
     private float tiempoSiguienteAtaque = 0f;
 
     // A distancia
+    [SerializeField] Transform puntoDisparo;
     private Puntero puntero;
+    public static bool apuntando = false;
+    public static bool recargando = false;
+    private Animator animPistola, animBrazo;
+    private int cargador = 6;
+    public static bool direccionDerecha = true;
 
     public LayerMask enemigos;
     #endregion
@@ -79,6 +85,8 @@ public class Player : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         puntero = GetComponent<Puntero>();
+        animPistola = transform.Find("Puntero").GetComponent<Animator>();
+        animBrazo = transform.Find("Puntero").Find("Brazo").GetComponent<Animator>();
 
         saludActual = saludMax;
 
@@ -98,6 +106,7 @@ public class Player : MonoBehaviour
         Mover();       
     }
 
+    #region Funciones Movimiento
     private void Velocidad()
     {
         if (Input.GetKey(KeyCode.LeftShift))
@@ -150,8 +159,11 @@ public class Player : MonoBehaviour
         Vector3 currentScale = gameObject.transform.localScale;
         currentScale.x *= -1;
         gameObject.transform.localScale = currentScale;
-    }    
+    }
 
+    #endregion
+
+    #region Funciones Ataque
     private void Ataque()
     {
         if (armaEquipada != 0)
@@ -182,7 +194,7 @@ public class Player : MonoBehaviour
                 // Hacerles daño a los enemigos
                 foreach (Collider2D enemigo in golpeaEnemigos)
                 {
-                    enemigo.GetComponent<Enemigo>().recibeDaño(dañoAtaque);
+                    enemigo.GetComponent<Enemigo>().recibeDamage(dañoAtaque);
                 }
 
                 tiempoSiguienteAtaque = Time.time + 1f / ratioAtaque;
@@ -192,8 +204,68 @@ public class Player : MonoBehaviour
 
     private void AtaquePistola()
     {
-
+        if (Input.GetButton("Fire2"))
+        {
+            // Implementación visual de número de balas
+            apuntando = true;
+            if (Input.GetButtonDown("Fire1"))
+            {
+                if (cargador > 0)
+                    Dispara();
+                else
+                {
+                    // Hay que mostrar un mensaje en pantalla
+                    Debug.Log("Sin munición, pulsa R mientras apuntas para recargar");
+                }
+            }
+            if (Input.GetKeyDown("r"))
+                Recarga();
+        }
+        else
+            apuntando = false;
     }
+
+    private void Dispara()
+    {
+        animPistola.SetTrigger("dispara");
+        animBrazo.SetTrigger("dispara");
+
+        // Establece la dirección de la bala
+        if (!Puntero.cambiaAngulos)
+            direccionDerecha = true;
+        else
+            direccionDerecha = false;
+
+        GameObject objetoBala = PoolingBalas.instancia.GetBala();
+
+        objetoBala.transform.position = puntoDisparo.position;
+        objetoBala.transform.rotation = puntoDisparo.rotation;
+
+        --cargador;
+    }
+
+    private void Recarga()
+    {
+        if (municion > 0)
+        {
+            recargando = true;
+            StartCoroutine(CambiarValorDespuesDeEsperar());
+            Debug.Log("Recargado");
+            cargador = 6;
+            municion -= 6;
+        }
+        else
+        {
+            Debug.Log("No hay suficiente munición");
+            // Implementar texto de aviso
+        }
+    }
+    private IEnumerator CambiarValorDespuesDeEsperar()
+    {
+        yield return new WaitForSeconds(0.6f);
+        recargando = false;
+    }
+    #endregion
 
     // Función que se llama desde el ataque de los enemigos
     public void recibeDamage (float damage)
