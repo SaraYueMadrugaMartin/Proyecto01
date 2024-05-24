@@ -32,6 +32,7 @@ public struct InventarioState
 public struct SceneState
 {    
     public Vector2 posicionPlayer;
+    public Quaternion rotacionPlayer;
 
     public List<PuertaState> puertasState; // Lista para guardar la información de PuertaState.
     public List<ItemState> itemsState; // Lista para guardar la información de ItemState.
@@ -83,6 +84,7 @@ public class SaveManager: MonoBehaviour
         // JUGADOR
         infoPlayer = FindObjectOfType<PlayerMovement>();
         sceneState.posicionPlayer = infoPlayer.GetPosition();
+        sceneState.rotacionPlayer = infoPlayer.GetRotation();
 
 
         // ITEMS
@@ -107,8 +109,8 @@ public class SaveManager: MonoBehaviour
         }
 
         // INVENTARIO
-        Inventario inventario = FindObjectOfType<Inventario>();
-        sceneState.inventarioState = new List<InventarioState>();
+        Inventario inventario = FindObjectOfType<Inventario>(); // Buscamos el objeto que contiene el componente "Inventario".
+        sceneState.inventarioState = new List<InventarioState>(); // Lista donde almacenamos el estado del inventario.
         if (inventario != null)
         {
             foreach (var hueco in inventario.huecosInventario)
@@ -173,7 +175,8 @@ public class SaveManager: MonoBehaviour
             if (playerMovement != null)
             {
                 playerMovement.SetPosition(savedSceneState.posicionPlayer);
-                Debug.Log("Posición" + savedSceneState.posicionPlayer);
+                playerMovement.SetRotation(savedSceneState.rotacionPlayer);
+                //Debug.Log("Posición" + savedSceneState.posicionPlayer);
             }
 
 
@@ -227,6 +230,7 @@ public class SaveManager: MonoBehaviour
                 for (int i = 0; i < savedSceneState.inventarioState.Count; i++)
                 {
                     var inventarioState = savedSceneState.inventarioState[i];
+
                     Debug.Log("Procesando InventarioState: " + (inventarioState.objetoEnInventario ? inventarioState.nombreItem : "Hueco vacío"));
 
                     // Si el objeto está en el inventario
@@ -240,7 +244,7 @@ public class SaveManager: MonoBehaviour
                             if (i < inventario.huecosInventario.Length)
                             {
                                 var sprite = item.GetSpriteItems(); // Obtener el sprite del objeto
-                                inventario.AñadirObjeto(inventarioState.nombreItem, inventarioState.spriteItem); // Añadir el objeto al hueco correspondiente
+                                inventario.AñadirObjeto(inventarioState.nombreItem, sprite); // Añadir el objeto al hueco correspondiente
                                 Debug.Log("Objeto añadido al hueco: " + item.nombreItem);
                             }
                             else

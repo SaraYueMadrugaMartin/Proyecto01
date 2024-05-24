@@ -24,7 +24,7 @@ public class Inventario : MonoBehaviour
     public HuecosInventario[] huecosInventario;
 
     public bool objetoEnInventario = false;
-    private List<bool> objetoEstaEnInventario;
+    //private List<bool> objetoEstaEnInventario;
 
     //private Items devolverItems;
 
@@ -47,7 +47,7 @@ public class Inventario : MonoBehaviour
     void Start()
     {
         Instance = this;
-        objetoEstaEnInventario = new List<bool>();
+        //objetoEstaEnInventario = new List<bool>();
     }
 
     void Update()
@@ -73,7 +73,7 @@ public class Inventario : MonoBehaviour
         {
             if (!InventarioCompleto())
             {
-                ObjetoEstaEnInventario(true);
+                //ObjetoEstaEnInventario(true);
                 foreach (HuecosInventario hueco in huecosInventario)
                 {
                     if (!hueco.estaCompleto)
@@ -237,10 +237,10 @@ public class Inventario : MonoBehaviour
         }
     }
 
-    private void ObjetoEstaEnInventario(bool value)
+    /*private void ObjetoEstaEnInventario(bool value)
     {
         objetoEstaEnInventario.Add(value);
-    }
+    }*/
 
     public bool GetObjetoEnInventario()
     {
