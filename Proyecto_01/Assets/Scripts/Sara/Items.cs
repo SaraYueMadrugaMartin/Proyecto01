@@ -9,6 +9,8 @@ public class Items : MonoBehaviour
     private Inventario inventario;
     private bool cogerObjeto = false;
 
+    public IDsItems idsItems;
+
     private PanelesInteracciones panelesInteracciones, panelAvisoInventarioCompleto;
 
     public Vector2 posicionInicial;
@@ -108,11 +110,6 @@ public class Items : MonoBehaviour
         return objetoRecogido;
     }
 
-    /*public GameObject[] GetPropiedadesHijosItems()
-    {
-        return propiedadesHijosItems;
-    }*/
-
     public Sprite GetSpriteItems()
     {
         return sprite;
@@ -162,5 +159,19 @@ public class Items : MonoBehaviour
                 renderer.enabled = true;
             }
         }
+    }
+
+    public void SetIDsItem(string newID)
+    {
+        if (idsItems != null)
+        {
+            idsItems.SetIDsItem(newID);
+        }
+    }
+
+    // Método para obtener el ID del item
+    public string GetIDsItem()
+    {
+        return idsItems.GetIDsItem();
     }
 }

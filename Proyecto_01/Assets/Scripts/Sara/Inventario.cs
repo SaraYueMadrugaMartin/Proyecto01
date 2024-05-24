@@ -22,7 +22,6 @@ public class Inventario : MonoBehaviour
 
     private List<Items> objetosRegistrados = new List<Items>();
 
-
     public HuecosInventario[] huecosInventario;
 
     public bool objetoEnInventario = false;
