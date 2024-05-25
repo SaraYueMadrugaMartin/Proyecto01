@@ -87,7 +87,7 @@ public class Enemigo : MonoBehaviour
         if (Time.time >= tiempoSiguienteAtaque)
         {
             anim.SetTrigger("ataca");
-            player.GetComponent<PlayerCombat>().recibeDaño(dañoAtaque);
+            player.GetComponent<Player>().recibeDamage(dañoAtaque);
             tiempoSiguienteAtaque = Time.time + tiempoEspera;
         }      
     }
@@ -98,9 +98,9 @@ public class Enemigo : MonoBehaviour
        // Gizmos.DrawWireSphere(player.transform.position, rangoDeteccion);
 
     }
-    public void recibeDaño(int daño)
+    public void recibeDamage(float damage)
     {
-        saludActual -= daño;
+        saludActual -= (int)damage;
 
         anim.SetTrigger("recibeDaño");
         // Sonido recibir daño

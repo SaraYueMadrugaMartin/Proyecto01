@@ -40,6 +40,7 @@ public class PlayerState
                 // Deja de poder hacer ataque cuerpo a cuerpo
             break;
         }
+
         // Control de velocidad
         if (Player.estaCorriendo)
         {
@@ -56,9 +57,9 @@ public class PlayerState
     }
     public virtual void FixedUpdate() { }
 
+    
     public virtual void CambiaAnimaciones(int estado, int arma)
     {
        ControladorAnimaciones.corrAnimaciones(estado, arma);
     }
-    
 }
