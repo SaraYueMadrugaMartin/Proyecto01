@@ -34,7 +34,8 @@ public class ControladorAnimaciones
                 diccionarioAnimaciones[6] = "alex_interact_0";
                 diccionarioAnimaciones[7] = "alex_fire_0";
                 diccionarioAnimaciones[8] = "alex_recharge_0";
-            break;
+                diccionarioAnimaciones[9] = "alex_die_0";
+                break;
             case 1:
                 switch (armaEquipada)
                 {
@@ -59,7 +60,8 @@ public class ControladorAnimaciones
                 diccionarioAnimaciones[6] = "alex_interact_1";
                 diccionarioAnimaciones[7] = "alex_fire_1";
                 diccionarioAnimaciones[8] = "alex_recharge_1";
-            break;
+                diccionarioAnimaciones[9] = "alex_die_1";
+                break;
             case 2:
                 switch (armaEquipada)
                 {
@@ -84,7 +86,8 @@ public class ControladorAnimaciones
                 diccionarioAnimaciones[6] = "alex_interact_2";
                 diccionarioAnimaciones[7] = "alex_fire_2";
                 diccionarioAnimaciones[8] = "alex_recharge_2";
-            break;
+                diccionarioAnimaciones[9] = "alex_die_2";
+                break;
             case 3:
                 switch (armaEquipada)
                 {
@@ -109,7 +112,8 @@ public class ControladorAnimaciones
                 diccionarioAnimaciones[6] = "alex_interact_3";
                 diccionarioAnimaciones[7] = "alex_fire_3";
                 diccionarioAnimaciones[8] = "alex_recharge_3";
-            break;
+                diccionarioAnimaciones[9] = "alex_die_3";
+                break;
             default:
                 switch (armaEquipada)
                 {
@@ -134,9 +138,8 @@ public class ControladorAnimaciones
                 diccionarioAnimaciones[6] = "alex_interact_4";
                 diccionarioAnimaciones[7] = "alex_fire_4";
                 diccionarioAnimaciones[8] = "alex_recharge_4";
-            break;
-        }
-
-        diccionarioAnimaciones[9] = "alex_die";
+                diccionarioAnimaciones[9] = "alex_die_4";
+                break;
+        }        
     }
 }
