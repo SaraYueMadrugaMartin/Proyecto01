@@ -132,10 +132,10 @@ public class Player : MonoBehaviour
         float velocidadY = Input.GetAxis("Vertical") * movimiento * multiplicadorVelocidad * Time.deltaTime;
 
         if (velocidadX != 0f || velocidadY != 0f)
-            ;//anim.Play(ControladorAnimaciones.diccionarioAnimaciones[2]); // Walk animation
+            anim.Play(ControladorAnimaciones.diccionarioAnimaciones[2]); // Walk animation
             // Sonido walk
         else
-            ;//anim.Play(ControladorAnimaciones.diccionarioAnimaciones[1]); // Idle animation
+            anim.Play(ControladorAnimaciones.diccionarioAnimaciones[1]); // Idle animation
 
         transform.Translate(velocidadX, 0, 0);
         transform.Translate(0, velocidadY, 0);
@@ -205,7 +205,7 @@ public class Player : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0)) // Click izquierdo del ratón
             {
-                // Animación ataque
+                anim.Play(ControladorAnimaciones.diccionarioAnimaciones[5]);
                 // Sonido ataque
 
                 // Detecta los enemigos en el rango de ataque 
