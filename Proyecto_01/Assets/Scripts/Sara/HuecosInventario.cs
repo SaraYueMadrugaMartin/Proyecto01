@@ -25,6 +25,11 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
     [SerializeField] private GameObject panelBotonesDiario;
     [SerializeField] private GameObject panelBotonesMunicion;
 
+    private void Awake()
+    {
+        fotoItem.enabled = false;
+    }
+
     private void Start()
     {
         inventario = GameObject.Find("Canvas").GetComponent<Inventario>();
@@ -43,6 +48,7 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
         this.sprite = sprite;
         estaCompleto = true;
         fotoItem.sprite = sprite;
+        fotoItem.enabled = true;
     }
 
     public void VaciarHueco()
@@ -52,6 +58,7 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
         sprite = null;
         estaCompleto = false;
         fotoItem.sprite = null;
+        fotoItem.enabled = false;
     }
 
     public void OnPointerClick(PointerEventData eventData)

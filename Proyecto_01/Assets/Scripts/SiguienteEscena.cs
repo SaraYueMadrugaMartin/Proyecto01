@@ -5,18 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class SiguienteEscena : MonoBehaviour
 {
+    [SerializeField] private FadeAnimation fadeAnimation;
+    [SerializeField] private GameObject player;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            cargarEscena();
+            fadeAnimation.FadeOut();
+            StartCoroutine(SiguienteNivel());
         }
     }
 
-    private void cargarEscena()
+    IEnumerator SiguienteNivel()
     {
-        int escenaActual = SceneManager.GetActiveScene().buildIndex;
-        int siguienteEscena = escenaActual + 1;
-        SceneManager.LoadScene(siguienteEscena);
+        yield return new WaitForSeconds(1f);
+        player.transform.position = new Vector2(3.66f, 78.8f);
     }
 }
