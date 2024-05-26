@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 303bec825f8bc4440923eb971d223e8e
-      internalID: 712877731
+      spriteID: 7661693b28c898a43aa7ddbcbcfdcb87
+      internalID: 457886149
       vertices: []
       indices: 
       edges: []
@@ -158,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c039f3c220a3d34d8c05db0a4cac97c
-      internalID: -2022579913
+      spriteID: 011b936c87aa7214c93f95c46757278a
+      internalID: -1721047438
       vertices: []
       indices: 
       edges: []
@@ -179,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79820d8c8c025a64385970276ea219fd
-      internalID: -161122990
+      spriteID: 57eb2b1aa1ffc7c4e93de61bf7cbcb2d
+      internalID: -209031870
       vertices: []
       indices: 
       edges: []
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16cdc1a35ce87c44aad55ca589a247e1
-      internalID: 1371957026
+      spriteID: ffb896a37a5654142a6f76df9a7c4af7
+      internalID: -1546895225
       vertices: []
       indices: 
       edges: []
@@ -221,8 +221,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f88b563a7c365664b901de1b627fdd53
-      internalID: -482671547
+      spriteID: bd53a0f99febd084f8d5e278d16356c2
+      internalID: -739257168
       vertices: []
       indices: 
       edges: []
@@ -242,8 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8ee125576a56cf4485462568719164d
-      internalID: 887763432
+      spriteID: 02a328882d0750f4b80d82732479d0d9
+      internalID: -1892173681
       vertices: []
       indices: 
       edges: []
@@ -263,8 +263,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 800b775079e3ba647a53fef1ca9d4876
-      internalID: 809402728
+      spriteID: 749f52943d7485844896acbfe7f3da22
+      internalID: 1238515394
       vertices: []
       indices: 
       edges: []
@@ -284,8 +284,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a694a28de6836784099fb0430dd98689
-      internalID: 1349516620
+      spriteID: 6523c31433aac5148a9e5a7c3b08c00f
+      internalID: 1661272094
       vertices: []
       indices: 
       edges: []
@@ -305,8 +305,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c53526c3b42ed74d9f13424ac6c3e4b
-      internalID: 1701905615
+      spriteID: bd9b84598e811b94c957b7415418c79d
+      internalID: -813863442
       vertices: []
       indices: 
       edges: []
@@ -326,29 +326,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d8420b581358274290d46b9fdf724b8
-      internalID: 1554980446
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PISTOLA_2_NIVEL_0_spritesheet_64X128_10
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 128
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46fe76bd8e5bfd14e91250a9d7f2e280
-      internalID: 560335959
+      spriteID: ef303899eeaf2914f9b2f64bfd8411ce
+      internalID: 592734420
       vertices: []
       indices: 
       edges: []
@@ -368,8 +347,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 715bcce63daf4c5418cc9309811428b5
-      internalID: -295610275
+      spriteID: 053e53dff0827ba4dab912bb7623a1b6
+      internalID: 471148737
       vertices: []
       indices: 
       edges: []
@@ -389,8 +368,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b3f02c24b1df494abf5b47a5802c96b
-      internalID: -1403858178
+      spriteID: 41d1134f6b14db045a07f2b0c3837401
+      internalID: 1521474655
       vertices: []
       indices: 
       edges: []
@@ -410,8 +389,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd5e8581958b264459bddf6882328309
-      internalID: -842728957
+      spriteID: 2a7898ed5c10f2949b93690000736307
+      internalID: 1279232834
       vertices: []
       indices: 
       edges: []
@@ -427,20 +406,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PISTOLA_2_NIVEL_0_spritesheet_64X128_0: 712877731
-      PISTOLA_2_NIVEL_0_spritesheet_64X128_1: -2022579913
-      PISTOLA_2_NIVEL_0_spritesheet_64X128_10: 560335959
-      PISTOLA_2_NIVEL_0_spritesheet_64X128_11: -295610275
-      PISTOLA_2_NIVEL_0_spritesheet_64X128_12: -1403858178
-      PISTOLA_2_NIVEL_0_spritesheet_64X128_13: -842728957
-      PISTOLA_2_NIVEL_0_spritesheet_64X128_2: -161122990
-      PISTOLA_2_NIVEL_0_spritesheet_64X128_3: 1371957026
-      PISTOLA_2_NIVEL_0_spritesheet_64X128_4: -482671547
-      PISTOLA_2_NIVEL_0_spritesheet_64X128_5: 887763432
-      PISTOLA_2_NIVEL_0_spritesheet_64X128_6: 809402728
-      PISTOLA_2_NIVEL_0_spritesheet_64X128_7: 1349516620
-      PISTOLA_2_NIVEL_0_spritesheet_64X128_8: 1701905615
-      PISTOLA_2_NIVEL_0_spritesheet_64X128_9: 1554980446
+      PISTOLA_2_NIVEL_0_spritesheet_64X128_0: 457886149
+      PISTOLA_2_NIVEL_0_spritesheet_64X128_1: -1721047438
+      PISTOLA_2_NIVEL_0_spritesheet_64X128_10: -1600955293
+      PISTOLA_2_NIVEL_0_spritesheet_64X128_11: 471148737
+      PISTOLA_2_NIVEL_0_spritesheet_64X128_12: 1521474655
+      PISTOLA_2_NIVEL_0_spritesheet_64X128_13: 1279232834
+      PISTOLA_2_NIVEL_0_spritesheet_64X128_2: -209031870
+      PISTOLA_2_NIVEL_0_spritesheet_64X128_3: -1546895225
+      PISTOLA_2_NIVEL_0_spritesheet_64X128_4: -739257168
+      PISTOLA_2_NIVEL_0_spritesheet_64X128_5: -1892173681
+      PISTOLA_2_NIVEL_0_spritesheet_64X128_6: 1238515394
+      PISTOLA_2_NIVEL_0_spritesheet_64X128_7: 1661272094
+      PISTOLA_2_NIVEL_0_spritesheet_64X128_8: -813863442
+      PISTOLA_2_NIVEL_0_spritesheet_64X128_9: 592734420
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
