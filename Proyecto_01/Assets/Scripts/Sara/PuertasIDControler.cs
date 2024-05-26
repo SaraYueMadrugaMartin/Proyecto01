@@ -7,7 +7,9 @@ public class PuertasIDControler : MonoBehaviour
     [SerializeField] private GameObject panelPregunta;
     [SerializeField] private Inventario inventario;
     [SerializeField] private FadeAnimation fadeAnimation;
+    [SerializeField] private Puerta puertas;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject cadenas;
     //[SerializeField] private Puerta puerta;
 
     [SerializeField] private Vector2 posicionTransicion = new Vector2(8.51f, 0.51f);
@@ -22,6 +24,11 @@ public class PuertasIDControler : MonoBehaviour
         destruye = true;
         panelPregunta.SetActive(false);
         inventario.VaciarHueco("Llave");
+
+        if (puertas.CompararIDs(3))
+        {
+            cadenas.SetActive(false);
+        }
     }
 
     public void NoUsarLlave()

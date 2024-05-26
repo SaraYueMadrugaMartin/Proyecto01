@@ -93,7 +93,7 @@ public class Puerta : MonoBehaviour
         Debug.Log("La puerta está: " + (puertaAsociada.puertaBloqueada ? "bloqueada" : "desbloqueada"));
     }
 
-    bool CompararIDs(int idLlave)
+    public bool CompararIDs(int idLlave)
     {
         if (puertaAsociada.puertasID == idLlave)
         {
