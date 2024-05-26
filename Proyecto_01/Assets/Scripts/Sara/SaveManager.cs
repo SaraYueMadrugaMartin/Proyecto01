@@ -27,6 +27,7 @@ public struct InventarioState
 {
     public bool objetoEnInventario;
     public string nombreItem;
+    //public int idItems;
     public Sprite spriteItem;
 }
 
@@ -87,7 +88,7 @@ public class SaveManager: MonoBehaviour
         infoPlayer = FindObjectOfType<PlayerMovement>();
         sceneState.posicionPlayer = infoPlayer.GetPosition();
         sceneState.playerMiraDerecha = infoPlayer.GetMiraDerecha();
-        Debug.Log("El jugador mira hacia la: " + sceneState.playerMiraDerecha);
+        //Debug.Log("El jugador mira hacia la: " + sceneState.playerMiraDerecha);
 
         // ITEMS
         Items[] items = FindObjectsOfType<Items>();
@@ -99,7 +100,7 @@ public class SaveManager: MonoBehaviour
 
             itemState.nombreItem = item.nombreItem;
             itemState.idItem = item.GetIDsItem();
-            Debug.Log("Se ha guardado el objeto: " + itemState.nombreItem + " con ID: " + itemState.idItem);
+            Debug.Log("Se ha guardado el objeto con ID: " + itemState.idItem);
             itemState.objetoRecogido = item.GetObjetoRecogido();
             itemState.posicionItem = item.GetPosition();
             itemState.spritesActivos = new bool[item.GetSpriteRenderers().Length];
@@ -126,6 +127,7 @@ public class SaveManager: MonoBehaviour
                 if (hueco.estaCompleto)
                 {
                     inventarioState.nombreItem = hueco.nombreItem;
+                    //inventarioState.idItems = hueco.GetIDsItem();
                     inventarioState.spriteItem = hueco.sprite;
                 }
 
@@ -226,7 +228,7 @@ public class SaveManager: MonoBehaviour
                     // Si el objeto está en el inventario
                     if (inventarioState.objetoEnInventario)
                     {
-                        // Busca el objeto asociado al nombre en el array items
+                        // Busca el objeto asociado a la ID en el array items
                         Items item = Array.Find(items, x => x.nombreItem == inventarioState.nombreItem);
                         if (item != null)
                         {

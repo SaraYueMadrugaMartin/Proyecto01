@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using static UnityEditor.Progress;
 
 public class HuecosInventario : MonoBehaviour, IPointerClickHandler
 {
@@ -12,6 +13,8 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
     public int cantidad;
     public Sprite sprite;
     public bool estaCompleto;
+
+    //public int idItem;
     //public Vector2 coordItem;
 
     public GameObject panelSeleccion;
@@ -24,6 +27,11 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
     [SerializeField] private GameObject panelBotonesTinta;
     [SerializeField] private GameObject panelBotonesDiario;
     [SerializeField] private GameObject panelBotonesMunicion;
+
+    private void Awake()
+    {
+        fotoItem.enabled = false;
+    }
 
     private void Start()
     {
@@ -43,6 +51,7 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
         this.sprite = sprite;
         estaCompleto = true;
         fotoItem.sprite = sprite;
+        fotoItem.enabled = true;
     }
 
     public void VaciarHueco()
@@ -52,6 +61,7 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
         sprite = null;
         estaCompleto = false;
         fotoItem.sprite = null;
+        fotoItem.enabled = false;
     }
 
     public void OnPointerClick(PointerEventData eventData)

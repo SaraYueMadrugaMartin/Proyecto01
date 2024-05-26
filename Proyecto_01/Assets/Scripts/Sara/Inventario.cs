@@ -48,6 +48,7 @@ public class Inventario : MonoBehaviour
     void Start()
     {
         Instance = this;
+        inventario.SetActive(false);
         items = FindObjectsOfType<Items>();
         //objetoEstaEnInventario = new List<bool>();
     }
