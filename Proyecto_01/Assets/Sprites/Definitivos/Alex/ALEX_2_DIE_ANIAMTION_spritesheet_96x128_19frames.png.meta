@@ -1,0 +1,1262 @@
+fileFormatVersion: 2
+guid: 4e50612e479b629408642a5c2c5235c6
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 80
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d796889793604d4bb454985d5f516b8
+      internalID: -523821337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_1
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 768
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d81ad2664e0bc84ab5ab3c4dce948cf
+      internalID: -125053140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_2
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 768
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bc5a40bbcea6f9499a6b0238a306df9
+      internalID: 656848218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_3
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 768
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61405f0e61e92f24a93c73b4bd2b91d5
+      internalID: 609824913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_4
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 768
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 996a8452b51be9049b31f6185de27435
+      internalID: 966927974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_5
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 768
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a95549c887ddcbe42bd56ceae1aedb42
+      internalID: -588239154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_6
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 768
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 218be4ef229dacb4799d82e66b3640c0
+      internalID: -1712859515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_7
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 768
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9e0b413a39c1f34b87f2273927a31cd
+      internalID: -226597426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8eca4e8a24ffe44ea3112ef4401cbe3
+      internalID: -728346070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_9
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 640
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14d6e9d989ad43442a2f2b8ab43d4d7f
+      internalID: -1072829156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_10
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 640
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0276981f78259184dab9dee36db0687f
+      internalID: 930151176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_11
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 640
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cf241e741999c5448cf93f98814d81a
+      internalID: -1920118637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_12
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 640
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3ce6c469ccf5704e9966d03a5dec6e9
+      internalID: 1403745658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_13
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 640
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff1be5dc29dede8468e20a0427ea635a
+      internalID: 1173549725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_14
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 640
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02724bbd8a984b741b8ff2c56bf9301c
+      internalID: -1970143693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_15
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 640
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 002e70ee90cb3bb41886ff6f2f573a9a
+      internalID: 1649835798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36cbf6e2fc35e1a47b73b9b886fe92b8
+      internalID: 1781476731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_17
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 512
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe3e27e0fa78c1746afc4ad61043d600
+      internalID: -228028173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_18
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 512
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a7875b0bbd38444481d01a2bef81b05
+      internalID: -629140452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_19
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 512
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 100783dcef8764f46be95f1673839c96
+      internalID: 1965865434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_20
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 512
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28bd09db9b36fea43aba3f7e7ff710c6
+      internalID: -1922561949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_21
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 512
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31d29d0b8a274fd438bbf30305330c74
+      internalID: -2039113408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_22
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 512
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa8caece4ed1834d983d143cb0d50e2
+      internalID: 2066031428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_23
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 512
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a01314d0e2568f469fa633f29caefc1
+      internalID: -1552384872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fcfb914a741dd34c98a32d24d02246b
+      internalID: -1227223204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_25
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 384
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6b512cca9407ef41848c88cc45eb154
+      internalID: -1932570446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_26
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 384
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a8195797ab8cc640889ecb4bbe6c95d
+      internalID: -1918130527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_27
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 384
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8879e882501c3247b650dde7b165255
+      internalID: -1299834246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_28
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 384
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7046cad3d09fa72439cc32819deceb71
+      internalID: -1319831632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_29
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 384
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8c0916053c1e59409f97f8e48e76fa1
+      internalID: -1073257784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_30
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 384
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b63e938eb1e6e36448113d699a742829
+      internalID: 9444297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_31
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 384
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e21504463096ef45987dc282e6a1cc7
+      internalID: -1144778044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c84b2f8419a89354ebb53011582d9dde
+      internalID: 557030190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_33
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 256
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 749719d7fa4290f43b21352d08398633
+      internalID: -1510536789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_34
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 256
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f7fa9cbb7a359d44b8c137cba05bee5
+      internalID: 935289168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_35
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 256
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41fa6c412459e26408ca49156fe6a96e
+      internalID: 1109359168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_36
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 256
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90312a95d1e6e104ab606b7c3db30c94
+      internalID: -588904423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_37
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 256
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f90d7b1fedbcc24489974c6e81a82a3
+      internalID: 1758403979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_38
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 256
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d804a7612ee90c14bb2458497dbc0d82
+      internalID: 1118508979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_39
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 256
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a52010eabc35da4e9c4aebd5b719469
+      internalID: -305401305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7021df99ec0588542a221d5650706c2a
+      internalID: 245541394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_41
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 128
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74cc607e7dfde8d4680025204bb389f1
+      internalID: -1753087834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_42
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 128
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce8b2ce2bb304b84ea8ceb2450218213
+      internalID: 1992109748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_43
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 128
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f50e8adc1ca27bf41b6193cf0235b8aa
+      internalID: -840449089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_44
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 128
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 148497ecf50ab1049b03d3daf6b0bb8c
+      internalID: 945821272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_45
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 128
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db7831c0517b6254881428106568789f
+      internalID: -262533806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_46
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 128
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa2520c558f6bbc47a141f07d7f28b22
+      internalID: 434574161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_47
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 128
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f8d4feda31c5274b868691fc40f91e1
+      internalID: 1964552241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41c78ad3c9c44b7469b1937d5afca2e0
+      internalID: -468127757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_49
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 0
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3d6f6c8fdb6eb945a3da05ae3ba2ef5
+      internalID: -648263023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_50
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 0
+        width: 95.625
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4634c28e9b62f74469cae9dccfa62f2b
+      internalID: 1288691503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_0: -523821337
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_1: -125053140
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_10: 930151176
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_11: -1920118637
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_12: 1403745658
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_13: 1173549725
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_14: -1970143693
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_15: 1649835798
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_16: 1781476731
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_17: -228028173
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_18: -629140452
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_19: 1965865434
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_2: 656848218
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_20: -1922561949
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_21: -2039113408
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_22: 2066031428
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_23: -1552384872
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_24: -1227223204
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_25: -1932570446
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_26: -1918130527
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_27: -1299834246
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_28: -1319831632
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_29: -1073257784
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_3: 609824913
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_30: 9444297
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_31: -1144778044
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_32: 557030190
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_33: -1510536789
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_34: 935289168
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_35: 1109359168
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_36: -588904423
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_37: 1758403979
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_38: 1118508979
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_39: -305401305
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_4: 966927974
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_40: 245541394
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_41: -1753087834
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_42: 1992109748
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_43: -840449089
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_44: 945821272
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_45: -262533806
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_46: 434574161
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_47: 1964552241
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_48: -468127757
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_49: -648263023
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_5: -588239154
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_50: 1288691503
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_6: -1712859515
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_7: -226597426
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_8: -728346070
+      ALEX_2_DIE_ANIAMTION_spritesheet_96x128_19frames_9: -1072829156
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
