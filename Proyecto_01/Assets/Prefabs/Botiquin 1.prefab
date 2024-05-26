@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreItem: Botiquin
-  sprite: {fileID: -2125424697, guid: e209f935ed0e5ce4590c32fd93986ff6, type: 3}
+  sprite: {fileID: 21300000, guid: 8ed92f7fb0213f646b02a4e9224c2abd, type: 3}
   idsItems: {fileID: 11400000, guid: 0f31c4eeeb5dfd844967e371759c9e73, type: 2}
   posicionInicial: {x: 0, y: 0}
   objetoRecogido: 0

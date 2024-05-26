@@ -105,7 +105,7 @@ public class Puerta : MonoBehaviour
             Debug.Log("La llave no es la correcta. Necesitas otra.");
             return false;
         }
-    }
+   }
 
     public void DesactivarColliders()
     {

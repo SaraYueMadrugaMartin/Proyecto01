@@ -7,7 +7,7 @@ public class PuertasIDControler : MonoBehaviour
     [SerializeField] private GameObject panelPregunta;
     [SerializeField] private Inventario inventario;
     [SerializeField] private FadeAnimation fadeAnimation;
-    [SerializeField] private Puerta puertas;
+    [SerializeField] private Puerta[] puertas;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject cadenas;
     //[SerializeField] private Puerta puerta;
@@ -25,9 +25,13 @@ public class PuertasIDControler : MonoBehaviour
         panelPregunta.SetActive(false);
         inventario.VaciarHueco("Llave");
 
-        if (puertas.CompararIDs(3))
+        foreach (Puerta puerta in puertas)
         {
-            cadenas.SetActive(false);
+            if (puerta.idPuerta == 3 && !puerta.puertaBloqueada) // Comparamos que la puerta con ese ID sea la desbloqueada.
+            {
+                cadenas.SetActive(false);
+                break;
+            }
         }
     }
 
