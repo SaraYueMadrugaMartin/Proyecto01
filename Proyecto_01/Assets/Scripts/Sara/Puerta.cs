@@ -107,6 +107,14 @@ public class Puerta : MonoBehaviour
         }
     }
 
+    public void DesactivarColliders()
+    {
+        foreach (Collider2D colliderPuerta in puertaColliders)
+        {
+            colliderPuerta.enabled = false;
+        }
+    }
+
     /*public void DestruirPuerta()
     {
         // Obtener el ID de la puerta actual

@@ -8,6 +8,7 @@ public class PuertasIDControler : MonoBehaviour
     [SerializeField] private Inventario inventario;
     [SerializeField] private FadeAnimation fadeAnimation;
     [SerializeField] private GameObject player;
+    //[SerializeField] private Puerta puerta;
 
     [SerializeField] private Vector2 posicionTransicion = new Vector2(8.51f, 0.51f);
     [SerializeField] private Vector2 posicionTransicion02;
@@ -39,6 +40,7 @@ public class PuertasIDControler : MonoBehaviour
     public void NotificarDestruccionPuerta(Puerta puerta)
     {
         DestruirPuerta(puerta.idPuerta);
+        puerta.DesactivarColliders();
     }
 
     public void DestruirPuerta(int idPuerta)
@@ -47,7 +49,6 @@ public class PuertasIDControler : MonoBehaviour
         GameObject puertaObjeto = GameObject.Find("Puerta" + idPuerta);
         if (puertaObjeto != null)
         {
-            // Obtén todos los colliders asociados a la puerta
             Collider2D[] collidersPuerta = puertaObjeto.GetComponents<Collider2D>();
 
             // Desactiva todos los colliders
@@ -56,10 +57,6 @@ public class PuertasIDControler : MonoBehaviour
                 colliderPuerta.enabled = false;
                 Debug.Log("Collider de la puerta " + idPuerta + " desactivado.");
             }
-        }
-        else
-        {
-            Debug.LogWarning("La puerta con el ID " + idPuerta + " no fue encontrada.");
         }
     }
 }
