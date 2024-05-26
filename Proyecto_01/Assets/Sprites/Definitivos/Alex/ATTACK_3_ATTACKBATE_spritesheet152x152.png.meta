@@ -1,0 +1,1020 @@
+fileFormatVersion: 2
+guid: 833872ff8f7c3af409dd54a28a035e47
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 80
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 608
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bce928aef52d8b48b4e6c2bc67bbcd9
+      internalID: -1435179757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_1
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 608
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b7e4d115ff91144d9a0d923dc0eaef3
+      internalID: 796021692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_2
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 608
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 385addcb2dff6354a8ddad24d99aa185
+      internalID: -165885918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_3
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 608
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c64ebcbe3a8a8142812be9d7c55f661
+      internalID: -1941634261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_4
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 608
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ebbc280ffae9a84f85c442e1e36a45c
+      internalID: -783347315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_5
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 608
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 627088cd9dc98ed43874fdae68229cab
+      internalID: -308347474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_6
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 608
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5547b5bc3bd9824ba55e966ecd83a5f
+      internalID: 308481777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_7
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 608
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bf9db0b502dde54bb616007c9e539c0
+      internalID: -2095649445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 456
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a58c2fcd527a149bcfaa1b6450f9e9
+      internalID: -1376799540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_9
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 456
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b44ad362fc3c424f8d1c69cfb3ef725
+      internalID: -1316917470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_10
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 456
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d0de3c611c3d2b48af1d134f87ad7b8
+      internalID: 75756502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_11
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 456
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40281e7c8bc1ea3489861f2becafb0a4
+      internalID: 2102792058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_12
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 456
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7637d481b8785d439b4c41cd7d47bfc
+      internalID: -110111774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_13
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 456
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec6d930e88628a741a426337e83dd8de
+      internalID: 721713557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_14
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 456
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75c28438c0f3e8d46840e7b19be9e007
+      internalID: -1603093856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_15
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 456
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd0a358beed165e45a921e9959f5f296
+      internalID: -1824906343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 304
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b8bf65b4880bd946b2f08c34ae5ce7b
+      internalID: 1380182842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_17
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 304
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a46189bc94ca634cb827796333ba58d
+      internalID: 2086461438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_18
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 304
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41c1564d68901c54eb4c548c185119e0
+      internalID: 986720085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_19
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 304
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b722a1b95813b0418ed34fadb6e8fb8
+      internalID: 1392091016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_20
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 304
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 246906da2d0c514469e56fb76bdaa8a4
+      internalID: -184232240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_21
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 304
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e064c56677cc013429663466a2b022ec
+      internalID: 1488939769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_22
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 304
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97a99db51ec8a314a83224956add30e3
+      internalID: 1811875648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_23
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 304
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13219b345f3299e4c967929e9ed73c4b
+      internalID: 530865037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 152
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a35464fe18b5d3c4fa22a544306b93f7
+      internalID: 1272172443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_25
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 152
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 755519e51be38914c9f48576be809435
+      internalID: -1714294691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_26
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 152
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc164e556dca2464892a6fd99cb8435c
+      internalID: -1322721178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_27
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 152
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e856d65a669807b42905762a76fbcf57
+      internalID: 1329071869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_28
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 152
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3083f47e227c54b41b9379f7267915c7
+      internalID: -1079873710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_29
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 152
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7cc4d7aadab62749b9dfa50cada8724
+      internalID: 1034972052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_30
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 152
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07ee00c4f216c2d4c91a0e07584a2e61
+      internalID: 1054036166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_31
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 152
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61e2943aa57dde643bf9bac9c58b401e
+      internalID: -325561401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c876a84e7201ca64f82c080e51d4157d
+      internalID: -659091419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_33
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 983f1763f9b307b4c9f9f3d948c61c6b
+      internalID: -1885976350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_34
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 0
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1087b873be5fbfd4a879e6d78c595eb4
+      internalID: 1272361628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_35
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 0
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f23194d782e327e4e894657a55794a9c
+      internalID: 1735232920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_36
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 0
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c614767d34ad6bd4296931b511c06065
+      internalID: 858451004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_37
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 0
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 580c126684fc4434b95069c2c86220f0
+      internalID: -1446946022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_38
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 0
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8900ff3466c7658459f16d207e307231
+      internalID: 1457664208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_3_ATTACKBATE_spritesheet152x152_39
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 0
+        width: 152
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9df33fe6d5476540bfd0532dd8530bf
+      internalID: -587871140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      ATTACK_3_ATTACKBATE_spritesheet152x152_0: -1435179757
+      ATTACK_3_ATTACKBATE_spritesheet152x152_1: 796021692
+      ATTACK_3_ATTACKBATE_spritesheet152x152_10: 75756502
+      ATTACK_3_ATTACKBATE_spritesheet152x152_11: 2102792058
+      ATTACK_3_ATTACKBATE_spritesheet152x152_12: -110111774
+      ATTACK_3_ATTACKBATE_spritesheet152x152_13: 721713557
+      ATTACK_3_ATTACKBATE_spritesheet152x152_14: -1603093856
+      ATTACK_3_ATTACKBATE_spritesheet152x152_15: -1824906343
+      ATTACK_3_ATTACKBATE_spritesheet152x152_16: 1380182842
+      ATTACK_3_ATTACKBATE_spritesheet152x152_17: 2086461438
+      ATTACK_3_ATTACKBATE_spritesheet152x152_18: 986720085
+      ATTACK_3_ATTACKBATE_spritesheet152x152_19: 1392091016
+      ATTACK_3_ATTACKBATE_spritesheet152x152_2: -165885918
+      ATTACK_3_ATTACKBATE_spritesheet152x152_20: -184232240
+      ATTACK_3_ATTACKBATE_spritesheet152x152_21: 1488939769
+      ATTACK_3_ATTACKBATE_spritesheet152x152_22: 1811875648
+      ATTACK_3_ATTACKBATE_spritesheet152x152_23: 530865037
+      ATTACK_3_ATTACKBATE_spritesheet152x152_24: 1272172443
+      ATTACK_3_ATTACKBATE_spritesheet152x152_25: -1714294691
+      ATTACK_3_ATTACKBATE_spritesheet152x152_26: -1322721178
+      ATTACK_3_ATTACKBATE_spritesheet152x152_27: 1329071869
+      ATTACK_3_ATTACKBATE_spritesheet152x152_28: -1079873710
+      ATTACK_3_ATTACKBATE_spritesheet152x152_29: 1034972052
+      ATTACK_3_ATTACKBATE_spritesheet152x152_3: -1941634261
+      ATTACK_3_ATTACKBATE_spritesheet152x152_30: 1054036166
+      ATTACK_3_ATTACKBATE_spritesheet152x152_31: -325561401
+      ATTACK_3_ATTACKBATE_spritesheet152x152_32: -659091419
+      ATTACK_3_ATTACKBATE_spritesheet152x152_33: -1885976350
+      ATTACK_3_ATTACKBATE_spritesheet152x152_34: 1272361628
+      ATTACK_3_ATTACKBATE_spritesheet152x152_35: 1735232920
+      ATTACK_3_ATTACKBATE_spritesheet152x152_36: 858451004
+      ATTACK_3_ATTACKBATE_spritesheet152x152_37: -1446946022
+      ATTACK_3_ATTACKBATE_spritesheet152x152_38: 1457664208
+      ATTACK_3_ATTACKBATE_spritesheet152x152_39: -587871140
+      ATTACK_3_ATTACKBATE_spritesheet152x152_4: -783347315
+      ATTACK_3_ATTACKBATE_spritesheet152x152_5: -308347474
+      ATTACK_3_ATTACKBATE_spritesheet152x152_6: 308481777
+      ATTACK_3_ATTACKBATE_spritesheet152x152_7: -2095649445
+      ATTACK_3_ATTACKBATE_spritesheet152x152_8: -1376799540
+      ATTACK_3_ATTACKBATE_spritesheet152x152_9: -1316917470
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

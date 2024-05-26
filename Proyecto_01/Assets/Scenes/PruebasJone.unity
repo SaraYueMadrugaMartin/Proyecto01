@@ -2230,6 +2230,7 @@ MonoBehaviour:
   - {fileID: 1839095972}
   - {fileID: 1841731278}
   - {fileID: 1974403064}
+  objetoEnInventario: 0
 --- !u!114 &336295165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2319,6 +2320,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &382606167
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 161334661863240179, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_Name
+      value: LolitaCage (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.137245
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -16.646364
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
 --- !u!1 &395353099
 GameObject:
   m_ObjectHideFlags: 0
@@ -2997,6 +3055,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424738030}
   m_CullTransparentMesh: 1
+--- !u!1001 &428671510
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 161334661863240179, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_Name
+      value: LolitaCage (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.41009
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -16.56654
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
 --- !u!1 &429908456
 GameObject:
   m_ObjectHideFlags: 0
@@ -4156,6 +4271,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560546100}
   m_CullTransparentMesh: 1
+--- !u!1001 &566720444
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 161334661863240179, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_Name
+      value: LolitaCage (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.121975
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -16.406887
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
 --- !u!1 &568695866
 GameObject:
   m_ObjectHideFlags: 0
@@ -4875,6 +5047,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630905138}
   m_CullTransparentMesh: 1
+--- !u!1001 &632490872
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 161334661863240179, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_Name
+      value: LolitaCage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.270072
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -16.845928
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
 --- !u!1 &633938363
 GameObject:
   m_ObjectHideFlags: 0
@@ -6500,6 +6729,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+--- !u!1001 &898864363
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 161334661863240179, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_Name
+      value: LolitaCage (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 21.193077
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -16.087585
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
 --- !u!1 &903769881
 GameObject:
   m_ObjectHideFlags: 0
@@ -7586,6 +7872,63 @@ RectTransform:
   m_AnchoredPosition: {x: -399.2142, y: 0.9956}
   m_SizeDelta: {x: 966.1257, y: 970.1081}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &1070850473
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 161334661863240179, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_Name
+      value: LolitaCage (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.024051
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -16.806015
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
 --- !u!1 &1088479089
 GameObject:
   m_ObjectHideFlags: 0
@@ -90527,3 +90870,9 @@ SceneRoots:
   - {fileID: 242619016}
   - {fileID: 1469644735}
   - {fileID: 1525845222}
+  - {fileID: 632490872}
+  - {fileID: 1070850473}
+  - {fileID: 382606167}
+  - {fileID: 428671510}
+  - {fileID: 566720444}
+  - {fileID: 898864363}
