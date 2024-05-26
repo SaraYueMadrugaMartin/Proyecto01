@@ -9,7 +9,7 @@ public class FadeAnimation : MonoBehaviour
     public void FadeOut()
     {
         gameObject.SetActive(true);
-        animator.Play("PanelFade");
+        animator.Play("FadeAnimation");
         StartCoroutine(ActivarFadeInOut());
         //Invoke("AnimationFin", 1.0f);
     }
