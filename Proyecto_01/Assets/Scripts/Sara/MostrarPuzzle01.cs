@@ -13,7 +13,15 @@ public class MostrarPuzzle01 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Canvas canvas = FindObjectOfType<Canvas>();
+        if (canvas != null)
+        {
+            Transform panelTransform = canvas.transform.Find("Puzzle01");
+            if (panelTransform != null)
+            {
+                panelPuzzle01 = panelTransform.gameObject;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -43,21 +51,15 @@ public class MostrarPuzzle01 : MonoBehaviour
             jugadorTocando = false;
         }
     }
-
-    /*public void PuzzleResuelto()
+    public void PuzzleResuelto()
     {
-        if (puzzle01Deslizable.posicionPiezaCorrecta.TrueForAll(posicion => posicion))
-        {
-            panelPuzzle01.SetActive(false);
-            Time.timeScale = 1f;
-            Debug.Log("Has resuelto el puzzle.");
-        }
-    }*/
+        StartCoroutine(EsperaPuzzle01());
+    }
 
-    public static void PuzzleResuelto()
+    IEnumerator EsperaPuzzle01()
     {
-        //Desactivar panelPuzzle
-        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(5f);
+        Time.timeScale = 1f;
         panelPuzzle01.SetActive(false);
     }
 }
