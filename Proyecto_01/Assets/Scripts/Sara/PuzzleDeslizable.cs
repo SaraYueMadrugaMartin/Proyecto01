@@ -7,16 +7,20 @@ public class PuzzleDeslizable : MonoBehaviour
 {
     [SerializeField] private RectTransform espacioVacio = null;
     [SerializeField] private TilesScript[] tiles;
+    //[SerializeField] private RectTransform posicionesCorrectas;
 
     private Camera camara;
     private GraphicRaycaster raycaster;
     private EventSystem eventSystem;
+
+    private List<bool> piezaCorrecta;
 
     void Start()
     {
         camara = Camera.main;
         raycaster = FindObjectOfType<GraphicRaycaster>();
         eventSystem = FindObjectOfType<EventSystem>();
+        piezaCorrecta = new List<bool>();
     }
 
     void Update()
@@ -49,10 +53,5 @@ public class PuzzleDeslizable : MonoBehaviour
                 }
             }
         }
-    }
-
-    public void Mezclar()
-    {
-
     }
 }

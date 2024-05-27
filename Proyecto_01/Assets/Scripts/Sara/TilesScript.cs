@@ -3,6 +3,7 @@ using UnityEngine;
 public class TilesScript : MonoBehaviour
 {
     public Vector2 targetPosition;
+    public Vector2 posCorrecta;
 
     void Start()
     {
