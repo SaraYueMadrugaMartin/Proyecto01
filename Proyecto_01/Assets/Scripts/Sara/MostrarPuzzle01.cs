@@ -6,7 +6,7 @@ public class MostrarPuzzle01 : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private PuzzleDeslizable puzzle01Deslizable;
-    [SerializeField] private GameObject panelPuzzle01;
+    private static GameObject panelPuzzle01;
 
     private bool jugadorTocando;
 
@@ -24,6 +24,8 @@ public class MostrarPuzzle01 : MonoBehaviour
             Time.timeScale = 0f;
             panelPuzzle01.SetActive(true);
         }
+
+        //PuzzleResuelto();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -40,5 +42,22 @@ public class MostrarPuzzle01 : MonoBehaviour
         {
             jugadorTocando = false;
         }
+    }
+
+    /*public void PuzzleResuelto()
+    {
+        if (puzzle01Deslizable.posicionPiezaCorrecta.TrueForAll(posicion => posicion))
+        {
+            panelPuzzle01.SetActive(false);
+            Time.timeScale = 1f;
+            Debug.Log("Has resuelto el puzzle.");
+        }
+    }*/
+
+    public static void PuzzleResuelto()
+    {
+        //Desactivar panelPuzzle
+        Time.timeScale = 0f;
+        panelPuzzle01.SetActive(false);
     }
 }

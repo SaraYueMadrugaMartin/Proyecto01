@@ -8,12 +8,13 @@ public class PuzzleDeslizable : MonoBehaviour
     [SerializeField] private RectTransform espacioVacio = null;
     [SerializeField] private TilesScript[] tiles;
     [SerializeField] private Vector2[] posicionesCorrectas;
+    //[SerializeField] private MostrarPuzzle01 mostrarPuzzle01;
 
     private Camera camara;
     private GraphicRaycaster raycaster;
     private EventSystem eventSystem;
 
-    private List<bool> posicionPiezaCorrecta;
+    public List<bool> posicionPiezaCorrecta;
 
     void Start()
     {
@@ -53,6 +54,7 @@ public class PuzzleDeslizable : MonoBehaviour
                             espacioVacio.anchoredPosition = thisTile.targetPosition;
                             thisTile.targetPosition = ultimaPosicionEspacioVacio;
                             AcertarPosicionPieza();
+                            //PuzzleResuelto();
                             break;
                         }
                     }
@@ -74,19 +76,26 @@ public class PuzzleDeslizable : MonoBehaviour
                 if (Vector2.Distance(posicionesCorrectas[j], tiles[i].targetPosition) < 0.01f)
                 {
                     esCorrecta = true;
-                    Debug.Log("La pieza: " + tiles[i].name + " está en su posición correcta.");
+                    //Debug.Log("La pieza: " + tiles[i].name + " está en su posición correcta.");
                     break;
-                }
-                else
-                {
-                    Debug.Log("Esta no la posición correcta de la pieza: " + tiles[i].name);
                 }
             }
             posicionPiezaCorrecta.Add(esCorrecta);
         }
+        /*if (posicionPiezaCorrecta.TrueForAll(posicion => posicion))
+        {
+            Debug.Log("Has resuelto el puzzle.");
+        }*/
+    }
+
+    public void PuzzleResuelto(bool value)
+    {
         if (posicionPiezaCorrecta.TrueForAll(posicion => posicion))
         {
             Debug.Log("Has resuelto el puzzle.");
+            MostrarPuzzle01.PuzzleResuelto();
+            //return true;
         }
+        //return false;
     }
 }
