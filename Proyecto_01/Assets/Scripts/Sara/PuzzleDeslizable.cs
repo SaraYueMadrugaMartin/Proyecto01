@@ -7,23 +7,28 @@ public class PuzzleDeslizable : MonoBehaviour
 {
     [SerializeField] private RectTransform espacioVacio = null;
     [SerializeField] private TilesScript[] tiles;
-    //[SerializeField] private RectTransform posicionesCorrectas;
+    [SerializeField] private Vector2[] posicionesCorrectas;
 
     private Camera camara;
     private GraphicRaycaster raycaster;
     private EventSystem eventSystem;
 
-    private List<bool> piezaCorrecta;
+    private List<bool> posicionPiezaCorrecta;
 
     void Start()
     {
         camara = Camera.main;
         raycaster = FindObjectOfType<GraphicRaycaster>();
         eventSystem = FindObjectOfType<EventSystem>();
-        piezaCorrecta = new List<bool>();
+        posicionPiezaCorrecta = new List<bool>();
     }
 
     void Update()
+    {
+        MoverPieza();
+    }
+
+    public void MoverPieza()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -47,11 +52,41 @@ public class PuzzleDeslizable : MonoBehaviour
                             Vector2 ultimaPosicionEspacioVacio = espacioVacio.anchoredPosition;
                             espacioVacio.anchoredPosition = thisTile.targetPosition;
                             thisTile.targetPosition = ultimaPosicionEspacioVacio;
+                            AcertarPosicionPieza();
                             break;
                         }
                     }
                 }
             }
+        }
+    }
+
+    public void AcertarPosicionPieza()
+    {
+        posicionPiezaCorrecta.Clear();
+
+        for (int i = 0; i < tiles.Length; i++)
+        {
+            bool esCorrecta = false;
+
+            for (int j = 0; j < posicionesCorrectas.Length; j++)
+            {
+                if (Vector2.Distance(posicionesCorrectas[j], tiles[i].targetPosition) < 0.01f)
+                {
+                    esCorrecta = true;
+                    Debug.Log("La pieza: " + tiles[i].name + " está en su posición correcta.");
+                    break;
+                }
+                else
+                {
+                    Debug.Log("Esta no la posición correcta de la pieza: " + tiles[i].name);
+                }
+            }
+            posicionPiezaCorrecta.Add(esCorrecta);
+        }
+        if (posicionPiezaCorrecta.TrueForAll(posicion => posicion))
+        {
+            Debug.Log("Has resuelto el puzzle.");
         }
     }
 }
