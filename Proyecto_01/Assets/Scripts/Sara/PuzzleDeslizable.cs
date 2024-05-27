@@ -42,7 +42,7 @@ public class PuzzleDeslizable : MonoBehaviour
                     {
                         RectTransform tileRect = thisTile.GetComponent<RectTransform>();
 
-                        if (Vector2.Distance(espacioVacio.anchoredPosition, tileRect.anchoredPosition) < 1000)
+                        if (Vector2.Distance(espacioVacio.anchoredPosition, tileRect.anchoredPosition) < 300)
                         {
                             Vector2 ultimaPosicionEspacioVacio = espacioVacio.anchoredPosition;
                             espacioVacio.anchoredPosition = thisTile.targetPosition;
