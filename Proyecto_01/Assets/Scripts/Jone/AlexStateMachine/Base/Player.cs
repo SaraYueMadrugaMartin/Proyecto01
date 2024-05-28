@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
     // A distancia
     [SerializeField] Transform puntoDisparo;
     private Puntero puntero;
+    private GameObject pistola;
     public static bool apuntando = false;
     public static bool recargando = false;
     private Animator animPistola, animBrazo;
@@ -85,10 +86,14 @@ public class Player : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         puntero = GetComponent<Puntero>();
-        animPistola = transform.Find("Puntero").GetComponent<Animator>();
+        pistola = transform.Find("Puntero").gameObject;
+        animPistola = pistola.GetComponent<Animator>(); //transform.Find("Puntero").GetComponent<Animator>();
         animBrazo = transform.Find("Puntero").Find("Brazo").GetComponent<Animator>();
 
         saludActual = saludMax;
+
+        pistola.SetActive(false);
+        puntero.enabled = false;
 
         StateMachine.Initialize(Corr0State);
     }
@@ -227,6 +232,9 @@ public class Player : MonoBehaviour
         if (Input.GetButton("Fire2"))
         {
             // Implementación visual de número de balas
+
+            pistola.SetActive(true);
+            puntero.enabled = true;
             apuntando = true;
             if (Input.GetButtonDown("Fire1"))
             {
@@ -242,7 +250,11 @@ public class Player : MonoBehaviour
                 Recarga();
         }
         else
+        {
+            pistola.SetActive(false);
+            puntero.enabled = false;
             apuntando = false;
+        }
     }
 
     private void Dispara()
