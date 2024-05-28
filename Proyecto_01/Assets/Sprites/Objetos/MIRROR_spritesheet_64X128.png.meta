@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7d742e2345446e74e9c7fa0370ebdeb8
+guid: 2509044000292b54595cc4849c7ce221
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -123,316 +123,358 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: XELA_01_spritesheet_256X256_0
+      name: MIRROR_spritesheet_64X128_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8de37a2d92349d4da52accc6f5e3fed
+      internalID: 654809040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MIRROR_spritesheet_64X128_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d13db7b1092dd54da14b52cb192e6e8
+      internalID: 68258328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MIRROR_spritesheet_64X128_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d25ede5bf949f1147aef9b3a6991e042
+      internalID: -2141821261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MIRROR_spritesheet_64X128_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82b61a84e0c5cd547be15bd9a04b8589
+      internalID: 1903971887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MIRROR_spritesheet_64X128_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cdd5513e46ec794d9b49e241f2b0f40
+      internalID: -2038573671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MIRROR_spritesheet_64X128_5
       rect:
         serializedVersion: 2
         x: 0
         y: 256
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9e726e39dca3f8438ebc89051680240
-      internalID: 233811068
+      spriteID: db94ed11a75e45645abddb1d4a2d8f11
+      internalID: 160435486
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XELA_01_spritesheet_256X256_1
+      name: MIRROR_spritesheet_64X128_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 185aac114c653794da043ab91448be3c
+      internalID: 1768326009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MIRROR_spritesheet_64X128_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51553d87456b47841b12efa44bc24ab1
+      internalID: 1361870788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MIRROR_spritesheet_64X128_8
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f8a63e18ced3454c91dd6590c5757fb
+      internalID: -655102127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MIRROR_spritesheet_64X128_9
       rect:
         serializedVersion: 2
         x: 256
         y: 256
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb84e7b58ca7daf42bd142e3dccdfa67
-      internalID: 1306046147
+      spriteID: e41dfc560ea918a4580fddbbd366cbed
+      internalID: -2042861726
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XELA_01_spritesheet_256X256_2
+      name: MIRROR_spritesheet_64X128_10
       rect:
         serializedVersion: 2
-        x: 512
-        y: 256
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 128
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c50c636010c652429a8ee854007f376
-      internalID: 62121728
+      spriteID: c24ea7e613151384b9778252c42d99f9
+      internalID: 987834438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XELA_01_spritesheet_256X256_3
+      name: MIRROR_spritesheet_64X128_11
       rect:
         serializedVersion: 2
-        x: 768
-        y: 256
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 64
+        y: 128
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c885c5e870e6cd4c95dbfcae688f2c9
-      internalID: -398897113
+      spriteID: 84b68e0abae95f548856d200e2a4ad3b
+      internalID: -1593786419
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XELA_01_spritesheet_256X256_4
+      name: MIRROR_spritesheet_64X128_12
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 256
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 128
+        y: 128
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4e778b27502bdc41a9b830493adf003
-      internalID: 968382844
+      spriteID: 823e6fa6bff92aa41acd3ac91b5a123e
+      internalID: 867414351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XELA_01_spritesheet_256X256_5
+      name: MIRROR_spritesheet_64X128_13
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 256
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 192
+        y: 128
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cfc375dbb9624445aaec9aaf0607e9a
-      internalID: -1594156144
+      spriteID: c5c11e3064cc21c45afa9c72418dcc1b
+      internalID: -828698353
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XELA_01_spritesheet_256X256_6
+      name: MIRROR_spritesheet_64X128_14
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 256
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 256
+        y: 128
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 374e875d35cf7334894a792200add645
-      internalID: -525210436
+      spriteID: 1595b8af249ae0a4d80aa9682cf2aa10
+      internalID: 1457272324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XELA_01_spritesheet_256X256_7
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 256
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 703fbfa09dabcbb40bfda0acae2fd762
-      internalID: 1381667400
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: XELA_01_spritesheet_256X256_8
+      name: MIRROR_spritesheet_64X128_15
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efa3e1dabbab0fa40b62bffcb8711094
-      internalID: 1004274942
+      spriteID: 9983adf3d6da2ea43b4bb1c4f72ed163
+      internalID: -606058112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XELA_01_spritesheet_256X256_9
+      name: MIRROR_spritesheet_64X128_16
       rect:
         serializedVersion: 2
-        x: 256
+        x: 64
         y: 0
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 64
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd89378d6ed8fba499464181aa7189e5
-      internalID: 1154937254
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: XELA_01_spritesheet_256X256_10
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a39059e59a750444db2d796628e5b8d3
-      internalID: -1680136776
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: XELA_01_spritesheet_256X256_11
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d2436d339b666374da61f177b963a0a2
-      internalID: -1650889630
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: XELA_01_spritesheet_256X256_12
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78693f7a6b506304aa52fe6a2f03aa1e
-      internalID: 276605621
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: XELA_01_spritesheet_256X256_13
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 0
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8f0ba9813c024b14ab8fa51a5f0669d7
-      internalID: 653115412
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: XELA_01_spritesheet_256X256_14
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 0
-        width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 90c91a8838058084b98c9da06c753ceb
-      internalID: 1880953959
+      spriteID: 10fa34001be5c2346a042e6601fd04d1
+      internalID: -1978755662
       vertices: []
       indices: 
       edges: []
@@ -448,21 +490,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      XELA_01_spritesheet_256X256_0: 233811068
-      XELA_01_spritesheet_256X256_1: 1306046147
-      XELA_01_spritesheet_256X256_10: -1680136776
-      XELA_01_spritesheet_256X256_11: -1650889630
-      XELA_01_spritesheet_256X256_12: 276605621
-      XELA_01_spritesheet_256X256_13: 653115412
-      XELA_01_spritesheet_256X256_14: 1880953959
-      XELA_01_spritesheet_256X256_2: 62121728
-      XELA_01_spritesheet_256X256_3: -398897113
-      XELA_01_spritesheet_256X256_4: 968382844
-      XELA_01_spritesheet_256X256_5: -1594156144
-      XELA_01_spritesheet_256X256_6: -525210436
-      XELA_01_spritesheet_256X256_7: 1381667400
-      XELA_01_spritesheet_256X256_8: 1004274942
-      XELA_01_spritesheet_256X256_9: 1154937254
+      MIRROR_spritesheet_64X128_0: 654809040
+      MIRROR_spritesheet_64X128_1: 68258328
+      MIRROR_spritesheet_64X128_10: 987834438
+      MIRROR_spritesheet_64X128_11: -1593786419
+      MIRROR_spritesheet_64X128_12: 867414351
+      MIRROR_spritesheet_64X128_13: -828698353
+      MIRROR_spritesheet_64X128_14: 1457272324
+      MIRROR_spritesheet_64X128_15: -606058112
+      MIRROR_spritesheet_64X128_16: -1978755662
+      MIRROR_spritesheet_64X128_2: -2141821261
+      MIRROR_spritesheet_64X128_3: 1903971887
+      MIRROR_spritesheet_64X128_4: -2038573671
+      MIRROR_spritesheet_64X128_5: 160435486
+      MIRROR_spritesheet_64X128_6: 1768326009
+      MIRROR_spritesheet_64X128_7: 1361870788
+      MIRROR_spritesheet_64X128_8: -655102127
+      MIRROR_spritesheet_64X128_9: -2042861726
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
