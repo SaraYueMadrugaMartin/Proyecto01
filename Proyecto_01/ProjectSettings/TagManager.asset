@@ -11,6 +11,7 @@ TagManager:
   - Documento
   - Tinta
   - Bate
+  - ItemInteractuable
   layers:
   - Default
   - TransparentFX

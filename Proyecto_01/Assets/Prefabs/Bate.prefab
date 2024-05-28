@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 670022604389553594}
   m_Layer: 0
   m_Name: Bate
-  m_TagString: Untagged
+  m_TagString: ItemInteractuable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,6 +177,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombreItem: Bate
   sprite: {fileID: 21300000, guid: 73b5ae46db9aca54c9d6bc46bc7184e6, type: 3}
+  idsItems: {fileID: 0}
   posicionInicial: {x: 0, y: 0}
   objetoRecogido: 0
-  ultimoObjetoRecogido: {fileID: 0}

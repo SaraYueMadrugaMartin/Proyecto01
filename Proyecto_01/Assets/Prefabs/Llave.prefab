@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2139003112556993243}
   m_Layer: 0
   m_Name: Llave
-  m_TagString: Llave
+  m_TagString: ItemInteractuable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,9 +95,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombreItem: Llave
   sprite: {fileID: 21300000, guid: 62e22431e0fd7b64a9c6d7aa94870788, type: 3}
+  idsItems: {fileID: 0}
   posicionInicial: {x: 0, y: 0}
   objetoRecogido: 0
-  ultimoObjetoRecogido: {fileID: 0}
 --- !u!114 &2139003112556993243
 MonoBehaviour:
   m_ObjectHideFlags: 0

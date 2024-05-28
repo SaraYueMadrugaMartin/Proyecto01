@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4461886511892942426}
   m_Layer: 0
   m_Name: Tinta 1
-  m_TagString: Untagged
+  m_TagString: ItemInteractuable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

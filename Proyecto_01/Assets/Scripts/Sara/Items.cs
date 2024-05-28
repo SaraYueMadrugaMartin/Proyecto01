@@ -6,6 +6,7 @@ public class Items : MonoBehaviour
 {
     [SerializeField] public string nombreItem;
     [SerializeField] private Sprite sprite;
+    //[SerializeField] private GameObject panelInteractuarE;
     private Inventario inventario;
     private bool cogerObjeto = false;
 
@@ -29,6 +30,7 @@ public class Items : MonoBehaviour
         panelesInteracciones = FindObjectOfType<PanelesInteracciones>();
         panelAvisoInventarioCompleto = FindObjectOfType<PanelesInteracciones>();
         posicionInicial = transform.position;
+        //panelInteractuarE.SetActive(false);
         //itemCollider = GetComponent<Collider2D>();
         Transform[] hijosTransform = GetComponentsInChildren<Transform>(includeInactive: true);
         List<GameObject> hijosGameObjects = new List<GameObject>();
@@ -89,6 +91,7 @@ public class Items : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             cogerObjeto = true;
+            //panelInteractuarE.SetActive(true);
         }
     }
 
@@ -97,6 +100,7 @@ public class Items : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             cogerObjeto = false;
+            //panelInteractuarE.SetActive(false);
         }
     }
 
