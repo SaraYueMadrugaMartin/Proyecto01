@@ -73,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: -105898557
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1920731946, guid: e209f935ed0e5ce4590c32fd93986ff6, type: 3}
+  m_Sprite: {fileID: -1306053648, guid: a3302bd6d685f10468a355626f3b1c45, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.37, y: 0.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2264799827919319062}
   - component: {fileID: 3551209133927568475}
-  - component: {fileID: 990335621978001815}
   m_Layer: 0
   m_Name: Diario
   m_TagString: Untagged
@@ -164,23 +163,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.37, y: 0.4650023}
   m_EdgeRadius: 0
---- !u!114 &990335621978001815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8445674899310721727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f122f1dd47bab049933484dbb6d5d99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nombreItem: Diario
-  sprite: {fileID: 1920731946, guid: e209f935ed0e5ce4590c32fd93986ff6, type: 3}
-  posicionInicial: {x: 0, y: 0}
-  objetoRecogido: 0
-  ultimoObjetoRecogido: {fileID: 0}
 --- !u!1001 &5176144773298182756
 PrefabInstance:
   m_ObjectHideFlags: 0
