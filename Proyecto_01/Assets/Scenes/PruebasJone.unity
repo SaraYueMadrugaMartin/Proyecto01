@@ -2890,7 +2890,7 @@ GameObject:
   m_Component:
   - component: {fileID: 415407332}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: PosLlegada
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88578,7 +88578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1596692666}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: PosSalida
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
