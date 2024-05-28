@@ -6,11 +6,12 @@ public class MostrarPuzzle01 : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private PuzzleDeslizable puzzle01Deslizable;
+    [SerializeField] private GameObject panelResultado;
+    [SerializeField] private FadeAnimation fadeAnimation;
     private static GameObject panelPuzzle01;
 
     private bool jugadorTocando;
 
-    // Start is called before the first frame update
     void Start()
     {
         Canvas canvas = FindObjectOfType<Canvas>();
@@ -22,9 +23,9 @@ public class MostrarPuzzle01 : MonoBehaviour
                 panelPuzzle01 = panelTransform.gameObject;
             }
         }
+        panelResultado.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (jugadorTocando && Input.GetKeyDown(KeyCode.E))
@@ -32,8 +33,6 @@ public class MostrarPuzzle01 : MonoBehaviour
             Time.timeScale = 0f;
             panelPuzzle01.SetActive(true);
         }
-
-        //PuzzleResuelto();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -53,13 +52,21 @@ public class MostrarPuzzle01 : MonoBehaviour
     }
     public void PuzzleResuelto()
     {
-        StartCoroutine(EsperaPuzzle01());
+        StartCoroutine(MostrarResultadoPuzzle01());        
     }
 
-    IEnumerator EsperaPuzzle01()
+    IEnumerator MostrarResultadoPuzzle01()
     {
+        Debug.Log("Esperando 5 segundos en tiempo real...");
         yield return new WaitForSecondsRealtime(5f);
-        Time.timeScale = 1f;
+        fadeAnimation.FadeOut();
+        StartCoroutine(QuitarPanelPuzzle());
+    }
+
+    IEnumerator QuitarPanelPuzzle()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
         panelPuzzle01.SetActive(false);
+        panelResultado.SetActive(true);
     }
 }

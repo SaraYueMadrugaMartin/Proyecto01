@@ -1,0 +1,831 @@
+fileFormatVersion: 2
+guid: 4de1417c5fce76441b9d45a853ae7c5c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 131
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1210d6cb2c3a3bb429784d947346be97
+      internalID: 471455178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 131
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dabbe807f2853a645a5aa3ff208ecf7e
+      internalID: 748089229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_2
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 131
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9032b1cf78f7dfc408da4829b5bf54b3
+      internalID: -1132509287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_3
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 131
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecc90656838bea6468e863fb33714900
+      internalID: -1049064061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_4
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 131
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 083b91320a3ab1b4a8ac635b0f9679ce
+      internalID: -902458414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_5
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 131
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bf0bab6a292d244a8ae6ad03d965f43
+      internalID: -393418645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_6
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 131
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b5f6cf97a4361f4193d5d18688df7e2
+      internalID: -1144783547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_7
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 131
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 753efe65aeda0f247a29c9a3e7d5b1ee
+      internalID: 1388840284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 88
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2247b819e1e95154ca51d381b3f9244c
+      internalID: 814455459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_9
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 88
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0784480343965ef44a8788865e1af981
+      internalID: -1238525643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_10
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 88
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e8568cb24a38e2458b9eeccaefe8103
+      internalID: 2055869424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_11
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 88
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13d135281db3e17468db7f49ef6e27db
+      internalID: -517618548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_12
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 88
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 210765b3e1be35d4d886cbf447b6351e
+      internalID: -166832095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_13
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 88
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c51463b7e3c857b4dbe4b16b6c2f5fe5
+      internalID: -1658517843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_14
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 88
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9984bd2f2f77b854da84722aa0d48cd0
+      internalID: 1496521252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_15
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 88
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71e4761c8bb814f45af0c60dd0f10d06
+      internalID: 1649881767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 45
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fca39c36baf1ef84f8efa4e555c7c8db
+      internalID: 1745865870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_17
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 45
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36670f9e96fd1094cbacb7493ced594f
+      internalID: 768204897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_18
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 45
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96bc076c872693241ab08f2e726bbe20
+      internalID: 45087215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_19
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 45
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9a79baacf4d76c43914be6e24f7ddf9
+      internalID: 1719434758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_20
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 45
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf9fdce84d01e344a8823b2185b137da
+      internalID: 140900985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_21
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 45
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 505749691565e664e8d4f714916a340d
+      internalID: -959130017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_22
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 45
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8c06ce26814ac24b8973fd0b55927e5
+      internalID: 1747625704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_23
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 45
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fb7f8cfb5f1cb148a3e031cc5d6bf57
+      internalID: -463084217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0209b227277bcb94fbc7627ae08f3eac
+      internalID: 2047470495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_25
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 2
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fb6314f933eaf24fa49b3e022f2d2ad
+      internalID: 478876858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_26
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 2
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f2cc13350e32824ab66f4488fa5fbed
+      internalID: 1807076266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_27
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 2
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf4d24072bc684428347918b718ae1f
+      internalID: 1520929697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_28
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 2
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 068370072f1cc2345824e499a90d95fc
+      internalID: -734115143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_29
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 2
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfac35bb33b69924ebe75c579c44abd2
+      internalID: -350257947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_30
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 2
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 533710c9a142afe4982b865aec3a6380
+      internalID: 1385667616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEALTH_STATUS_spritesheeT_110X43_31
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 2
+        width: 107
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aac7da8060746a4fb383025219d8f3f
+      internalID: 693807591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      HEALTH_STATUS_spritesheeT_110X43_0: 471455178
+      HEALTH_STATUS_spritesheeT_110X43_1: 748089229
+      HEALTH_STATUS_spritesheeT_110X43_10: 2055869424
+      HEALTH_STATUS_spritesheeT_110X43_11: -517618548
+      HEALTH_STATUS_spritesheeT_110X43_12: -166832095
+      HEALTH_STATUS_spritesheeT_110X43_13: -1658517843
+      HEALTH_STATUS_spritesheeT_110X43_14: 1496521252
+      HEALTH_STATUS_spritesheeT_110X43_15: 1649881767
+      HEALTH_STATUS_spritesheeT_110X43_16: 1745865870
+      HEALTH_STATUS_spritesheeT_110X43_17: 768204897
+      HEALTH_STATUS_spritesheeT_110X43_18: 45087215
+      HEALTH_STATUS_spritesheeT_110X43_19: 1719434758
+      HEALTH_STATUS_spritesheeT_110X43_2: -1132509287
+      HEALTH_STATUS_spritesheeT_110X43_20: 140900985
+      HEALTH_STATUS_spritesheeT_110X43_21: -959130017
+      HEALTH_STATUS_spritesheeT_110X43_22: 1747625704
+      HEALTH_STATUS_spritesheeT_110X43_23: -463084217
+      HEALTH_STATUS_spritesheeT_110X43_24: 2047470495
+      HEALTH_STATUS_spritesheeT_110X43_25: 478876858
+      HEALTH_STATUS_spritesheeT_110X43_26: 1807076266
+      HEALTH_STATUS_spritesheeT_110X43_27: 1520929697
+      HEALTH_STATUS_spritesheeT_110X43_28: -734115143
+      HEALTH_STATUS_spritesheeT_110X43_29: -350257947
+      HEALTH_STATUS_spritesheeT_110X43_3: -1049064061
+      HEALTH_STATUS_spritesheeT_110X43_30: 1385667616
+      HEALTH_STATUS_spritesheeT_110X43_31: 693807591
+      HEALTH_STATUS_spritesheeT_110X43_4: -902458414
+      HEALTH_STATUS_spritesheeT_110X43_5: -393418645
+      HEALTH_STATUS_spritesheeT_110X43_6: -1144783547
+      HEALTH_STATUS_spritesheeT_110X43_7: 1388840284
+      HEALTH_STATUS_spritesheeT_110X43_8: 814455459
+      HEALTH_STATUS_spritesheeT_110X43_9: -1238525643
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

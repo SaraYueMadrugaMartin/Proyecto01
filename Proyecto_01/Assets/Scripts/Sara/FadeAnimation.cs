@@ -21,7 +21,7 @@ public class FadeAnimation : MonoBehaviour
 
     IEnumerator ActivarFadeInOut()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
         gameObject.SetActive(false);
     }
 }
