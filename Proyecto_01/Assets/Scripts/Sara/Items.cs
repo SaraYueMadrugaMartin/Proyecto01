@@ -22,6 +22,8 @@ public class Items : MonoBehaviour
     //private GameObject[] propiedadesHijosItems;
     private SpriteRenderer[] spriteRenderers;
 
+    //private Collider2D[] collider2Ds;
+
     private List<bool> objetoHaSidoRecogido;
 
     void Start()
@@ -151,6 +153,15 @@ public class Items : MonoBehaviour
                 renderer.enabled = false;
             }
         }
+
+        Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
+        if (colliders != null)
+        {
+            foreach (Collider2D collider in colliders)
+            {
+                collider.enabled = false;
+            }
+        }
     }
 
     private void ActivarItem()
@@ -161,6 +172,15 @@ public class Items : MonoBehaviour
             foreach (SpriteRenderer renderer in spriteRenderers)
             {
                 renderer.enabled = true;
+            }
+        }
+
+        Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
+        if (colliders != null)
+        {
+            foreach (Collider2D collider in colliders)
+            {
+                collider.enabled = true;
             }
         }
     }
