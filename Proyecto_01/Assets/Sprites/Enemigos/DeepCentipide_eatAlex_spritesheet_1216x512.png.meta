@@ -121,7 +121,217 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: DeepCentipide_eatAlex_spritesheet_1216x512_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 1216
+        height: 512
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 360a1ee16282f784692d0235406b70bb
+      internalID: -134596229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCentipide_eatAlex_spritesheet_1216x512_1
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 512
+        width: 1216
+        height: 512
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a6b3259a1ea0be49b2db9b70145a7fd
+      internalID: 428850835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCentipide_eatAlex_spritesheet_1216x512_2
+      rect:
+        serializedVersion: 2
+        x: 2432
+        y: 512
+        width: 1216
+        height: 512
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8303488f7b702a64a85592436e04bc1b
+      internalID: -767917325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCentipide_eatAlex_spritesheet_1216x512_3
+      rect:
+        serializedVersion: 2
+        x: 3648
+        y: 512
+        width: 1216
+        height: 512
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b422d8ed194c5a048bc18494778e9023
+      internalID: -590700655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCentipide_eatAlex_spritesheet_1216x512_4
+      rect:
+        serializedVersion: 2
+        x: 4864
+        y: 512
+        width: 1216
+        height: 512
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 809180f54f88fc54fb9d318d3f9e9c95
+      internalID: -713782716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCentipide_eatAlex_spritesheet_1216x512_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1216
+        height: 512
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a8012d2ca62fab4894364e7644ba9db
+      internalID: 444961275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCentipide_eatAlex_spritesheet_1216x512_6
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 0
+        width: 1216
+        height: 512
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dea00cc110bde94794ea332b36c5df0
+      internalID: -733689382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCentipide_eatAlex_spritesheet_1216x512_7
+      rect:
+        serializedVersion: 2
+        x: 2432
+        y: 0
+        width: 1216
+        height: 512
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0490083e9df5a32438d8278e204c1a34
+      internalID: 1493495820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCentipide_eatAlex_spritesheet_1216x512_8
+      rect:
+        serializedVersion: 2
+        x: 3648
+        y: 0
+        width: 1216
+        height: 512
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 648c174af0d5aba49aa77c86b19826e3
+      internalID: -246460337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeepCentipide_eatAlex_spritesheet_1216x512_9
+      rect:
+        serializedVersion: 2
+        x: 4864
+        y: 0
+        width: 1216
+        height: 512
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed0012ceef7b8cd4f9bee19c14ca7593
+      internalID: 1335971802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +342,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DeepCentipide_eatAlex_spritesheet_1216x512_0: -134596229
+      DeepCentipide_eatAlex_spritesheet_1216x512_1: 428850835
+      DeepCentipide_eatAlex_spritesheet_1216x512_2: -767917325
+      DeepCentipide_eatAlex_spritesheet_1216x512_3: -590700655
+      DeepCentipide_eatAlex_spritesheet_1216x512_4: -713782716
+      DeepCentipide_eatAlex_spritesheet_1216x512_5: 444961275
+      DeepCentipide_eatAlex_spritesheet_1216x512_6: -733689382
+      DeepCentipide_eatAlex_spritesheet_1216x512_7: 1493495820
+      DeepCentipide_eatAlex_spritesheet_1216x512_8: -246460337
+      DeepCentipide_eatAlex_spritesheet_1216x512_9: 1335971802
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
