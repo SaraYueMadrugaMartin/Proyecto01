@@ -7,7 +7,7 @@ public class PuzzleDeslizable : MonoBehaviour
 {
     [SerializeField] private RectTransform espacioVacio = null;
     [SerializeField] private TilesScript[] tiles;
-    [SerializeField] private Vector2[] posicionesCorrectas;
+    //[SerializeField] private Vector2[] posicionesCorrectas;
 
     private Camera camara;
     private GraphicRaycaster raycaster;
@@ -37,10 +37,10 @@ public class PuzzleDeslizable : MonoBehaviour
     {
         MoverPieza();
 
-        if (Input.GetKeyDown(KeyCode.P))
+        /*if (Input.GetKeyDown(KeyCode.P))
         {
             ColocarPiezasAutomaticamente();
-        }
+        }*/
     }
 
     public void MoverPieza()
@@ -67,14 +67,10 @@ public class PuzzleDeslizable : MonoBehaviour
                             Vector2 ultimaPosicionEspacioVacio = espacioVacio.anchoredPosition;
                             espacioVacio.anchoredPosition = thisTile.targetPosition;
                             thisTile.targetPosition = ultimaPosicionEspacioVacio;
-                            ActualizarPosicionPiezaCorrecta(thisTile);
-                            contador++;
-                            Debug.Log("Numero de intentos: " + contador);
                             if (TodasPiezasCorrectas())
                             {
                                 mostrarPuzzle01.PuzzleResuelto();
                             }
-
                             break;
                         }
                     }
@@ -83,50 +79,21 @@ public class PuzzleDeslizable : MonoBehaviour
         }
     }
 
-    private void ActualizarPosicionPiezaCorrecta(TilesScript tile)
+    public bool VerificarPosicionCorrecta(TilesScript pieza)
     {
-        int index = System.Array.IndexOf(tiles, tile);
-        if (index != -1)
-        {
-            bool esCorrecta = false;
-            for (int i = 0; i < posicionesCorrectas.Length; i++)
-            {
-                if (Vector2.Distance(posicionesCorrectas[i], tile.targetPosition) < 0.01f)
-                {
-                    esCorrecta = true;
-                    break;
-                }
-            }
-
-            posicionPiezaCorrecta[index] = esCorrecta;
-        }
+        return Vector2.Distance(pieza.targetPosition, pieza.posicionCorrecta) < 0.01f;
     }
 
-    private bool TodasPiezasCorrectas()
+    public bool TodasPiezasCorrectas()
     {
-        foreach (bool posicion in posicionPiezaCorrecta)
+        foreach (TilesScript pieza in tiles)
         {
-            if (!posicion)
+            if (!VerificarPosicionCorrecta(pieza))
             {
+                Debug.Log(pieza.name + posicionPiezaCorrecta);
                 return false;
             }
         }
         return true;
-    }
-
-    // Comentar luego, solo es para pruebas.
-    private void ColocarPiezasAutomaticamente()
-    {
-        for (int i = 0; i < tiles.Length; i++)
-        {
-            tiles[i].targetPosition = posicionesCorrectas[i];
-            tiles[i].GetComponent<RectTransform>().anchoredPosition = posicionesCorrectas[i];
-            ActualizarPosicionPiezaCorrecta(tiles[i]);
-        }
-
-        if (TodasPiezasCorrectas())
-        {
-            mostrarPuzzle01.PuzzleResuelto();
-        }
     }
 }
