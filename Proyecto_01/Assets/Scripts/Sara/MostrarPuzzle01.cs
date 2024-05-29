@@ -57,7 +57,6 @@ public class MostrarPuzzle01 : MonoBehaviour
 
     IEnumerator MostrarResultadoPuzzle01()
     {
-        Debug.Log("Esperando 5 segundos en tiempo real...");
         yield return new WaitForSecondsRealtime(5f);
         fadeAnimation.FadeOut();
         StartCoroutine(QuitarPanelPuzzle());
