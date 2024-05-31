@@ -13,7 +13,7 @@ public class Puerta : MonoBehaviour
 
     public PuertasIDControler controladorPuertas;
 
-    public bool jugadorTocando; 
+    public bool jugadorTocando;
 
     public int idPuerta;
 

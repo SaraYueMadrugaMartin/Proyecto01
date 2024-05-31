@@ -13,11 +13,12 @@ public class PuzzleDeslizable : MonoBehaviour
     private GraphicRaycaster raycaster;
     private EventSystem eventSystem;
     private MostrarPuzzle01 mostrarPuzzle01;
-    private List<bool> posicionPiezaCorrecta;
+    //private List<bool> posicionPiezaCorrecta;
 
     public int piezasEncajadas;
+    public bool puzzle01Resuelto;
 
-    private int contador;
+    //private int contador;
 
     void Start()
     {
@@ -25,7 +26,7 @@ public class PuzzleDeslizable : MonoBehaviour
         raycaster = FindObjectOfType<GraphicRaycaster>();
         eventSystem = FindObjectOfType<EventSystem>();
         mostrarPuzzle01 = FindObjectOfType<MostrarPuzzle01>();
-        posicionPiezaCorrecta = new List<bool>();
+        //posicionPiezaCorrecta = new List<bool>();
         piezasEncajadas = 0;
     }
 
@@ -49,8 +50,6 @@ public class PuzzleDeslizable : MonoBehaviour
             List<RaycastResult> results = new List<RaycastResult>();
             raycaster.Raycast(pointerEventData, results);
 
-            TodasPiezasCorrectas(); // Hay que mirarlo, porque para ganar hay que darle un click de más.
-
             if (results.Count > 0)
             {
                 foreach (RaycastResult result in results)
@@ -70,6 +69,8 @@ public class PuzzleDeslizable : MonoBehaviour
                     }
                 }
             }
+
+            TodasPiezasCorrectas(); // Hay que mirarlo, porque para ganar hay que darle un click de más.
         }
     }
 
@@ -78,6 +79,7 @@ public class PuzzleDeslizable : MonoBehaviour
         if(piezasEncajadas == tiles.Length)
         {
             Debug.Log("Has ganado");
+            puzzle01Resuelto = true;
             mostrarPuzzle01.PuzzleResuelto();
         }
     }

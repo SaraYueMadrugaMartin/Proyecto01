@@ -72,6 +72,8 @@ public class MostrarPuzzle01 : MonoBehaviour
 
     public void QuitarResultadoPuzzle01()
     {
+        Time.timeScale = 1f;
         panelResultado.SetActive(false);
+        StopAllCoroutines();
     }
 }
