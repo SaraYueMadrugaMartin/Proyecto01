@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 
 public class PuzzleDeslizable : MonoBehaviour
 {
@@ -17,9 +15,7 @@ public class PuzzleDeslizable : MonoBehaviour
     private MostrarPuzzle01 mostrarPuzzle01;
     private List<bool> posicionPiezaCorrecta;
 
-    public int piezasEncajadas;
-
-    //private int contador;
+    private int contador;
 
     void Start()
     {
@@ -28,9 +24,8 @@ public class PuzzleDeslizable : MonoBehaviour
         eventSystem = FindObjectOfType<EventSystem>();
         mostrarPuzzle01 = FindObjectOfType<MostrarPuzzle01>();
         posicionPiezaCorrecta = new List<bool>();
-        piezasEncajadas = 0;
 
-        //contador = 0;
+        contador = 0;
 
         for (int i = 0; i < tiles.Length; i++)
         {
@@ -41,6 +36,11 @@ public class PuzzleDeslizable : MonoBehaviour
     void Update()
     {
         MoverPieza();
+
+        /*if (Input.GetKeyDown(KeyCode.P))
+        {
+            ColocarPiezasAutomaticamente();
+        }*/
     }
 
     public void MoverPieza()
@@ -52,7 +52,6 @@ public class PuzzleDeslizable : MonoBehaviour
 
             List<RaycastResult> results = new List<RaycastResult>();
             raycaster.Raycast(pointerEventData, results);
-            TodasPiezasCorrectas();
 
             if (results.Count > 0)
             {
@@ -68,6 +67,10 @@ public class PuzzleDeslizable : MonoBehaviour
                             Vector2 ultimaPosicionEspacioVacio = espacioVacio.anchoredPosition;
                             espacioVacio.anchoredPosition = thisTile.targetPosition;
                             thisTile.targetPosition = ultimaPosicionEspacioVacio;
+                            if (TodasPiezasCorrectas())
+                            {
+                                mostrarPuzzle01.PuzzleResuelto();
+                            }
                             break;
                         }
                     }
@@ -76,12 +79,21 @@ public class PuzzleDeslizable : MonoBehaviour
         }
     }
 
-    public void TodasPiezasCorrectas() // Dónde pongo este método, si lo pongo en el Update, el panel Fade me sale todo el rato. Si lo pongo en MoverPieza, solo comprueba al dar un click de más al colocar la última pieza.
+    public bool VerificarPosicionCorrecta(TilesScript pieza)
     {
-        if (piezasEncajadas == tiles.Length)
+        return Vector2.Distance(pieza.targetPosition, pieza.posicionCorrecta) < 0.01f;
+    }
+
+    public bool TodasPiezasCorrectas()
+    {
+        foreach (TilesScript pieza in tiles)
         {
-            Debug.Log("Has ganado");
-            mostrarPuzzle01.PuzzleResuelto();
+            if (!VerificarPosicionCorrecta(pieza))
+            {
+                Debug.Log(pieza.name + posicionPiezaCorrecta);
+                return false;
+            }
         }
+        return true;
     }
 }
