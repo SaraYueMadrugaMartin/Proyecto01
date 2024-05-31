@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 860544264551438172}
   - component: {fileID: 9042997406271618111}
   - component: {fileID: 214370915905652149}
+  - component: {fileID: 4549076540344952829}
   - component: {fileID: 4100897852203160967}
   - component: {fileID: 7134268257680894210}
   m_Layer: 3
@@ -217,6 +218,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puntoDisparo: {fileID: 5401949993003300347}
+--- !u!114 &4549076540344952829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151545767565334535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 818aece6c88cc83419f7b024fbfbf40d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelInteraE: {fileID: 0}
 --- !u!114 &4100897852203160967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +244,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movimiento: 2
+  "da\xF1oAtaque": 20
+  rangoAtaque: 0.5
+  puntoAtaque: {fileID: 0}
+  ratioAtaque: 2
+  puntoDisparo: {fileID: 0}
+  enemigos:
+    serializedVersion: 2
+    m_Bits: 0
+  panelMuerte: {fileID: 0}
 --- !u!95 &7134268257680894210
 Animator:
   serializedVersion: 5

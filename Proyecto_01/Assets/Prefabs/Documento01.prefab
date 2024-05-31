@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6434688989803020471}
   - component: {fileID: 4650800340112364176}
+  - component: {fileID: 7080190367566806725}
   m_Layer: 0
   m_Name: Documento01
-  m_TagString: Untagged
+  m_TagString: ItemInteractuable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,7 +67,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 11.622377, y: -1.9063128}
+  m_Offset: {x: 11.407098, y: -1.6493092}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -77,8 +78,22 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4018173, y: 1.3677208}
+  m_Size: {x: 1.1176548, y: 1.3602567}
   m_EdgeRadius: 0
+--- !u!114 &7080190367566806725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3605400357685110331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa79e5638cbe9074dbf7e5ce48fe07c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelAsociado: {fileID: 0}
+  jugadorTocando: 0
 --- !u!1 &7279284741151620701
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +121,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7762317, w: 0.6304477}
   m_LocalPosition: {x: 11.774, y: -1.72, z: 0}
-  m_LocalScale: {x: 1.6112185, y: 1.6112185, z: 1.6112185}
+  m_LocalScale: {x: 2.6746225, y: 2.6746225, z: 2.6746225}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6434688989803020471}
@@ -152,7 +167,7 @@ SpriteRenderer:
   m_SortingLayerID: -105898557
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: b89694916d39e5247a3daf476498bb73, type: 3}
+  m_Sprite: {fileID: 1715629706, guid: a3302bd6d685f10468a355626f3b1c45, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

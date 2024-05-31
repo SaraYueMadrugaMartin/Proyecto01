@@ -69,4 +69,9 @@ public class MostrarPuzzle01 : MonoBehaviour
         panelPuzzle01.SetActive(false);
         panelResultado.SetActive(true);
     }
+
+    public void QuitarResultadoPuzzle01()
+    {
+        panelResultado.SetActive(false);
+    }
 }

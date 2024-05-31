@@ -7,13 +7,15 @@ public class PuzzleDeslizable : MonoBehaviour
 {
     [SerializeField] private RectTransform espacioVacio = null;
     [SerializeField] private TilesScript[] tiles;
-    [SerializeField] private Vector2[] posicionesCorrectas;
+    //[SerializeField] private Vector2[] posicionesCorrectas;
 
     private Camera camara;
     private GraphicRaycaster raycaster;
     private EventSystem eventSystem;
     private MostrarPuzzle01 mostrarPuzzle01;
     private List<bool> posicionPiezaCorrecta;
+
+    public int piezasEncajadas;
 
     private int contador;
 
@@ -24,13 +26,7 @@ public class PuzzleDeslizable : MonoBehaviour
         eventSystem = FindObjectOfType<EventSystem>();
         mostrarPuzzle01 = FindObjectOfType<MostrarPuzzle01>();
         posicionPiezaCorrecta = new List<bool>();
-
-        contador = 0;
-
-        for (int i = 0; i < tiles.Length; i++)
-        {
-            posicionPiezaCorrecta.Add(false);
-        }
+        piezasEncajadas = 0;
     }
 
     void Update()
@@ -39,7 +35,7 @@ public class PuzzleDeslizable : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            ColocarPiezasAutomaticamente();
+            //ColocarPiezasAutomaticamente();
         }
     }
 
@@ -53,6 +49,8 @@ public class PuzzleDeslizable : MonoBehaviour
             List<RaycastResult> results = new List<RaycastResult>();
             raycaster.Raycast(pointerEventData, results);
 
+            TodasPiezasCorrectas(); // Hay que mirarlo, porque para ganar hay que darle un click de más.
+
             if (results.Count > 0)
             {
                 foreach (RaycastResult result in results)
@@ -65,16 +63,8 @@ public class PuzzleDeslizable : MonoBehaviour
                         if (Vector2.Distance(espacioVacio.anchoredPosition, tileRect.anchoredPosition) < 150)
                         {
                             Vector2 ultimaPosicionEspacioVacio = espacioVacio.anchoredPosition;
-                            espacioVacio.anchoredPosition = thisTile.targetPosition;
-                            thisTile.targetPosition = ultimaPosicionEspacioVacio;
-                            ActualizarPosicionPiezaCorrecta(thisTile);
-                            contador++;
-                            Debug.Log("Numero de intentos: " + contador);
-                            if (TodasPiezasCorrectas())
-                            {
-                                mostrarPuzzle01.PuzzleResuelto();
-                            }
-
+                            espacioVacio.anchoredPosition = thisTile.posPiezaInicial;
+                            thisTile.posPiezaInicial = ultimaPosicionEspacioVacio;
                             break;
                         }
                     }
@@ -83,39 +73,17 @@ public class PuzzleDeslizable : MonoBehaviour
         }
     }
 
-    private void ActualizarPosicionPiezaCorrecta(TilesScript tile)
+    public void TodasPiezasCorrectas()
     {
-        int index = System.Array.IndexOf(tiles, tile);
-        if (index != -1)
+        if(piezasEncajadas == tiles.Length)
         {
-            bool esCorrecta = false;
-            for (int i = 0; i < posicionesCorrectas.Length; i++)
-            {
-                if (Vector2.Distance(posicionesCorrectas[i], tile.targetPosition) < 0.01f)
-                {
-                    esCorrecta = true;
-                    break;
-                }
-            }
-
-            posicionPiezaCorrecta[index] = esCorrecta;
+            Debug.Log("Has ganado");
+            mostrarPuzzle01.PuzzleResuelto();
         }
-    }
-
-    private bool TodasPiezasCorrectas()
-    {
-        foreach (bool posicion in posicionPiezaCorrecta)
-        {
-            if (!posicion)
-            {
-                return false;
-            }
-        }
-        return true;
     }
 
     // Comentar luego, solo es para pruebas.
-    private void ColocarPiezasAutomaticamente()
+    /*private void ColocarPiezasAutomaticamente()
     {
         for (int i = 0; i < tiles.Length; i++)
         {
@@ -128,5 +96,5 @@ public class PuzzleDeslizable : MonoBehaviour
         {
             mostrarPuzzle01.PuzzleResuelto();
         }
-    }
+    }*/
 }

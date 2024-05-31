@@ -15,10 +15,6 @@ public class Items : MonoBehaviour
 
     public Vector2 posicionInicial;
     public bool objetoRecogido = false;
-    //public Items ultimoObjetoRecogido;
-
-    //private Collider2D itemCollider;
-    //private GameObject[] propiedadesHijosItems;
     private SpriteRenderer[] spriteRenderers;
 
     private List<bool> objetoHaSidoRecogido;
@@ -29,7 +25,6 @@ public class Items : MonoBehaviour
         panelesInteracciones = FindObjectOfType<PanelesInteracciones>();
         panelAvisoInventarioCompleto = FindObjectOfType<PanelesInteracciones>();
         posicionInicial = transform.position;
-        //itemCollider = GetComponent<Collider2D>();
         Transform[] hijosTransform = GetComponentsInChildren<Transform>(includeInactive: true);
         List<GameObject> hijosGameObjects = new List<GameObject>();
         objetoHaSidoRecogido = new List<bool>();
@@ -38,15 +33,11 @@ public class Items : MonoBehaviour
 
         foreach (Transform hijoTransform in hijosTransform)
         {
-            if (hijoTransform.gameObject != this.gameObject) // Excluir el propio objeto
+            if (hijoTransform.gameObject != this.gameObject)
             {
                 hijosGameObjects.Add(hijoTransform.gameObject);
             }
         }
-
-        //propiedadesHijosItems = hijosGameObjects.ToArray();
-        //spriteItem = transform.Find("Sprite").gameObject;
-        //RegistrarObjeto();
     }
 
     private void Update()
@@ -59,8 +50,6 @@ public class Items : MonoBehaviour
                 panelesInteracciones.AparecerPanelInteraccion(nombreItem);
                 objetoRecogido = true;
                 ObjetoRecogido(true);
-                //string boolListString = string.Join(", ", objetoHaSidoRecogido); // Para el Debug.
-                //Debug.Log("Objeto: " + nombreItem + " " + boolListString);
 
                 if (nombreItem == "Llave")
                 {
@@ -73,8 +62,6 @@ public class Items : MonoBehaviour
                     Player.municion += 12;
 
                 DesactivarItem();
-                //gameObject.SetActive(false);
-
             }
             else
             {
@@ -147,6 +134,15 @@ public class Items : MonoBehaviour
                 renderer.enabled = false;
             }
         }
+
+        Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
+        if(colliders != null)
+        {
+            foreach(Collider2D collider in colliders)
+            {
+                collider.enabled = false;
+            }
+        }
     }
 
     private void ActivarItem()
@@ -157,6 +153,15 @@ public class Items : MonoBehaviour
             foreach (SpriteRenderer renderer in spriteRenderers)
             {
                 renderer.enabled = true;
+            }
+        }
+
+        Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
+        if (colliders != null)
+        {
+            foreach (Collider2D collider in colliders)
+            {
+                collider.enabled = true;
             }
         }
     }
