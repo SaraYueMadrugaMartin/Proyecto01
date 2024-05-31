@@ -94,6 +94,11 @@ public class Inventario : MonoBehaviour
                         {
                             RegistrarObjeto(item);
                         }
+                        else
+                        {
+                            Debug.LogWarning("No se encontró el objeto en la escena: " + nombreItem);
+                        }
+
                         return; // Parar el bucle cuando encuentra el hueco vacío y añade el nuevo objeto.
                     }
                 }
@@ -241,13 +246,13 @@ public class Inventario : MonoBehaviour
         }
     }
 
-    /*public void DesregistrarObjeto(Items item)
+    public void DesregistrarObjeto(Items item)
     {
         if (objetosRegistrados.Contains(item))
         {
             objetosRegistrados.Remove(item);
         }
-    }*/
+    }
 
     /*private void ObjetoEstaEnInventario(bool value)
     {
