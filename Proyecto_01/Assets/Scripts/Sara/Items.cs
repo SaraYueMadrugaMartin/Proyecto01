@@ -6,7 +6,6 @@ public class Items : MonoBehaviour
 {
     [SerializeField] public string nombreItem;
     [SerializeField] private Sprite sprite;
-    //[SerializeField] private GameObject panelInteractuarE;
     private Inventario inventario;
     private bool cogerObjeto = false;
 
@@ -16,13 +15,7 @@ public class Items : MonoBehaviour
 
     public Vector2 posicionInicial;
     public bool objetoRecogido = false;
-    //public Items ultimoObjetoRecogido;
-
-    //private Collider2D itemCollider;
-    //private GameObject[] propiedadesHijosItems;
     private SpriteRenderer[] spriteRenderers;
-
-    //private Collider2D[] collider2Ds;
 
     private List<bool> objetoHaSidoRecogido;
 
@@ -32,8 +25,6 @@ public class Items : MonoBehaviour
         panelesInteracciones = FindObjectOfType<PanelesInteracciones>();
         panelAvisoInventarioCompleto = FindObjectOfType<PanelesInteracciones>();
         posicionInicial = transform.position;
-        //panelInteractuarE.SetActive(false);
-        //itemCollider = GetComponent<Collider2D>();
         Transform[] hijosTransform = GetComponentsInChildren<Transform>(includeInactive: true);
         List<GameObject> hijosGameObjects = new List<GameObject>();
         objetoHaSidoRecogido = new List<bool>();
@@ -42,15 +33,11 @@ public class Items : MonoBehaviour
 
         foreach (Transform hijoTransform in hijosTransform)
         {
-            if (hijoTransform.gameObject != this.gameObject) // Excluir el propio objeto
+            if (hijoTransform.gameObject != this.gameObject)
             {
                 hijosGameObjects.Add(hijoTransform.gameObject);
             }
         }
-
-        //propiedadesHijosItems = hijosGameObjects.ToArray();
-        //spriteItem = transform.Find("Sprite").gameObject;
-        //RegistrarObjeto();
     }
 
     private void Update()
@@ -63,8 +50,6 @@ public class Items : MonoBehaviour
                 panelesInteracciones.AparecerPanelInteraccion(nombreItem);
                 objetoRecogido = true;
                 ObjetoRecogido(true);
-                //string boolListString = string.Join(", ", objetoHaSidoRecogido); // Para el Debug.
-                //Debug.Log("Objeto: " + nombreItem + " " + boolListString);
 
                 if (nombreItem == "Llave")
                 {
@@ -77,13 +62,12 @@ public class Items : MonoBehaviour
                     Player.municion += 12;
 
                 DesactivarItem();
-                //gameObject.SetActive(false);
 
             }
             else
             {
                 panelAvisoInventarioCompleto.AparecerPanelAvisoInventarioCompleto();
-                Debug.Log("¡El inventario está lleno! No se puede recoger el objeto.");
+                Debug.Log("Inventario completo");
             }
         }
     }
@@ -93,7 +77,6 @@ public class Items : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             cogerObjeto = true;
-            //panelInteractuarE.SetActive(true);
         }
     }
 
@@ -102,7 +85,6 @@ public class Items : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             cogerObjeto = false;
-            //panelInteractuarE.SetActive(false);
         }
     }
 
@@ -203,7 +185,7 @@ public class Items : MonoBehaviour
         else
         {
             Debug.LogError("idsItems es null en el objeto: " + nombreItem);
-            return -1; // Valor por defecto o código de error
+            return -1;
         }
     }
 }
