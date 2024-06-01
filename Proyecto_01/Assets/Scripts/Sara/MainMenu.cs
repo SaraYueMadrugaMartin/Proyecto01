@@ -8,16 +8,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject panelAjustes;
     [SerializeField] private GameObject panelCreditos;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    SFXManager sfxManager;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        sfxManager = SFXManager.instance;
     }
 
     public void ComenzarJuego()
@@ -28,18 +23,23 @@ public class MainMenu : MonoBehaviour
             SceneManager.LoadScene(0);
         else
             SceneManager.LoadScene(siguienteEscena);
+
+        sfxManager.PlaySFX(sfxManager.seleccionBoton01);
+        sfxManager.StopMusic();
     }
 
     public void IrAjustes()
     {
         gameObject.SetActive(false);
         panelAjustes.SetActive(true);
+        sfxManager.PlaySFX(sfxManager.seleccionBoton02);
     }
 
     public void IrCreditos()
     {
         gameObject.SetActive(false);
         panelCreditos.SetActive(true);
+        sfxManager.PlaySFX(sfxManager.seleccionBoton02);
     }
 
     public void VolverAtras()
@@ -47,11 +47,13 @@ public class MainMenu : MonoBehaviour
         gameObject.SetActive(true);
         panelAjustes.SetActive(false);
         panelCreditos.SetActive(false);
+        sfxManager.PlaySFX(sfxManager.seleccionBoton03);
     }
 
     public void SalirJuego()
     {
         Application.Quit();
         Debug.Log("Has salido del juego.");
+        sfxManager.PlaySFX(sfxManager.seleccionBoton01);
     }
 }

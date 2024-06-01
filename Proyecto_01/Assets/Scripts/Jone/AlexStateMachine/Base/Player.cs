@@ -8,6 +8,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Animator anim;
+
+    SFXManager sfxManager;
     
     #region Variables Player Stats
     // Corrupción
@@ -85,6 +87,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        sfxManager = SFXManager.instance;
         anim = GetComponent<Animator>();
         puntero = GetComponent<Puntero>();
         pistola = transform.Find("Puntero").gameObject;
@@ -118,6 +121,7 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             estaCorriendo = true;
+            sfxManager.PlaySFX(sfxManager.correrAlex);
             //anim.Play(ControladorAnimaciones.diccionarioAnimaciones[4]); // Run animation
         }
         else if (Input.GetKey(KeyCode.LeftControl))
@@ -138,8 +142,12 @@ public class Player : MonoBehaviour
         float velocidadY = Input.GetAxis("Vertical") * movimiento * multiplicadorVelocidad * Time.deltaTime;
 
         if (velocidadX != 0f || velocidadY != 0f)
+        {
             anim.Play(ControladorAnimaciones.diccionarioAnimaciones[2]); // Walk animation
             // Sonido walk
+            sfxManager.PlaySFX(sfxManager.pasosAlex);
+        }
+            
         else
             anim.Play(ControladorAnimaciones.diccionarioAnimaciones[1]); // Idle animation
 
@@ -214,6 +222,7 @@ public class Player : MonoBehaviour
             {
                 anim.Play(ControladorAnimaciones.diccionarioAnimaciones[5]);
                 // Sonido ataque
+                sfxManager.PlaySFX(sfxManager.ataqueBate);
 
                 // Detecta los enemigos en el rango de ataque 
                 Collider2D[] golpeaEnemigos = Physics2D.OverlapCircleAll(puntoAtaque.position, rangoAtaque, enemigos);
@@ -241,7 +250,11 @@ public class Player : MonoBehaviour
             if (Input.GetButtonDown("Fire1"))
             {
                 if (cargador > 0)
+                {
                     Dispara();
+                    sfxManager.PlaySFX(sfxManager.disparoPistola);
+                }
+
                 else
                 {
                     // Hay que mostrar un mensaje en pantalla
@@ -249,7 +262,10 @@ public class Player : MonoBehaviour
                 }
             }
             if (Input.GetKeyDown("r"))
+            {
                 Recarga();
+                sfxManager.PlaySFX(sfxManager.recargaPistola);
+            }
         }
         else
         {

@@ -7,22 +7,20 @@ using UnityEngine.Video;
 
 public class Cinematica : MonoBehaviour
 {
-    VideoClip clip;
-    private float duracion = 2f;
-    
+    private VideoPlayer videoPlayer;
+
+    SFXManager sfxManager;
+
     void Start()
     {
-        clip = GetComponent<VideoPlayer>().clip;
-        duracion = (float)clip.length;
+        videoPlayer = GetComponent<VideoPlayer>();
+        videoPlayer.loopPointReached += OnVideoEnd;
+        sfxManager = SFXManager.instance;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnVideoEnd(VideoPlayer vp)
     {
-        if (Time.time > (duracion))
-        {
-            CambioEscena();
-        }      
+        CambioEscena();
     }
 
     private void CambioEscena()
@@ -30,5 +28,6 @@ public class Cinematica : MonoBehaviour
         int escenaActual = SceneManager.GetActiveScene().buildIndex;
         int siguienteEscena = escenaActual + 1;
         SceneManager.LoadScene(siguienteEscena);
+        sfxManager.CancionCabaña();
     }
 }
