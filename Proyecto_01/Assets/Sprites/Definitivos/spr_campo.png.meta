@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: efc579cf5b7862f4ba8b6b54bd6504fd
+guid: 0caaced62a985b745aebf38f78b2752f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,112 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_final_0
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b4181394ac1848245a4bf6da95fe3787
-      internalID: 1368095949
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_final_1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9aa11790c5db75d488e0d504a9832661
-      internalID: -806475389
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_final_2
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8aa5dbb630454d741929b8faa6021708
-      internalID: 89282028
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_final_3
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e7a587913190fc540ad109e69b3708c1
-      internalID: -212343900
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_final_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1bae59687ca02c6419c2a0826c91149b
-      internalID: -1300194367
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_final_5
+      name: spr_campo_0
       rect:
         serializedVersion: 2
         x: 64
@@ -242,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af4ddce6899bb064ebbaa24e6e20385d
-      internalID: 1241583370
+      spriteID: d82d0ccb46116a04cb6898ed13f6d7c3
+      internalID: -415316768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_final_6
+      name: spr_campo_1
       rect:
         serializedVersion: 2
         x: 128
@@ -263,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 691d89965b37ff748894b18f350b14bf
-      internalID: 890339624
+      spriteID: 917954f1beebdd94eb216b74ba5dad33
+      internalID: 1066740323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_final_7
+      name: spr_campo_2
       rect:
         serializedVersion: 2
         x: 192
@@ -284,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e52c8c10f36d3a74fbfe16de63eb2aac
-      internalID: 278359268
+      spriteID: 076d88078988d1f46b0217595a540b6f
+      internalID: 826991107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_final_8
+      name: spr_campo_3
       rect:
         serializedVersion: 2
         x: 256
@@ -305,14 +200,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9f57d50d48f55a4cad6ebd4246cff16
-      internalID: -645918769
+      spriteID: 8cf327523f78dc445b77223725c9228c
+      internalID: -2126128272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_final_9
+      name: spr_campo_4
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f89de8237bed53488762f62e46724ee
+      internalID: 1088282024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_campo_5
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6f40ab02c9e18447b54f84582b9ecdb
+      internalID: 995572528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_campo_6
       rect:
         serializedVersion: 2
         x: 0
@@ -326,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4869ddfcabe87c5409792392b51c4a00
-      internalID: 41198005
+      spriteID: 4eeb1455c2774014e9e27bf2be33e4ae
+      internalID: 1187187173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_final_10
+      name: spr_campo_7
       rect:
         serializedVersion: 2
         x: 64
@@ -347,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0654e06078cb6b042b0dd1e3a440c2d5
-      internalID: 1702077887
+      spriteID: 442b436228430384e8faf154063ba159
+      internalID: -605811632
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_final_11
+      name: spr_campo_8
       rect:
         serializedVersion: 2
         x: 128
@@ -368,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7362c24ca7f65ce408c5e22695a07bc2
-      internalID: 1786997376
+      spriteID: 473dd80f298195c479deac7db2570b27
+      internalID: 305880830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_final_12
+      name: spr_campo_9
       rect:
         serializedVersion: 2
         x: 192
@@ -389,18 +326,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e9186c2cf54e7149860efe89ec3074b
-      internalID: -1421758432
+      spriteID: f8140ac5666aca64fa605c429b738a18
+      internalID: -1554725297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_final_13
+      name: spr_campo_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 256
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -410,14 +347,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2197c2aa4d3caf44acaf19d36c6b4e2
-      internalID: -19716318
+      spriteID: 2f9049689f6ec8f468453ca08327efc9
+      internalID: 553874277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_final_14
+      name: spr_campo_11
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1d3cf61e3f02f74ea9ac7ca924b035f
+      internalID: 1841094019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_campo_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c9b19a22fd0b6d478bafeb38fa98f4a
+      internalID: -16191429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_campo_13
       rect:
         serializedVersion: 2
         x: 64
@@ -431,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8b397ff3d7d1474bb0fa9ab0d8c9de4
-      internalID: -1287544898
+      spriteID: 06a3a1f0b291743409d4cbf830ff209b
+      internalID: -1109660592
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_final_15
+      name: spr_campo_14
       rect:
         serializedVersion: 2
         x: 128
@@ -452,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64291df69a215754ea3acd7a7d9f8dc1
-      internalID: 857979014
+      spriteID: 0dfdc612389073c4581f85c4c1fde477
+      internalID: 884756566
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_final_16
+      name: spr_campo_15
       rect:
         serializedVersion: 2
         x: 192
@@ -473,8 +452,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cd31e345cb6ff64da75089d8586ac8a
-      internalID: 638954494
+      spriteID: 4c45d0c9f4b31824fb3b17b2a661675b
+      internalID: 1242792746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_campo_16
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 328160578ababf54da4fc6b491de329d
+      internalID: -903144017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_campo_17
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f53463d6319a1488fe624ace8d17da
+      internalID: -2092971834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_campo_18
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 929227e25c2c3864fbdc3b4479ad0629
+      internalID: -1210965772
       vertices: []
       indices: 
       edges: []
@@ -490,23 +532,25 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spr_final_0: 1368095949
-      spr_final_1: -806475389
-      spr_final_10: 1702077887
-      spr_final_11: 1786997376
-      spr_final_12: -1421758432
-      spr_final_13: -19716318
-      spr_final_14: -1287544898
-      spr_final_15: 857979014
-      spr_final_16: 638954494
-      spr_final_2: 89282028
-      spr_final_3: -212343900
-      spr_final_4: -1300194367
-      spr_final_5: 1241583370
-      spr_final_6: 890339624
-      spr_final_7: 278359268
-      spr_final_8: -645918769
-      spr_final_9: 41198005
+      spr_campo_0: -415316768
+      spr_campo_1: 1066740323
+      spr_campo_10: 553874277
+      spr_campo_11: 1841094019
+      spr_campo_12: -16191429
+      spr_campo_13: -1109660592
+      spr_campo_14: 884756566
+      spr_campo_15: 1242792746
+      spr_campo_16: -903144017
+      spr_campo_17: -2092971834
+      spr_campo_18: -1210965772
+      spr_campo_2: 826991107
+      spr_campo_3: -2126128272
+      spr_campo_4: 1088282024
+      spr_campo_5: 995572528
+      spr_campo_6: 1187187173
+      spr_campo_7: -605811632
+      spr_campo_8: 305880830
+      spr_campo_9: -1554725297
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
