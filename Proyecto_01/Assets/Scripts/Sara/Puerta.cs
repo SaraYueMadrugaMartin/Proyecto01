@@ -10,6 +10,7 @@ public class Puerta : MonoBehaviour
     //[SerializeField] private TutorialGeneralController tutoController;
     [SerializeField] private GameObject panelMensajeNo;
     [SerializeField] private GameObject panelPregunta;
+    //[SerializeField] private FadeAnimation fadeAnimation;
 
     public PuertasIDControler controladorPuertas;
 
@@ -24,6 +25,7 @@ public class Puerta : MonoBehaviour
     private void Awake()
     {
         puertaColliders = GetComponents<Collider2D>();
+        panelMensajeNo.SetActive(false);
     }
 
     private void Update()

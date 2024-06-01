@@ -7,7 +7,7 @@ public class DialogosSystem : MonoBehaviour
 {
     [SerializeField] private GameObject panelDialogo;
     [SerializeField] private TextMeshProUGUI dialogoAlex01;
-
+    //[SerializeField] private Tutoriales tutoriales;
     [SerializeField] private float esperaInicio;
 
     [SerializeField] private string[] frasesDialogoAlex01;
@@ -94,6 +94,7 @@ public class DialogosSystem : MonoBehaviour
             panelDialogo.SetActive(false); // Si no lo cumple, quiere decir que estamos en la última frase, así que desactivamos el GameObject.
             dialogoAlex01.text = string.Empty;
             Time.timeScale = 1.0f; // Al terminar la última frase, el juego deja de estar pausado.
+            //tutoriales.MostrarSiguienteTutorial();
         }
     }
 

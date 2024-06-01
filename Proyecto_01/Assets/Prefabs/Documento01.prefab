@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6434688989803020471}
   - component: {fileID: 4650800340112364176}
-  - component: {fileID: 7080190367566806725}
   m_Layer: 0
   m_Name: Documento01
   m_TagString: ItemInteractuable
@@ -80,20 +79,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1176548, y: 1.3602567}
   m_EdgeRadius: 0
---- !u!114 &7080190367566806725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3605400357685110331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa79e5638cbe9074dbf7e5ce48fe07c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelAsociado: {fileID: 0}
-  jugadorTocando: 0
 --- !u!1 &7279284741151620701
 GameObject:
   m_ObjectHideFlags: 0
