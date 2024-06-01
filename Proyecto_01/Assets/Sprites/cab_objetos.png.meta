@@ -231,10 +231,10 @@ TextureImporter:
       name: cab_objetos_62
       rect:
         serializedVersion: 2
-        x: 256
-        y: 576
-        width: 64
-        height: 64
+        x: 6
+        y: 1024
+        width: 52
+        height: 112
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
