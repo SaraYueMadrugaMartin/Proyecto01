@@ -69,19 +69,21 @@ public class PuzzleDeslizable : MonoBehaviour
                     }
                 }
             }
-
-            TodasPiezasCorrectas(); // Hay que mirarlo, porque para ganar hay que darle un click de más.
+            Debug.Log("Piezas: " + piezasEncajadas);
+             // Hay que mirarlo, porque para ganar hay que darle un click de más.
         }
     }
 
     public void TodasPiezasCorrectas()
     {
-        if(piezasEncajadas == tiles.Length)
+        bool unaVez = true;
+        if(unaVez)
         {
             Debug.Log("Has ganado");
             puzzle01Resuelto = true;
             mostrarPuzzle01.PuzzleResuelto();
-        }
+            unaVez = false;
+        }        
     }
 
     // Comentar luego, solo es para pruebas.

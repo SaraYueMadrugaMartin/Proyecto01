@@ -16,7 +16,7 @@ public class Puzle : MonoBehaviour
 
     void Start()
     {
-        totalNumerosCorrectos = 0;
+        VerificarNumero();
 
         for (int i = 1; i < numeros.Length; i++)
         {
@@ -37,7 +37,6 @@ public class Puzle : MonoBehaviour
         {
             PulsarBotonDerecho();
             PulsarBotonIzquierdo();
-            //VerificarCodigoCompleto();
         }
     }
 
@@ -88,8 +87,5 @@ public class Puzle : MonoBehaviour
             }
             codigoCorrecto = false;
         }
-    }
-
-
-    
+    }    
 }

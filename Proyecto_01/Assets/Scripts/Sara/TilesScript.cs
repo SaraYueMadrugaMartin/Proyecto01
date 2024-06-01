@@ -28,6 +28,10 @@ public class TilesScript : MonoBehaviour
             {
                 enPosCorrecta = true;
                 puzzleDeslizable.piezasEncajadas++;
+                if(puzzleDeslizable.piezasEncajadas == 15)
+                {
+                    puzzleDeslizable.TodasPiezasCorrectas();
+                }
                 Debug.Log(gameObject.name + " está en la posición correcta.");
             }
         }
