@@ -19,7 +19,8 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
     public bool objetoSeleccionado;
 
     [SerializeField] private GameObject panelBotonesLlave;
-    [SerializeField] private GameObject panelBotonesArma;
+    [SerializeField] private GameObject panelBotonesBate;
+    [SerializeField] private GameObject panelBotonesPistola;
     [SerializeField] private GameObject panelBotonesBotiquin;
     [SerializeField] private GameObject panelBotonesTinta;
     //[SerializeField] private GameObject panelBotonesDiario;
@@ -39,8 +40,8 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
         inventario = GameObject.Find("Canvas").GetComponent<Inventario>();
 
         panelesBotones.Add("Llave", panelBotonesLlave);
-        panelesBotones.Add("Bate", panelBotonesArma);
-        panelesBotones.Add("Pistola", panelBotonesArma);
+        panelesBotones.Add("Bate", panelBotonesBate);
+        panelesBotones.Add("Pistola", panelBotonesPistola);
         panelesBotones.Add("Botiquin", panelBotonesBotiquin);
         panelesBotones.Add("Tinta", panelBotonesTinta);
         //panelesBotones.Add("Diario", panelBotonesDiario);

@@ -16,8 +16,8 @@ public class TelevisorVHS : MonoBehaviour
     {
         inventario = FindObjectOfType<Inventario>();
         panelNoVHS.SetActive(false);
-        cintaVHS.SetActive(false);
         cinematica = cintaVHS.GetComponent<VideoPlayer>();
+        cintaVHS.SetActive(false);
     }
 
     private void Update()

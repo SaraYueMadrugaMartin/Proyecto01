@@ -14,7 +14,6 @@ public class ObjetoPanelInfo
 public class Inventario : MonoBehaviour
 {
     [SerializeField] private GameObject inventario;
-    [SerializeField] private GameObject playerStats;
     [SerializeField] private List<ObjetoPanelInfo> objetosPanelesInformacion;
     [SerializeField] private GameObject botonAtrasInfo;
     [SerializeField] private GameObject fondoPanelInfo;
@@ -149,7 +148,6 @@ public class Inventario : MonoBehaviour
                 if (objetoPanelInfo != null)
                 {
                     DesactivarPanelesInformacion();
-                    playerStats.SetActive(false);
                     fondoPanelInfo.SetActive(true);
                     objetoPanelInfo.panelInfo.SetActive(true);
                     botonAtrasInfo.SetActive(true);
@@ -180,7 +178,6 @@ public class Inventario : MonoBehaviour
             {
                 fondoPanelInfo.SetActive(false);
                 objetoPanelInfo.panelInfo.SetActive(false);
-                playerStats.SetActive(true);
                 botonAtrasInfo.SetActive(false);
             }
         }

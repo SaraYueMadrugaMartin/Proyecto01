@@ -173,6 +173,7 @@ public class Player : MonoBehaviour
 
     public void EquiparArma(int arma)
     {
+        MostrarArmaEquipada.ArmaEquipada(arma);
         switch (arma)
         {
             case 0:

@@ -46,6 +46,12 @@ public class PanelesInteracciones : MonoBehaviour
             case "Valvula":
                 infoPanelInteraccion.text = "Se ha añadido al inventario una válvula.";
                 break;
+            case "Pistola":
+                infoPanelInteraccion.text = "Se ha añadido al inventario una pistola.";
+                break;
+            default:
+                infoPanelInteraccion.text = "Se ha añadido al inventario un objeto.";
+                break;
         }
 
         StartCoroutine(DesactivarPanelInteraccion());
