@@ -26,6 +26,7 @@ public class Puerta : MonoBehaviour
     {
         puertaColliders = GetComponents<Collider2D>();
         panelMensajeNo.SetActive(false);
+        //puertaSL.SetActive(false);
     }
 
     private void Update()

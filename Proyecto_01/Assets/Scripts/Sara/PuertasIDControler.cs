@@ -19,7 +19,7 @@ public class PuertasIDControler : MonoBehaviour
 
     public void UsarLlave()
     {
-        Invoke("CambioPosicionPlayer", 0.3f);
+        Invoke("CambioPosicionPlayer", 1f);
         fadeAnimation.FadeOut();
         destruye = true;
         panelPregunta.SetActive(false);
