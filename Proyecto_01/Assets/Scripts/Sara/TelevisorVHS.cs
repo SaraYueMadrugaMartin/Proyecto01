@@ -8,16 +8,22 @@ public class TelevisorVHS : MonoBehaviour
     [SerializeField] private GameObject panelNoVHS;
     [SerializeField] private GameObject cintaVHS;
     [SerializeField] private VideoPlayer cinematica;
+    private float duracion;
 
     private Inventario inventario;
     private bool jugadorTocando = false;
+
+    [SerializeField] GameObject puertaGO;
+    MirrorPuerta puerta;
 
     private void Start()
     {
         inventario = FindObjectOfType<Inventario>();
         panelNoVHS.SetActive(false);
         cinematica = cintaVHS.GetComponent<VideoPlayer>();
+        duracion = (float)cinematica.clip.length;
         cintaVHS.SetActive(false);
+        puerta = puertaGO.GetComponent<MirrorPuerta>();
     }
 
     private void Update()
@@ -58,9 +64,26 @@ public class TelevisorVHS : MonoBehaviour
 
     IEnumerator ReproducirVHS()
     {
-        yield return new WaitForSecondsRealtime(1f);
         Time.timeScale = 0f;
         cintaVHS.SetActive(true);
+        puerta.VHSVisto();
+
+        cinematica.Prepare();
+        while (!cinematica.isPrepared)
+        {
+            yield return null;
+        }
+
         cinematica.Play();
+        StartCoroutine(PararVHS());
+    }
+
+    IEnumerator PararVHS()
+    {
+        yield return new WaitForSecondsRealtime(duracion);
+        cinematica.Pause();
+        cintaVHS.SetActive(false);
+        Time.timeScale = 1f;
     }
 }
+

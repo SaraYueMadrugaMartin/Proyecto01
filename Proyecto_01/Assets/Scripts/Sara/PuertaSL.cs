@@ -34,7 +34,7 @@ public class PuertaSL : MonoBehaviour
             Vector2 playerPosition = other.transform.position;
 
 
-            if (playerPosition.y > (posNuevaAbajo.y))
+            if (playerPosition.y > (posNuevaArriba.y))
             {
                 jugadorTocandoArriba = true;
                 jugadorTocandoAbajo = false;
