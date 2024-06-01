@@ -14,6 +14,14 @@ public class FadeAnimation : MonoBehaviour
         //Invoke("AnimationFin", 1.0f);
     }
 
+    public void FadeOutNivel()
+    {
+        gameObject.SetActive(true);
+        animator.Play("FadeAnimationNivel");
+        StartCoroutine(ActivarFadeInOutNivel());
+        //Invoke("AnimationFin", 1.0f);
+    }
+
     /*public void AnimationFin()
     {
         gameObject.SetActive(false);
@@ -22,6 +30,12 @@ public class FadeAnimation : MonoBehaviour
     IEnumerator ActivarFadeInOut()
     {
         yield return new WaitForSecondsRealtime(1f);
+        gameObject.SetActive(false);
+    }
+
+    IEnumerator ActivarFadeInOutNivel()
+    {
+        yield return new WaitForSecondsRealtime(3f);
         gameObject.SetActive(false);
     }
 }

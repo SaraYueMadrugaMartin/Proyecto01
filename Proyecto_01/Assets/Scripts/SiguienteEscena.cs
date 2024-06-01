@@ -12,7 +12,7 @@ public class SiguienteEscena : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            fadeAnimation.FadeOut();
+            fadeAnimation.FadeOutNivel();
             StartCoroutine(SiguienteNivel());
         }
     }
