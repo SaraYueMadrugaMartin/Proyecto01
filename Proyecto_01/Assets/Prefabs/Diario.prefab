@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2264799827919319062}
   - component: {fileID: 3551209133927568475}
+  - component: {fileID: 2413571222786171957}
   m_Layer: 0
   m_Name: Diario
   m_TagString: ItemInteractuable
@@ -163,6 +164,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.37, y: 0.4650023}
   m_EdgeRadius: 0
+--- !u!114 &2413571222786171957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8445674899310721727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dc180f2db15dd49ab1907ad5e3b575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5176144773298182756
 PrefabInstance:
   m_ObjectHideFlags: 0

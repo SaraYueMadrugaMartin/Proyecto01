@@ -33,11 +33,6 @@ public class PuzzleDeslizable : MonoBehaviour
     void Update()
     {
         MoverPieza();
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            //ColocarPiezasAutomaticamente();
-        }
     }
 
     public void MoverPieza()
@@ -69,8 +64,6 @@ public class PuzzleDeslizable : MonoBehaviour
                     }
                 }
             }
-            Debug.Log("Piezas: " + piezasEncajadas);
-             // Hay que mirarlo, porque para ganar hay que darle un click de más.
         }
     }
 
@@ -85,20 +78,4 @@ public class PuzzleDeslizable : MonoBehaviour
             unaVez = false;
         }        
     }
-
-    // Comentar luego, solo es para pruebas.
-    /*private void ColocarPiezasAutomaticamente()
-    {
-        for (int i = 0; i < tiles.Length; i++)
-        {
-            tiles[i].targetPosition = posicionesCorrectas[i];
-            tiles[i].GetComponent<RectTransform>().anchoredPosition = posicionesCorrectas[i];
-            ActualizarPosicionPiezaCorrecta(tiles[i]);
-        }
-
-        if (TodasPiezasCorrectas())
-        {
-            mostrarPuzzle01.PuzzleResuelto();
-        }
-    }*/
 }

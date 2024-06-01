@@ -60,11 +60,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        /*if (Input.GetKeyDown(KeyCode.G))
         {
             gameManager.GuardarDatosEscena();
             Debug.Log("Se han guardado los datos.");
-        }
+        }*/
 
         if (Input.GetKeyDown(KeyCode.C))
         {

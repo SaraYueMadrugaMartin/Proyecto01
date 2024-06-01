@@ -32,7 +32,6 @@ public class TilesScript : MonoBehaviour
                 {
                     puzzleDeslizable.TodasPiezasCorrectas();
                 }
-                Debug.Log(gameObject.name + " está en la posición correcta.");
             }
         }
     }
