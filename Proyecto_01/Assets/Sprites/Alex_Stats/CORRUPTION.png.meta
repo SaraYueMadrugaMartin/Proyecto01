@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,179 +106,192 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CORRUPTION_STATUS_spritesheet-108X30_0
+      name: CORRUPTION_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 4
         y: 4
-        width: 101
+        width: 100
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a89eb8d67e40fbc40935b4babff06006
-      internalID: 169782406
+      spriteID: e1964d80edc6ed846a62213934861079
+      internalID: -1610454779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CORRUPTION_STATUS_spritesheet-108X30_1
+      name: CORRUPTION_1
       rect:
         serializedVersion: 2
-        x: 111
+        x: 112
         y: 4
-        width: 101
+        width: 100
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1376c9debdd5243459a8360db6d521e6
-      internalID: -801789740
+      spriteID: a25f7a47f9bba394481d829f1c5f627a
+      internalID: -373966920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CORRUPTION_STATUS_spritesheet-108X30_2
+      name: CORRUPTION_2
       rect:
         serializedVersion: 2
-        x: 219
+        x: 221
         y: 4
-        width: 102
+        width: 100
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee458739923426941972b67ee2e5a1bf
-      internalID: -30436716
+      spriteID: 3479c99429c367a47b45524eefbeb0ae
+      internalID: 711060976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CORRUPTION_STATUS_spritesheet-108X30_3
+      name: CORRUPTION_3
       rect:
         serializedVersion: 2
-        x: 327
+        x: 329
         y: 4
-        width: 102
+        width: 100
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9853946c031cc7444a421ea3c78bcd73
-      internalID: 1105987229
+      spriteID: ac92f3948735d9847904e785be25effd
+      internalID: 1259361354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CORRUPTION_STATUS_spritesheet-108X30_4
+      name: CORRUPTION_4
       rect:
         serializedVersion: 2
-        x: 435
+        x: 437
         y: 4
-        width: 102
+        width: 100
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 291b8219b055cd644b71342ebf51a0e2
-      internalID: 367691390
+      spriteID: e859d8b0ff7233c46af9b5dc73d82c15
+      internalID: 1748256320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CORRUPTION_STATUS_spritesheet-108X30_5
+      name: CORRUPTION_5
       rect:
         serializedVersion: 2
-        x: 543
+        x: 544
         y: 4
-        width: 101
+        width: 100
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afdebfb6a1a2cda409aacb1899ae0f3c
-      internalID: 1936160673
+      spriteID: d89dc2902dec91140b64b3b361da243d
+      internalID: 1247706453
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CORRUPTION_STATUS_spritesheet-108X30_6
+      name: CORRUPTION_6
       rect:
         serializedVersion: 2
-        x: 651
+        x: 653
         y: 4
-        width: 102
+        width: 100
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7254fd0794f3f544b8d61fe8cb15b9d2
-      internalID: -813182415
+      spriteID: 8876d9c7ccf0fbd48a2199d5b7cab38a
+      internalID: -1522627785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CORRUPTION_STATUS_spritesheet-108X30_7
+      name: CORRUPTION_7
       rect:
         serializedVersion: 2
-        x: 759
+        x: 761
         y: 4
-        width: 102
+        width: 100
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf17b1bbbe2a24d45ac1fc79f906b352
-      internalID: -1238275623
+      spriteID: c04973277154f9446be6a83855d0157b
+      internalID: -1718405840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CORRUPTION_STATUS_spritesheet-108X30_8
+      name: CORRUPTION_8
       rect:
         serializedVersion: 2
         x: 864
@@ -286,14 +299,14 @@ TextureImporter:
         width: 107
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bebe9d6dd0b85254ca780392f5ecfb6c
-      internalID: -584914175
+      spriteID: 0ad02b1b62be6414f80bdc950129cd2a
+      internalID: 1988229213
       vertices: []
       indices: 
       edges: []
@@ -309,15 +322,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CORRUPTION_STATUS_spritesheet-108X30_0: 169782406
-      CORRUPTION_STATUS_spritesheet-108X30_1: -801789740
-      CORRUPTION_STATUS_spritesheet-108X30_2: -30436716
-      CORRUPTION_STATUS_spritesheet-108X30_3: 1105987229
-      CORRUPTION_STATUS_spritesheet-108X30_4: 367691390
-      CORRUPTION_STATUS_spritesheet-108X30_5: 1936160673
-      CORRUPTION_STATUS_spritesheet-108X30_6: -813182415
-      CORRUPTION_STATUS_spritesheet-108X30_7: -1238275623
-      CORRUPTION_STATUS_spritesheet-108X30_8: -584914175
+      CORRUPTION_0: -1610454779
+      CORRUPTION_1: -373966920
+      CORRUPTION_2: 711060976
+      CORRUPTION_3: 1259361354
+      CORRUPTION_4: 1748256320
+      CORRUPTION_5: 1247706453
+      CORRUPTION_6: -1522627785
+      CORRUPTION_7: -1718405840
+      CORRUPTION_8: 1988229213
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
