@@ -7,7 +7,7 @@ public class Bala : MonoBehaviour
 {
     [SerializeField] float velocidad = 20f;
     [SerializeField] float duracion = 2f;
-    [SerializeField] int daño = 50;
+    [SerializeField] int daño = 20;
     [SerializeField] LayerMask capaEvitar;
 
     float tiempoVida;
@@ -51,8 +51,18 @@ public class Bala : MonoBehaviour
         Enemigo enemigo = otro.GetComponent<Enemigo>();
         if (enemigo != null)
         {
+            Debug.Log("es enemigo");
             enemigo.recibeDamage(daño);
             gameObject.SetActive(false); // Desactivar el objeto cuando entra en contacto con el enemigo. Destruir no porque sino solo se dispara 1 bala.
+        } else
+        {
+            Xela xela = otro.GetComponent<Xela>();
+            if(xela != null)
+            {
+                Debug.Log("es xela");
+                xela.recibeDamage(daño);
+                gameObject.SetActive(false);
+            }
         }
 
         // Incluir un efecto de colisión

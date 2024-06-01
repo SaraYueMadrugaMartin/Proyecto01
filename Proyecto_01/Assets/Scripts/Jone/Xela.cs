@@ -6,8 +6,9 @@ using UnityEngine;
 public class Xela : MonoBehaviour
 {
     // Salud enemigo
-    public int saludMax = 100;
-    int saludActual;
+    public static int saludMax = 500;
+    public static int saludActual;
+    [SerializeField] GameObject panelVidaXela;
 
     // Para seguir al jugador
     [SerializeField] GameObject player;
@@ -106,7 +107,7 @@ public class Xela : MonoBehaviour
     public void recibeDamage(float damage)
     {
         saludActual -= (int)damage;
-
+        XelaHealthAnim.CambiaValue();
         anim.SetTrigger("recibeDaño");
         // Sonido recibir daño
 
@@ -119,16 +120,23 @@ public class Xela : MonoBehaviour
     void Muere()
     {
         anim.SetBool("seMuere", true);
+        panelVidaXela.SetActive(false);
+        EntradaFinal.salaFinal = false;
         // Sonido muerte
 
-        // Destroy(this.gameObject, 1f);    // Si decidimos que queremos directamente eliminar al enemigo
-        GetComponent<Collider2D>().enabled = false;
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = true;
         this.enabled = false;
 
-        // Corrupcion jugador
-        Player.contadorCorr += 1;
-        Player.corrupcion += corrEnemigo;
-        Debug.Log("Corrupción: " + Player.corrupcion + "%");
+        // Finales
+        if(Player.contadorCorr < 12)
+        {
+            // Reproduce final bueno
+        }
+        else
+        {
+            // Reproduce final malo
+        }
     }
 }
 
