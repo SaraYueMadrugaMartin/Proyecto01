@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5323884824696535140}
   - component: {fileID: 5457546934469234646}
   - component: {fileID: 6799864175252150727}
-  - component: {fileID: 973150432044649584}
   - component: {fileID: 5090726302016785579}
+  - component: {fileID: 1600968484021895954}
   m_Layer: 6
   m_Name: Xela
   m_TagString: Untagged
@@ -108,24 +108,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &973150432044649584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419816159403953111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c898b0de5d6d88148b804971caedfce4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  saludMax: 100
-  player: {fileID: 0}
-  rangoDeteccionBase: 5
-  rangoDeteccionSigilo: 3.5
-  velocidad: 1
-  rangoAtaque: 2
 --- !u!70 &5090726302016785579
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -161,3 +143,21 @@ CapsuleCollider2D:
   m_Offset: {x: -0.3655715, y: 1.9583526}
   m_Size: {x: 2.065711, y: 3.8241558}
   m_Direction: 0
+--- !u!114 &1600968484021895954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419816159403953111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d1c1d4584256340b7d4b3847793344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saludMax: 100
+  player: {fileID: 0}
+  rangoDeteccionBase: 5
+  rangoDeteccionSigilo: 3.5
+  velocidad: 1
+  rangoAtaque: 2
