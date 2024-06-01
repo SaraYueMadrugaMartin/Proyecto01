@@ -37,11 +37,14 @@ public class PanelesInteracciones : MonoBehaviour
             case "Moneda":
                 infoPanelInteraccion.text = "Se ha añadido al inventario una moneda.";
                 break;
-            case "Diario":
-                infoPanelInteraccion.text = "Se ha añadido al inventario un diario.";
+            case "VHS":
+                infoPanelInteraccion.text = "Se ha añadido al inventario un VHS.";
                 break;
             case "Municion":
                 infoPanelInteraccion.text = "Se ha añadido al inventario una caja de munición.";
+                break;
+            case "Valvula":
+                infoPanelInteraccion.text = "Se ha añadido al inventario una válvula.";
                 break;
         }
 

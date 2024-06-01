@@ -59,13 +59,13 @@ public class Inventario : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("i") && estadoInvent)
+        if (Input.GetKeyDown(KeyCode.Tab) && estadoInvent)
         {
             Time.timeScale = 1;
             inventario.SetActive(false);
             estadoInvent = false;
         }
-        else if (Input.GetKeyDown("i") && !estadoInvent)
+        else if (Input.GetKeyDown(KeyCode.Tab) && !estadoInvent)
         {
             Time.timeScale = 0;
             inventario.SetActive(true);
@@ -246,13 +246,13 @@ public class Inventario : MonoBehaviour
         }
     }
 
-    public void DesregistrarObjeto(Items item)
+    /*public void DesregistrarObjeto(Items item)
     {
         if (objetosRegistrados.Contains(item))
         {
             objetosRegistrados.Remove(item);
         }
-    }
+    }*/
 
     /*private void ObjetoEstaEnInventario(bool value)
     {
@@ -262,5 +262,12 @@ public class Inventario : MonoBehaviour
     public bool GetObjetoEnInventario()
     {
         return objetoEnInventario;
+    }
+
+    public void QuitarInventario()
+    {
+        Time.timeScale = 1;
+        inventario.SetActive(false);
+        estadoInvent = false;
     }
 }

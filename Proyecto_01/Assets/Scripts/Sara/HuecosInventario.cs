@@ -18,12 +18,16 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
     public Dictionary<string, GameObject> panelesBotones = new Dictionary<string, GameObject>();
     public bool objetoSeleccionado;
 
-    [SerializeField] private GameObject panelBotonesDocumento;
+    [SerializeField] private GameObject panelBotonesLlave;
     [SerializeField] private GameObject panelBotonesArma;
     [SerializeField] private GameObject panelBotonesBotiquin;
     [SerializeField] private GameObject panelBotonesTinta;
-    [SerializeField] private GameObject panelBotonesDiario;
+    //[SerializeField] private GameObject panelBotonesDiario;
     [SerializeField] private GameObject panelBotonesMunicion;
+    [SerializeField] private GameObject panelBotonesMoneda;
+    [SerializeField] private GameObject panelBotonesVHS;
+    [SerializeField] private GameObject panelBotonesValvula;
+    [SerializeField] private GameObject panelBotonesFusible;
 
     private void Awake()
     {
@@ -34,12 +38,17 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
     {
         inventario = GameObject.Find("Canvas").GetComponent<Inventario>();
 
-        panelesBotones.Add("Documento", panelBotonesDocumento);
+        panelesBotones.Add("Llave", panelBotonesLlave);
         panelesBotones.Add("Bate", panelBotonesArma);
+        panelesBotones.Add("Pistola", panelBotonesArma);
         panelesBotones.Add("Botiquin", panelBotonesBotiquin);
         panelesBotones.Add("Tinta", panelBotonesTinta);
-        panelesBotones.Add("Diario", panelBotonesDiario);
+        //panelesBotones.Add("Diario", panelBotonesDiario);
         panelesBotones.Add("Municion", panelBotonesMunicion);
+        panelesBotones.Add("Moneda", panelBotonesMoneda);
+        panelesBotones.Add("VHS", panelBotonesVHS);
+        panelesBotones.Add("Valvula", panelBotonesValvula);
+        panelesBotones.Add("Fusible", panelBotonesFusible);
     }
 
     public void AñadirObjeto(string nombreItem, Sprite sprite)
