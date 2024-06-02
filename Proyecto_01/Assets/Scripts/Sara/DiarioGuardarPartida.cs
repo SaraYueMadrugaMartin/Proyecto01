@@ -14,7 +14,7 @@ public class DiarioGuardarPartida : MonoBehaviour
     SFXManager sfxManager;
 
     private void Start()
-    {
+    {        
         gameManager = GameManager.instance;
         inventario = FindObjectOfType<Inventario>();
         panelNoGuardado.SetActive(false);
@@ -30,9 +30,9 @@ public class DiarioGuardarPartida : MonoBehaviour
                 if (inventario.TieneObjeto("Tinta"))
                 {
                     gameManager.GuardarDatosEscena();
-                    sfxManager.PlaySFX(sfxManager.guardarPartida);
                     inventario.VaciarHueco("Tinta");
                     Debug.Log("Se han guardado los datos.");
+                    sfxManager.PlaySFX(sfxManager.clipsDeAudio[15], 0.5f);
                 }
                 else
                 {

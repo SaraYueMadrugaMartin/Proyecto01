@@ -8,8 +8,9 @@ public class SFXManager : MonoBehaviour
 
     [SerializeField] public AudioSource SFXScore;
 
-    public AudioClip cancionNana;
-    public AudioClip cancionCabana;
+    public AudioClip[] clipsDeAudio;
+
+    /*
     public AudioClip seleccionBoton01;
     public AudioClip seleccionBoton02;
     public AudioClip seleccionBoton03;
@@ -28,14 +29,53 @@ public class SFXManager : MonoBehaviour
     public AudioClip guardarPartida;
     public AudioClip meterMoneda;
     public AudioClip movBate;
+    public AudioClip AlexMuerte;
+    /*public AudioClip AlexHit01;
+    public AudioClip AlexHit02;
+    public AudioClip AlexHit03;   
+    public AudioClip AlexHerida01;
+    public AudioClip AlexHerida02;
+    public AudioClip AlexHerida03;*/
+
+    public AudioClip[] AlexHitClips;
+    public AudioClip[] AlexHeridaClips;
 
     private void Start()
     {
         SFXScore.ignoreListenerPause = true; // Para que no le afecte el timeScale 0.
     }
 
-    public void PlaySFX(AudioClip efecto)
+    public void PlaySFX(AudioClip efecto, float volumen)
     {
-        SFXScore.PlayOneShot(efecto);
+        if (efecto != null)
+        {
+            // Para que el sonido nos e corte en mitad de la acción creamos un GameObject temporal, mientras dura el sonido.
+            GameObject tempGO = new GameObject("TempAudio");
+            AudioSource tempAudioSource = tempGO.AddComponent<AudioSource>();
+            tempAudioSource.clip = efecto;
+            tempAudioSource.Play();
+
+            Destroy(tempGO, efecto.length); // Cuando acabe, se destruye el GameObjectTemporal.
+        }
+    }
+
+    public void PlayRandomAlexHit()
+    {
+        if (AlexHitClips != null && AlexHitClips.Length > 0)
+        {
+            int randomIndex = Random.Range(0, AlexHitClips.Length);
+            AudioClip randomClip = AlexHitClips[randomIndex];
+            PlaySFX(randomClip, 1.0f);
+        }
+    }
+
+    public void PlayRandomAlexHerida()
+    {
+        if (AlexHeridaClips != null && AlexHeridaClips.Length > 0)
+        {
+            int randomIndex = Random.Range(0, AlexHeridaClips.Length);
+            AudioClip randomClip = AlexHeridaClips[randomIndex];
+            PlaySFX(randomClip, 1.0f);
+        }
     }
 }

@@ -23,15 +23,15 @@ public class PuertaSL : MonoBehaviour
         {
             if (jugadorTocandoArriba)
             {
-                Invoke("CambioPosicionAbajo", 0.3f);
+                Invoke("CambioPosicionAbajo", 0.5f);
                 fadeAnimation.FadeOut();
-                sfxManager.PlaySFX(sfxManager.abrirPuerta);
+                sfxManager.PlaySFX(sfxManager.clipsDeAudio[12], 0.5f);
             }
             else if (jugadorTocandoAbajo)
             {
-                Invoke("CambioPosicionArriba", 0.3f);
+                Invoke("CambioPosicionArriba", 0.5f);
                 fadeAnimation.FadeOut();
-                sfxManager.PlaySFX(sfxManager.abrirPuerta);
+                sfxManager.PlaySFX(sfxManager.clipsDeAudio[12],0.5f);
             }
         }
     }

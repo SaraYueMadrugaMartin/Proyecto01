@@ -102,7 +102,7 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
 
     public void ClickIzquierdo(PointerEventData eventData)
     {
-        sfxManager.PlaySFX(sfxManager.seleccionarObjetos);
+        sfxManager.PlaySFX(sfxManager.clipsDeAudio[10], 1f);
         inventario.DeseleccionarObjetos();
         panelSeleccion.SetActive(true);
         objetoSeleccionado = true;

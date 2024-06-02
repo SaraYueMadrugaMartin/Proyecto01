@@ -27,9 +27,6 @@ public class Inventario : MonoBehaviour
     public HuecosInventario[] huecosInventario;
 
     public bool objetoEnInventario = false;
-    //private List<bool> objetoEstaEnInventario;
-
-    //private Items devolverItems;
 
     public static Inventario Instance;
     private bool estadoInvent = false;
@@ -66,7 +63,8 @@ public class Inventario : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab) && estadoInvent)
         {            
             Time.timeScale = 1;
-            sfxManager.PlaySFX(sfxManager.cerrarInventario);
+            sfxManager.PlaySFX(sfxManager.clipsDeAudio[9], 0.5f);
+            StopCorazonSound();
             inventario.SetActive(false);
             estadoInvent = false;
             DeseleccionarObjetos();
@@ -75,8 +73,8 @@ public class Inventario : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Tab) && !estadoInvent)
         {
-            //sfxManager.PlaySFX(sfxManager.abrirInventario);
-            sfxManager.PlaySFX(sfxManager.cerrarInventario);
+            sfxManager.PlaySFX(sfxManager.clipsDeAudio[8], 0.5f);
+            PlayCorazonSound(sfxManager.clipsDeAudio[14]);
             Time.timeScale = 0;
             inventario.SetActive(true);
             estadoInvent = true;
@@ -253,19 +251,6 @@ public class Inventario : MonoBehaviour
         }
     }
 
-    /*public void DesregistrarObjeto(Items item)
-    {
-        if (objetosRegistrados.Contains(item))
-        {
-            objetosRegistrados.Remove(item);
-        }
-    }*/
-
-    /*private void ObjetoEstaEnInventario(bool value)
-    {
-        objetoEstaEnInventario.Add(value);
-    }*/
-
     public bool GetObjetoEnInventario()
     {
         return objetoEnInventario;
@@ -274,8 +259,24 @@ public class Inventario : MonoBehaviour
     public void QuitarInventario()
     {
         Time.timeScale = 1;
-        sfxManager.PlaySFX(sfxManager.cerrarInventario); // No suena
+        sfxManager.PlaySFX(sfxManager.clipsDeAudio[9], 0.5f);
+        StopCorazonSound();
         inventario.SetActive(false);
         estadoInvent = false;
+    }
+
+    public void PlayCorazonSound(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            sfxManager.SFXScore.clip = clip;
+            sfxManager.SFXScore.loop = true;
+            sfxManager.SFXScore.Play();
+        }
+    }
+
+    public void StopCorazonSound()
+    {
+        sfxManager.SFXScore.Stop();
     }
 }
