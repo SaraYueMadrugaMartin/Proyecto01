@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Items : MonoBehaviour
 {
@@ -20,8 +21,11 @@ public class Items : MonoBehaviour
 
     private List<bool> objetoHaSidoRecogido;
 
+    SFXManager sfxManager;
+
     void Start()
     {
+        sfxManager = FindObjectOfType<SFXManager>();
         inventario = GameObject.Find("Canvas").GetComponent<Inventario>();
         panelesInteracciones = FindObjectOfType<PanelesInteracciones>();
         panelAvisoInventarioCompleto = FindObjectOfType<PanelesInteracciones>();
@@ -51,6 +55,7 @@ public class Items : MonoBehaviour
                 panelesInteracciones.AparecerPanelInteraccion(nombreItem);
                 objetoRecogido = true;
                 ObjetoRecogido(true);
+                sfxManager.PlaySFX(sfxManager.clipsDeAudio[1]);
 
                 if (nombreItem == "Llave")
                 {

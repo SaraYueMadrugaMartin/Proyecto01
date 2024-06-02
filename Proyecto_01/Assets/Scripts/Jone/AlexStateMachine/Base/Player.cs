@@ -122,7 +122,7 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             estaCorriendo = true;
-            PlayPasosSound(sfxManager.correrAlex);
+            PlayPasosSound(sfxManager.clipsDeAudio[4]);
         }
         else if (Input.GetKey(KeyCode.LeftControl))
         {
@@ -153,7 +153,7 @@ public class Player : MonoBehaviour
             {
                 AlexAnimator.PlayAnimacion(2, anim, PrioridadAnimacion.Baja); // Walk animation
                 // Sonido walk
-                PlayPasosSound(sfxManager.pasosAlex);
+                PlayPasosSound(sfxManager.clipsDeAudio[3]);
             }
             else
             {
@@ -240,8 +240,10 @@ public class Player : MonoBehaviour
             if (Input.GetMouseButtonDown(0)) // Click izquierdo del ratón
             {
                 AlexAnimator.PlayAnimacion(5, anim, PrioridadAnimacion.Media); // Ataque bate animation
-                // Sonido ataque
-                sfxManager.PlaySFX(sfxManager.ataqueBate);
+                                                                               // Sonido ataque
+
+                sfxManager.PlayRandomAlexHit();
+                sfxManager.PlaySFX(sfxManager.clipsDeAudio[5]);
 
                 // Detecta los enemigos en el rango de ataque 
                 Collider2D[] golpeaEnemigos = Physics2D.OverlapCircleAll(puntoAtaque.position, rangoAtaque, enemigos);
@@ -249,7 +251,20 @@ public class Player : MonoBehaviour
                 // Hacerles daño a los enemigos
                 foreach (Collider2D enemigo in golpeaEnemigos)
                 {
-                    enemigo.GetComponent<Enemigo>().recibeDamage(dañoAtaque);
+                    Enemigo enemigoScript = enemigo.GetComponent<Enemigo>();
+                    if (enemigoScript != null)
+                    {
+                        enemigoScript.recibeDamage(dañoAtaque);
+                    }
+                    else
+                    {
+                        // Para que funcione también con Xela:
+                        Xela xela = enemigo.GetComponent<Xela>();
+                        if (xela != null)
+                        {
+                            xela.recibeDamage(dañoAtaque);
+                        }
+                    }
                 }
 
                 tiempoSiguienteAtaque = Time.time + 1f / ratioAtaque;
@@ -271,7 +286,7 @@ public class Player : MonoBehaviour
                 if (cargador > 0)
                 {
                     Dispara();
-                    sfxManager.PlaySFX(sfxManager.disparoPistola);
+                    sfxManager.PlaySFX(sfxManager.clipsDeAudio[6]);
                 }
 
                 else
@@ -283,7 +298,7 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown("r"))
             {
                 Recarga();
-                sfxManager.PlaySFX(sfxManager.recargaPistola);
+                sfxManager.PlaySFX(sfxManager.clipsDeAudio[7]);
             }
         }
         else
@@ -365,6 +380,7 @@ public class Player : MonoBehaviour
 
         AlexAnimator.PlayAnimacion(3, anim, PrioridadAnimacion.Alta);
         // Sonido hurt
+        sfxManager.PlayRandomAlexHerida();
 
         if (saludActual < 0f)
             Muere();
@@ -374,14 +390,23 @@ public class Player : MonoBehaviour
     {
         AlexAnimator.PlayAnimacion(9, anim, PrioridadAnimacion.Alta); // Die animation
         // Sonido muerte
-        Invoke("MostrarPanelMuerte", 1.5f); // Espera a que termine la animación
+        sfxManager.PlaySFX(sfxManager.clipsDeAudio[18]);
+        StartCoroutine(MostrarPanelMuerte());
+        //Invoke("MostrarPanelMuerte", 1.5f); // Espera a que termine la animación
     }
 
-    private void MostrarPanelMuerte()
+    IEnumerator MostrarPanelMuerte()
+    {
+        yield return new WaitForSecondsRealtime(1.5f);
+        EntradaFinal.DesactivaPanel();
+        panelMuerte.SetActive(true);
+        Time.timeScale = 0f;
+    }
+    /*private void MostrarPanelMuerte()
     {
         EntradaFinal.DesactivaPanel();
         panelMuerte.SetActive(true);
-    }
+    }*/
     #endregion
     // Para ver el punto de ataque de Alex
     void OnDrawGizmosSelected()

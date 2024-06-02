@@ -2,10 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 using UnityEngine.Video;
 
 public class Xela : MonoBehaviour
 {
+    SonidosXela sonidosXela;
+
     // Salud enemigo
     public static int saludMax = 500;
     public static int saludActual;
@@ -46,6 +49,7 @@ public class Xela : MonoBehaviour
 
     void Start()
     {
+        sonidosXela = FindObjectOfType<SonidosXela>();
         saludActual = saludMax;
         posicionInicial = transform.position;
         anim = GetComponent<Animator>();
@@ -89,6 +93,7 @@ public class Xela : MonoBehaviour
         else
         {
             EstadoIdle();
+            PlayXelaIdle(sonidosXela.idleXela[0]);
         }
 
         // Girar Sprite dependiendo de la dirección en la que camina el enemigo
@@ -160,6 +165,7 @@ public class Xela : MonoBehaviour
         if (Time.time >= tiempoSiguienteAtaque)
         {
             anim.SetTrigger("ataca");
+            sonidosXela.PlayAudiosXela(sonidosXela.audiosXela[0], 0.5f);
             player.GetComponent<Player>().recibeDamage(damageAtaque);
             tiempoSiguienteAtaque = Time.time + tiempoEspera;
             // Después de atacar hay una posibilidad de que entre en estado de defensa
@@ -210,6 +216,7 @@ public class Xela : MonoBehaviour
             XelaHealthAnim.CambiaValue();
             anim.SetTrigger("recibeDaño");
             // Sonido recibir daño
+            sonidosXela.PlayAudiosXela(sonidosXela.audiosXela[1], 0.5f);
             // Comprueba la salud cada vez que recibe un golpe para ver si muere
             if (saludActual <= 0)
                 Muere();
@@ -226,6 +233,7 @@ public class Xela : MonoBehaviour
         panelVidaXela.SetActive(false);
         EntradaFinal.salaFinal = false;
         // Sonido muerte
+        sonidosXela.PlayAudiosXela(sonidosXela.audiosXela[2], 0.5f);
 
         GetComponent<CapsuleCollider2D>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = true;
@@ -242,6 +250,21 @@ public class Xela : MonoBehaviour
             Debug.Log("Reproduce final malo");
             StartCoroutine(ReproducirFinMalo());
         }
+    }
+
+    public void PlayXelaIdle(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            sonidosXela.Xela.clip = clip;
+            sonidosXela.Xela.loop = true;
+            sonidosXela.Xela.Play();
+        }
+    }
+
+    public void StopXelaIdle()
+    {
+        sonidosXela.Xela.Stop();
     }
 
     #region CinematicasFinales

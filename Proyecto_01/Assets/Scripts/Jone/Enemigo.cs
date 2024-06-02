@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Enemigo : MonoBehaviour
 {
+    SFXManager sfxManager;
+
     // Salud enemigo
     public int saludMax = 100;
     int saludActual;
@@ -33,6 +35,7 @@ public class Enemigo : MonoBehaviour
         saludActual = saludMax;
         anim = GetComponent<Animator>();
         rangoDeteccion = rangoDeteccionBase;
+        sfxManager = FindObjectOfType<SFXManager>();
     }
     private void Update()
     {
@@ -79,6 +82,7 @@ public class Enemigo : MonoBehaviour
     private void EstadoSeguimiento()
     {
         anim.SetBool("seMueve", true);
+        sfxManager.PlaySFX(sfxManager.audiosEnemigos[0]);
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, velocidad * Time.deltaTime);       
     }
 
@@ -87,6 +91,7 @@ public class Enemigo : MonoBehaviour
         if (Time.time >= tiempoSiguienteAtaque)
         {
             anim.SetTrigger("ataca");
+            sfxManager.PlaySFX(sfxManager.audiosEnemigos[1]);
             player.GetComponent<Player>().recibeDamage(dañoAtaque);
             tiempoSiguienteAtaque = Time.time + tiempoEspera;
         }      
@@ -104,6 +109,7 @@ public class Enemigo : MonoBehaviour
 
         anim.SetTrigger("recibeDaño");
         // Sonido recibir daño
+        sfxManager.PlaySFX(sfxManager.audiosEnemigos[3]);
 
         if (saludActual <= 0)
         {
@@ -115,7 +121,7 @@ public class Enemigo : MonoBehaviour
     {
         anim.SetBool("seMuere", true);
         // Sonido muerte
-
+        sfxManager.PlaySFX(sfxManager.audiosEnemigos[2]);
         // Destroy(this.gameObject, 1f);    // Si decidimos que queremos directamente eliminar al enemigo
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;

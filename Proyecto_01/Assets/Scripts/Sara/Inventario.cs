@@ -63,7 +63,7 @@ public class Inventario : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab) && estadoInvent)
         {            
             Time.timeScale = 1;
-            sfxManager.PlaySFX(sfxManager.clipsDeAudio[9], 0.5f);
+            sfxManager.PlaySFX(sfxManager.clipsDeAudio[9]);
             StopCorazonSound();
             inventario.SetActive(false);
             estadoInvent = false;
@@ -73,7 +73,7 @@ public class Inventario : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Tab) && !estadoInvent)
         {
-            sfxManager.PlaySFX(sfxManager.clipsDeAudio[8], 0.5f);
+            sfxManager.PlaySFX(sfxManager.clipsDeAudio[8]);
             PlayCorazonSound(sfxManager.clipsDeAudio[14]);
             Time.timeScale = 0;
             inventario.SetActive(true);
@@ -259,7 +259,7 @@ public class Inventario : MonoBehaviour
     public void QuitarInventario()
     {
         Time.timeScale = 1;
-        sfxManager.PlaySFX(sfxManager.clipsDeAudio[9], 0.5f);
+        sfxManager.PlaySFX(sfxManager.clipsDeAudio[9]);
         StopCorazonSound();
         inventario.SetActive(false);
         estadoInvent = false;

@@ -7,12 +7,19 @@ public class MostrarPuzzle02 : MonoBehaviour
     [SerializeField] private Puzle puzle;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject panelPuzzle;
+
+    private Collider2D[] collidersPuerta;
     private bool jugadorTocando;
 
     // Start is called before the first frame update
     void Start()
     {
+        collidersPuerta = GetComponents<Collider2D>();
         panelPuzzle.SetActive(false);
+        for(int i = 0;i < collidersPuerta.Length; i++)
+        {
+            collidersPuerta[i].enabled = true;
+        }
     }
 
     // Update is called once per frame
@@ -47,6 +54,10 @@ public class MostrarPuzzle02 : MonoBehaviour
         {
             Time.timeScale = 1f;
             panelPuzzle.SetActive(false);
+            for (int i = 0; i < collidersPuerta.Length; i++)
+            {
+                collidersPuerta[i].enabled = false;
+            }
         }
         else
         {

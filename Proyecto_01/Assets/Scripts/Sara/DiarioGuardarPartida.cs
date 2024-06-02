@@ -32,7 +32,7 @@ public class DiarioGuardarPartida : MonoBehaviour
                     gameManager.GuardarDatosEscena();
                     inventario.VaciarHueco("Tinta");
                     Debug.Log("Se han guardado los datos.");
-                    sfxManager.PlaySFX(sfxManager.clipsDeAudio[15], 0.5f);
+                    sfxManager.PlaySFX(sfxManager.clipsDeAudio[15]);
                 }
                 else
                 {

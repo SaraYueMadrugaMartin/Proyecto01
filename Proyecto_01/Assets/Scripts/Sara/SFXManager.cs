@@ -10,6 +10,12 @@ public class SFXManager : MonoBehaviour
 
     public AudioClip[] clipsDeAudio;
 
+    public AudioClip[] audiosEnemigos;
+
+    [Range(0f, 1f)] public float volumen;
+
+    //public AudioClip[] audiosXela;
+
     /*
     public AudioClip seleccionBoton01;
     public AudioClip seleccionBoton02;
@@ -43,9 +49,15 @@ public class SFXManager : MonoBehaviour
     private void Start()
     {
         SFXScore.ignoreListenerPause = true; // Para que no le afecte el timeScale 0.
+        
     }
 
-    public void PlaySFX(AudioClip efecto, float volumen)
+    private void Update()
+    {
+        SFXScore.volume = volumen;
+    }
+
+    public void PlaySFX(AudioClip efecto)
     {
         if (efecto != null)
         {
@@ -53,6 +65,7 @@ public class SFXManager : MonoBehaviour
             GameObject tempGO = new GameObject("TempAudio");
             AudioSource tempAudioSource = tempGO.AddComponent<AudioSource>();
             tempAudioSource.clip = efecto;
+            tempAudioSource.volume = volumen;
             tempAudioSource.Play();
 
             Destroy(tempGO, efecto.length); // Cuando acabe, se destruye el GameObjectTemporal.
@@ -65,7 +78,7 @@ public class SFXManager : MonoBehaviour
         {
             int randomIndex = Random.Range(0, AlexHitClips.Length);
             AudioClip randomClip = AlexHitClips[randomIndex];
-            PlaySFX(randomClip, 1.0f);
+            PlaySFX(randomClip);
         }
     }
 
@@ -75,7 +88,7 @@ public class SFXManager : MonoBehaviour
         {
             int randomIndex = Random.Range(0, AlexHeridaClips.Length);
             AudioClip randomClip = AlexHeridaClips[randomIndex];
-            PlaySFX(randomClip, 1.0f);
+            PlaySFX(randomClip);
         }
     }
 }

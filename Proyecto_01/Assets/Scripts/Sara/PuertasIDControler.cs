@@ -27,7 +27,7 @@ public class PuertasIDControler : MonoBehaviour
     public void UsarLlave()
     {
         //Invoke("CambioPosicionPlayer", 1f);
-        sfxManager.PlaySFX(sfxManager.clipsDeAudio[13], 0.5f);
+        sfxManager.PlaySFX(sfxManager.clipsDeAudio[13]);
         fadeAnimation.FadeOut();
         destruye = true;
         panelPregunta.SetActive(false);
