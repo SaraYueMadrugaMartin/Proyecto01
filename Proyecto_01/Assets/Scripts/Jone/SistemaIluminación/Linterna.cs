@@ -9,20 +9,29 @@ public class Linterna : MonoBehaviour
     private bool enciendeLinterna = false;
     private bool tieneLinterna = true;
     Light2D luz;
+    [SerializeField] GameObject inventarioCanvas;
+    Inventario inventario;
 
     void Start()
     {
         luz = GetComponent<Light2D>();
+        inventario = inventarioCanvas.GetComponent<Inventario>();
     }
 
     void Update()
     {
-        // Falta incluír la comprobación de que tenga la linterna
-        if (tieneLinterna && Input.GetKeyDown("l"))
+        tieneLinterna = inventario.TieneObjeto("Linterna");
+        if (tieneLinterna && Input.GetKeyDown("f"))
         {
             enciendeLinterna = !enciendeLinterna;
+            CambiaEstado();
         }
 
+        
+    }
+
+    void CambiaEstado()
+    {
         if (enciendeLinterna)
         {
             luz.enabled = true;

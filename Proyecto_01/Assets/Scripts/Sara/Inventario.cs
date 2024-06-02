@@ -17,6 +17,7 @@ public class Inventario : MonoBehaviour
     [SerializeField] private List<ObjetoPanelInfo> objetosPanelesInformacion;
     [SerializeField] private GameObject botonAtrasInfo;
     [SerializeField] private GameObject fondoPanelInfo;
+    [SerializeField] private GameObject panelVidaXela;
 
     private Items[] items;
 
@@ -63,12 +64,15 @@ public class Inventario : MonoBehaviour
             Time.timeScale = 1;
             inventario.SetActive(false);
             estadoInvent = false;
+            if(EntradaFinal.salaFinal)
+                panelVidaXela.SetActive(true);
         }
         else if (Input.GetKeyDown(KeyCode.Tab) && !estadoInvent)
         {
             Time.timeScale = 0;
             inventario.SetActive(true);
             estadoInvent = true;
+            panelVidaXela.SetActive(false);
         }
     }
 
