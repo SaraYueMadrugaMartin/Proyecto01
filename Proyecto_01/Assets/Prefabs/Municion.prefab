@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreItem: Municion
-  sprite: {fileID: 1339509575, guid: e209f935ed0e5ce4590c32fd93986ff6, type: 3}
+  sprite: {fileID: 21300000, guid: 5c1bd12d164ba3d46877f6377f02bd9e, type: 3}
   idsItems: {fileID: 11400000, guid: 82d96dc66fc085643ac63dab3c9d4f39, type: 2}
   posicionInicial: {x: 0, y: 0}
   objetoRecogido: 0
