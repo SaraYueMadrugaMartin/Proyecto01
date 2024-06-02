@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class CambiaLuzGlobal : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] GameObject luzGlobalGO;
+    Light2D luzGlobal;
+    [SerializeField] float intensidadNueva = 0.9f;
+
     void Start()
     {
-        
+       luzGlobal = luzGlobalGO.GetComponent<Light2D>(); 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision) // Cuando Alex entra
     {
-        
+        if (collision.CompareTag("Player"))
+        {
+            luzGlobal.intensity = intensidadNueva;
+        }
     }
 }
