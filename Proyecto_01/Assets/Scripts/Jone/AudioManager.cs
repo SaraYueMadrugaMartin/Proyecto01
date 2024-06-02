@@ -49,6 +49,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sonido: " + nombreSonido + " no encontrado.");
             return;
         }
+        StopAllSounds(); // Detiene todas las canciones antes de reproducir la nueva
         s.source.Play();
     }
 
@@ -61,5 +62,13 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Stop();
+    }
+
+    public void StopAllSounds()
+    {
+        foreach (Sonidos s in sonidos)
+        {
+            s.source.Stop();
+        }
     }
 }
