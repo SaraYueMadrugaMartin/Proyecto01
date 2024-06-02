@@ -102,10 +102,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saludMax: 100
   player: {fileID: 0}
-  rangoDeteccionBase: 5
-  rangoDeteccionSigilo: 3.5
+  rangoDeteccionBase: 4
+  rangoDeteccionSigilo: 2.5
   velocidad: 1
-  rangoAtaque: 2
+  rangoAtaque: 1
 --- !u!70 &9159351551780253222
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

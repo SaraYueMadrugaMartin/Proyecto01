@@ -239,7 +239,7 @@ public class Player : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0)) // Click izquierdo del ratón
             {
-                AlexAnimator.PlayAnimacion(5, anim, PrioridadAnimacion.Media); // Ataque bate animation
+                AlexAnimator.PlayAnimacion(5, anim, PrioridadAnimacion.Alta); // Ataque bate animation
                                                                                // Sonido ataque
 
                 sfxManager.PlayRandomAlexHit();
