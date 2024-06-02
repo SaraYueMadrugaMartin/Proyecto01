@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.VFX;
 
 public class HuecosInventario : MonoBehaviour, IPointerClickHandler
 {
@@ -17,6 +18,8 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
     public GameObject panelSeleccion;
     public Dictionary<string, GameObject> panelesBotones = new Dictionary<string, GameObject>();
     public bool objetoSeleccionado;
+
+    SFXManager sfxManager;
 
     [SerializeField] private GameObject panelBotonesLlave;
     [SerializeField] private GameObject panelBotonesBate;
@@ -38,6 +41,8 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         inventario = GameObject.Find("Canvas").GetComponent<Inventario>();
+
+        sfxManager = FindObjectOfType<SFXManager>();
 
         panelesBotones.Add("Llave", panelBotonesLlave);
         panelesBotones.Add("Bate", panelBotonesBate);
@@ -86,6 +91,7 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
 
     public void ClickDerecho()
     {
+        inventario.DeseleccionarObjetos();
         panelSeleccion.SetActive(false);
         foreach (var panelBoton in panelesBotones.Values)
         {
@@ -96,11 +102,12 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
 
     public void ClickIzquierdo(PointerEventData eventData)
     {
+        sfxManager.PlaySFX(sfxManager.seleccionarObjetos);
         inventario.DeseleccionarObjetos();
         panelSeleccion.SetActive(true);
         objetoSeleccionado = true;
 
-        // Expresión de Unity que convierte una posición de coordenadas de pantalla a coordenadas en el mundo.
+        // Expresión de Unity que convierte una posición de coordenadas de pantalla a coordenadas en el mundo. Lo utilizamos para poder seleccionar en la UI
         Vector3 posicionRaton = Camera.main.ScreenToWorldPoint(eventData.position);
 
         // Creamos la variable de posicionHuecos para obtener sus posiciones en el mundo (sus coordenadas).

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 [System.Serializable]
 public class ObjetoPanelInfo
@@ -34,6 +35,8 @@ public class Inventario : MonoBehaviour
     private bool estadoInvent = false;
     private int llaveID = 0;
 
+    SFXManager sfxManager;
+
     public bool TieneObjeto(string nombreItem)
     {
         foreach (HuecosInventario hueco in huecosInventario)
@@ -55,20 +58,25 @@ public class Inventario : MonoBehaviour
         inventario.SetActive(false); // Acordarse de tenerlo activo en la escena, sino no lee bien.
         //objetoEstaEnInventario = new List<bool>();
         fondoPanelInfo.SetActive(false);
+        sfxManager = FindObjectOfType<SFXManager>();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab) && estadoInvent)
-        {
+        {            
             Time.timeScale = 1;
+            sfxManager.PlaySFX(sfxManager.cerrarInventario);
             inventario.SetActive(false);
             estadoInvent = false;
-            if(EntradaFinal.salaFinal)
+            DeseleccionarObjetos();
+            if (EntradaFinal.salaFinal)
                 panelVidaXela.SetActive(true);
         }
         else if (Input.GetKeyDown(KeyCode.Tab) && !estadoInvent)
         {
+            //sfxManager.PlaySFX(sfxManager.abrirInventario);
+            sfxManager.PlaySFX(sfxManager.cerrarInventario);
             Time.timeScale = 0;
             inventario.SetActive(true);
             estadoInvent = true;
@@ -90,16 +98,12 @@ public class Inventario : MonoBehaviour
                     {
                         hueco.AñadirObjeto(nombreItem, sprite);
                         objetoEnInventario = true;
-
+                        DeseleccionarObjetos();
                         // Buscar el objeto en la escena y registrarlo
                         Items item = FindObjectsOfType<Items>().FirstOrDefault(obj => obj.nombreItem == nombreItem);
                         if (item != null)
                         {
                             RegistrarObjeto(item);
-                        }
-                        else
-                        {
-                            Debug.LogWarning("No se encontró el objeto en la escena: " + nombreItem);
                         }
 
                         return; // Parar el bucle cuando encuentra el hueco vacío y añade el nuevo objeto.
@@ -116,6 +120,7 @@ public class Inventario : MonoBehaviour
             if (hueco.nombreItem == nombreItem)
             {
                 hueco.VaciarHueco();
+                DeseleccionarObjetos();
                 break;
             }
         }
@@ -155,6 +160,7 @@ public class Inventario : MonoBehaviour
                     fondoPanelInfo.SetActive(true);
                     objetoPanelInfo.panelInfo.SetActive(true);
                     botonAtrasInfo.SetActive(true);
+                    DeseleccionarObjetos();
                 }
                 break;
             }
@@ -230,8 +236,8 @@ public class Inventario : MonoBehaviour
                         }
                         huecosInventario[i].panelSeleccion.SetActive(false);
                         huecosInventario[i].VaciarHueco();
+                        DeseleccionarObjetos();
 
-                        Debug.Log("Objeto dejado: " + nombreObjeto);
                         break;
                     }
                 }
@@ -268,6 +274,7 @@ public class Inventario : MonoBehaviour
     public void QuitarInventario()
     {
         Time.timeScale = 1;
+        sfxManager.PlaySFX(sfxManager.cerrarInventario); // No suena
         inventario.SetActive(false);
         estadoInvent = false;
     }

@@ -8,11 +8,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject panelAjustes;
     [SerializeField] private GameObject panelCreditos;
 
-    SFXManager sfxManager;
+    AudioMainMenu audioMainMenu;
 
     private void Start()
     {
-        sfxManager = SFXManager.instance;
+        audioMainMenu = FindObjectOfType<AudioMainMenu>();
     }
 
     public void ComenzarJuego()
@@ -24,22 +24,22 @@ public class MainMenu : MonoBehaviour
         else
             SceneManager.LoadScene(siguienteEscena);
 
-        sfxManager.PlaySFX(sfxManager.seleccionBoton01);
-        sfxManager.StopMusic();
+        audioMainMenu.PlaySFX(audioMainMenu.seleccionBoton01);
+        audioMainMenu.StopMusic();
     }
 
     public void IrAjustes()
     {
         gameObject.SetActive(false);
         panelAjustes.SetActive(true);
-        sfxManager.PlaySFX(sfxManager.seleccionBoton02);
+        audioMainMenu.PlaySFX(audioMainMenu.seleccionBoton02);
     }
 
     public void IrCreditos()
     {
         gameObject.SetActive(false);
         panelCreditos.SetActive(true);
-        sfxManager.PlaySFX(sfxManager.seleccionBoton02);
+        audioMainMenu.PlaySFX(audioMainMenu.seleccionBoton02);
     }
 
     public void VolverAtras()
@@ -47,13 +47,13 @@ public class MainMenu : MonoBehaviour
         gameObject.SetActive(true);
         panelAjustes.SetActive(false);
         panelCreditos.SetActive(false);
-        sfxManager.PlaySFX(sfxManager.seleccionBoton03);
+        audioMainMenu.PlaySFX(audioMainMenu.seleccionBoton03);
     }
 
     public void SalirJuego()
     {
         Application.Quit();
         Debug.Log("Has salido del juego.");
-        sfxManager.PlaySFX(sfxManager.seleccionBoton01);
+        audioMainMenu.PlaySFX(audioMainMenu.seleccionBoton01);
     }
 }

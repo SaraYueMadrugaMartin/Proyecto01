@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        sfxManager = SFXManager.instance;
+        sfxManager = FindObjectOfType<SFXManager>();
         anim = GetComponent<Animator>();
         puntero = GetComponent<Puntero>();
         pistola = transform.Find("Puntero").gameObject;
@@ -121,7 +121,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            estaCorriendo = true;           
+            estaCorriendo = true;
+            PlayPasosSound(sfxManager.correrAlex);
         }
         else if (Input.GetKey(KeyCode.LeftControl))
         {
@@ -146,17 +147,20 @@ public class Player : MonoBehaviour
             {
                 ControladorAnimaciones.PlayAnimacion(2, anim); // Walk animation
                 // Sonido walk
-                //sfxManager.PlaySFX(sfxManager.pasosAlex);
+                PlayPasosSound(sfxManager.pasosAlex);
             }
             else
             {
                 ControladorAnimaciones.PlayAnimacion(4, anim);
-                //sfxManager.PlaySFX(sfxManager.correrAlex);
+                
             }
         }
-            
+
         else
+        {
             ControladorAnimaciones.PlayAnimacion(1, anim); // Idle animation
+            StopPasosSound();
+        }
 
         transform.Translate(velocidadX, 0, 0);
         transform.Translate(0, velocidadY, 0);
@@ -319,6 +323,24 @@ public class Player : MonoBehaviour
             // Implementar texto de aviso
         }
     }
+
+    public void PlayPasosSound(AudioClip clip)
+    {
+        if (!sfxManager.SFXScore.isPlaying)
+        {
+            sfxManager.SFXScore.clip = clip;
+            sfxManager.SFXScore.Play();
+        }
+    }
+
+    public void StopPasosSound()
+    {
+        if (sfxManager.SFXScore.isPlaying)
+        {
+            sfxManager.SFXScore.Stop();
+        }
+    }
+
     private IEnumerator CambiarValorDespuesDeEsperar()
     {
         yield return new WaitForSeconds(0.6f);

@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class SFXManager : MonoBehaviour
 {
-    public static SFXManager instance;
+    //public static SFXManager instance;
 
-    [SerializeField] AudioSource SFXScore;
-    [SerializeField] AudioSource musicSource;
+    [SerializeField] public AudioSource SFXScore;
 
     public AudioClip cancionNana;
     public AudioClip cancionCabana;
@@ -19,44 +18,17 @@ public class SFXManager : MonoBehaviour
     public AudioClip ataqueBate;
     public AudioClip disparoPistola;
     public AudioClip recargaPistola;
+    public AudioClip abrirInventario;
+    public AudioClip cerrarInventario;
+    public AudioClip seleccionarObjetos;
 
-    private void Awake()
+    private void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        DontDestroyOnLoad(gameObject);
-    }
-
-    void Start()
-    {
-        musicSource.clip = cancionNana;
-        musicSource.Play();
+        SFXScore.ignoreListenerPause = true; // Para que no le afecte el timeScale 0.
     }
 
     public void PlaySFX(AudioClip efecto)
     {
         SFXScore.PlayOneShot(efecto);
-    }
-
-    public void StopMusic()
-    {
-        if (musicSource.isPlaying)
-        {
-            musicSource.Stop();
-        }
-    }
-
-    public void CancionCabaña()
-    {
-        musicSource.clip = cancionCabana;
-        musicSource.Play();
     }
 }

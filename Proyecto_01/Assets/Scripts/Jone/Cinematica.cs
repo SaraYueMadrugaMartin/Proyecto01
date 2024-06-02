@@ -9,13 +9,11 @@ public class Cinematica : MonoBehaviour
 {
     private VideoPlayer videoPlayer;
 
-    SFXManager sfxManager;
-
     void Start()
     {
         videoPlayer = GetComponent<VideoPlayer>();
         videoPlayer.loopPointReached += OnVideoEnd;
-        sfxManager = SFXManager.instance;
+        //sfxManager = SFXManager.instance;
     }
 
     void OnVideoEnd(VideoPlayer vp)
@@ -28,6 +26,5 @@ public class Cinematica : MonoBehaviour
         int escenaActual = SceneManager.GetActiveScene().buildIndex;
         int siguienteEscena = escenaActual + 1;
         SceneManager.LoadScene(siguienteEscena);
-        sfxManager.CancionCabaña();
     }
 }
