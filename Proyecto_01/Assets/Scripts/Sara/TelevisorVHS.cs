@@ -20,10 +20,10 @@ public class TelevisorVHS : MonoBehaviour
     {
         inventario = FindObjectOfType<Inventario>();
         panelNoVHS.SetActive(false);
+        puerta = puertaGO.GetComponent<MirrorPuerta>();
         cinematica = cintaVHS.GetComponent<VideoPlayer>();
         duracion = (float)cinematica.clip.length;
         cintaVHS.SetActive(false);
-        puerta = puertaGO.GetComponent<MirrorPuerta>();
     }
 
     private void Update()
@@ -65,8 +65,7 @@ public class TelevisorVHS : MonoBehaviour
     IEnumerator ReproducirVHS()
     {
         Time.timeScale = 0f;
-        cintaVHS.SetActive(true);
-        puerta.VHSVisto();
+        cintaVHS.SetActive(true);        
 
         cinematica.Prepare();
         while (!cinematica.isPrepared)
@@ -82,6 +81,7 @@ public class TelevisorVHS : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(duracion);
         cinematica.Pause();
+        puerta.VHSVisto();
         cintaVHS.SetActive(false);
         Time.timeScale = 1f;
     }

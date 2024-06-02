@@ -33,9 +33,9 @@ public class MirrorPuerta : MonoBehaviour
 
     IEnumerator EsperaSegundos()
     {
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSecondsRealtime(1.5f);
         panelAviso.SetActive(true);
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSecondsRealtime(3.5f);
         panelAviso.SetActive(false);
     }
 }
