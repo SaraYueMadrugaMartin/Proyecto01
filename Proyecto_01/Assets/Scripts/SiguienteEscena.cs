@@ -20,6 +20,6 @@ public class SiguienteEscena : MonoBehaviour
     IEnumerator SiguienteNivel()
     {
         yield return new WaitForSeconds(1f);
-        player.transform.position = new Vector2(3.66f, 78.8f);
+        player.transform.position = new Vector2(5f, 78.8f);
     }
 }
