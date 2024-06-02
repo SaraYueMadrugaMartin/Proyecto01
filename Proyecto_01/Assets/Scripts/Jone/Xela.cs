@@ -32,7 +32,7 @@ public class Xela : MonoBehaviour
     [SerializeField] float rangoAtaque = 2f;
     float tiempoEspera = 2f;
     float tiempoSiguienteAtaque = 0f;
-    float dañoAtaque = 20f;
+    float damageAtaque = 20f;
 
     Animator anim;
 
@@ -160,7 +160,7 @@ public class Xela : MonoBehaviour
         if (Time.time >= tiempoSiguienteAtaque)
         {
             anim.SetTrigger("ataca");
-            player.GetComponent<Player>().recibeDamage(dañoAtaque);
+            player.GetComponent<Player>().recibeDamage(damageAtaque);
             tiempoSiguienteAtaque = Time.time + tiempoEspera;
             // Después de atacar hay una posibilidad de que entre en estado de defensa
             RandomDefiende();
@@ -244,6 +244,7 @@ public class Xela : MonoBehaviour
         }
     }
 
+    #region CinematicasFinales
     IEnumerator ReproducirFinBueno()
     {
         yield return new WaitForSecondsRealtime(1f);
@@ -299,5 +300,6 @@ public class Xela : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
+    #endregion
 }
 
