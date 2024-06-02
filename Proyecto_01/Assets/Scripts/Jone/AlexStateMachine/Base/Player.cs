@@ -382,4 +382,28 @@ public class Player : MonoBehaviour
             return;
         Gizmos.DrawWireSphere(puntoAtaque.position, rangoAtaque);
     }
+
+
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+
+    public void SetPosition(Vector2 newPosition)
+    {
+        transform.position = newPosition;
+    }
+    public bool GetMiraDerecha()
+    {
+        return miraDerecha;
+    }
+
+    public void SetMiraDerecha(bool value)
+    {
+        if (miraDerecha != value)
+        {
+            Flip(); // Si 'miraDerecha' es diferente de 'value', llamamos a la función 'Flip()'.
+        }
+    }
 }

@@ -10,6 +10,13 @@ public class PuertaSL : MonoBehaviour
     private bool jugadorTocandoArriba;
     private bool jugadorTocandoAbajo;
 
+    SFXManager sfxManager;
+
+    private void Start()
+    {
+        sfxManager = FindObjectOfType<SFXManager>();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -18,11 +25,13 @@ public class PuertaSL : MonoBehaviour
             {
                 Invoke("CambioPosicionAbajo", 0.3f);
                 fadeAnimation.FadeOut();
+                sfxManager.PlaySFX(sfxManager.abrirPuerta);
             }
             else if (jugadorTocandoAbajo)
             {
                 Invoke("CambioPosicionArriba", 0.3f);
                 fadeAnimation.FadeOut();
+                sfxManager.PlaySFX(sfxManager.abrirPuerta);
             }
         }
     }

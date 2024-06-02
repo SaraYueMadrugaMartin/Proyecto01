@@ -17,9 +17,17 @@ public class PuertasIDControler : MonoBehaviour
 
     public static bool destruye = false;
 
+    SFXManager sfxManager;
+
+    private void Start()
+    {
+        sfxManager = FindObjectOfType<SFXManager>();
+    }
+
     public void UsarLlave()
     {
         Invoke("CambioPosicionPlayer", 1f);
+        sfxManager.PlaySFX(sfxManager.abrirCerradura);
         fadeAnimation.FadeOut();
         destruye = true;
         panelPregunta.SetActive(false);

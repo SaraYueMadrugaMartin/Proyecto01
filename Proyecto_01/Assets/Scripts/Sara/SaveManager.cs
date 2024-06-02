@@ -47,7 +47,7 @@ public class SaveManager: MonoBehaviour
 
     private SceneState savedSceneState;
 
-    PlayerMovement infoPlayer;
+    Player infoPlayer;
 
     void Awake()
     {
@@ -84,7 +84,7 @@ public class SaveManager: MonoBehaviour
         SceneState sceneState = new SceneState();
 
         // JUGADOR
-        infoPlayer = FindObjectOfType<PlayerMovement>();
+        infoPlayer = FindObjectOfType<Player>();
         sceneState.posicionPlayer = infoPlayer.GetPosition();
         sceneState.playerMiraDerecha = infoPlayer.GetMiraDerecha();
         Debug.Log("El jugador mira hacia la: " + sceneState.playerMiraDerecha);
@@ -173,7 +173,7 @@ public class SaveManager: MonoBehaviour
             savedSceneState = JsonUtility.FromJson<SceneState>(sceneStateJson);
 
             //PLAYER
-            PlayerMovement playerMovement = FindObjectOfType<PlayerMovement>();
+            Player playerMovement = FindObjectOfType<Player>();
             if (playerMovement != null)
             {
                 playerMovement.SetPosition(savedSceneState.posicionPlayer);

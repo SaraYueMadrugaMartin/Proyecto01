@@ -21,6 +21,13 @@ public class SFXManager : MonoBehaviour
     public AudioClip abrirInventario;
     public AudioClip cerrarInventario;
     public AudioClip seleccionarObjetos;
+    public AudioClip abrirCerradura;
+    public AudioClip abrirPuerta;
+    public AudioClip abrirPuertaCerrada;
+    public AudioClip corazonLatir;
+    public AudioClip guardarPartida;
+    public AudioClip meterMoneda;
+    public AudioClip movBate;
 
     private void Start()
     {

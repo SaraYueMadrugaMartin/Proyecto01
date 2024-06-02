@@ -11,11 +11,14 @@ public class DiarioGuardarPartida : MonoBehaviour
     private Inventario inventario;
     private bool jugadorTocando = false;
 
+    SFXManager sfxManager;
+
     private void Start()
     {
         gameManager = GameManager.instance;
         inventario = FindObjectOfType<Inventario>();
         panelNoGuardado.SetActive(false);
+        sfxManager = FindObjectOfType<SFXManager>();
     }
 
     private void Update()
@@ -27,6 +30,7 @@ public class DiarioGuardarPartida : MonoBehaviour
                 if (inventario.TieneObjeto("Tinta"))
                 {
                     gameManager.GuardarDatosEscena();
+                    sfxManager.PlaySFX(sfxManager.guardarPartida);
                     inventario.VaciarHueco("Tinta");
                     Debug.Log("Se han guardado los datos.");
                 }
