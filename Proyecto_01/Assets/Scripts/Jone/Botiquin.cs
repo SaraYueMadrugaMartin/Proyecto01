@@ -5,6 +5,7 @@ using UnityEngine;
 public class Botiquin : MonoBehaviour
 {
     private bool estaTocando = false;
+    [SerializeField] private Inventario inventario;
 
 
     private void Update()
@@ -18,12 +19,7 @@ public class Botiquin : MonoBehaviour
             // En el caso de que le de a que sí
 
             // Efecto recuperar salud
-            Player.saludActual += 50;
-            if (Player.saludActual > 100 )
-            {
-                Player.saludActual = 100;
-            }
-            Debug.Log("Salud :" + Player.saludActual);
+            
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,5 +32,16 @@ public class Botiquin : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
             estaTocando = false;
+    }
+
+    public void Curarse()
+    {
+        Player.saludActual += 50;
+        if (Player.saludActual > 100)
+        {
+            Player.saludActual = 100;
+        }
+        inventario.VaciarHueco("Botiquin");
+        Debug.Log("Salud :" + Player.saludActual);
     }
 }
