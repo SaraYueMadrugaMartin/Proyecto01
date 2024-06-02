@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 // Script que asocia las animaciones según el estado de corrupción en el que se encuentre Alex
 public class ControladorAnimaciones
 {
+    private static bool reproduciendo = false;
+
     public static Dictionary<int, string> diccionarioAnimaciones = new Dictionary<int, string>();
     public static void corrAnimaciones(int estadoCorr, int armaEquipada)
     {
@@ -141,5 +144,47 @@ public class ControladorAnimaciones
                 diccionarioAnimaciones[9] = "alex_die_4";
                 break;
         }        
+    }
+
+    public static void PlayAnimacion(int num, Animator anim)
+    {
+        bool esperaFin;
+        switch (num)
+        {
+            case 1: esperaFin = false; break;
+            case 2: esperaFin = false; break;
+            case 3: esperaFin = true; break;
+            case 4: esperaFin = false; break;
+            case 5: esperaFin = true; break;
+            case 6: esperaFin = true; break;
+            case 7: esperaFin = true; break;
+            case 8: esperaFin = true; break;
+            case 9: esperaFin = true; break;
+            default: esperaFin = true; break;
+        }
+        if (esperaFin)
+        {
+            anim.GetComponent<MonoBehaviour>().StartCoroutine(EsperaFin(anim, diccionarioAnimaciones[num]));
+        }
+        else
+        {
+            anim.Play(diccionarioAnimaciones[num]);
+        }
+    }
+
+    private static IEnumerator EsperaFin (Animator anim, string nombreAnim)
+    {
+        if (reproduciendo)
+        {
+            yield return new WaitUntil(() => !reproduciendo);
+        }
+
+        reproduciendo = true;
+        anim.Play(nombreAnim);
+
+        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+        yield return new WaitForSeconds(stateInfo.length);
+
+        reproduciendo = false;
     }
 }

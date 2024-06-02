@@ -121,9 +121,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            estaCorriendo = true;
-            sfxManager.PlaySFX(sfxManager.correrAlex);
-            //anim.Play(ControladorAnimaciones.diccionarioAnimaciones[4]); // Run animation
+            estaCorriendo = true;           
         }
         else if (Input.GetKey(KeyCode.LeftControl))
         {
@@ -144,13 +142,21 @@ public class Player : MonoBehaviour
 
         if (velocidadX != 0f || velocidadY != 0f)
         {
-            anim.Play(ControladorAnimaciones.diccionarioAnimaciones[2]); // Walk animation
-            // Sonido walk
-            sfxManager.PlaySFX(sfxManager.pasosAlex);
+            if (!estaCorriendo)
+            {
+                ControladorAnimaciones.PlayAnimacion(2, anim); // Walk animation
+                // Sonido walk
+                //sfxManager.PlaySFX(sfxManager.pasosAlex);
+            }
+            else
+            {
+                ControladorAnimaciones.PlayAnimacion(4, anim);
+                //sfxManager.PlaySFX(sfxManager.correrAlex);
+            }
         }
             
         else
-            anim.Play(ControladorAnimaciones.diccionarioAnimaciones[1]); // Idle animation
+            ControladorAnimaciones.PlayAnimacion(1, anim); // Idle animation
 
         transform.Translate(velocidadX, 0, 0);
         transform.Translate(0, velocidadY, 0);
@@ -221,7 +227,7 @@ public class Player : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0)) // Click izquierdo del ratón
             {
-                anim.Play(ControladorAnimaciones.diccionarioAnimaciones[5]);
+                ControladorAnimaciones.PlayAnimacion(5, anim); // Ataque bate animation
                 // Sonido ataque
                 sfxManager.PlaySFX(sfxManager.ataqueBate);
 
@@ -280,6 +286,7 @@ public class Player : MonoBehaviour
     {
         animPistola.SetTrigger("dispara");
         animBrazo.SetTrigger("dispara");
+        ControladorAnimaciones.PlayAnimacion(7, anim); // Fire animation
 
         // Establece la dirección de la bala
         if (!Puntero.cambiaAngulos)
@@ -300,6 +307,7 @@ public class Player : MonoBehaviour
         if (municion > 0)
         {
             recargando = true;
+            ControladorAnimaciones.PlayAnimacion(8, anim); // Recharge animation
             StartCoroutine(CambiarValorDespuesDeEsperar());
             Debug.Log("Recargado");
             cargador = 6;
@@ -325,7 +333,7 @@ public class Player : MonoBehaviour
         saludActual -= damage;
         Debug.Log("Salud: " + saludActual);
 
-        anim.Play(ControladorAnimaciones.diccionarioAnimaciones[3]);
+        ControladorAnimaciones.PlayAnimacion(3, anim);
         // Sonido hurt
 
         if (saludActual < 0f)
@@ -334,7 +342,7 @@ public class Player : MonoBehaviour
 
     private void Muere()
     {
-        // Animación muerte
+        ControladorAnimaciones.PlayAnimacion(9, anim); // Die animation
         // Sonido muerte
         Invoke("MostrarPanelMuerte", 1.5f); // Espera a que termine la animación
     }
