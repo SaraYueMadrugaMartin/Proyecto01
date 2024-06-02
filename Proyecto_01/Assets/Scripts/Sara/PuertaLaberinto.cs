@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PuertaLaberinto : MonoBehaviour
@@ -7,12 +8,15 @@ public class PuertaLaberinto : MonoBehaviour
     [SerializeField] private Inventario inventario;
     [SerializeField] private FadeAnimation fadeAnimation;
     [SerializeField] private GameObject panelFaltanPiezas;
+    [SerializeField] private TextMeshProUGUI textoPiezas;
     [SerializeField] private GameObject panelAdvertencia;
 
     SFXManager sfxManager;
 
     private bool jugadorTocando = false;
     private bool todasPiezas = false;
+    private bool valvulaCabeza = false;
+    private bool valvulaCuerpo = false;
 
     void Start()
     {
@@ -29,7 +33,21 @@ public class PuertaLaberinto : MonoBehaviour
 
             if (!todasPiezas)
             {
-                panelFaltanPiezas.SetActive(true);
+                if (!valvulaCabeza && !valvulaCuerpo)
+                {
+                    panelFaltanPiezas.SetActive(true);
+                    textoPiezas.text = "Necesitas una válvula para poder abrir la puerta";
+                }
+                else if (!valvulaCabeza)
+                {
+                    panelFaltanPiezas.SetActive(true);
+                    textoPiezas.text = "Te falta la cabeza de la válvula";
+                }
+                else if (!valvulaCuerpo)
+                {
+                    panelFaltanPiezas.SetActive(true);
+                    textoPiezas.text = "Te falta la barra de la válvula";
+                }
             }
             else
             {
@@ -57,15 +75,11 @@ public class PuertaLaberinto : MonoBehaviour
         }
     }
 
-    public void ComprobarTienePiezas()
+    private void ComprobarTienePiezas()
     {
-        if(inventario.TieneObjeto("ValvulaCabeza"))
-        {
-            if (inventario.TieneObjeto("ValvulaCuerpo"))
-            {
-                todasPiezas = true;
-            }
-        }
+        valvulaCabeza = inventario.TieneObjeto("ValvulaCabeza");
+        valvulaCuerpo = inventario.TieneObjeto("ValvulaCuerpo");
+        todasPiezas = valvulaCabeza && valvulaCuerpo;
     }
 
     IEnumerator AbrirPuerta()
@@ -75,6 +89,8 @@ public class PuertaLaberinto : MonoBehaviour
         sfxManager.PlaySFX(sfxManager.clipsDeAudio[19]);
         panelAdvertencia.SetActive(false);
         gameObject.SetActive(false);
+        inventario.VaciarHueco("ValvulaCabeza");
+        inventario.VaciarHueco("ValvulaCuerpo");
         Time.timeScale = 1f;
     }
 }
