@@ -24,11 +24,13 @@ public class LucesTodas : MonoBehaviour
 
         if (apagaLuces) // Se apagan todas las luces
         {
+            Debug.Log("apaga");
             luces.SetActive(false);
             luzGlobal.intensity = 0f;
         }
         else // Se encienden todas las luces
         {
+            Debug.Log("enciende");
             luces.SetActive(true);
             luzGlobal.intensity = intensidadGlobal;
         }
