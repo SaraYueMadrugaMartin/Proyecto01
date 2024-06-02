@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 396742882681050015}
   m_Layer: 0
   m_Name: Linterna
-  m_TagString: Untagged
+  m_TagString: ItemInteractuable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,7 +151,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.010120392, y: 0.030369759}
+  m_Offset: {x: -0.1079056, y: -0.0369308}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -162,7 +162,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2676468, y: 1.1461658}
+  m_Size: {x: 1.4632173, y: 1.280767}
   m_EdgeRadius: 0
 --- !u!114 &396742882681050015
 MonoBehaviour:

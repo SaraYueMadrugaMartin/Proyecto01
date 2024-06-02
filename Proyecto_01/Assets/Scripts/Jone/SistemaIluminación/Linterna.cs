@@ -7,7 +7,7 @@ using UnityEngine.Rendering.Universal;
 public class Linterna : MonoBehaviour
 {
     private bool enciendeLinterna = false;
-    private bool tieneLinterna = true;
+    private bool tieneLinterna = false;
     Light2D luz;
     [SerializeField] GameObject inventarioCanvas;
     Inventario inventario;

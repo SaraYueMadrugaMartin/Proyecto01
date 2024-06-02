@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -57,6 +58,11 @@ public class Items : MonoBehaviour
                     int llaveID = llave.ObtenerID();
                     Debug.Log("El ID de la llave es: " + llaveID);
                     inventario.RecibeIDLlave(llaveID);
+                    if (llaveID == 222)
+                    {
+                        Debug.Log("Es fusible");
+                        ApagaLuces();
+                    }
                 }
                 else if (nombreItem == "Municion")
                     Player.municion += 12;
@@ -186,5 +192,12 @@ public class Items : MonoBehaviour
             Debug.LogError("idsItems es null en el objeto: " + nombreItem);
             return -1; // Valor por defecto o código de error
         }
+    }
+
+    // Método para apagar todas las luces al quitar el fusible
+    private void ApagaLuces()
+    {
+        LucesTodas luces = GameObject.Find("GlobalLight").GetComponent<LucesTodas>();
+        luces.CambiaEstadoLuces();
     }
 }

@@ -8,7 +8,7 @@ public class LucesTodas : MonoBehaviour
     [SerializeField] GameObject luces;
     Light2D luzGlobal;
     
-    private bool apagaLuces = false;
+    private static bool apagaLuces = false;
     private float intensidadGlobal;
 
     void Start()
@@ -17,15 +17,13 @@ public class LucesTodas : MonoBehaviour
         intensidadGlobal = luzGlobal.intensity;
     }
 
-    void Update()
+
+    public void CambiaEstadoLuces()
     {
-        if (Input.GetKeyDown("q")) // Esto hay que cambiarlo a un evento
-        {
-            apagaLuces = !apagaLuces;
-        }
+        apagaLuces = !apagaLuces;
 
         if (apagaLuces) // Se apagan todas las luces
-        {           
+        {
             luces.SetActive(false);
             luzGlobal.intensity = 0f;
         }
@@ -33,6 +31,6 @@ public class LucesTodas : MonoBehaviour
         {
             luces.SetActive(true);
             luzGlobal.intensity = intensidadGlobal;
-        }           
+        }
     }
 }
