@@ -6,8 +6,6 @@ using UnityEngine;
 // Script que asocia las animaciones según el estado de corrupción en el que se encuentre Alex
 public class ControladorAnimaciones
 {
-    private static bool reproduciendo = false;
-
     public static Dictionary<int, string> diccionarioAnimaciones = new Dictionary<int, string>();
     public static void corrAnimaciones(int estadoCorr, int armaEquipada)
     {
@@ -38,6 +36,7 @@ public class ControladorAnimaciones
                 diccionarioAnimaciones[7] = "alex_fire_0";
                 diccionarioAnimaciones[8] = "alex_recharge_0";
                 diccionarioAnimaciones[9] = "alex_die_0";
+                diccionarioAnimaciones[10] = "alex_aim_0";
                 break;
             case 1:
                 switch (armaEquipada)
@@ -64,6 +63,7 @@ public class ControladorAnimaciones
                 diccionarioAnimaciones[7] = "alex_fire_1";
                 diccionarioAnimaciones[8] = "alex_recharge_1";
                 diccionarioAnimaciones[9] = "alex_die_1";
+                diccionarioAnimaciones[10] = "alex_aim_1";
                 break;
             case 2:
                 switch (armaEquipada)
@@ -90,6 +90,7 @@ public class ControladorAnimaciones
                 diccionarioAnimaciones[7] = "alex_fire_2";
                 diccionarioAnimaciones[8] = "alex_recharge_2";
                 diccionarioAnimaciones[9] = "alex_die_2";
+                diccionarioAnimaciones[10] = "alex_aim_2";
                 break;
             case 3:
                 switch (armaEquipada)
@@ -116,6 +117,7 @@ public class ControladorAnimaciones
                 diccionarioAnimaciones[7] = "alex_fire_3";
                 diccionarioAnimaciones[8] = "alex_recharge_3";
                 diccionarioAnimaciones[9] = "alex_die_3";
+                diccionarioAnimaciones[10] = "alex_aim_3";
                 break;
             default:
                 switch (armaEquipada)
@@ -142,49 +144,8 @@ public class ControladorAnimaciones
                 diccionarioAnimaciones[7] = "alex_fire_4";
                 diccionarioAnimaciones[8] = "alex_recharge_4";
                 diccionarioAnimaciones[9] = "alex_die_4";
+                diccionarioAnimaciones[10] = "alex_aim_4";
                 break;
         }        
-    }
-
-    public static void PlayAnimacion(int num, Animator anim)
-    {
-        bool esperaFin;
-        switch (num)
-        {
-            case 1: esperaFin = false; break;
-            case 2: esperaFin = false; break;
-            case 3: esperaFin = true; break;
-            case 4: esperaFin = false; break;
-            case 5: esperaFin = true; break;
-            case 6: esperaFin = true; break;
-            case 7: esperaFin = true; break;
-            case 8: esperaFin = true; break;
-            case 9: esperaFin = true; break;
-            default: esperaFin = true; break;
-        }
-        if (esperaFin)
-        {
-            anim.GetComponent<MonoBehaviour>().StartCoroutine(EsperaFin(anim, diccionarioAnimaciones[num]));
-        }
-        else
-        {
-            anim.Play(diccionarioAnimaciones[num]);
-        }
-    }
-
-    private static IEnumerator EsperaFin (Animator anim, string nombreAnim)
-    {
-        if (reproduciendo)
-        {
-            yield return new WaitUntil(() => !reproduciendo);
-        }
-
-        reproduciendo = true;
-        anim.Play(nombreAnim);
-
-        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-        yield return new WaitForSeconds(stateInfo.length);
-
-        reproduciendo = false;
     }
 }
