@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class Xela : MonoBehaviour
 {
@@ -35,12 +36,28 @@ public class Xela : MonoBehaviour
 
     Animator anim;
 
+    // Para reproducir cinemáticas finales
+    [SerializeField] private GameObject cintaFinBueno;
+    [SerializeField] private VideoPlayer cinematicaFinBueno;
+    private float duracionFinBueno;
+    [SerializeField] private GameObject cintaFinMalo;
+    [SerializeField] private VideoPlayer cinematicaFinMalo;
+    private float duracionFinMalo;
+
     void Start()
     {
         saludActual = saludMax;
         posicionInicial = transform.position;
         anim = GetComponent<Animator>();
         rangoDeteccion = rangoDeteccionBase;
+
+        cinematicaFinBueno = cintaFinBueno.GetComponent<VideoPlayer>();
+        duracionFinBueno = (float)cinematicaFinBueno.clip.length;
+        cintaFinBueno.SetActive(false);
+
+        cinematicaFinMalo = cintaFinMalo.GetComponent<VideoPlayer>();
+        duracionFinMalo = (float)cinematicaFinMalo.clip.length;
+        cintaFinMalo.SetActive(false);
     }
     private void Update()
     {
@@ -215,14 +232,72 @@ public class Xela : MonoBehaviour
         this.enabled = false;
 
         // Finales
-        if(Player.contadorCorr < 12)
+        if(Player.contadorCorr < Player.enemigosFinMalo)
         {
-            // Reproduce final bueno
+            Debug.Log("Reproduce final bueno");
+            StartCoroutine(ReproducirFinBueno());
         }
         else
         {
-            // Reproduce final malo
+            Debug.Log("Reproduce final malo");
+            StartCoroutine(ReproducirFinMalo());
         }
+    }
+
+    IEnumerator ReproducirFinBueno()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        cintaFinBueno.SetActive(true);
+
+        cinematicaFinBueno.Prepare();
+        while (!cinematicaFinBueno.isPrepared)
+        {
+            yield return null;
+        }
+
+        cinematicaFinBueno.Play();
+        StartCoroutine(PararFinBueno());
+    }
+
+    IEnumerator PararFinBueno()
+    {
+        yield return new WaitForSecondsRealtime(duracionFinBueno);
+        cinematicaFinBueno.Pause();
+        cintaFinBueno.SetActive(false);
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    IEnumerator ReproducirFinMalo()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        cintaFinMalo.SetActive(true);
+
+        cinematicaFinMalo.Prepare();
+        while (!cinematicaFinMalo.isPrepared)
+        {
+            yield return null;
+        }
+
+        cinematicaFinMalo.Play();
+        StartCoroutine(PararFinMalo());
+    }
+
+    IEnumerator PararFinMalo()
+    {
+        yield return new WaitForSecondsRealtime(duracionFinMalo);
+        cinematicaFinMalo.Pause();
+        cintaFinMalo.SetActive(false);
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
 

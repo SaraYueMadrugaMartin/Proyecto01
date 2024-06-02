@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     static public float corrupcion = 0; // Barra de corrupción
     static public int estadoCorr = 0; // Identificador del estado de corrupción
     static public int monedasCorr = 0; // Contador de monedas para usar en gramola y bajar corrupción
+    static public int enemigosFinMalo = 1;
     Animator animCorr;
 
     // Salud
@@ -324,7 +325,7 @@ public class Player : MonoBehaviour
         saludActual -= damage;
         Debug.Log("Salud: " + saludActual);
 
-        // Animación hurt
+        anim.Play(ControladorAnimaciones.diccionarioAnimaciones[3]);
         // Sonido hurt
 
         if (saludActual < 0f)
