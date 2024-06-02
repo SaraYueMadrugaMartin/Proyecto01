@@ -5,21 +5,38 @@ using UnityEngine;
 public class PuertaLaberinto : MonoBehaviour
 {
     [SerializeField] private Inventario inventario;
+    [SerializeField] private FadeAnimation fadeAnimation;
+    [SerializeField] private GameObject panelFaltanPiezas;
+    [SerializeField] private GameObject panelAdvertencia;
+
+    SFXManager sfxManager;
 
     private bool jugadorTocando = false;
+    private bool todasPiezas = false;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        sfxManager = FindObjectOfType<SFXManager>();
+        panelFaltanPiezas.SetActive(false);
+        panelAdvertencia.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(jugadorTocando && Input.GetKeyDown(KeyCode.E))
         {
             ComprobarTienePiezas();
+
+            if (!todasPiezas)
+            {
+                panelFaltanPiezas.SetActive(true);
+            }
+            else
+            {
+                Time.timeScale = 0f;
+                panelAdvertencia.SetActive(true);
+                StartCoroutine(AbrirPuerta());
+            }
         }
     }
 
@@ -36,6 +53,7 @@ public class PuertaLaberinto : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             jugadorTocando = false;
+            panelFaltanPiezas.SetActive(false);
         }
     }
 
@@ -45,8 +63,18 @@ public class PuertaLaberinto : MonoBehaviour
         {
             if (inventario.TieneObjeto("ValvulaCuerpo"))
             {
-                gameObject.SetActive(false);
+                todasPiezas = true;
             }
         }
+    }
+
+    IEnumerator AbrirPuerta()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        fadeAnimation.FadeOutNivel();
+        sfxManager.PlaySFX(sfxManager.clipsDeAudio[19]);
+        panelAdvertencia.SetActive(false);
+        gameObject.SetActive(false);
+        Time.timeScale = 1f;
     }
 }

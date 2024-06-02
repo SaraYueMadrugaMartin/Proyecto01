@@ -8,6 +8,7 @@ public class TelevisorVHS : MonoBehaviour
     [SerializeField] private GameObject panelNoVHS;
     [SerializeField] private GameObject cintaVHS;
     [SerializeField] private VideoPlayer cinematica;
+    AudioManager audioManager;
     private float duracion;
 
     private Inventario inventario;
@@ -18,6 +19,7 @@ public class TelevisorVHS : MonoBehaviour
 
     private void Start()
     {
+        audioManager = AudioManager.instance;
         inventario = FindObjectOfType<Inventario>();
         panelNoVHS.SetActive(false);
         puerta = puertaGO.GetComponent<MirrorPuerta>();
@@ -74,6 +76,7 @@ public class TelevisorVHS : MonoBehaviour
         }
 
         cinematica.Play();
+        audioManager.Stop("MainTheme");
         StartCoroutine(PararVHS());
     }
 
