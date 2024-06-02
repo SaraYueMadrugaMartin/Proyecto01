@@ -129,6 +129,12 @@ public class Player : MonoBehaviour
             estaSigilo = true;
             // Anim sigilo
         }
+        else if (Input.GetKey(KeyCode.E))
+        {
+            estaCorriendo = false;
+            estaSigilo = false;
+            AlexAnimator.PlayAnimacion(6, anim, PrioridadAnimacion.Alta);
+        }
         else
         {
             estaCorriendo = false;
@@ -145,21 +151,23 @@ public class Player : MonoBehaviour
         {
             if (!estaCorriendo)
             {
-                ControladorAnimaciones.PlayAnimacion(2, anim); // Walk animation
+                AlexAnimator.PlayAnimacion(2, anim, PrioridadAnimacion.Baja); // Walk animation
                 // Sonido walk
                 PlayPasosSound(sfxManager.pasosAlex);
             }
             else
             {
-                ControladorAnimaciones.PlayAnimacion(4, anim);
-                
+                AlexAnimator.PlayAnimacion(4, anim, PrioridadAnimacion.Baja); // Run animation             
             }
         }
-
-        else
+        else if (!apuntando)
         {
-            ControladorAnimaciones.PlayAnimacion(1, anim); // Idle animation
+            AlexAnimator.PlayAnimacion(1, anim, PrioridadAnimacion.Baja); // Idle animation
             StopPasosSound();
+        }
+        else if (apuntando)
+        {
+            AlexAnimator.PlayAnimacion(10, anim, PrioridadAnimacion.Media); // Aiming animation
         }
 
         transform.Translate(velocidadX, 0, 0);
@@ -231,7 +239,7 @@ public class Player : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0)) // Click izquierdo del ratón
             {
-                ControladorAnimaciones.PlayAnimacion(5, anim); // Ataque bate animation
+                AlexAnimator.PlayAnimacion(5, anim, PrioridadAnimacion.Media); // Ataque bate animation
                 // Sonido ataque
                 sfxManager.PlaySFX(sfxManager.ataqueBate);
 
@@ -257,7 +265,7 @@ public class Player : MonoBehaviour
 
             pistola.SetActive(true);
             puntero.enabled = true;
-            apuntando = true;
+            apuntando = true;           
             if (Input.GetButtonDown("Fire1"))
             {
                 if (cargador > 0)
@@ -290,7 +298,7 @@ public class Player : MonoBehaviour
     {
         animPistola.SetTrigger("dispara");
         animBrazo.SetTrigger("dispara");
-        ControladorAnimaciones.PlayAnimacion(7, anim); // Fire animation
+        AlexAnimator.PlayAnimacion(7, anim, PrioridadAnimacion.Media); // Fire animation
 
         // Establece la dirección de la bala
         if (!Puntero.cambiaAngulos)
@@ -311,7 +319,7 @@ public class Player : MonoBehaviour
         if (municion > 0)
         {
             recargando = true;
-            ControladorAnimaciones.PlayAnimacion(8, anim); // Recharge animation
+            AlexAnimator.PlayAnimacion(8, anim, PrioridadAnimacion.Media); // Recharge animation
             StartCoroutine(CambiarValorDespuesDeEsperar());
             Debug.Log("Recargado");
             cargador = 6;
@@ -355,7 +363,7 @@ public class Player : MonoBehaviour
         saludActual -= damage;
         Debug.Log("Salud: " + saludActual);
 
-        ControladorAnimaciones.PlayAnimacion(3, anim);
+        AlexAnimator.PlayAnimacion(3, anim, PrioridadAnimacion.Alta);
         // Sonido hurt
 
         if (saludActual < 0f)
@@ -364,7 +372,7 @@ public class Player : MonoBehaviour
 
     private void Muere()
     {
-        ControladorAnimaciones.PlayAnimacion(9, anim); // Die animation
+        AlexAnimator.PlayAnimacion(9, anim, PrioridadAnimacion.Alta); // Die animation
         // Sonido muerte
         Invoke("MostrarPanelMuerte", 1.5f); // Espera a que termine la animación
     }
