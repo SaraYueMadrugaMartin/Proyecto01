@@ -13,6 +13,7 @@ public class EntradaFinal : MonoBehaviour
     private float duracionCambio = 2f;
     private BoxCollider2D trigger;
     public static bool salaFinal = false;
+    static bool playerMuere;
 
     [SerializeField] GameObject panelVidaXela;
 
@@ -20,6 +21,14 @@ public class EntradaFinal : MonoBehaviour
     {
         distanciaInicial = virtualCamera.m_Lens.OrthographicSize;
         trigger = GetComponent<BoxCollider2D>();
+    }
+
+    private void Update()
+    {
+        if (playerMuere)
+        {
+            panelVidaXela.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) // Cuando Alex entra
@@ -56,5 +65,10 @@ public class EntradaFinal : MonoBehaviour
     private void ActivaBarrera()
     {
         barrera.SetActive(true);
+    }
+
+    public static void DesactivaPanel()
+    {
+        playerMuere = true;
     }
 }

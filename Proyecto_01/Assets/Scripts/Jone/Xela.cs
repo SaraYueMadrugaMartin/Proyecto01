@@ -18,6 +18,14 @@ public class Xela : MonoBehaviour
     [SerializeField] float velocidad = 1f;
     float distancia;
     private bool miraDerecha = true;
+    private bool defiende = false;
+
+    // Para volver a posición de inicio
+    private float tiempoIdle = 0f;
+    private float tiempoEsperaIdle = 8f;
+    Vector3 posicionInicial;
+    private float umbralDistancia = 0.1f;
+    private Coroutine moverCorrutina;
 
     // Para atacar al jugador
     [SerializeField] float rangoAtaque = 2f;
@@ -25,13 +33,12 @@ public class Xela : MonoBehaviour
     float tiempoSiguienteAtaque = 0f;
     float dañoAtaque = 20f;
 
-    int corrEnemigo = 20;
-
     Animator anim;
 
     void Start()
     {
         saludActual = saludMax;
+        posicionInicial = transform.position;
         anim = GetComponent<Animator>();
         rangoDeteccion = rangoDeteccionBase;
     }
@@ -46,15 +53,25 @@ public class Xela : MonoBehaviour
 
         if (distancia < rangoDeteccion && distancia > rangoAtaque)
         {
+            if (moverCorrutina != null)
+            {
+                StopCoroutine(moverCorrutina);
+                anim.SetBool("seMueve", false);
+            }
             EstadoSeguimiento();
         }
         else if (distancia < rangoAtaque)
         {
+            if (moverCorrutina != null)
+            {
+                StopCoroutine(moverCorrutina);
+                anim.SetBool("seMueve", false);
+            }
             EstadoAtaque();
         }
         else
         {
-            anim.SetBool("seMueve", false);
+            EstadoIdle();
         }
 
         // Girar Sprite dependiendo de la dirección en la que camina el enemigo
@@ -76,44 +93,113 @@ public class Xela : MonoBehaviour
         gameObject.transform.localScale = currentScale;
     }
 
+    private void EstadoIdle()
+    {
+        anim.SetBool("seMueve", false);
+        tiempoIdle += Time.deltaTime;
+        // Si pasa 8 segundos en estado de idle sin detectar al jugador vuelve a la posición inicial
+        if (tiempoIdle > tiempoEsperaIdle)
+        {
+            if (moverCorrutina != null)
+            {
+                StopCoroutine(moverCorrutina);
+            }
+            moverCorrutina = StartCoroutine(MoverAPosicionInicial());
+            tiempoIdle = 0f; // Resetea el tiempoIdle después de iniciar la corrutina.
+        }
+    }
+
+    private IEnumerator MoverAPosicionInicial()
+    {
+        while (Vector2.Distance(this.transform.position, posicionInicial) > umbralDistancia)
+        {
+            distancia = Vector2.Distance(transform.position, player.transform.position);
+            if (distancia < rangoDeteccion)
+            {
+                anim.SetBool("seMueve", false);
+                yield break; // Sale de la corrutina si el jugador vuelve a estar en el rango de detección
+            }
+            anim.SetBool("seMueve", true);
+            transform.position = Vector2.MoveTowards(transform.position, posicionInicial, velocidad * Time.deltaTime);
+            yield return null;
+        }
+        anim.SetBool("seMueve", false);
+    }
+
 
     private void EstadoSeguimiento()
     {
-        anim.SetBool("seMueve", true);
-        transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, velocidad * Time.deltaTime);
+        if (!defiende) 
+        {
+            anim.SetBool("seMueve", true);
+            // Se mueve hacia el jugador
+            transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, velocidad * Time.deltaTime);
+        }
     }
 
     private void EstadoAtaque()
     {
+        // El enemigo tiene un tiempo fijo entre ataques
         if (Time.time >= tiempoSiguienteAtaque)
         {
             anim.SetTrigger("ataca");
             player.GetComponent<Player>().recibeDamage(dañoAtaque);
             tiempoSiguienteAtaque = Time.time + tiempoEspera;
+            // Después de atacar hay una posibilidad de que entre en estado de defensa
+            RandomDefiende();
+        }
+    }
+
+    private void RandomDefiende()
+    {
+        bool saleDefiende = UnityEngine.Random.value < 0.4f; // 40% de probabilidad de ser true
+        if (saleDefiende)
+        {
+            EstadoDefensa();
         }
     }
 
     private void EstadoDefensa()
     {
+        anim.SetBool("seDefiende", true);
+        defiende = true;
+        StartCoroutine(MantenerDefensa());
+    }
 
+    // Tiempo de defensa aleatorio entre 2 y 7 segundos
+    private IEnumerator MantenerDefensa()
+    {
+        float tiempoDefensa = UnityEngine.Random.Range(3f, 8f);
+        yield return new WaitForSeconds(tiempoDefensa);
+        SaleEstadoDefensa();
+    }
+
+    private void SaleEstadoDefensa()
+    {
+        anim.SetBool("seDefiende", false);
+        defiende = false;
     }
 
     void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, rangoDeteccion);
-        // Gizmos.DrawWireSphere(player.transform.position, rangoDeteccion);
-
     }
+
     public void recibeDamage(float damage)
     {
-        saludActual -= (int)damage;
-        XelaHealthAnim.CambiaValue();
-        anim.SetTrigger("recibeDaño");
-        // Sonido recibir daño
-
-        if (saludActual <= 0)
+        if (!defiende) // Si se está defendiendo no recibe daño
         {
-            Muere();
+            saludActual -= (int)damage;
+            XelaHealthAnim.CambiaValue();
+            anim.SetTrigger("recibeDaño");
+            // Sonido recibir daño
+            // Comprueba la salud cada vez que recibe un golpe para ver si muere
+            if (saludActual <= 0)
+                Muere();
+        }
+        else 
+        {
+            // Sonido defensa
         }
     }
 

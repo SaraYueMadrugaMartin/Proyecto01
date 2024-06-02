@@ -324,6 +324,7 @@ public class Player : MonoBehaviour
 
     private void MostrarPanelMuerte()
     {
+        EntradaFinal.DesactivaPanel();
         panelMuerte.SetActive(true);
     }
     #endregion
