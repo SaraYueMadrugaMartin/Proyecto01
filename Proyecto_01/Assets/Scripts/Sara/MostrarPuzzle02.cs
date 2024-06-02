@@ -64,4 +64,10 @@ public class MostrarPuzzle02 : MonoBehaviour
             Debug.Log("Este no es el código correcto");
         }
     }
+
+    public void CerrarPuzzle()
+    {
+        Time.timeScale = 1f;
+        panelPuzzle.SetActive(false);
+    }
 }

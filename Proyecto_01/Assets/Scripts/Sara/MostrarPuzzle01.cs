@@ -58,7 +58,7 @@ public class MostrarPuzzle01 : MonoBehaviour
     IEnumerator MostrarResultadoPuzzle01()
     {
         Debug.Log("Has resuelto el puzzle, algo está pasando.");
-        yield return new WaitForSecondsRealtime(5f);
+        yield return new WaitForSecondsRealtime(2f);
         fadeAnimation.FadeOut();
         StartCoroutine(QuitarPanelPuzzle());
     }
@@ -75,5 +75,11 @@ public class MostrarPuzzle01 : MonoBehaviour
         Time.timeScale = 1f;
         panelResultado.SetActive(false);
         StopAllCoroutines();
+    }
+
+    public void CerrarPuzzle()
+    {
+        Time.timeScale = 1f;
+        panelPuzzle01.SetActive(false);
     }
 }

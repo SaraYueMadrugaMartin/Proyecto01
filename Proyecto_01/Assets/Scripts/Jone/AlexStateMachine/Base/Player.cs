@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     static public float corrupcion = 0; // Barra de corrupción
     static public int estadoCorr = 0; // Identificador del estado de corrupción
     static public int monedasCorr = 0; // Contador de monedas para usar en gramola y bajar corrupción
-    static public int enemigosFinMalo = 1;
+    static public int enemigosFinMalo = 2;
     Animator animCorr;
 
     // Salud
@@ -402,11 +402,13 @@ public class Player : MonoBehaviour
         panelMuerte.SetActive(true);
         Time.timeScale = 0f;
     }
-    /*private void MostrarPanelMuerte()
+    public void Reintentar()
     {
-        EntradaFinal.DesactivaPanel();
-        panelMuerte.SetActive(true);
-    }*/
+        Time.timeScale = 1f;
+        GameManager.instance.ReiniciarEscena();
+        Debug.Log("Datos cargados.");
+    }
+
     #endregion
     // Para ver el punto de ataque de Alex
     void OnDrawGizmosSelected()
@@ -438,5 +440,5 @@ public class Player : MonoBehaviour
         {
             Flip(); // Si 'miraDerecha' es diferente de 'value', llamamos a la función 'Flip()'.
         }
-    }
+    }   
 }

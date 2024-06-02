@@ -19,6 +19,7 @@ public class CambiaLuzGlobal : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             luzGlobal.intensity = intensidadNueva;
+            GameManager.instance.GuardarDatosEscena();
         }
     }
 }
