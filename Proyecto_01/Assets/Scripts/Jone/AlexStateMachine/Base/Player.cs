@@ -378,6 +378,14 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         recargando = false;
     }
+  
+    void OnDrawGizmosSelected() // Para ver el punto de ataque de Alex
+    {
+        if (puntoAtaque == null)
+            return;
+        Gizmos.DrawWireSphere(puntoAtaque.position, rangoAtaque);
+    }
+
     #endregion
 
     #region Funciones Damage
@@ -419,17 +427,8 @@ public class Player : MonoBehaviour
     }
 
     #endregion
-    
-    // Para ver el punto de ataque de Alex
-    void OnDrawGizmosSelected()
-    {
-        if (puntoAtaque == null)
-            return;
-        Gizmos.DrawWireSphere(puntoAtaque.position, rangoAtaque);
-    }
 
-
-
+    #region Funciones Guardado y Carga de datos
     public Vector3 GetPosition()
     {
         return transform.position;
@@ -450,5 +449,6 @@ public class Player : MonoBehaviour
         {
             Flip(); // Si 'miraDerecha' es diferente de 'value', llamamos a la función 'Flip()'.
         }
-    }   
+    }
+    #endregion
 }

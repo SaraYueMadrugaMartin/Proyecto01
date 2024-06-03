@@ -43,7 +43,17 @@ public class DeepCentipide : MonoBehaviour
             anim.SetTrigger("eat");
             quieto = true;
             collision.GetComponent<Player>().recibeDamage(200); // Mata a Alex de un golpe
+            StartCoroutine(Espera(collision));
             unaVez = false;
         }
+    }
+
+    IEnumerator Espera(Collider2D collision)
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        collision.GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSecondsRealtime(2f);
+        collision.GetComponent<SpriteRenderer>().enabled = true;
+        collision.GetComponent<Player>().SePuedeMover(true);
     }
 }
