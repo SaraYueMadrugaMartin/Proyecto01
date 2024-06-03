@@ -7,9 +7,11 @@ public class DeepCentipide : MonoBehaviour
 {
     [SerializeField] Transform puntoSalida;
     [SerializeField] Transform puntoLlegada;
+    [SerializeField] Transform puntoComer;
     [SerializeField] float velocidad = 5f;
     [SerializeField] float umbralDistancia = 0.1f; // Umbral para determinar si ha llegado al punto de llegada
     bool quieto = false; // Para que deje de desplazarse una vez mate a Alex
+    bool unaVez = true; // Para que solo haga una vez la animación de comer
 
     Animator anim;
 
@@ -34,11 +36,14 @@ public class DeepCentipide : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) // Cuando Alex entra en la zona ed impacto definida por el collider, la mata
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && unaVez)
         {
+            collision.transform.position = puntoComer.position; // Posición de Alex para que quede bien la animación
+            collision.GetComponent<Player>().SePuedeMover(false); // Que Alex no se pueda mover
             anim.SetTrigger("eat");
-            collision.GetComponent<Player>().recibeDamage(200);
             quieto = true;
+            collision.GetComponent<Player>().recibeDamage(200); // Mata a Alex de un golpe
+            unaVez = false;
         }
     }
 }

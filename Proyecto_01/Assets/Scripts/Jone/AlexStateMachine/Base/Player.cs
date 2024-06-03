@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     private bool miraDerecha = true;
     public static bool estaCorriendo = false;
     public static bool estaSigilo = false;
+    public static bool sePuedeMover = true;
     #endregion
 
     #region Variables Player Combat
@@ -170,8 +171,11 @@ public class Player : MonoBehaviour
             AlexAnimator.PlayAnimacion(10, anim, PrioridadAnimacion.Media); // Aiming animation
         }
 
-        transform.Translate(velocidadX, 0, 0);
-        transform.Translate(0, velocidadY, 0);
+        if (sePuedeMover)
+        {
+            transform.Translate(velocidadX, 0, 0);
+            transform.Translate(0, velocidadY, 0);
+        }    
 
         // Girar Sprite
         if (velocidadX > 0 && !miraDerecha)
@@ -192,6 +196,11 @@ public class Player : MonoBehaviour
         Vector3 currentScale = gameObject.transform.localScale;
         currentScale.x *= -1;
         gameObject.transform.localScale = currentScale;
+    }
+
+    public void SePuedeMover(bool puede)
+    {
+        sePuedeMover = puede;
     }
 
     #endregion
@@ -410,6 +419,7 @@ public class Player : MonoBehaviour
     }
 
     #endregion
+    
     // Para ver el punto de ataque de Alex
     void OnDrawGizmosSelected()
     {
