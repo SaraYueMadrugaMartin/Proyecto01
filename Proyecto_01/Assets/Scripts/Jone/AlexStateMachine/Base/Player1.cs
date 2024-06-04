@@ -4,7 +4,7 @@ using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 // En esta clase se gestiona todo lo que tiene que ver con Alex y sus estados
-/*
+
 public class Player : MonoBehaviour
 {
     Animator anim;
@@ -134,7 +134,7 @@ public class Player : MonoBehaviour
         {
             estaCorriendo = false;
             estaSigilo = false;
-            AlexAnimator.PlayAnimacion(6, anim, PrioridadAnimacion.Alta);
+            anim.SetTrigger("interactua");
         }
         else
         {
@@ -150,25 +150,28 @@ public class Player : MonoBehaviour
 
         if (velocidadX != 0f || velocidadY != 0f)
         {
+            anim.SetBool("estaMoviendo", true);
             if (!estaCorriendo)
             {
-                AlexAnimator.PlayAnimacion(2, anim, PrioridadAnimacion.Baja); // Walk animation
+                anim.SetBool("estaCorriendo", false);
                 // Sonido walk
                 PlayPasosSound(sfxManager.clipsDeAudio[3]);
             }
             else
             {
-                AlexAnimator.PlayAnimacion(4, anim, PrioridadAnimacion.Baja); // Run animation             
+                anim.SetBool("estaCorriendo", true);
             }
         }
         else if (!apuntando)
         {
-            AlexAnimator.PlayAnimacion(1, anim, PrioridadAnimacion.Baja); // Idle animation
+            anim.SetBool("estaMoviendo", false);
+            anim.SetBool("estaApuntando", false);
             StopPasosSound();
         }
         else if (apuntando)
         {
-            AlexAnimator.PlayAnimacion(10, anim, PrioridadAnimacion.Media); // Aiming animation
+            anim.SetBool("estaMoviendo", false);
+            anim.SetBool("estaApuntando", true);
         }
 
         if (sePuedeMover)
@@ -214,18 +217,24 @@ public class Player : MonoBehaviour
         {
             case 0:
                 Debug.Log("No tengo ningún arma equipada");
+                anim.SetBool("tieneBate", false);
+                anim.SetBool("tienePistola", false);
                 armaEquipada = 0;
                 break;
             case 1:
                 Debug.Log("Equipo bate");
+                anim.SetBool("tieneBate", true);
+                anim.SetBool("tienePistola", false);
                 armaEquipada = 1;
                 break;
             case 2:
                 Debug.Log("Equipo pistola");
+                anim.SetBool("tieneBate", false);
+                anim.SetBool("tienePistola", true);
                 armaEquipada = 2;
                 break;
         }
-        ControladorAnimaciones.corrAnimaciones(estadoCorr, armaEquipada);
+        //ControladorAnimaciones.corrAnimaciones(estadoCorr, armaEquipada);
     }
     private void Ataque()
     {
@@ -248,9 +257,8 @@ public class Player : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0)) // Click izquierdo del ratón
             {
-                AlexAnimator.PlayAnimacion(5, anim, PrioridadAnimacion.Alta); // Ataque bate animation
-                                                                               // Sonido ataque
-
+                anim.SetTrigger("ataca");
+                // Sonido ataque
                 sfxManager.PlayRandomAlexHit();
                 sfxManager.PlaySFX(sfxManager.clipsDeAudio[5]);
 
@@ -322,7 +330,7 @@ public class Player : MonoBehaviour
     {
         animPistola.SetTrigger("dispara");
         animBrazo.SetTrigger("dispara");
-        AlexAnimator.PlayAnimacion(7, anim, PrioridadAnimacion.Media); // Fire animation
+        anim.SetTrigger("ataca");
 
         // Establece la dirección de la bala
         if (!Puntero.cambiaAngulos)
@@ -343,7 +351,7 @@ public class Player : MonoBehaviour
         if (municion > 0)
         {
             recargando = true;
-            AlexAnimator.PlayAnimacion(8, anim, PrioridadAnimacion.Media); // Recharge animation
+            anim.SetTrigger("recarga");
             StartCoroutine(CambiarValorDespuesDeEsperar());
             Debug.Log("Recargado");
             cargador = 6;
@@ -395,7 +403,7 @@ public class Player : MonoBehaviour
         saludActual -= damage;
         Debug.Log("Salud: " + saludActual);
 
-        AlexAnimator.PlayAnimacion(3, anim, PrioridadAnimacion.Alta);
+        anim.SetTrigger("hurt");
         // Sonido hurt
         sfxManager.PlayRandomAlexHerida();
 
@@ -405,7 +413,7 @@ public class Player : MonoBehaviour
 
     private void Muere()
     {
-        AlexAnimator.PlayAnimacion(9, anim, PrioridadAnimacion.Alta); // Die animation
+        anim.SetTrigger("hurt");
         // Sonido muerte
         sfxManager.PlaySFX(sfxManager.clipsDeAudio[18]);
         StartCoroutine(MostrarPanelMuerte());
@@ -452,4 +460,3 @@ public class Player : MonoBehaviour
     }
     #endregion
 }
-*/
