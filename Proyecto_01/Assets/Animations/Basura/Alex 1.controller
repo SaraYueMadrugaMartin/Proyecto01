@@ -264,7 +264,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Alex
+  m_Name: Alex 1
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: estaMoviendo
@@ -366,19 +366,19 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 388258232682286955}
-    m_Position: {x: -230, y: 290, z: 0}
+    m_Position: {x: -250, y: 160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8098604388497628918}
-    m_Position: {x: -230, y: 150, z: 0}
+    m_Position: {x: -380, y: -100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8782124559249510046}
-    m_Position: {x: -230, y: 220, z: 0}
+    m_Position: {x: -250, y: 90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5508867033337381713}
-    m_Position: {x: -230, y: 90, z: 0}
+    m_Position: {x: -140, y: -110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5032882276825171098}
-    m_Position: {x: -230, y: 0, z: 0}
+    m_Position: {x: -140, y: -180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8769423126957222250}
     m_Position: {x: 300, y: 0, z: 0}
@@ -396,9 +396,9 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: -450, y: 130, z: 0}
+  m_AnyStatePosition: {x: -230, y: 10, z: 0}
   m_EntryPosition: {x: 80, y: 190, z: 0}
-  m_ExitPosition: {x: -210, y: 360, z: 0}
+  m_ExitPosition: {x: -230, y: 230, z: 0}
   m_ParentStateMachinePosition: {x: 410, y: 40, z: 0}
   m_DefaultState: {fileID: 7521536118330628849}
 --- !u!1101 &2000624023157292617

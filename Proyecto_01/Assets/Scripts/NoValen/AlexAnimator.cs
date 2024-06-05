@@ -62,7 +62,7 @@ public static class AlexAnimator
     {
         reproduciendo = true;  // Animación en curso
         currentPriority = priority;  // Actualiza la prioridad actual
-        anim.Play(ControladorAnimaciones.diccionarioAnimaciones[num]);  // Reproduce la animación
+        //anim.Play(ControladorAnimaciones.diccionarioAnimaciones[num]);  // Reproduce la animación
         animPrevia = num;  // Actualiza la animación previa
         anim.GetComponent<MonoBehaviour>().StartCoroutine(AnimacionFinalizada(anim));  // Inicia la corrutina para esperar a que la animación termine
     }

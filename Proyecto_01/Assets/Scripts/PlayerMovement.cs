@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
         anim = GetComponent<Animator>();
         puntero = GetComponent<Puntero>();
-        pistola = transform.Find("Puntero").gameObject;
+        //pistola = transform.Find("Puntero").gameObject;
     }
 
     private void FixedUpdate()
@@ -36,23 +36,23 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("estaApuntando", false);
             anim.SetBool("estaRecargando", false);
-            puntero.enabled = false;
-            pistola.SetActive(false);
+            //puntero.enabled = false;
+            //pistola.SetActive(false);
             Velocidad();
             anim.SetFloat("Velocidad", multiplicador);
             Mover();
         }
         else if (Pistola.apuntando && Pistola.recargando)
         {
-            pistola.SetActive(false);
-            puntero.enabled = false;
+            //pistola.SetActive(false);
+            //puntero.enabled = false;
             anim.SetBool("estaApuntando", false);
             anim.SetBool("estaRecargando", true);
         }
         else if (Pistola.apuntando && !Pistola.recargando)
         {
-            pistola.SetActive(true);
-            puntero.enabled = true;
+            //pistola.SetActive(true);
+            //puntero.enabled = true;
             anim.SetBool("estaApuntando", true);
             anim.SetBool("estaRecargando", false);
         }
@@ -132,12 +132,12 @@ public class PlayerMovement : MonoBehaviour
         if (velocidadX > 0 && !miraDerecha)
         {
             Flip();
-            puntero.VolteaPuntero();
+            //puntero.VolteaPuntero();
         }
         if (velocidadX < 0 && miraDerecha)
         {
             Flip();
-            puntero.VolteaPuntero();
+            //puntero.VolteaPuntero();
         }
     }
     private void Flip()
