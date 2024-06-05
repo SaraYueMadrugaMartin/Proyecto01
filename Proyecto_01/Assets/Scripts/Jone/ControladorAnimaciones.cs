@@ -18,18 +18,18 @@ public class ControladorAnimaciones
                         diccionarioAnimaciones[1] = "alex_idle_0";
                         diccionarioAnimaciones[2] = "alex_walk_0";
                         diccionarioAnimaciones[3] = "alex_hurt_0";
-                    break;
+                        break;
                     case 1:
                         diccionarioAnimaciones[1] = "alex_idle_bat_0";
                         diccionarioAnimaciones[2] = "alex_walk_bat_0";
                         diccionarioAnimaciones[3] = "alex_hurt_bat_0";
-                    break;
+                        break;
                     default:
                         diccionarioAnimaciones[1] = "alex_idle_gun_0";
                         diccionarioAnimaciones[2] = "alex_walk_gun_0";
                         diccionarioAnimaciones[3] = "alex_hurt_gun_0";
-                    break;
-                }               
+                        break;
+                }
                 diccionarioAnimaciones[4] = "alex_run_0";
                 diccionarioAnimaciones[5] = "alex_attack_0";
                 diccionarioAnimaciones[6] = "alex_interact_0";
@@ -45,17 +45,17 @@ public class ControladorAnimaciones
                         diccionarioAnimaciones[1] = "alex_idle_1";
                         diccionarioAnimaciones[2] = "alex_walk_1";
                         diccionarioAnimaciones[3] = "alex_hurt_1";
-                    break;
+                        break;
                     case 1:
                         diccionarioAnimaciones[1] = "alex_idle_bat_1";
                         diccionarioAnimaciones[2] = "alex_walk_bat_1";
                         diccionarioAnimaciones[3] = "alex_hurt_bat_1";
-                    break;
+                        break;
                     default:
                         diccionarioAnimaciones[1] = "alex_idle_gun_1";
                         diccionarioAnimaciones[2] = "alex_walk_gun_1";
                         diccionarioAnimaciones[3] = "alex_hurt_gun_1";
-                    break;
+                        break;
                 }
                 diccionarioAnimaciones[4] = "alex_run_1";
                 diccionarioAnimaciones[5] = "alex_attack_1";
@@ -72,17 +72,17 @@ public class ControladorAnimaciones
                         diccionarioAnimaciones[1] = "alex_idle_2";
                         diccionarioAnimaciones[2] = "alex_walk_2";
                         diccionarioAnimaciones[3] = "alex_hurt_2";
-                    break;
+                        break;
                     case 1:
                         diccionarioAnimaciones[1] = "alex_idle_bat_2";
                         diccionarioAnimaciones[2] = "alex_walk_bat_2";
                         diccionarioAnimaciones[3] = "alex_hurt_bat_2";
-                    break;
+                        break;
                     default:
                         diccionarioAnimaciones[1] = "alex_idle_gun_2";
                         diccionarioAnimaciones[2] = "alex_walk_gun_2";
                         diccionarioAnimaciones[3] = "alex_hurt_gun_2";
-                    break;
+                        break;
                 }
                 diccionarioAnimaciones[4] = "alex_run_2";
                 diccionarioAnimaciones[5] = "alex_attack_2";
@@ -99,17 +99,17 @@ public class ControladorAnimaciones
                         diccionarioAnimaciones[1] = "alex_idle_3";
                         diccionarioAnimaciones[2] = "alex_walk_3";
                         diccionarioAnimaciones[3] = "alex_hurt_3";
-                    break;
+                        break;
                     case 1:
                         diccionarioAnimaciones[1] = "alex_idle_bat_3";
                         diccionarioAnimaciones[2] = "alex_walk_bat_3";
                         diccionarioAnimaciones[3] = "alex_hurt_bat_3";
-                    break;
+                        break;
                     default:
                         diccionarioAnimaciones[1] = "alex_idle_gun_3";
                         diccionarioAnimaciones[2] = "alex_walk_gun_3";
                         diccionarioAnimaciones[3] = "alex_hurt_gun_3";
-                    break;
+                        break;
                 }
                 diccionarioAnimaciones[4] = "alex_run_3";
                 diccionarioAnimaciones[5] = "alex_attack_3";
@@ -126,17 +126,17 @@ public class ControladorAnimaciones
                         diccionarioAnimaciones[1] = "alex_idle_4";
                         diccionarioAnimaciones[2] = "alex_walk_4";
                         diccionarioAnimaciones[3] = "alex_hurt_4";
-                    break;
+                        break;
                     case 1:
                         diccionarioAnimaciones[1] = "alex_idle_bat_4";
                         diccionarioAnimaciones[2] = "alex_walk_bat_4";
                         diccionarioAnimaciones[3] = "alex_hurt_bat_4";
-                    break;
+                        break;
                     default:
                         diccionarioAnimaciones[1] = "alex_idle_gun_4";
                         diccionarioAnimaciones[2] = "alex_walk_gun_4";
                         diccionarioAnimaciones[3] = "alex_hurt_gun_4";
-                    break;
+                        break;
                 }
                 diccionarioAnimaciones[4] = "alex_run_4";
                 diccionarioAnimaciones[5] = "alex_attack_4";
@@ -146,6 +146,6 @@ public class ControladorAnimaciones
                 diccionarioAnimaciones[9] = "alex_die_4";
                 diccionarioAnimaciones[10] = "alex_aim_4";
                 break;
-        }        
+        }
     }
 }

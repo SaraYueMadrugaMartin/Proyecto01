@@ -126,8 +126,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.011854589, y: 0.607601}
-  m_Size: {x: 0.5891646, y: 1.3019432}
+  m_Offset: {x: -0.011165142, y: 0.59262466}
+  m_Size: {x: 0.5417776, y: 1.1003418}
   m_Direction: 0
 --- !u!61 &65106581952517104
 BoxCollider2D:
@@ -250,6 +250,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   panelMuerte: {fileID: 0}
+  animatorController0: {fileID: 9100000, guid: 1fbdbeadb3b158e43bbec0312714af99, type: 2}
+  animatorController1: {fileID: 9100000, guid: 344d88b03656d9f4c82bf69f78dd5f11, type: 2}
+  animatorController2: {fileID: 9100000, guid: 17e6f07925cc4154bb52f284801d9b47, type: 2}
+  animatorController3: {fileID: 9100000, guid: bd53bacd33ff2ea49838709fa1275eb3, type: 2}
+  animatorController4: {fileID: 9100000, guid: bcf3d8d297e119e418b3f816c126ca57, type: 2}
 --- !u!95 &7134268257680894210
 Animator:
   serializedVersion: 5
@@ -260,7 +265,7 @@ Animator:
   m_GameObject: {fileID: 151545767565334535}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0ad721e0a9359d74ca95072518d84d94, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1fbdbeadb3b158e43bbec0312714af99, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -456,7 +461,7 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.46
+  m_FalloffIntensity: 0.7
   m_Color: {r: 1, g: 0.94329894, b: 0.75, a: 1}
   m_Intensity: 2
   m_LightVolumeIntensity: 1
@@ -480,7 +485,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.31469062
-  m_PointLightOuterRadius: 1.8257264
+  m_PointLightOuterRadius: 2
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1

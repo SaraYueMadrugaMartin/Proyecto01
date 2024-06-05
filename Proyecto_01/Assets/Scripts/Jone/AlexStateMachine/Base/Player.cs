@@ -4,13 +4,13 @@ using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 // En esta clase se gestiona todo lo que tiene que ver con Alex y sus estados
-/*
+
 public class Player : MonoBehaviour
 {
     Animator anim;
 
     SFXManager sfxManager;
-    
+
     #region Variables Player Stats
     // Corrupción
     static public int contadorCorr = 0; // Enemigos totales asesinados
@@ -65,6 +65,14 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject panelMuerte;
     #endregion
 
+    #region Variables Animaciones
+    [SerializeField] RuntimeAnimatorController animatorController0;
+    [SerializeField] RuntimeAnimatorController animatorController1;
+    [SerializeField] RuntimeAnimatorController animatorController2;
+    [SerializeField] RuntimeAnimatorController animatorController3;
+    [SerializeField] RuntimeAnimatorController animatorController4;
+    #endregion
+
     #region Variables Máquina Estado
 
     public PlayerStateMachine StateMachine { get; set; }
@@ -114,7 +122,7 @@ public class Player : MonoBehaviour
     {
         StateMachine.CurrentPlayerState.FixedUpdate();
         Velocidad();
-        Mover();       
+        Mover();
     }
 
     #region Funciones Movimiento
@@ -134,14 +142,14 @@ public class Player : MonoBehaviour
         {
             estaCorriendo = false;
             estaSigilo = false;
-            AlexAnimator.PlayAnimacion(6, anim, PrioridadAnimacion.Alta);
+            anim.SetTrigger("interactua");
         }
         else
         {
             estaCorriendo = false;
             estaSigilo = false;
         }
-       
+
     }
     private void Mover()
     {
@@ -150,32 +158,35 @@ public class Player : MonoBehaviour
 
         if (velocidadX != 0f || velocidadY != 0f)
         {
+            anim.SetBool("estaMoviendo", true);
             if (!estaCorriendo)
             {
-                AlexAnimator.PlayAnimacion(2, anim, PrioridadAnimacion.Baja); // Walk animation
+                anim.SetBool("estaCorriendo", false);
                 // Sonido walk
                 PlayPasosSound(sfxManager.clipsDeAudio[3]);
             }
             else
             {
-                AlexAnimator.PlayAnimacion(4, anim, PrioridadAnimacion.Baja); // Run animation             
+                anim.SetBool("estaCorriendo", true);
             }
         }
         else if (!apuntando)
         {
-            AlexAnimator.PlayAnimacion(1, anim, PrioridadAnimacion.Baja); // Idle animation
+            anim.SetBool("estaMoviendo", false);
+            anim.SetBool("estaApuntando", false);
             StopPasosSound();
         }
         else if (apuntando)
         {
-            AlexAnimator.PlayAnimacion(10, anim, PrioridadAnimacion.Media); // Aiming animation
+            anim.SetBool("estaMoviendo", false);
+            anim.SetBool("estaApuntando", true);
         }
 
         if (sePuedeMover)
         {
             transform.Translate(velocidadX, 0, 0);
             transform.Translate(0, velocidadY, 0);
-        }    
+        }
 
         // Girar Sprite
         if (velocidadX > 0 && !miraDerecha)
@@ -214,18 +225,24 @@ public class Player : MonoBehaviour
         {
             case 0:
                 Debug.Log("No tengo ningún arma equipada");
+                anim.SetBool("tieneBate", false);
+                anim.SetBool("tienePistola", false);
                 armaEquipada = 0;
                 break;
             case 1:
                 Debug.Log("Equipo bate");
+                anim.SetBool("tieneBate", true);
+                anim.SetBool("tienePistola", false);
                 armaEquipada = 1;
                 break;
             case 2:
                 Debug.Log("Equipo pistola");
+                anim.SetBool("tieneBate", false);
+                anim.SetBool("tienePistola", true);
                 armaEquipada = 2;
                 break;
         }
-        ControladorAnimaciones.corrAnimaciones(estadoCorr, armaEquipada);
+        //ControladorAnimaciones.corrAnimaciones(estadoCorr, armaEquipada);
     }
     private void Ataque()
     {
@@ -238,6 +255,31 @@ public class Player : MonoBehaviour
             else if (armaEquipada == 2)
             {
                 AtaquePistola();
+                if (!apuntando && !recargando)
+                {
+                    sePuedeMover = true;
+                    anim.SetBool("estaApuntando", false);
+                    anim.SetBool("estaRecargando", false);
+                    puntero.enabled = false;
+                    pistola.SetActive(false);
+                    //anim.SetFloat("Velocidad", multiplicador);
+                }
+                else if (apuntando && recargando)
+                {
+                    sePuedeMover = false;
+                    pistola.SetActive(false);
+                    puntero.enabled = false;
+                    anim.SetBool("estaApuntando", false);
+                    anim.SetBool("estaRecargando", true);
+                }
+                else if (apuntando && !recargando)
+                {
+                    sePuedeMover = false;
+                    pistola.SetActive(true);
+                    puntero.enabled = true;
+                    anim.SetBool("estaApuntando", true);
+                    anim.SetBool("estaRecargando", false);
+                }
             }
         }
     }
@@ -248,9 +290,10 @@ public class Player : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0)) // Click izquierdo del ratón
             {
-                AlexAnimator.PlayAnimacion(5, anim, PrioridadAnimacion.Alta); // Ataque bate animation
-                                                                               // Sonido ataque
-
+                sePuedeMover = false;
+                StartCoroutine(CambiarValorDespuesDeEsperar());
+                anim.SetTrigger("ataca");
+                // Sonido ataque
                 sfxManager.PlayRandomAlexHit();
                 sfxManager.PlaySFX(sfxManager.clipsDeAudio[5]);
 
@@ -289,7 +332,7 @@ public class Player : MonoBehaviour
 
             pistola.SetActive(true);
             puntero.enabled = true;
-            apuntando = true;           
+            apuntando = true;
             if (Input.GetButtonDown("Fire1"))
             {
                 if (cargador > 0)
@@ -312,9 +355,8 @@ public class Player : MonoBehaviour
         }
         else
         {
-            pistola.SetActive(false);
-            puntero.enabled = false;
             apuntando = false;
+            anim.SetBool("estaApuntando", false);
         }
     }
 
@@ -322,7 +364,7 @@ public class Player : MonoBehaviour
     {
         animPistola.SetTrigger("dispara");
         animBrazo.SetTrigger("dispara");
-        AlexAnimator.PlayAnimacion(7, anim, PrioridadAnimacion.Media); // Fire animation
+        anim.SetTrigger("ataca");
 
         // Establece la dirección de la bala
         if (!Puntero.cambiaAngulos)
@@ -343,7 +385,10 @@ public class Player : MonoBehaviour
         if (municion > 0)
         {
             recargando = true;
-            AlexAnimator.PlayAnimacion(8, anim, PrioridadAnimacion.Media); // Recharge animation
+            sePuedeMover = false;
+            pistola.SetActive(false);
+            puntero.enabled = false;
+            anim.SetTrigger("recarga");
             StartCoroutine(CambiarValorDespuesDeEsperar());
             Debug.Log("Recargado");
             cargador = 6;
@@ -376,9 +421,10 @@ public class Player : MonoBehaviour
     private IEnumerator CambiarValorDespuesDeEsperar()
     {
         yield return new WaitForSeconds(0.6f);
+        sePuedeMover = true;
         recargando = false;
     }
-  
+
     void OnDrawGizmosSelected() // Para ver el punto de ataque de Alex
     {
         if (puntoAtaque == null)
@@ -390,22 +436,24 @@ public class Player : MonoBehaviour
 
     #region Funciones Damage
     // Función que se llama desde el ataque de los enemigos
-    public void recibeDamage (float damage)
+    public void recibeDamage(float damage)
     {
         saludActual -= damage;
         Debug.Log("Salud: " + saludActual);
 
-        AlexAnimator.PlayAnimacion(3, anim, PrioridadAnimacion.Alta);
+        anim.SetTrigger("hurt");
         // Sonido hurt
         sfxManager.PlayRandomAlexHerida();
 
         if (saludActual < 0f)
             Muere();
+        else
+            anim.SetBool("seMuere", false);
     }
 
     private void Muere()
     {
-        AlexAnimator.PlayAnimacion(9, anim, PrioridadAnimacion.Alta); // Die animation
+        anim.SetBool("seMuere", true);
         // Sonido muerte
         sfxManager.PlaySFX(sfxManager.clipsDeAudio[18]);
         StartCoroutine(MostrarPanelMuerte());
@@ -426,6 +474,50 @@ public class Player : MonoBehaviour
         Debug.Log("Datos cargados.");
     }
 
+    #endregion
+
+    #region Control de animaciones
+    public void cambioAnimaciones(int estadoCorr, int arma)
+    {
+        switch (estadoCorr)
+        {
+            case 0:
+                Debug.Log("cambio animator");
+                anim.runtimeAnimatorController = animatorController0;               
+                break;
+            case 1:
+                Debug.Log("cambio animator");
+                anim.runtimeAnimatorController = animatorController1;
+                break;
+            case 2:
+                Debug.Log("cambio animator");
+                anim.runtimeAnimatorController = animatorController2;
+                break;
+            case 3:
+                Debug.Log("cambio animator");
+                anim.runtimeAnimatorController = animatorController3;
+                break;
+            default:
+                Debug.Log("cambio animator");
+                anim.runtimeAnimatorController = animatorController4;
+                break;
+        }
+        switch (arma)
+        {
+            case 0:
+                anim.SetBool("tieneBate", false);
+                anim.SetBool("tienePistola", false);
+                break;
+            case 1:
+                anim.SetBool("tieneBate", true);
+                anim.SetBool("tienePistola", false);
+                break;
+            case 2:
+                anim.SetBool("tieneBate", false);
+                anim.SetBool("tienePistola", true);
+                break;
+        }
+    }
     #endregion
 
     #region Funciones Guardado y Carga de datos
@@ -452,4 +544,3 @@ public class Player : MonoBehaviour
     }
     #endregion
 }
-*/
