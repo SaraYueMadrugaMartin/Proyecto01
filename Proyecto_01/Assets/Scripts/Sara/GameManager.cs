@@ -9,6 +9,17 @@ public class GameManager : MonoBehaviour
 
     public SaveManager saveManager;
 
+    private void OnEnable()
+    {
+        Pausa.OnPause += PauseGame;
+        Pausa.OnResume += ResumeGame;
+    }
+    private void OnDisable()
+    {
+        Pausa.OnPause -= PauseGame;
+        Pausa.OnResume -= ResumeGame;
+    }
+
     private void Awake()
     {
         if (instance == null)
@@ -27,6 +38,17 @@ public class GameManager : MonoBehaviour
         saveManager = SaveManager.instance;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Time.timeScale != 0)
+                Pausa.TriggerPause();
+            else
+                Pausa.TriggerResume();
+        }
+    }
+
     public void GuardarDatosEscena()
     {
         saveManager.GuardarEstadoEscena();
@@ -43,5 +65,14 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= CargarCambiosEscenaGuardados;
         saveManager.CargarEstadoEscena();
+    }
+
+    void PauseGame()
+    {
+        Time.timeScale = 0f;
+    }
+    void ResumeGame()
+    {
+        Time.timeScale = 1f;
     }
 }

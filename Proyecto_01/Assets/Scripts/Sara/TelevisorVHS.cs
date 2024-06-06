@@ -67,7 +67,9 @@ public class TelevisorVHS : MonoBehaviour
     IEnumerator ReproducirVHS()
     {
         Time.timeScale = 0f;
-        cintaVHS.SetActive(true);        
+        cintaVHS.SetActive(true);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         cinematica.Prepare();
         while (!cinematica.isPrepared)
@@ -86,6 +88,8 @@ public class TelevisorVHS : MonoBehaviour
         cinematica.Pause();
         puerta.VHSVisto();
         cintaVHS.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Time.timeScale = 1f;
     }
 }

@@ -9,22 +9,59 @@ public class Cinematica : MonoBehaviour
 {
     private VideoPlayer videoPlayer;
 
+    [SerializeField] GameObject panelPausa;
+
+    private bool pausado = false;
+
     void Start()
     {
         videoPlayer = GetComponent<VideoPlayer>();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         videoPlayer.loopPointReached += OnVideoEnd;
-        //sfxManager = SFXManager.instance;
+        panelPausa.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!pausado)
+                Pausar();
+            else
+                Reanudar();
+        }
     }
 
     void OnVideoEnd(VideoPlayer vp)
-    {
+    {        
         CambioEscena();
     }
 
-    private void CambioEscena()
+    public void CambioEscena()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         int escenaActual = SceneManager.GetActiveScene().buildIndex;
         int siguienteEscena = escenaActual + 1;
         SceneManager.LoadScene(siguienteEscena);
+    }
+
+    private void Pausar()
+    {
+        videoPlayer.Pause();
+        panelPausa.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        pausado = true;
+    }
+
+    public void Reanudar()
+    {
+        videoPlayer.Play();
+        panelPausa.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        pausado = false;
     }
 }
