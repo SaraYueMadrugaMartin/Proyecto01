@@ -15,24 +15,37 @@ public class TilesScript : MonoBehaviour
     void Update()
     {
         RectTransform rectTransform = GetComponent<RectTransform>();
-        Vector2 previousPosition = rectTransform.anchoredPosition;
         rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, posPiezaInicial, 0.08f);
         ComprobarPiezasEncajadas();
     }
 
     public void ComprobarPiezasEncajadas()
     {
-        if (!enPosCorrecta)
+        bool estabaEnPosCorrecta = enPosCorrecta;
+
+        if (Vector2.Distance(posPiezaInicial, posCorrecta) < 0.01f)
         {
-            if(Vector2.Distance(posPiezaInicial, posCorrecta) < 0.05f)
-            {
-                enPosCorrecta = true;
-                puzzleDeslizable.piezasEncajadas++;
-                if(puzzleDeslizable.piezasEncajadas == 15)
-                {
-                    puzzleDeslizable.TodasPiezasCorrectas();
-                }
-            }
+            enPosCorrecta = true;
+        }
+        else
+        {
+            enPosCorrecta = false;
+        }
+
+        if (enPosCorrecta && !estabaEnPosCorrecta)
+        {
+            Debug.Log("La pieza: " + name + " está en la posición correcta.");
+            puzzleDeslizable.piezasEncajadas++;
+        }
+        else if (!enPosCorrecta && estabaEnPosCorrecta)
+        {
+            Debug.Log("La pieza: " + name + " está en la posición incorrecta.");
+            puzzleDeslizable.piezasEncajadas--;
+        }
+
+        if (puzzleDeslizable.piezasEncajadas == puzzleDeslizable.tiles.Length)
+        {
+            puzzleDeslizable.TodasPiezasCorrectas();
         }
     }
 }

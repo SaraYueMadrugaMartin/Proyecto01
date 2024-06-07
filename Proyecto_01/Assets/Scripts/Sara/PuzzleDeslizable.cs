@@ -6,7 +6,9 @@ using System.Collections.Generic;
 public class PuzzleDeslizable : MonoBehaviour
 {
     [SerializeField] private RectTransform espacioVacio = null;
-    [SerializeField] private TilesScript[] tiles;
+    [SerializeField] public TilesScript[] tiles;
+
+    //private TilesScript tile;
     //[SerializeField] private Vector2[] posicionesCorrectas;
 
     private Camera camara;
@@ -17,6 +19,7 @@ public class PuzzleDeslizable : MonoBehaviour
 
     public int piezasEncajadas;
     public bool puzzle01Resuelto;
+    public bool puzzleResuelto;
 
     //private int contador;
 
@@ -69,13 +72,11 @@ public class PuzzleDeslizable : MonoBehaviour
 
     public void TodasPiezasCorrectas()
     {
-        bool unaVez = true;
-        if(unaVez)
+        if (!puzzleResuelto)
         {
             Debug.Log("Has ganado");
-            puzzle01Resuelto = true;
+            puzzleResuelto = true;
             mostrarPuzzle01.PuzzleResuelto();
-            unaVez = false;
-        }        
+        }
     }
 }

@@ -7,6 +7,7 @@ public class DiarioGuardarPartida : MonoBehaviour
     GameManager gameManager;
 
     [SerializeField] private GameObject panelNoGuardado;
+    [SerializeField] private GameObject panelGuardando;
 
     private Inventario inventario;
     private bool jugadorTocando = false;
@@ -18,6 +19,7 @@ public class DiarioGuardarPartida : MonoBehaviour
         gameManager = GameManager.instance;
         inventario = FindObjectOfType<Inventario>();
         panelNoGuardado.SetActive(false);
+        panelGuardando.SetActive(false);
         sfxManager = FindObjectOfType<SFXManager>();
     }
 
@@ -29,12 +31,7 @@ public class DiarioGuardarPartida : MonoBehaviour
             {
                 if (inventario.TieneObjeto("Tinta"))
                 {
-                    inventario.VaciarHueco("Tinta");
-                    Time.timeScale = 0f;
-                    sfxManager.PlaySFX(sfxManager.clipsDeAudio[15]);
-                    gameManager.GuardarDatosEscena();
-                    Debug.Log("Se han guardado los datos.");
-                    StartCoroutine(GuardarPartida());
+                    GuardandoPartida();
                 }
                 else
                 {
@@ -61,9 +58,21 @@ public class DiarioGuardarPartida : MonoBehaviour
         }
     }
 
-    IEnumerator GuardarPartida()
+    private void GuardandoPartida()
+    {
+        inventario.VaciarHueco("Tinta");
+        panelGuardando.SetActive(true);
+        Time.timeScale = 0f;
+        sfxManager.PlaySFX(sfxManager.clipsDeAudio[15]);
+        gameManager.GuardarDatosEscena();
+        Debug.Log("Se han guardado los datos.");
+        StartCoroutine(TerminarGuardarPartida());
+    }
+
+    IEnumerator TerminarGuardarPartida()
     {
         yield return new WaitForSecondsRealtime(2f);
+        panelGuardando.SetActive(false);
         Time.timeScale = 1f;
     }
 }
