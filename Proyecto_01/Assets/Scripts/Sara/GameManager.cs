@@ -1,13 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
     public SaveManager saveManager;
+
+    [SerializeField] GameObject panelPausa;
+
+    private void OnEnable()
+    {
+        Pausa.OnPause += PauseGame;
+        Pausa.OnResume += ResumeGame;
+    }
+    private void OnDisable()
+    {
+        Pausa.OnPause -= PauseGame;
+        Pausa.OnResume -= ResumeGame;
+    }
 
     private void Awake()
     {
@@ -27,6 +38,33 @@ public class GameManager : MonoBehaviour
         saveManager = SaveManager.instance;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (TelevisorVHS.CineReproduciendo)
+            {
+                // Delegar la pausa/reanudación a TelevisorVHS
+                if (!TelevisorVHS.CineReproduciendo)
+                {
+                    Pausa.TriggerPause();
+                }
+                else
+                {
+                    Pausa.TriggerResume();
+                }
+            }
+            else
+            {
+                // Manejo normal del panel de pausa
+                if (Time.timeScale != 0)
+                    Pausa.TriggerPause();
+                else
+                    Pausa.TriggerResume();
+            }
+        }
+    }
+
     public void GuardarDatosEscena()
     {
         saveManager.GuardarEstadoEscena();
@@ -43,5 +81,21 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= CargarCambiosEscenaGuardados;
         saveManager.CargarEstadoEscena();
+    }
+
+    void PauseGame()
+    {
+        Time.timeScale = 0f;
+        UIManager.Instance.CargarPantallaPausa();
+    }
+    void ResumeGame()
+    {
+        Time.timeScale = 1f;
+        UIManager.Instance.QuitarPantallaPausa();
+    }
+
+    public void VolverAlInicio()
+    {
+        SceneManager.LoadScene(0);
     }
 }
