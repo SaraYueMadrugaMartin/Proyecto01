@@ -26,7 +26,7 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
     [SerializeField] private GameObject panelBotonesPistola;
     [SerializeField] private GameObject panelBotonesBotiquin;
     [SerializeField] private GameObject panelBotonesTinta;
-    //[SerializeField] private GameObject panelBotonesDiario;
+    [SerializeField] private GameObject panelBotonesLinterna;
     [SerializeField] private GameObject panelBotonesMunicion;
     [SerializeField] private GameObject panelBotonesMoneda;
     [SerializeField] private GameObject panelBotonesVHS;
@@ -49,7 +49,7 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
         panelesBotones.Add("Pistola", panelBotonesPistola);
         panelesBotones.Add("Botiquin", panelBotonesBotiquin);
         panelesBotones.Add("Tinta", panelBotonesTinta);
-        //panelesBotones.Add("Diario", panelBotonesDiario);
+        panelesBotones.Add("Linterna", panelBotonesLinterna);
         panelesBotones.Add("Municion", panelBotonesMunicion);
         panelesBotones.Add("Moneda", panelBotonesMoneda);
         panelesBotones.Add("VHS", panelBotonesVHS);

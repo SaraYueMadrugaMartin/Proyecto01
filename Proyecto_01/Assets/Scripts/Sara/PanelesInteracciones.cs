@@ -49,6 +49,9 @@ public class PanelesInteracciones : MonoBehaviour
             case "Pistola":
                 infoPanelInteraccion.text = "Se ha añadido al inventario una pistola.";
                 break;
+            case "Linterna":
+                infoPanelInteraccion.text = "Se ha añadido al inventario una linterna.";
+                break;
             default:
                 infoPanelInteraccion.text = "Se ha añadido al inventario un objeto.";
                 break;

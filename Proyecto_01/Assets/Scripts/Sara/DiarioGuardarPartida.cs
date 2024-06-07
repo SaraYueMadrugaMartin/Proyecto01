@@ -29,10 +29,12 @@ public class DiarioGuardarPartida : MonoBehaviour
             {
                 if (inventario.TieneObjeto("Tinta"))
                 {
-                    gameManager.GuardarDatosEscena();
                     inventario.VaciarHueco("Tinta");
-                    Debug.Log("Se han guardado los datos.");
+                    Time.timeScale = 0f;
                     sfxManager.PlaySFX(sfxManager.clipsDeAudio[15]);
+                    gameManager.GuardarDatosEscena();
+                    Debug.Log("Se han guardado los datos.");
+                    StartCoroutine(GuardarPartida());
                 }
                 else
                 {
@@ -57,5 +59,11 @@ public class DiarioGuardarPartida : MonoBehaviour
             jugadorTocando = false;
             panelNoGuardado.SetActive(false);
         }
+    }
+
+    IEnumerator GuardarPartida()
+    {
+        yield return new WaitForSecondsRealtime(2f);
+        Time.timeScale = 1f;
     }
 }

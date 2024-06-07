@@ -115,8 +115,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8569819883646890787}
   - {fileID: 7253076230406577534}
+  - {fileID: 8569819883646890787}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5140541166507014781
@@ -194,12 +194,24 @@ PrefabInstance:
       value: Brillito
       objectReference: {fileID: 0}
     - target: {fileID: 7308475168362555382, guid: 712fb242e9b57304caa44b08bd2446c1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5292746
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308475168362555382, guid: 712fb242e9b57304caa44b08bd2446c1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5292746
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308475168362555382, guid: 712fb242e9b57304caa44b08bd2446c1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5292748
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308475168362555382, guid: 712fb242e9b57304caa44b08bd2446c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.12
+      value: -0.062
       objectReference: {fileID: 0}
     - target: {fileID: 7308475168362555382, guid: 712fb242e9b57304caa44b08bd2446c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.06
+      value: 0.009
       objectReference: {fileID: 0}
     - target: {fileID: 7308475168362555382, guid: 712fb242e9b57304caa44b08bd2446c1, type: 3}
       propertyPath: m_LocalPosition.z
