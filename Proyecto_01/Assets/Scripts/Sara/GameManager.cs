@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
     public SaveManager saveManager;
+
+    [SerializeField] GameObject panelPausa;
 
     private void OnEnable()
     {
@@ -42,10 +42,26 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Time.timeScale != 0)
-                Pausa.TriggerPause();
+            if (TelevisorVHS.CineReproduciendo)
+            {
+                // Delegar la pausa/reanudación a TelevisorVHS
+                if (!TelevisorVHS.CineReproduciendo)
+                {
+                    Pausa.TriggerPause();
+                }
+                else
+                {
+                    Pausa.TriggerResume();
+                }
+            }
             else
-                Pausa.TriggerResume();
+            {
+                // Manejo normal del panel de pausa
+                if (Time.timeScale != 0)
+                    Pausa.TriggerPause();
+                else
+                    Pausa.TriggerResume();
+            }
         }
     }
 
@@ -70,9 +86,16 @@ public class GameManager : MonoBehaviour
     void PauseGame()
     {
         Time.timeScale = 0f;
+        UIManager.Instance.CargarPantallaPausa();
     }
     void ResumeGame()
     {
         Time.timeScale = 1f;
+        UIManager.Instance.QuitarPantallaPausa();
+    }
+
+    public void VolverAlInicio()
+    {
+        SceneManager.LoadScene(0);
     }
 }

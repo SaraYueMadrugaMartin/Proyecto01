@@ -40,8 +40,8 @@ public class Cinematica : MonoBehaviour
 
     public void CambioEscena()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         int escenaActual = SceneManager.GetActiveScene().buildIndex;
         int siguienteEscena = escenaActual + 1;
         SceneManager.LoadScene(siguienteEscena);

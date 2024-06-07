@@ -8,9 +8,9 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    [SerializeField] TextMeshProUGUI textoAviso;
-
     [SerializeField] GameObject panelPausa;
+    [SerializeField] GameObject panelAvisoSalir;
+    [SerializeField] TextMeshProUGUI textoAviso;
 
 
     private void OnEnable()
@@ -52,19 +52,26 @@ public class UIManager : MonoBehaviour
     public void PulsarBotonContinuar()
     {
         Pausa.TriggerResume();
-        //GameManager.instance.CargarEscena();
     }
 
     public void PulsarBotonSalir()
     {        
-        Pausa.TriggerResume();
+        panelAvisoSalir.SetActive(true);
         ActualizarTextoAviso("Se perderán los datos que no se hayan guardado.\nEstá seguro de que desea salir?");       
     }
 
     public void PulsarBotonSi()
     {
+        Pausa.TriggerResume();
         SceneManager.LoadScene(0);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Destroy(gameObject);
+    }
+
+    public void PulsarBotonNo()
+    {
+        panelAvisoSalir.SetActive(false);
     }
 
     public void ActualizarTextoAviso(string aviso)
