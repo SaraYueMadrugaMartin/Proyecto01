@@ -12,6 +12,8 @@ public class MostrarPuzzle01 : MonoBehaviour
 
     private bool jugadorTocando;
 
+    private bool puzzleYaResuelto = false;
+
     void Start()
     {
         Canvas canvas = FindObjectOfType<Canvas>();
@@ -30,8 +32,15 @@ public class MostrarPuzzle01 : MonoBehaviour
     {
         if (jugadorTocando && Input.GetKeyDown(KeyCode.E))
         {
-            Time.timeScale = 0f;
-            panelPuzzle01.SetActive(true);
+            if (!puzzleYaResuelto)
+            {
+                Time.timeScale = 0f;
+                panelPuzzle01.SetActive(true);
+            }
+            else
+            {
+                PuzzleYaResuelto();
+            }
         }
     }
 
@@ -58,6 +67,7 @@ public class MostrarPuzzle01 : MonoBehaviour
     IEnumerator MostrarResultadoPuzzle01()
     {
         Debug.Log("Has resuelto el puzzle, algo está pasando.");
+        puzzleYaResuelto = true;
         yield return new WaitForSecondsRealtime(2f);
         fadeAnimation.FadeOut();
         StartCoroutine(QuitarPanelPuzzle());
@@ -80,6 +90,13 @@ public class MostrarPuzzle01 : MonoBehaviour
     public void CerrarPuzzle()
     {
         Time.timeScale = 1f;
+        panelPuzzle01.SetActive(false);
+    }
+
+    private void PuzzleYaResuelto()
+    {
+        Time.timeScale = 0f;
+        panelResultado.SetActive(true);
         panelPuzzle01.SetActive(false);
     }
 }
