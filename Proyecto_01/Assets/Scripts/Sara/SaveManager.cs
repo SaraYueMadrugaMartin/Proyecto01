@@ -30,10 +30,18 @@ public struct InventarioState
 }
 
 [System.Serializable]
+public struct EnemigosState
+{
+    public GameObject enemigoActivo;
+}
+
+[System.Serializable]
 public struct SceneState
 {    
     public Vector2 posicionPlayer;
     public bool playerMiraDerecha;
+
+    public int enemigosMuertos;
 
     public List<PuertaState> puertasState; // Lista para guardar la información de PuertaState.
     public List<ItemState> itemsState; // Lista para guardar la información de ItemState.
@@ -47,6 +55,8 @@ public class SaveManager: MonoBehaviour
     private SceneState savedSceneState;
 
     Player infoPlayer;
+
+    Enemigo[] infoEnemigos;
 
     void Awake()
     {
@@ -74,20 +84,37 @@ public class SaveManager: MonoBehaviour
         else
         {
             savedSceneState = new SceneState();
-            Debug.Log("La escena se ha iniciado en un estado limpio sin datos previamente guardados.");
+            Debug.Log("La escena acaba de empezar sin ningún dato guardado.");
         }
     }
 
+    #region Guardar Datos Escena
     public void GuardarEstadoEscena()
     {
         SceneState sceneState = new SceneState();
 
+        #region Guardado Player
         // JUGADOR
         infoPlayer = FindObjectOfType<Player>();
         sceneState.posicionPlayer = infoPlayer.GetPosition();
         sceneState.playerMiraDerecha = infoPlayer.GetMiraDerecha();
         Debug.Log("El jugador mira hacia la: " + sceneState.playerMiraDerecha);
+        #endregion
 
+        #region Guardar Numero Enemigos Muertos
+        // ENEMIGOS
+        /*infoEnemigos = FindObjectsOfType<Enemigo>();
+        foreach (Enemigo enemigo in infoEnemigos)
+        {
+            sceneState.enemigosMuertos += enemigo.GetNumEnemMuertos();
+            Debug.Log("Número de enemigos muertos: " + sceneState.enemigosMuertos);
+        }*/
+
+        sceneState.enemigosMuertos = Enemigo.contadorEnemigosMuertos;
+        Debug.Log("Numero de enemigos muertos total: " + sceneState.enemigosMuertos);
+        #endregion
+
+        #region Guardado Items
         // ITEMS
         Items[] items = FindObjectsOfType<Items>();
         sceneState.itemsState = new List<ItemState>();
@@ -110,7 +137,9 @@ public class SaveManager: MonoBehaviour
 
             sceneState.itemsState.Add(itemState);
         }
+        #endregion
 
+        #region Guardado Inventario
         // INVENTARIO
         Inventario inventario = FindObjectOfType<Inventario>(); // Buscamos el objeto que contiene el componente "Inventario".
         sceneState.inventarioState = new List<InventarioState>(); // Lista donde almacenamos el estado del inventario.
@@ -131,7 +160,9 @@ public class SaveManager: MonoBehaviour
                 sceneState.inventarioState.Add(inventarioState);
             }
         }
+        #endregion
 
+        #region Guardado Puertas Desbloqueadas
         //PUERTAS
         Puerta[] puertas = FindObjectsOfType<Puerta>(); // Creamos un array de Puertas y buscamos todos los objetos de tipo "Puerta". 
         sceneState.puertasState = new List<PuertaState>();
@@ -154,23 +185,24 @@ public class SaveManager: MonoBehaviour
 
             Debug.Log("Puerta ID: " + puerta.idPuerta + ", Bloqueada: " + puertaState.puertaBloqueada + ", Activada: " + puertaState.puertaActivada);
         }
+        #endregion
 
         // Guardamos el estado de la escena en formato JSON
         string sceneStateJson = JsonUtility.ToJson(sceneState);
         PlayerPrefs.SetString("SavedSceneState", sceneStateJson);
         PlayerPrefs.Save();
-
     }
+    #endregion
 
+    #region Cargar Datos Escena
     public void CargarEstadoEscena()
     {
         if (PlayerPrefs.HasKey("SavedSceneState"))
         {
             string sceneStateJson = PlayerPrefs.GetString("SavedSceneState");
-
-            //Debug.Log(sceneStateJson);
             savedSceneState = JsonUtility.FromJson<SceneState>(sceneStateJson);
 
+            #region Cargar Datos Player
             //PLAYER
             Player playerMovement = FindObjectOfType<Player>();
             if (playerMovement != null)
@@ -178,8 +210,15 @@ public class SaveManager: MonoBehaviour
                 playerMovement.SetPosition(savedSceneState.posicionPlayer);
                 playerMovement.SetMiraDerecha(savedSceneState.playerMiraDerecha);
             }
+            #endregion
+            Enemigo.contadorEnemigosMuertos = savedSceneState.enemigosMuertos;
+            Debug.Log("Enemigos eliminados hasta ahora: " + savedSceneState.enemigosMuertos);
+            #region Cargar Numero Enemigos Muertos
+            //ENEMIGOS
 
+            #endregion
 
+            #region Cargar Datos Items
             //ITEMS
             Items[] items = FindObjectsOfType<Items>();
             if (items != null)
@@ -213,7 +252,9 @@ public class SaveManager: MonoBehaviour
                     }
                 }
             }
+            #endregion
 
+            #region Cargar Datos Estado Inventario
             // INVENTARIO
             Inventario inventario = FindObjectOfType<Inventario>();
             if (inventario != null && savedSceneState.inventarioState != null)
@@ -239,7 +280,9 @@ public class SaveManager: MonoBehaviour
                     }
                 }
             }
+            #endregion
 
+            #region Cargar Datos Estado Puertas Bloqueadas
             //PUERTAS
             foreach (PuertaState puertaState in savedSceneState.puertasState)
             {
@@ -257,12 +300,14 @@ public class SaveManager: MonoBehaviour
                     Debug.Log("Puerta ID " + puertaState.idPuerta + " - Bloqueada: " + puertaState.puertaBloqueada + ", Activada: " + puertaState.puertaActivada);
                 }
             }
+            #endregion
         }
     }
+    #endregion
 
     private Puerta GetPuertaID(int idPuerta)
     {
-        // Itera sobre todas las puertas en tu escena y devuelve la puerta con el ID dado
+        // Iteramos sobre todas las puertas en tu escena y devuelve la puerta con el ID dado
         Puerta[] puertas = FindObjectsOfType<Puerta>();
         foreach (Puerta puerta in puertas)
         {

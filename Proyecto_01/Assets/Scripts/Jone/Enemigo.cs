@@ -30,6 +30,8 @@ public class Enemigo : MonoBehaviour
 
     Animator anim;
 
+    public static int contadorEnemigosMuertos = 0;
+
     void Start()
     {
         saludActual = saludMax;
@@ -125,10 +127,21 @@ public class Enemigo : MonoBehaviour
         // Destroy(this.gameObject, 1f);    // Si decidimos que queremos directamente eliminar al enemigo
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
+        contadorEnemigosMuertos++;
 
         // Corrupcion jugador
         Player.contadorCorr +=1;
         Player.corrupcion += corrEnemigo;
         Debug.Log("Corrupción: " + Player.corrupcion + "%");
+    }
+
+    public int GetNumEnemMuertos()
+    {
+        return contadorEnemigosMuertos;
+    }
+
+    public void SetNumEnemMuertos(int enemMuertos)
+    {
+        contadorEnemigosMuertos = enemMuertos;
     }
 }

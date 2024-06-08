@@ -24,6 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/06_VHS2.unity
     guid: 651ce921a77ef5a41aff41130db6f864
   - enabled: 0
+    path: Assets/Scenes/Backup_Planta1.unity
+    guid: 085c10d52338b3849b7c3db0f2010c09
+  - enabled: 0
+    path: Assets/Scenes/PruebasGen.unity
+    guid: 4bfd33a29977e71488ac0f2a23769620
+  - enabled: 0
     path: Assets/Scenes/PruebasJone.unity
     guid: 92be9d4afa634124d81bcedff04b4161
   - enabled: 0

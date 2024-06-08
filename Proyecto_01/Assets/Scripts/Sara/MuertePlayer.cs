@@ -5,26 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MuertePlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Reiniciar()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void VolverPantallaInicio()
-    {
-        SceneManager.LoadScene(0);
+        GameManager.instance.ReiniciarEscena();
     }
 
     public void SalirJuego()
     {
-        Application.Quit();
-        Debug.Log("Has salido del juego");
+        SceneManager.LoadScene(0);
     }
 }
