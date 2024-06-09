@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    private void CargarCambiosEscenaGuardados(Scene scene, LoadSceneMode mode)
+    public void CargarCambiosEscenaGuardados(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= CargarCambiosEscenaGuardados;
         saveManager.CargarEstadoEscena();

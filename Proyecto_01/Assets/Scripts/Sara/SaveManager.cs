@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public struct PuertaState
@@ -54,6 +55,10 @@ public class SaveManager: MonoBehaviour
 
     private SceneState savedSceneState;
 
+    private int indiceEscenaGuardada;
+
+    [SerializeField] private GameObject botonCargarPartida;
+
     Player infoPlayer;
 
     Enemigo[] infoEnemigos;
@@ -80,11 +85,13 @@ public class SaveManager: MonoBehaviour
         {
             string sceneStateJson = PlayerPrefs.GetString("SavedSceneState");
             savedSceneState = JsonUtility.FromJson<SceneState>(sceneStateJson);
+            botonCargarPartida.SetActive(true);
         }
         else
         {
             savedSceneState = new SceneState();
             Debug.Log("La escena acaba de empezar sin ningún dato guardado.");
+            botonCargarPartida.SetActive(false);
         }
     }
 

@@ -28,6 +28,13 @@ public class MainMenu : MonoBehaviour
         audioMainMenu.StopMusic();
     }
 
+    public void CargarPartida()
+    {
+        SceneManager.LoadScene(4);
+        GameManager.instance.ReiniciarEscena();
+    }
+
+
     public void IrAjustes()
     {
         gameObject.SetActive(false);
