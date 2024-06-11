@@ -8,6 +8,7 @@ public class Items : MonoBehaviour
 {
     [SerializeField] public string nombreItem;
     [SerializeField] private Sprite sprite;
+    [SerializeField] private GameObject panelTutoLinterna;
     private Inventario inventario;
     private bool cogerObjeto = false;
 
@@ -71,6 +72,11 @@ public class Items : MonoBehaviour
                 }
                 else if (nombreItem == "Municion")
                     Player.municion += 12;
+                else if (nombreItem == "Linterna")
+                {
+                    Time.timeScale = 0f;
+                    panelTutoLinterna.SetActive(true);
+                }
 
                 DesactivarItem();
             }
@@ -96,6 +102,12 @@ public class Items : MonoBehaviour
         {
             cogerObjeto = false;
         }
+    }
+
+    public void BotonSalirTutoLinterna()
+    {
+        Time.timeScale = 1f;
+        panelTutoLinterna.SetActive(false);
     }
 
     public void ObjetoRecogido(bool value)
