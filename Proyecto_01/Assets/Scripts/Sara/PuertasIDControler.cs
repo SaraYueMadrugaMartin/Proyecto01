@@ -10,12 +10,6 @@ public class PuertasIDControler : MonoBehaviour
     [SerializeField] private Puerta[] puertas;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject cadenas;
-
-    //public List<Puerta> puertasConLlave;
-
-    //[SerializeField] private Puerta puerta;
-
-    //[SerializeField] private Vector2 posicionTransicion = new Vector2(8.51f, 0.51f);
     [SerializeField] private Vector2 posicionTransicion02;
 
     public static bool destruye = false;
@@ -34,23 +28,24 @@ public class PuertasIDControler : MonoBehaviour
         panelPregunta.SetActive(false);
         inventario.VaciarHueco("Llave");
 
-        foreach(Puerta puertasLlave in puertas)
+        for(int i = 0; i < puertas.Length; i++)
         {
-            if (puertasLlave.idPuerta == 3 && !puertasLlave.puertaBloqueada)
+            if (!puertas[i].puertaBloqueada)
             {
-                fadeAnimation.FadeOut();
-                cadenas.SetActive(false);
+                if(puertas[i].idPuerta != 3)
+                {
+                    fadeAnimation.FadeOut();
+                    puertas[i].CambioPosicionPlayer();
+                    Debug.Log("Cambia posicion");
+                }
+                else
+                {
+                    fadeAnimation.FadeOut();
+                    cadenas.SetActive(false);
+                    puertas[i].CambioPosicionPlayer();
+                    Debug.Log("Esta es la puerta 3, no hay cambio de posición");
+                }
             }
-            else if (!puertasLlave.puertaBloqueada)
-            {
-                fadeAnimation.FadeOut();
-                puertasLlave.CambioPosicionPlayer();
-            }
-        }
-
-        foreach (Puerta puerta in puertas)
-        {
-            
         }
     }
 
@@ -58,15 +53,6 @@ public class PuertasIDControler : MonoBehaviour
     {
         panelPregunta.SetActive(false);
     }
-
-    /*public void CambioPosicionPlayer()
-    {
-        if (inventario.TieneObjeto("Llave"))
-            player.transform.position = posicionTransicion;
-        else if (inventario.TieneObjeto("Fusible"))
-            player.transform.position = posicionTransicion02;
-    }*/
-
 
     public void NotificarDestruccionPuerta(Puerta puerta)
     {

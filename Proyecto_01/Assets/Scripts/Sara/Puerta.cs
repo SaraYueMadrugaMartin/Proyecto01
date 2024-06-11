@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class Puerta : MonoBehaviour
     [SerializeField] public PlantillaPuertas puertaAsociada; // Referenciamos el scriptable para asignar a cada puerta y poder comparar con la ID de las llaves.
     [SerializeField] private Inventario inventario;
     [SerializeField] private GameObject panelMensajeNo;
+    [SerializeField] private TextMeshProUGUI textoPuertasCerradas;
     [SerializeField] private GameObject panelPregunta;
     [SerializeField] private GameObject puertasSinLlave; // Asociamos las puertas sin llave que deben activarse cuando se desbloqueen las puertas con llave.
 
@@ -47,6 +49,12 @@ public class Puerta : MonoBehaviour
         {
             panelMensajeNo.SetActive(true);
             puertaBloqueada = true;
+            if (idPuerta == 2)
+                textoPuertasCerradas.text = "Necesitas una fuente de alimentación para abrir esta puerta";
+            else if (idPuerta == 3)
+                textoPuertasCerradas.text = "Necsitas una llave para poder quitar estas cadenas";
+            else
+                textoPuertasCerradas.text = "Necesitas una llave para abrir esta puerta";
         }
         else
         {
@@ -109,7 +117,7 @@ public class Puerta : MonoBehaviour
 
     public void CambioPosicionPlayer()
     {
-        if(idPuerta != 3)
+        //if(idPuerta != 3)
             StartCoroutine(EsperarCambioPos());
     }
 
