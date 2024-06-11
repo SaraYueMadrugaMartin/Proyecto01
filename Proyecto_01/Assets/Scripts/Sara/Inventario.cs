@@ -29,7 +29,7 @@ public class Inventario : MonoBehaviour
     public bool objetoEnInventario = false;
 
     public static Inventario Instance;
-    private bool estadoInvent = false;
+    public static bool estadoInvent = false;
     private int llaveID = 0;
 
     SFXManager sfxManager;
@@ -60,7 +60,7 @@ public class Inventario : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && estadoInvent)
+        if ((Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.Escape)) && estadoInvent)
         {            
             Time.timeScale = 1;
             sfxManager.PlaySFX(sfxManager.clipsDeAudio[9]);
@@ -68,6 +68,8 @@ public class Inventario : MonoBehaviour
             inventario.SetActive(false);
             estadoInvent = false;
             DeseleccionarObjetos();
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             if (EntradaFinal.salaFinal)
                 panelVidaXela.SetActive(true);
         }
@@ -78,6 +80,8 @@ public class Inventario : MonoBehaviour
             Time.timeScale = 0;
             inventario.SetActive(true);
             estadoInvent = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             panelVidaXela.SetActive(false);
         }
     }

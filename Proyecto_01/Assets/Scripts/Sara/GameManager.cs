@@ -42,19 +42,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (TelevisorVHS.CineReproduciendo)
-            {
-                // Delegar la pausa/reanudación a TelevisorVHS
-                if (!TelevisorVHS.CineReproduciendo)
-                {
-                    Pausa.TriggerPause();
-                }
-                else
-                {
-                    Pausa.TriggerResume();
-                }
-            }
-            else
+            if (!Cinematicas.CineReproduciendo && !Inventario.estadoInvent)
             {
                 // Manejo normal del panel de pausa
                 if (Time.timeScale != 0)

@@ -243,12 +243,12 @@ public class Xela : MonoBehaviour
         if(Player.contadorCorr < Player.enemigosFinMalo)
         {
             Debug.Log("Reproduce final bueno");
-            StartCoroutine(ReproducirFinBueno());
+            Cinematicas.Instance.Reproducir(1);
         }
         else
         {
             Debug.Log("Reproduce final malo");
-            StartCoroutine(ReproducirFinMalo());
+            Cinematicas.Instance.Reproducir(2);
         }
     }
 
@@ -266,7 +266,7 @@ public class Xela : MonoBehaviour
     {
         sonidosXela.Xela.Stop();
     }
-
+    /*
     #region CinematicasFinales
     IEnumerator ReproducirFinBueno()
     {
@@ -323,6 +323,6 @@ public class Xela : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
-    #endregion
+    #endregion*/
 }
 

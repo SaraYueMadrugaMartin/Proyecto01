@@ -465,6 +465,8 @@ public class Player : MonoBehaviour
         yield return new WaitForSecondsRealtime(1.5f);
         EntradaFinal.DesactivaPanel();
         panelMuerte.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Time.timeScale = 0f;
     }
     public void Reintentar()

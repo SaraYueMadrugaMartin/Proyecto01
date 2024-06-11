@@ -9,10 +9,13 @@ public class Cinematicas : MonoBehaviour
 
     [SerializeField] private GameObject panelPausa;
     [SerializeField] private GameObject cintaVHS;
+    [SerializeField] private GameObject cintaFinBueno;
+    [SerializeField] private GameObject cintaFinMalo;
+    private GameObject cinta;
     private VideoPlayer cinematica;
+
     private bool pausado = false;
-    private bool reproduciendo = false;
-    AudioManager audioManager;
+
     public static bool CineReproduciendo { get; private set; } = false;
 
     [SerializeField] GameObject puertaGO;
@@ -30,24 +33,56 @@ public class Cinematicas : MonoBehaviour
             Destroy(gameObject);
     }
 
-    void ReproducirVHS()
+    private void Start()
     {
-        cintaVHS.SetActive(true);
+        cintaVHS.SetActive(false);
+        panelPausa.SetActive(false);
+        puerta = puertaGO.GetComponent<MirrorPuerta>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && CineReproduciendo)
+        {
+            if (!pausado)
+                Pausar();
+            else
+                Reanudar();
+        }
+    }
+
+    public void Reproducir(int cinem)
+    {
+        switch (cinem)
+        {
+            case 0:
+                cinta = cintaVHS;
+                break;
+            case 1:
+                cinta = cintaFinBueno;
+                break;
+            case 2:
+                cinta = cintaFinMalo;
+                break;
+        }
+        cinematica = cinta.GetComponent<VideoPlayer>();
+
+        cinta.SetActive(true);
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
         cinematica.Play();
-        reproduciendo = true;
         CineReproduciendo = true;
-        audioManager.Stop("MainTheme");
+        AudioManager.instance.StopAllSounds();
         cinematica.loopPointReached += OnVideoEnd;
     }
 
     void OnVideoEnd(VideoPlayer vp)
     {
+        cinta.SetActive(false);
         puerta.VHSVisto();
-        cintaVHS.SetActive(false);
-        reproduciendo = false;
+        Debug.Log("puerta abre");
         CineReproduciendo = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -80,8 +115,9 @@ public class Cinematicas : MonoBehaviour
         Debug.Log("SaltarCinematica llamada"); // Mensaje de depuración
         cinematica.Pause();
         puerta.VHSVisto();
-        cintaVHS.SetActive(false);
-        reproduciendo = false;
+        cinta.SetActive(false);
+        CineReproduciendo = false;
+        panelPausa.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
