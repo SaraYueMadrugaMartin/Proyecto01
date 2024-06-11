@@ -9,7 +9,6 @@ public class EventoEncenderLuces : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {          
-            Debug.Log("se cumple");
             CambiaLuces();
         }
     }
