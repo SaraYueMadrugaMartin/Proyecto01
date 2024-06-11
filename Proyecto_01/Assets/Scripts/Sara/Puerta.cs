@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class Puerta : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
     [SerializeField] public PlantillaPuertas puertaAsociada; // Referenciamos el scriptable para asignar a cada puerta y poder comparar con la ID de las llaves.
     [SerializeField] private Inventario inventario;
-    //[SerializeField] private TutorialGeneralController tutoController;
     [SerializeField] private GameObject panelMensajeNo;
     [SerializeField] private GameObject panelPregunta;
-    //[SerializeField] private FadeAnimation fadeAnimation;
+    [SerializeField] private GameObject puertasSinLlave; // Asociamos las puertas sin llave que deben activarse cuando se desbloqueen las puertas con llave.
+
+    [SerializeField] private Vector2 posNueva;
 
     public PuertasIDControler controladorPuertas;
 
@@ -26,17 +28,15 @@ public class Puerta : MonoBehaviour
     {
         puertaColliders = GetComponents<Collider2D>();
         panelMensajeNo.SetActive(false);
-        //puertaSL.SetActive(false);
+        puertasSinLlave.SetActive(false); // Las puertas sin llave asociadas a las puertas bloqueadas las iniciamos desactivadas.
     }
 
     private void Update()
     {
         if (jugadorTocando && Input.GetKeyDown("e"))
         {
+            ActualizarEstadoPuerta();
             InteractuarConPuerta();
-            //tutoController.ActivarPanelTuto01();
-
-            //RecibeIDPuerta(idPuerta);
             Debug.Log("Esta es la puerta con ID: " + idPuerta);
         }
     }
@@ -59,10 +59,7 @@ public class Puerta : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-        {
             jugadorTocando = true;
-            ActualizarEstadoPuerta();
-        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -81,18 +78,12 @@ public class Puerta : MonoBehaviour
             int llaveID = inventario.BuscaIDLlave();
 
             if (CompararIDs(llaveID))
-            {
                 puertaAsociada.puertaBloqueada = false;
-            }
             else
-            {
                 puertaAsociada.puertaBloqueada = true;
-            }               
         }
         else
-        {
             puertaAsociada.puertaBloqueada = true;
-        }
         Debug.Log("La puerta está: " + (puertaAsociada.puertaBloqueada ? "bloqueada" : "desbloqueada"));
     }
 
@@ -108,29 +99,31 @@ public class Puerta : MonoBehaviour
             Debug.Log("La llave no es la correcta. Necesitas otra.");
             return false;
         }
-   }
+    }
+
+    public void ActivarPuertaSinLlave() // Cuando se desbloquee la puerta con llave, se activará la puerta sin llave asociada a esta.
+    {
+        puertasSinLlave.SetActive(true);
+        Debug.Log("Se ha activado la puerta sin llave");
+    }
+
+    public void CambioPosicionPlayer()
+    {
+        if(idPuerta != 3)
+            StartCoroutine(EsperarCambioPos());
+    }
+
+    IEnumerator EsperarCambioPos()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        player.transform.position = posNueva;
+    }
 
     public void DesactivarColliders()
     {
         foreach (Collider2D colliderPuerta in puertaColliders)
-        {
             colliderPuerta.enabled = false;
-        }
     }
-
-    /*public void DestruirPuerta()
-    {
-        // Obtener el ID de la puerta actual
-        int idActual = idPuerta;
-
-        // Comparar el ID de la puerta actual con el ID almacenado en el script
-        if (idActual == idPuerta)
-        {
-            // Desactivar solo esta puerta
-            gameObject.SetActive(false);
-            Debug.Log("Destruye puerta: " + gameObject.name);
-        }    
-    }*/
 
     public bool GetPuertaBloqueada()
     {
@@ -142,10 +135,4 @@ public class Puerta : MonoBehaviour
         puertaBloqueada = value;
         //puertaAsociada.puertaBloqueada = value;
     }
-
-    /*public int RecibeIDPuerta(int puertaAsociada) // DE MOMENTO NO SIRVE DE NADA
-    {
-        idPuerta = puertaAsociada;
-        return idPuerta;
-    }*/
 }

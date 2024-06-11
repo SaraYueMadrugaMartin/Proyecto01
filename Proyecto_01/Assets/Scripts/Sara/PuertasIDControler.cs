@@ -10,6 +10,9 @@ public class PuertasIDControler : MonoBehaviour
     [SerializeField] private Puerta[] puertas;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject cadenas;
+
+    //public List<Puerta> puertasConLlave;
+
     //[SerializeField] private Puerta puerta;
 
     //[SerializeField] private Vector2 posicionTransicion = new Vector2(8.51f, 0.51f);
@@ -26,20 +29,28 @@ public class PuertasIDControler : MonoBehaviour
 
     public void UsarLlave()
     {
-        //Invoke("CambioPosicionPlayer", 1f);
-        sfxManager.PlaySFX(sfxManager.clipsDeAudio[13]);
-        fadeAnimation.FadeOut();
+        sfxManager.PlaySFX(sfxManager.clipsDeAudio[13]);        
         destruye = true;
         panelPregunta.SetActive(false);
         inventario.VaciarHueco("Llave");
 
+        foreach(Puerta puertasLlave in puertas)
+        {
+            if (puertasLlave.idPuerta == 3 && !puertasLlave.puertaBloqueada)
+            {
+                fadeAnimation.FadeOut();
+                cadenas.SetActive(false);
+            }
+            else if (!puertasLlave.puertaBloqueada)
+            {
+                fadeAnimation.FadeOut();
+                puertasLlave.CambioPosicionPlayer();
+            }
+        }
+
         foreach (Puerta puerta in puertas)
         {
-            if (puerta.idPuerta == 3 && !puerta.puertaBloqueada) // Comparamos que la puerta con ese ID sea la desbloqueada.
-            {
-                cadenas.SetActive(false);
-                break;
-            }
+            
         }
     }
 
@@ -56,10 +67,12 @@ public class PuertasIDControler : MonoBehaviour
             player.transform.position = posicionTransicion02;
     }*/
 
+
     public void NotificarDestruccionPuerta(Puerta puerta)
     {
         DestruirPuerta(puerta.idPuerta);
         puerta.DesactivarColliders();
+        puerta.ActivarPuertaSinLlave();
     }
 
     public void DestruirPuerta(int idPuerta)

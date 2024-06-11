@@ -8,13 +8,27 @@ public class SiguienteEscena : MonoBehaviour
     [SerializeField] private FadeAnimation fadeAnimation;
     [SerializeField] private GameObject player;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private bool jugadorTocando = false;
+
+    private void Update()
     {
-        if (collision.tag == "Player")
+        if(jugadorTocando && Input.GetKeyDown(KeyCode.E))
         {
             fadeAnimation.FadeOutNivel();
             StartCoroutine(SiguienteNivel());
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+            jugadorTocando = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+            jugadorTocando = false;
     }
 
     IEnumerator SiguienteNivel()
