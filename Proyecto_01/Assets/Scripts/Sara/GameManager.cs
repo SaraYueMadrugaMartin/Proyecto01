@@ -72,9 +72,9 @@ public class GameManager : MonoBehaviour
 
     public void ReiniciarEscena()
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Debug.Log("carga datos");
         SceneManager.sceneLoaded += CargarCambiosEscenaGuardados;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void CargarCambiosEscenaGuardados(Scene scene, LoadSceneMode mode)

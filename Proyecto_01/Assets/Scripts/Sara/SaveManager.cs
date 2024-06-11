@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -60,6 +61,8 @@ public class SaveManager: MonoBehaviour
     [SerializeField] private GameObject botonCargarPartida;
 
     Player infoPlayer;
+
+    Items[] items;
 
     Enemigo[] infoEnemigos;
 
@@ -123,26 +126,25 @@ public class SaveManager: MonoBehaviour
 
         #region Guardado Items
         // ITEMS
-        Items[] items = FindObjectsOfType<Items>();
+        items = FindObjectsOfType<Items>();
         sceneState.itemsState = new List<ItemState>();
 
         foreach (Items item in items)
         {
             ItemState itemState = new ItemState();
 
-            itemState.nombreItem = item.nombreItem;
-            itemState.idItem = item.GetIDsItem();
-            Debug.Log("Se ha guardado el objeto: " + itemState.nombreItem + " con ID: " + itemState.idItem);
-            itemState.objetoRecogido = item.GetObjetoRecogido();
-            itemState.posicionItem = item.GetPosition();
-            itemState.spritesActivos = new bool[item.GetSpriteRenderers().Length];
+            itemState.nombreItem = item.nombreItem; // Asignamos el nombre del item y guardamos
+            itemState.idItem = item.GetIDsItem(); // Asignamos el ID del item y lo guardamos
+            itemState.objetoRecogido = item.GetObjetoRecogido(); // Asignamos si el item ha sido o no recogido y lo guardamos
+            itemState.posicionItem = item.GetPosition(); // Asignamos la posición donde está el item y lo guardamos
 
+            itemState.spritesActivos = new bool[item.GetSpriteRenderers().Length];
             for (int i = 0; i < item.GetSpriteRenderers().Length; i++)
             {
-                itemState.spritesActivos[i] = item.GetSpriteRenderers()[i].enabled;
+                itemState.spritesActivos[i] = item.GetSpriteRenderers()[i].enabled; // Asignamos el estado del sprite del item y lo guardamos
             }
 
-            sceneState.itemsState.Add(itemState);
+            sceneState.itemsState.Add(itemState); // Añadimos toda esta información a nuestra lista de Items
         }
         #endregion
 
@@ -227,18 +229,35 @@ public class SaveManager: MonoBehaviour
 
             #region Cargar Datos Items
             //ITEMS
-            Items[] items = FindObjectsOfType<Items>();
-            if (items != null)
+            Items[] itemsGuardados = FindObjectsOfType<Items>();
+
+            if (itemsGuardados != null)
+            {
+                foreach (ItemState itemState in savedSceneState.itemsState)
+                {
+                    Items item = itemsGuardados.SingleOrDefault(x => x.GetIDsItem() == itemState.idItem);
+                    if (item != null)
+                    {
+                        Debug.Log("Hasta aquí");
+                    }
+                }
+            }
+            /*Items[] itemsGuardados = FindObjectsOfType<Items>();
+            if (itemsGuardados != null)
             {
                 if (savedSceneState.itemsState != null)
                 {
                     foreach (ItemState itemState in savedSceneState.itemsState)
                     {
-                        Items item = Array.Find(items, x => x.GetIDsItem() == itemState.idItem);
+                        // Busca el objeto Items con el mismo ID que el estado guardado
+                        Items item = itemsGuardados.FirstOrDefault(x => x.GetIDsItem() == itemState.idItem);
+
                         if (item != null)
                         {
+                            item.SetIDsItem(itemState.idItem);
                             item.objetoRecogido = itemState.objetoRecogido;
                             item.SetPosition(itemState.posicionItem);
+
                             // Actualiza el estado de los SpriteRenderer
                             var spriteRenderers = item.GetSpriteRenderers();
                             if (spriteRenderers != null)
@@ -251,6 +270,7 @@ public class SaveManager: MonoBehaviour
                                     }
                                 }
                             }
+
                             if (item.objetoRecogido)
                             {
                                 item.DesactivarItem();
@@ -258,7 +278,7 @@ public class SaveManager: MonoBehaviour
                         }
                     }
                 }
-            }
+            }*/
             #endregion
 
             #region Cargar Datos Estado Inventario
