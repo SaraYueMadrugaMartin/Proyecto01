@@ -69,7 +69,7 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
     public void VaciarHueco()
     {
         nombreItem = "";
-        cantidad = 0;
+        //cantidad = 0;
         sprite = null;
         estaCompleto = false;
         fotoItem.sprite = null;

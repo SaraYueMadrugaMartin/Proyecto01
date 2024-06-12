@@ -117,6 +117,11 @@ public class Inventario : MonoBehaviour
 
     public void VaciarHueco(string nombreItem)
     {
+        if(nombreItem == "Llave")
+        {
+
+        }
+
         foreach (HuecosInventario hueco in huecosInventario)
         {
             if (hueco.nombreItem == nombreItem)
