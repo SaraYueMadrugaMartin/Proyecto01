@@ -279,6 +279,8 @@ public class Player : MonoBehaviour
                     puntero.enabled = true;
                     anim.SetBool("estaApuntando", true);
                     anim.SetBool("estaRecargando", false);
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
                 }
             }
         }
@@ -286,7 +288,7 @@ public class Player : MonoBehaviour
 
     private void AtaqueBate()
     {
-        if (Time.time >= tiempoSiguienteAtaque) // Cooldown entre ataques
+        if (Time.time >= tiempoSiguienteAtaque && !Inventario.estadoInvent) // Cooldown entre ataques
         {
             if (Input.GetMouseButtonDown(0)) // Click izquierdo del ratón
             {

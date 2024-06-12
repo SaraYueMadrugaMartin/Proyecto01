@@ -7,11 +7,20 @@ public class Tutoriales : MonoBehaviour
     [SerializeField] private GameObject panelTutoriales;
     private Collider2D collidersTuto;
     private bool colliderDesactivado = false;
+    private bool tutoAbierto = false;
 
     void Start()
     {
         collidersTuto = GetComponent<Collider2D>();
         panelTutoriales.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if(tutoAbierto && Input.GetKeyDown(KeyCode.Escape))
+        {
+            SalirTuto();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -20,14 +29,20 @@ public class Tutoriales : MonoBehaviour
         {
             Time.timeScale = 0f;
             panelTutoriales.SetActive(true);
+            tutoAbierto = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
     public void SalirTuto()
     {
         panelTutoriales.SetActive(false);
+        tutoAbierto = false;
         collidersTuto.enabled = false;
         colliderDesactivado = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         Time.timeScale = 1f;
     }
 }
