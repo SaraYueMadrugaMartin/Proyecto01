@@ -7,10 +7,9 @@ using System;
 public class AudioManager : MonoBehaviour
 {
     public Sonidos[] sonidos;
-
     public static AudioManager instance;
 
-    // volumen general que multiplique los volumenes de todas las pistas
+    private float volumenGeneral = 1.0f; // Multiplicador de volumen general
 
     void Awake()
     {
@@ -24,7 +23,7 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        
+
         DontDestroyOnLoad(gameObject);
 
         foreach (Sonidos s in sonidos)
@@ -32,16 +31,21 @@ public class AudioManager : MonoBehaviour
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
 
-            s.source.volume = s.volumen; // aquí se multiplica
+            s.source.volume = s.volumen * volumenGeneral; // Multiplicar por el volumen general
             s.source.pitch = s.tono;
             s.source.loop = s.loop;
         }
+
+        // Cargar el volumen general guardado
+        CargarVolumen();
     }
+
     private void Start()
     {
         Play("MainTheme");
     }
-    public void Play (string nombreSonido)
+
+    public void Play(string nombreSonido)
     {
         Sonidos s = Array.Find(sonidos, sonido => sonido.nombre == nombreSonido);
         if (s == null)
@@ -71,4 +75,31 @@ public class AudioManager : MonoBehaviour
             s.source.Stop();
         }
     }
+
+    public void ActualizarVolumenGeneral(float nuevoVolumen)
+    {
+        volumenGeneral = nuevoVolumen;
+        foreach (Sonidos s in sonidos)
+        {
+            s.source.volume = s.volumen * volumenGeneral;
+        }
+        // Guardar el volumen general
+        GuardarVolumen();
+    }
+
+    private void GuardarVolumen()
+    {
+        PlayerPrefs.SetFloat("VolumenGeneral", volumenGeneral);
+        PlayerPrefs.Save();
+    }
+
+    private void CargarVolumen()
+    {
+        if (PlayerPrefs.HasKey("VolumenGeneral"))
+        {
+            volumenGeneral = PlayerPrefs.GetFloat("VolumenGeneral");
+            ActualizarVolumenGeneral(volumenGeneral);
+        }
+    }
 }
+
