@@ -20,6 +20,7 @@ public class Cinematica : MonoBehaviour
         Cursor.visible = false;
         videoPlayer.loopPointReached += OnVideoEnd;
         panelPausa.SetActive(false);
+        Cinematicas.CineReproduciendo = true;
     }
 
     private void Update()
@@ -42,6 +43,7 @@ public class Cinematica : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        Cinematicas.CineReproduciendo = false;
         int escenaActual = SceneManager.GetActiveScene().buildIndex;
         int siguienteEscena = escenaActual + 1;
         SceneManager.LoadScene(siguienteEscena);

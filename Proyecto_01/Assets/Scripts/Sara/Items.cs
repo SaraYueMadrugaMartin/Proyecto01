@@ -9,6 +9,7 @@ public class Items : MonoBehaviour
     [SerializeField] public string nombreItem;
     [SerializeField] private Sprite sprite;
     [SerializeField] private GameObject panelTutoLinterna;
+    private bool tutoAbierto = false;
     private Inventario inventario;
     private bool cogerObjeto = false;
 
@@ -76,6 +77,9 @@ public class Items : MonoBehaviour
                 {
                     Time.timeScale = 0f;
                     panelTutoLinterna.SetActive(true);
+                    tutoAbierto = true;
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
                 }
 
                 DesactivarItem();
@@ -85,6 +89,10 @@ public class Items : MonoBehaviour
                 panelAvisoInventarioCompleto.AparecerPanelAvisoInventarioCompleto();
                 Debug.Log("¡El inventario está lleno! No se puede recoger el objeto.");
             }
+        }
+        if(tutoAbierto && Input.GetKeyDown(KeyCode.Escape))
+        {
+            BotonSalirTutoLinterna();
         }
     }
 
@@ -108,6 +116,9 @@ public class Items : MonoBehaviour
     {
         Time.timeScale = 1f;
         panelTutoLinterna.SetActive(false);
+        tutoAbierto = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void ObjetoRecogido(bool value)

@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 
     public SaveManager saveManager;
 
-    [SerializeField] GameObject panelPausa;
 
     private void OnEnable()
     {

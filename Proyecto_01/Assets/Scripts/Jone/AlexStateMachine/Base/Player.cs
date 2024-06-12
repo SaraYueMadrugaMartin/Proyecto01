@@ -486,23 +486,18 @@ public class Player : MonoBehaviour
         switch (estadoCorr)
         {
             case 0:
-                Debug.Log("cambio animator");
                 anim.runtimeAnimatorController = animatorController0;               
                 break;
             case 1:
-                Debug.Log("cambio animator");
                 anim.runtimeAnimatorController = animatorController1;
                 break;
             case 2:
-                Debug.Log("cambio animator");
                 anim.runtimeAnimatorController = animatorController2;
                 break;
             case 3:
-                Debug.Log("cambio animator");
                 anim.runtimeAnimatorController = animatorController3;
                 break;
             default:
-                Debug.Log("cambio animator");
                 anim.runtimeAnimatorController = animatorController4;
                 break;
         }

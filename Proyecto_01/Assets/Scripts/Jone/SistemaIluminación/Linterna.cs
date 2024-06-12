@@ -25,7 +25,12 @@ public class Linterna : MonoBehaviour
         {
             enciendeLinterna = !enciendeLinterna;
             CambiaEstado();
-        }        
+        }
+        if (!tieneLinterna)
+        {
+            enciendeLinterna = false;
+            luz.enabled = false;
+        }           
     }
 
     void CambiaEstado()
