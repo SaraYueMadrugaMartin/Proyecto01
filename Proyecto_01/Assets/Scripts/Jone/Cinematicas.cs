@@ -16,7 +16,7 @@ public class Cinematicas : MonoBehaviour
 
     private bool pausado = false;
 
-    public static bool CineReproduciendo { get; private set; } = false;
+    public static bool CineReproduciendo { get; set; } = false;
 
     [SerializeField] GameObject puertaGO;
     MirrorPuerta puerta;
