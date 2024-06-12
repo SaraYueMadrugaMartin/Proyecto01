@@ -59,6 +59,8 @@ public class Puerta : MonoBehaviour
         else
         {
             panelPregunta.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             puertaBloqueada = false;
             controladorPuertas.NotificarDestruccionPuerta(this);
         }
