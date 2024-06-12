@@ -11,6 +11,8 @@ public class Documentos : MonoBehaviour
 
     public bool jugadorTocando = false;
 
+    private bool docuAbierto = false;
+
     private void Start()
     {
         inventario = FindObjectOfType<Inventario>();
@@ -20,11 +22,15 @@ public class Documentos : MonoBehaviour
     {
         if (jugadorTocando && Input.GetKeyDown("e"))
         {
-            if (!inventario.InventarioCompleto())
-            {
-                Time.timeScale = 0;
-                panelAsociado.SetActive(true);
-            }            
+            Time.timeScale = 0;
+            panelAsociado.SetActive(true);
+            docuAbierto = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        if (docuAbierto && Input.GetKeyDown(KeyCode.Escape))
+        {
+            SalirDocs();
         }
     }
 
@@ -48,6 +54,9 @@ public class Documentos : MonoBehaviour
     {
         Time.timeScale = 1;
         panelAsociado.SetActive(false);
+        docuAbierto = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     /*[SerializeField] private GameObject mensajeDoc;
