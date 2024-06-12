@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Gramola : MonoBehaviour
 {
+    [SerializeField] private Inventario inventario;
     private bool estaTocando = false;
 
     private void Update()
@@ -18,6 +19,7 @@ public class Gramola : MonoBehaviour
                 Player.monedasCorr -= 1;
                 // Reproduce música y espera a que termine el audio
                 FindObjectOfType<AudioManager>().Play("Gramola");
+                inventario.VaciarHueco("Moneda");
                 Player.corrupcion = 0;
                 Debug.Log("Gasta moneda");
             }
