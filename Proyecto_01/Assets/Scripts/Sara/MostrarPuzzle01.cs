@@ -36,6 +36,8 @@ public class MostrarPuzzle01 : MonoBehaviour
             {
                 Time.timeScale = 0f;
                 panelPuzzle01.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
             else
             {
@@ -91,6 +93,8 @@ public class MostrarPuzzle01 : MonoBehaviour
     {
         Time.timeScale = 1f;
         panelPuzzle01.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void PuzzleYaResuelto()

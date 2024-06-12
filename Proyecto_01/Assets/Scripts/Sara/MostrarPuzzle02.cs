@@ -29,6 +29,8 @@ public class MostrarPuzzle02 : MonoBehaviour
         {
             Time.timeScale = 0f;
             panelPuzzle.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
@@ -69,5 +71,7 @@ public class MostrarPuzzle02 : MonoBehaviour
     {
         Time.timeScale = 1f;
         panelPuzzle.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
