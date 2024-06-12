@@ -46,14 +46,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sonidos:
   - nombre: MainTheme
-    clip: {fileID: 8300000, guid: ed48941ea0123cd4b9c00c6186bbece4, type: 3}
-    volumen: 0.553
-    tono: 1.6
-    loop: 0
+    clip: {fileID: 8300000, guid: 12adece71a0b83548885387a056f1c73, type: 3}
+    volumen: 0.5
+    tono: 1
+    loop: 1
     source: {fileID: 0}
   - nombre: Gramola
     clip: {fileID: 8300000, guid: 71ec0409720922d44b3570b7a64bc3f3, type: 3}
-    volumen: 0.553
-    tono: 1.6
+    volumen: 0.5
+    tono: 1
     loop: 0
+    source: {fileID: 0}
+  - nombre: EscenaCab
+    clip: {fileID: 8300000, guid: b9a0b4348dba04b4f95b258823d86a61, type: 3}
+    volumen: 0.5
+    tono: 1
+    loop: 1
+    source: {fileID: 0}
+  - nombre: Planta1
+    clip: {fileID: 8300000, guid: 46dec17233e077440bd67ccfd92fb9cb, type: 3}
+    volumen: 0.5
+    tono: 1
+    loop: 1
+    source: {fileID: 0}
+  - nombre: Carcel
+    clip: {fileID: 8300000, guid: 073928cae4c2afa48b2af06364eb72a7, type: 3}
+    volumen: 0.5
+    tono: 1
+    loop: 1
+    source: {fileID: 0}
+  - nombre: CentroComercial
+    clip: {fileID: 8300000, guid: 7e139db8685f45e429bcae49202a5992, type: 3}
+    volumen: 0.5
+    tono: 1
+    loop: 1
+    source: {fileID: 0}
+  - nombre: Laberinto
+    clip: {fileID: 8300000, guid: 20a12c9bdc8e91a428beb13279480910, type: 3}
+    volumen: 0.5
+    tono: 1
+    loop: 1
+    source: {fileID: 0}
+  - nombre: SaveRoom1
+    clip: {fileID: 8300000, guid: e46a72e0a689af74fb6e87c4e66c7847, type: 3}
+    volumen: 0.5
+    tono: 1
+    loop: 1
+    source: {fileID: 0}
+  - nombre: SaveRoom2
+    clip: {fileID: 8300000, guid: 67ecd984b513b444fab429e5183be7c2, type: 3}
+    volumen: 0.5
+    tono: 1
+    loop: 1
+    source: {fileID: 0}
+  - nombre: Pelea
+    clip: {fileID: 8300000, guid: 848de1ebb94d03747887b57d52b7f44e, type: 3}
+    volumen: 0.5
+    tono: 1
+    loop: 1
+    source: {fileID: 0}
+  - nombre: PasilloLena
+    clip: {fileID: 8300000, guid: ffb02dffc51c802409344f21b65042ba, type: 3}
+    volumen: 0.5
+    tono: 1
+    loop: 1
     source: {fileID: 0}
