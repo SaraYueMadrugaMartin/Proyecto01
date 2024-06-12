@@ -23,6 +23,9 @@ public class MostrarPuzzle01 : MonoBehaviour
             if (panelTransform != null)
             {
                 panelPuzzle01 = panelTransform.gameObject;
+            } else
+            {
+                Debug.LogWarning("No ha encontrado panel puzzle");
             }
         }
         panelResultado.SetActive(false);
