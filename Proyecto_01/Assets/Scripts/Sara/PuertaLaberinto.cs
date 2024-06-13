@@ -10,6 +10,8 @@ public class PuertaLaberinto : MonoBehaviour
     [SerializeField] private GameObject panelFaltanPiezas;
     [SerializeField] private TextMeshProUGUI textoPiezas;
     [SerializeField] private GameObject panelAdvertencia;
+    [SerializeField] private GameObject puertaSinLlave;
+    [SerializeField] private Player player;
 
     SFXManager sfxManager;
 
@@ -17,12 +19,14 @@ public class PuertaLaberinto : MonoBehaviour
     private bool todasPiezas = false;
     private bool valvulaCabeza = false;
     private bool valvulaCuerpo = false;
+    private Vector2 posNueva = new Vector2(7.51f, 65.7f);
 
     void Start()
     {
         sfxManager = FindObjectOfType<SFXManager>();
         panelFaltanPiezas.SetActive(false);
         panelAdvertencia.SetActive(false);
+        puertaSinLlave.SetActive(false);
     }
 
     void Update()
@@ -51,6 +55,7 @@ public class PuertaLaberinto : MonoBehaviour
             }
             else
             {
+                puertaSinLlave.SetActive(true);
                 Time.timeScale = 0f;
                 panelAdvertencia.SetActive(true);
                 StartCoroutine(AbrirPuerta());
@@ -84,9 +89,10 @@ public class PuertaLaberinto : MonoBehaviour
 
     IEnumerator AbrirPuerta()
     {
-        yield return new WaitForSecondsRealtime(1f);
-        fadeAnimation.FadeOutNivel();
+        yield return new WaitForSecondsRealtime(0.5f);
+        fadeAnimation.FadeOut();
         sfxManager.PlaySFX(sfxManager.clipsDeAudio[19]);
+        player.transform.position = posNueva;
         panelAdvertencia.SetActive(false);
         gameObject.SetActive(false);
         inventario.VaciarHueco("ValvulaCabeza");

@@ -11,7 +11,7 @@ public class MostrarPuzzle02 : MonoBehaviour
     [SerializeField] private FadeAnimation fadeAnimation;
     [SerializeField] public GameObject puertaSinLlave;
 
-    private Vector2 posNueva = new Vector2(-26.49f, 97.844f);
+    private Vector2 posNueva = new Vector2(-26.57f, 97.844f);
 
     private Collider2D[] collidersPuerta;
     private bool jugadorTocando;

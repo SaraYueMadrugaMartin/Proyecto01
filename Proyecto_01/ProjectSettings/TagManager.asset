@@ -11,6 +11,8 @@ TagManager:
   - Documento
   - Tinta
   - Bate
+  - ItemInteractuable
+  - Valvula
   layers:
   - Default
   - TransparentFX
