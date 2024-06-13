@@ -131,11 +131,6 @@ public class Items : MonoBehaviour
         return objetoRecogido;
     }
 
-    public void SetObjetoRecogido(bool value)
-    {
-        objetoRecogido = value;
-    }
-
     public Sprite GetSpriteItems()
     {
         return sprite;

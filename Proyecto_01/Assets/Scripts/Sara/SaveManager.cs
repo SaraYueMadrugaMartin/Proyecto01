@@ -145,7 +145,6 @@ public class SaveManager: MonoBehaviour
             }
 
             sceneState.itemsState.Add(itemState); // Añadimos toda esta información a nuestra lista de Items
-            Debug.Log("Agregando itemState a la lista: " + itemState.nombreItem);
         }
         #endregion
 
@@ -230,7 +229,7 @@ public class SaveManager: MonoBehaviour
 
             #region Cargar Datos Items
             //ITEMS
-            /*Items[] itemsGuardados = FindObjectsOfType<Items>();
+            Items[] itemsGuardados = FindObjectsOfType<Items>();
 
             if (itemsGuardados != null)
             {
@@ -239,23 +238,11 @@ public class SaveManager: MonoBehaviour
                     Items item = itemsGuardados.SingleOrDefault(x => x.GetIDsItem() == itemState.idItem);
                     if (item != null)
                     {
-                        Debug.Log("Item encontrado: " + item.nombreItem);
-
-                        item.nombreItem = itemState.nombreItem;
-                        item.SetObjetoRecogido(itemState.objetoRecogido);
-                        item.SetPosition(itemState.posicionItem);
-
-                        // Asignar los estados de los sprites
-                        SpriteRenderer[] spriteRenderers = item.GetSpriteRenderers();
-                        for (int i = 0; i < spriteRenderers.Length; i++)
-                        {
-                            spriteRenderers[i].enabled = itemState.spritesActivos[i];
-                        }
+                        Debug.Log("Hasta aquí");
                     }
                 }
-            }*/
-
-            Items[] itemsGuardados = FindObjectsOfType<Items>();
+            }
+            /*Items[] itemsGuardados = FindObjectsOfType<Items>();
             if (itemsGuardados != null)
             {
                 if (savedSceneState.itemsState != null)
@@ -291,7 +278,7 @@ public class SaveManager: MonoBehaviour
                         }
                     }
                 }
-            }
+            }*/
             #endregion
 
             #region Cargar Datos Estado Inventario
