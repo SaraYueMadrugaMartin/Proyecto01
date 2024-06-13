@@ -39,7 +39,7 @@ public class PuertasIDControler : MonoBehaviour
 
     public void UsarLlave()
     {
-
+        if (puertaActual != null)
         {
             sfxManager.PlaySFX(sfxManager.clipsDeAudio[13]);
             panelPregunta.SetActive(false);
