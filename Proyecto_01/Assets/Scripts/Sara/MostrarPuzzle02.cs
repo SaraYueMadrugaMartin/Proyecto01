@@ -7,6 +7,11 @@ public class MostrarPuzzle02 : MonoBehaviour
     [SerializeField] private Puzle puzle;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject panelPuzzle;
+    //[SerializeField] private Player player;
+    [SerializeField] private FadeAnimation fadeAnimation;
+    [SerializeField] public GameObject puertaSinLlave;
+
+    private Vector2 posNueva = new Vector2(-26.49f, 97.844f);
 
     private Collider2D[] collidersPuerta;
     private bool jugadorTocando;
@@ -16,13 +21,14 @@ public class MostrarPuzzle02 : MonoBehaviour
     {
         collidersPuerta = GetComponents<Collider2D>();
         panelPuzzle.SetActive(false);
-        for(int i = 0;i < collidersPuerta.Length; i++)
+        puertaSinLlave.SetActive(false);
+
+        for (int i = 0;i < collidersPuerta.Length; i++)
         {
             collidersPuerta[i].enabled = true;
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(jugadorTocando && Input.GetKeyDown(KeyCode.E))
@@ -55,7 +61,9 @@ public class MostrarPuzzle02 : MonoBehaviour
         if (Puzle.totalNumerosCorrectos == 4)
         {
             Time.timeScale = 1f;
-            panelPuzzle.SetActive(false);
+            puertaSinLlave.SetActive(true);
+            fadeAnimation.FadeOut();
+            StartCoroutine(CambioPosicion());            
             for (int i = 0; i < collidersPuerta.Length; i++)
             {
                 collidersPuerta[i].enabled = false;
@@ -63,8 +71,16 @@ public class MostrarPuzzle02 : MonoBehaviour
         }
         else
         {
+            //mostrarPuzzle02.puertaSinLlave.SetActive(false);
             Debug.Log("Este no es el código correcto");
         }
+    }
+
+    IEnumerator CambioPosicion()
+    {
+        yield return new WaitForSecondsRealtime(0.6f);
+        player.transform.position = posNueva;
+        panelPuzzle.SetActive(false);
     }
 
     public void CerrarPuzzle()

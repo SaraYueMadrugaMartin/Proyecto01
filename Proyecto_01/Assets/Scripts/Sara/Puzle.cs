@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 public class Puzle : MonoBehaviour
 {
     [SerializeField] private GameObject[] numeros;
+    [SerializeField] private MostrarPuzzle02 mostrarPuzzle02;
+    
     private int indiceActual = 0;
-
+    
     [SerializeField] private int numeroCorrecto;
     [SerializeField] private bool codigoCorrecto;
 
@@ -86,5 +88,5 @@ public class Puzle : MonoBehaviour
             }
             codigoCorrecto = false;
         }
-    }    
+    }
 }
