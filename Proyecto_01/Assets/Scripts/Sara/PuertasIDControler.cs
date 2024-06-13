@@ -27,7 +27,6 @@ public class PuertasIDControler : MonoBehaviour
         destruye = true;
         panelPregunta.SetActive(false);
         inventario.VaciarHueco("Llave");
-        Debug.Log("Clickssssss puta");
 
         for(int i = 0; i < puertas.Length; i++)
         {
