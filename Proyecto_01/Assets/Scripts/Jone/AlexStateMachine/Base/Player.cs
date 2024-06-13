@@ -335,6 +335,8 @@ public class Player : MonoBehaviour
             pistola.SetActive(true);
             puntero.enabled = true;
             apuntando = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             if (Input.GetButtonDown("Fire1"))
             {
                 if (cargador > 0)
@@ -359,6 +361,8 @@ public class Player : MonoBehaviour
         {
             apuntando = false;
             anim.SetBool("estaApuntando", false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 

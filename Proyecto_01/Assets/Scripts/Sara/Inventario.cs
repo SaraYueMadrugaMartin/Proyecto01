@@ -46,8 +46,6 @@ public class Inventario : MonoBehaviour
         return false;
     }
 
-
-
     void Start()
     {
         Instance = this;
@@ -86,29 +84,26 @@ public class Inventario : MonoBehaviour
         }
     }
 
-    public void AñadirObjeto(string nombreItem, Sprite sprite)
+    public void AñadirObjeto(string nombreItem, Sprite sprite, int idLlave = -1)
     {
         Debug.Log("Añadiendo objeto al inventario: " + nombreItem);
         for (int i = 0; i < huecosInventario.Length; i++)
         {
             if (!InventarioCompleto())
             {
-                //ObjetoEstaEnInventario(true);
                 foreach (HuecosInventario hueco in huecosInventario)
                 {
                     if (!hueco.estaCompleto)
                     {
-                        hueco.AñadirObjeto(nombreItem, sprite);
+                        hueco.AñadirObjeto(nombreItem, sprite, idLlave); // Pasar el ID de la llave
                         objetoEnInventario = true;
                         DeseleccionarObjetos();
-                        // Buscar el objeto en la escena y registrarlo
                         Items item = FindObjectsOfType<Items>().FirstOrDefault(obj => obj.nombreItem == nombreItem);
                         if (item != null)
                         {
                             RegistrarObjeto(item);
                         }
-
-                        return; // Parar el bucle cuando encuentra el hueco vacío y añade el nuevo objeto.
+                        return;
                     }
                 }
             }
@@ -117,18 +112,33 @@ public class Inventario : MonoBehaviour
 
     public void VaciarHueco(string nombreItem)
     {
-        if(nombreItem == "Llave")
-        {
+        VaciarHueco(nombreItem, -1); // Llamar a la versión con ID pasando un valor por defecto
+    }
 
-        }
-
-        foreach (HuecosInventario hueco in huecosInventario)
+    public void VaciarHueco(string nombreItem, int idLlave)
+    {
+        if (nombreItem == "Llave" && idLlave != -1)
         {
-            if (hueco.nombreItem == nombreItem)
+            foreach (HuecosInventario hueco in huecosInventario)
             {
-                hueco.VaciarHueco();
-                DeseleccionarObjetos();
-                break;
+                if (hueco.nombreItem == nombreItem && hueco.idLlave == idLlave)
+                {
+                    hueco.VaciarHueco();
+                    DeseleccionarObjetos();
+                    return;
+                }
+            }
+        }
+        else
+        {
+            foreach (HuecosInventario hueco in huecosInventario)
+            {
+                if (hueco.nombreItem == nombreItem)
+                {
+                    hueco.VaciarHueco();
+                    DeseleccionarObjetos();
+                    break;
+                }
             }
         }
     }
@@ -204,9 +214,29 @@ public class Inventario : MonoBehaviour
     {
         llaveID = ID;
     }
-    public int BuscaIDLlave()
+    public List<int> BuscaIDsLlaves()
     {
-        return llaveID;
+        List<int> idsLlaves = new List<int>();
+        foreach (HuecosInventario hueco in huecosInventario)
+        {
+            if (hueco.nombreItem == "Llave" && hueco.idLlave != -1)
+            {
+                idsLlaves.Add(hueco.idLlave);
+            }
+        }
+        return idsLlaves;
+    }
+
+    public void EliminarLlavePorID(int idLlave)
+    {
+        foreach (HuecosInventario hueco in huecosInventario)
+        {
+            if (hueco.nombreItem == "Llave" && hueco.idLlave == idLlave)
+            {
+                hueco.VaciarHueco();
+                break;
+            }
+        }
     }
 
     public void DejarObjeto()

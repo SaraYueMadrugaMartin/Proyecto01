@@ -19,6 +19,7 @@ public class Puerta : MonoBehaviour
     public PuertasIDControler controladorPuertas;
 
     public bool jugadorTocando;
+    public static bool panelAbierto = false;
 
     public int idPuerta;
 
@@ -41,10 +42,18 @@ public class Puerta : MonoBehaviour
             InteractuarConPuerta();
             Debug.Log("Esta es la puerta con ID: " + idPuerta);
         }
+        if(panelAbierto && Input.GetKeyDown(KeyCode.Escape))
+        {
+            panelPregunta.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            panelAbierto = false;
+        }
     }
 
     public void InteractuarConPuerta()
     {
+        PuertasIDControler.Instance.SetPuertaActual(this);
         if (puertaAsociada.puertaBloqueada)
         {
             panelMensajeNo.SetActive(true);
@@ -59,10 +68,11 @@ public class Puerta : MonoBehaviour
         else
         {
             panelPregunta.SetActive(true);
+            panelAbierto = true;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             puertaBloqueada = false;
-            controladorPuertas.NotificarDestruccionPuerta(this);
+            PuertasIDControler.Instance.NotificarDestruccionPuerta(this);
         }
     }
 
@@ -85,20 +95,35 @@ public class Puerta : MonoBehaviour
     {
         if (inventario.TieneObjeto("Llave") || inventario.TieneObjeto("Fusible"))
         {
-            int llaveID = inventario.BuscaIDLlave();
+            List<int> llavesIDs = inventario.BuscaIDsLlaves();
 
-            if (CompararIDs(llaveID))
-                puertaAsociada.puertaBloqueada = false;
-            else
+            bool llaveCorrectaEncontrada = false;
+            foreach (int idLlave in llavesIDs)
+            {
+                if (CompararIDs(idLlave))
+                {
+                    puertaAsociada.puertaBloqueada = false;
+                    llaveCorrectaEncontrada = true;
+                    inventario.EliminarLlavePorID(idLlave);
+                    break;
+                }
+            }
+
+            if (!llaveCorrectaEncontrada)
+            {
                 puertaAsociada.puertaBloqueada = true;
+            }
         }
         else
+        {
             puertaAsociada.puertaBloqueada = true;
+        }
         Debug.Log("La puerta está: " + (puertaAsociada.puertaBloqueada ? "bloqueada" : "desbloqueada"));
     }
 
     public bool CompararIDs(int idLlave)
     {
+        Debug.Log("Estoy comparando la llave con ID: " +  idLlave + " y la puerta con ID: " + puertaAsociada.puertasID);
         if (puertaAsociada.puertasID == idLlave)
         {
             Debug.Log("La llave es correcta.");
