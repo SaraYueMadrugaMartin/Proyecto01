@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.VFX;
 
 public class Items : MonoBehaviour
 {
@@ -53,25 +50,29 @@ public class Items : MonoBehaviour
         {
             if (!inventario.InventarioCompleto())
             {
-                inventario.AñadirObjeto(nombreItem, sprite);
-                panelesInteracciones.AparecerPanelInteraccion(nombreItem);
-                objetoRecogido = true;
-                ObjetoRecogido(true);
-                sfxManager.PlaySFX(sfxManager.clipsDeAudio[1]);
-
                 if (nombreItem == "Llave")
                 {
                     LlavesController llave = GetComponent<LlavesController>();
                     int llaveID = llave.ObtenerID();
+                    inventario.AñadirObjeto(nombreItem, sprite, llaveID); // Pasar el ID de la llave
                     Debug.Log("El ID de la llave es: " + llaveID);
-                    inventario.RecibeIDLlave(llaveID);
                     if (llaveID == 222)
                     {
                         Debug.Log("Es fusible");
                         ApagaLuces();
                     }
                 }
-                else if (nombreItem == "Municion")
+                else
+                {
+                    inventario.AñadirObjeto(nombreItem, sprite);
+                }
+
+                panelesInteracciones.AparecerPanelInteraccion(nombreItem);
+                objetoRecogido = true;
+                ObjetoRecogido(true);
+                sfxManager.PlaySFX(sfxManager.clipsDeAudio[1]);
+
+                if (nombreItem == "Municion")
                     Player.municion += 12;
                 else if (nombreItem == "Linterna")
                 {
@@ -90,7 +91,7 @@ public class Items : MonoBehaviour
                 Debug.Log("¡El inventario está lleno! No se puede recoger el objeto.");
             }
         }
-        if(tutoAbierto && Input.GetKeyDown(KeyCode.Escape))
+        if (tutoAbierto && Input.GetKeyDown(KeyCode.Escape))
         {
             BotonSalirTutoLinterna();
         }
@@ -170,9 +171,9 @@ public class Items : MonoBehaviour
         }
 
         Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
-        if(colliders != null)
+        if (colliders != null)
         {
-            foreach(Collider2D collider in colliders)
+            foreach (Collider2D collider in colliders)
             {
                 collider.enabled = false;
             }

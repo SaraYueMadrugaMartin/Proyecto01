@@ -14,7 +14,23 @@ public class PuertasIDControler : MonoBehaviour
 
     public static bool destruye = false;
 
+    public static PuertasIDControler Instance;
+
+    private Puerta puertaActual;
+
     SFXManager sfxManager;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -23,36 +39,43 @@ public class PuertasIDControler : MonoBehaviour
 
     public void UsarLlave()
     {
-        sfxManager.PlaySFX(sfxManager.clipsDeAudio[13]);        
-        destruye = true;
-        panelPregunta.SetActive(false);
-        inventario.VaciarHueco("Llave");
-        Debug.Log("Clickssssss puta");
-
-        for(int i = 0; i < puertas.Length; i++)
+        if (puertaActual != null)
         {
-            if (!puertas[i].puertaBloqueada)
+            sfxManager.PlaySFX(sfxManager.clipsDeAudio[13]);
+            panelPregunta.SetActive(false);
+            Puerta.panelAbierto = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            inventario.VaciarHueco("Llave", puertaActual.puertaAsociada.puertasID);
+
+            if (!puertaActual.puertaBloqueada)
             {
-                if(puertas[i].idPuerta != 3)
+                if (puertaActual.idPuerta != 3)
                 {
                     fadeAnimation.FadeOut();
-                    puertas[i].CambioPosicionPlayer();
-                    Debug.Log("Cambia posicion");
+                    puertaActual.CambioPosicionPlayer();
                 }
                 else
                 {
                     fadeAnimation.FadeOut();
                     cadenas.SetActive(false);
-                    puertas[i].CambioPosicionPlayer();
-                    Debug.Log("Esta es la puerta 3, no hay cambio de posición");
+                    puertaActual.CambioPosicionPlayer();
                 }
             }
         }
     }
 
+    public void SetPuertaActual(Puerta puerta)
+    {
+        puertaActual = puerta;
+    }
+
     public void NoUsarLlave()
     {
         panelPregunta.SetActive(false);
+        Puerta.panelAbierto = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void NotificarDestruccionPuerta(Puerta puerta)

@@ -13,8 +13,7 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
     public int cantidad;
     public Sprite sprite;
     public bool estaCompleto;
-    //public Vector2 coordItem;
-
+    public int idLlave; // ID de la llave
     public GameObject panelSeleccion;
     public Dictionary<string, GameObject> panelesBotones = new Dictionary<string, GameObject>();
     public bool objetoSeleccionado;
@@ -57,10 +56,11 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
         panelesBotones.Add("Fusible", panelBotonesFusible);
     }
 
-    public void AñadirObjeto(string nombreItem, Sprite sprite)
+    public void AñadirObjeto(string nombreItem, Sprite sprite, int idLlave)
     {
         this.nombreItem = nombreItem;
         this.sprite = sprite;
+        this.idLlave = idLlave; // Asignar el ID de la llave
         estaCompleto = true;
         fotoItem.sprite = sprite;
         fotoItem.enabled = true;
@@ -69,8 +69,8 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
     public void VaciarHueco()
     {
         nombreItem = "";
-        //cantidad = 0;
         sprite = null;
+        idLlave = -1; // Resetear el ID de la llave
         estaCompleto = false;
         fotoItem.sprite = null;
         fotoItem.enabled = false;
@@ -107,16 +107,12 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
         panelSeleccion.SetActive(true);
         objetoSeleccionado = true;
 
-        // Expresión de Unity que convierte una posición de coordenadas de pantalla a coordenadas en el mundo. Lo utilizamos para poder seleccionar en la UI
         Vector3 posicionRaton = Camera.main.ScreenToWorldPoint(eventData.position);
 
-        // Creamos la variable de posicionHuecos para obtener sus posiciones en el mundo (sus coordenadas).
         Vector3 posicionHuecos = transform.position;
 
-        // Creamos la variable de panelPosicion y la igualamos a la posicionHuecos, así las coordenadas serán las mismas.
         Vector3 panelPosicion = posicionHuecos;
 
-        // Verificar si existe un panel para este tipo de objeto y activarlo
         if (panelesBotones.ContainsKey(nombreItem))
         {
             panelesBotones[nombreItem].SetActive(true);
