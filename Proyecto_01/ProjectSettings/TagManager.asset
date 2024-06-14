@@ -13,6 +13,7 @@ TagManager:
   - Bate
   - ItemInteractuable
   - ValvulaCuerpo
+  - ValvulaCabeza
   layers:
   - Default
   - TransparentFX

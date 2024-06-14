@@ -9,7 +9,8 @@ public class PuertaLaberinto : MonoBehaviour
     [SerializeField] private FadeAnimation fadeAnimation;
     [SerializeField] private GameObject panelFaltanPiezas;
     [SerializeField] private TextMeshProUGUI textoPiezas;
-    [SerializeField] private GameObject panelAdvertencia;
+    //[SerializeField] private GameObject panelAdvertencia;
+    [SerializeField] private GameObject puzleValvula;
     [SerializeField] private GameObject puertaSinLlave;
     [SerializeField] private Player player;
 
@@ -25,7 +26,7 @@ public class PuertaLaberinto : MonoBehaviour
     {
         sfxManager = FindObjectOfType<SFXManager>();
         panelFaltanPiezas.SetActive(false);
-        panelAdvertencia.SetActive(false);
+        puzleValvula.SetActive(false);
         puertaSinLlave.SetActive(false);
     }
 
@@ -55,10 +56,10 @@ public class PuertaLaberinto : MonoBehaviour
             }
             else
             {
-                puertaSinLlave.SetActive(true);
-                Time.timeScale = 0f;
-                panelAdvertencia.SetActive(true);
-                StartCoroutine(AbrirPuerta());
+                //puertaSinLlave.SetActive(true);
+                //Time.timeScale = 0f;
+                //puzleValvula.SetActive(true);
+                StartCoroutine(PuzleLaberinto());
             }
         }
     }
@@ -87,7 +88,20 @@ public class PuertaLaberinto : MonoBehaviour
         todasPiezas = valvulaCabeza && valvulaCuerpo;
     }
 
-    IEnumerator AbrirPuerta()
+    IEnumerator PuzleLaberinto()
+    {
+        yield return new WaitForSecondsRealtime(0f);
+        fadeAnimation.FadeOut();
+        //sfxManager.PlaySFX(sfxManager.clipsDeAudio[19]);
+        //player.transform.position = posNueva;
+        puzleValvula.SetActive(true);
+        //gameObject.SetActive(false);
+        inventario.VaciarHueco("ValvulaCabeza");
+        inventario.VaciarHueco("ValvulaCuerpo");
+        Time.timeScale = 0f;
+    }
+
+    /*IEnumerator AbrirPuerta()
     {
         yield return new WaitForSecondsRealtime(0.5f);
         fadeAnimation.FadeOut();
@@ -98,5 +112,5 @@ public class PuertaLaberinto : MonoBehaviour
         inventario.VaciarHueco("ValvulaCabeza");
         inventario.VaciarHueco("ValvulaCuerpo");
         Time.timeScale = 1f;
-    }
+    }*/
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,10 +8,16 @@ public class ValvulaRotar : MonoBehaviour, IPointerDownHandler, IDragHandler, IP
     private Vector2 screenPos;
     private float startAngle;
     private bool isRotating;
+    private float angulosGirados = 0f;
 
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
+    }
+
+    private void Update()
+    {
+        
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -33,6 +40,13 @@ public class ValvulaRotar : MonoBehaviour, IPointerDownHandler, IDragHandler, IP
 
             rectTransform.rotation = Quaternion.Euler(0, 0, angleOffset);
         }
+
+        if (angulosGirados >= 360f)
+        {
+            Debug.Log("Has abierto la puerta");
+            angulosGirados = 0f;
+            PuertaAbierta();
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -41,5 +55,11 @@ public class ValvulaRotar : MonoBehaviour, IPointerDownHandler, IDragHandler, IP
         {
             isRotating = false;
         }
+    }
+
+    IEnumerator PuertaAbierta()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        gameObject.SetActive(false);
     }
 }
