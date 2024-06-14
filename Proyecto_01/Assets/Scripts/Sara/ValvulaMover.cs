@@ -10,14 +10,22 @@ public class ValvulaMover : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     private RectTransform rectTransform;
     private Canvas canvas;
     private CanvasGroup canvasGroup;
+    private ValvulaRotar rotarValvula;
+    [SerializeField] private GameObject panelSiguientePaso;
+
+    private static bool cabezaColocada = false;
+    private static bool cuerpoColocado = false;
+    //private static int contador = 0; // Lo pongo en estático para que ambas piezas compartan la variable, sino no suma en ambas.
 
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
         canvasGroup = GetComponent<CanvasGroup>();
+        rotarValvula = GetComponent<ValvulaRotar>();
 
         posInicial = rectTransform.anchoredPosition;
+        panelSiguientePaso.SetActive(false);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -45,13 +53,46 @@ public class ValvulaMover : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             canvasGroup.blocksRaycasts = true;
         }
 
-        if (Vector2.Distance(rectTransform.anchoredPosition, posValvula.anchoredPosition) <= 10f)
+        if (Vector2.Distance(rectTransform.anchoredPosition, posValvula.anchoredPosition) <= 20f)
         {
-            rectTransform.anchoredPosition = posValvula.anchoredPosition;
+            if (gameObject.CompareTag("ValvulaCuerpo"))
+            {
+                rectTransform.anchoredPosition = posValvula.anchoredPosition;
+                gameObject.SetActive(false);
+                cuerpoColocado = true;
+                cabezaColocada = false;
+                //contador++;
+                //Debug.Log(contador);
+            }
+
+            if (!cuerpoColocado)
+            {
+                rectTransform.anchoredPosition = posInicial;
+                Debug.Log("Antes de poner esta pieza necesitas poner la otra");
+            }
+            else if(cuerpoColocado)
+            {
+                rectTransform.anchoredPosition = posValvula.anchoredPosition;
+                cabezaColocada = true;
+            }
         }
         else
         {
             rectTransform.anchoredPosition = posInicial;
         }
+
+        if(cabezaColocada && cuerpoColocado)
+        {
+            // Sonido de piezas encajando
+            panelSiguientePaso.SetActive(true);
+            StartCoroutine(SiguientePaso());
+        }
+    }
+
+    IEnumerator SiguientePaso()
+    {
+        yield return new WaitForSecondsRealtime(5f);
+        panelSiguientePaso.SetActive(false);
+        //rotarValvula.IniciarRotacion();
     }
 }

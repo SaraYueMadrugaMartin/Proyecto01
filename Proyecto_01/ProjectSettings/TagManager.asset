@@ -12,7 +12,7 @@ TagManager:
   - Tinta
   - Bate
   - ItemInteractuable
-  - Valvula
+  - ValvulaCuerpo
   layers:
   - Default
   - TransparentFX
