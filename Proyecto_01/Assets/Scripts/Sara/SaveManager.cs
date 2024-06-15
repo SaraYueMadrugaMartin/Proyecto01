@@ -11,6 +11,7 @@ public struct PuertaState
     public bool puertaBloqueada;
     public bool puertaActivada;
     public bool[] collidersActivos;
+    public bool puertasSinLlaveActivadas;
 }
 
 [System.Serializable]
@@ -176,15 +177,16 @@ public class SaveManager: MonoBehaviour
         Puerta[] puertas = FindObjectsOfType<Puerta>(); // Creamos un array de Puertas y buscamos todos los objetos de tipo "Puerta". 
         sceneState.puertasState = new List<PuertaState>();
 
-        foreach (Puerta puerta in puertas) // Recorremos cada elemento de "puertas".
+        foreach (Puerta puerta in puertas) // Recorremos cada elemento "puerta" en el array creado antes de Puertas.
         {
             PuertaState puertaState = new PuertaState();
 
             puertaState.idPuerta = puerta.idPuerta;
             puertaState.puertaBloqueada = puerta.GetPuertaBloqueada();
             puertaState.puertaActivada = puerta.gameObject.activeSelf;
-
+            puertaState.puertasSinLlaveActivadas = puerta.puertasSinLlave.activeSelf;
             puertaState.collidersActivos = new bool[puerta.puertaColliders.Length];
+
             for (int i = 0; i < puerta.puertaColliders.Length; i++)
             {
                 puertaState.collidersActivos[i] = puerta.puertaColliders[i].enabled;
@@ -318,6 +320,7 @@ public class SaveManager: MonoBehaviour
                 {
                     puerta.SetPuertaBloqueada(puertaState.puertaBloqueada);
                     puerta.gameObject.SetActive(puertaState.puertaActivada);
+                    puerta.puertasSinLlave.SetActive(puertaState.puertasSinLlaveActivadas);
 
                     for (int i = 0; i < puerta.puertaColliders.Length; i++) // Recorremos los colliders de las puertas para saber si deben activarse de nuevo o no.
                     {
@@ -334,7 +337,7 @@ public class SaveManager: MonoBehaviour
 
     private Puerta GetPuertaID(int idPuerta)
     {
-        // Iteramos sobre todas las puertas en tu escena y devuelve la puerta con el ID dado
+        // Iteramos sobre todas las puertas y devolvemos la puerta con el ID
         Puerta[] puertas = FindObjectsOfType<Puerta>();
         foreach (Puerta puerta in puertas)
         {

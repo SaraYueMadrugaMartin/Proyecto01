@@ -6,20 +6,21 @@ using UnityEngine.UI;
 
 public class Puerta : MonoBehaviour
 {
+    public static bool panelAbierto = false;
+
     [SerializeField] private GameObject player;
     [SerializeField] public PlantillaPuertas puertaAsociada; // Referenciamos el scriptable para asignar a cada puerta y poder comparar con la ID de las llaves.
     [SerializeField] private Inventario inventario;
     [SerializeField] private GameObject panelMensajeNo;
     [SerializeField] private TextMeshProUGUI textoPuertasCerradas;
     [SerializeField] private GameObject panelPregunta;
-    [SerializeField] private GameObject puertasSinLlave; // Asociamos las puertas sin llave que deben activarse cuando se desbloqueen las puertas con llave.
+    [SerializeField] public GameObject puertasSinLlave; // Asociamos las puertas sin llave que deben activarse cuando se desbloqueen las puertas con llave.
 
     [SerializeField] private Vector2 posNueva;
 
     public PuertasIDControler controladorPuertas;
 
     public bool jugadorTocando;
-    public static bool panelAbierto = false;
 
     public int idPuerta;
 
@@ -38,23 +39,26 @@ public class Puerta : MonoBehaviour
     {
         if (jugadorTocando && Input.GetKeyDown("e"))
         {
-            ActualizarEstadoPuerta();
             InteractuarConPuerta();
-            Debug.Log("Esta es la puerta con ID: " + idPuerta);
         }
         if(panelAbierto && Input.GetKeyDown(KeyCode.Escape))
         {
             panelPregunta.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            panelAbierto = false;
+            Cursor.visible = true;
         }
     }
 
     public void InteractuarConPuerta()
     {
-        PuertasIDControler.Instance.SetPuertaActual(this);
-        if (puertaAsociada.puertaBloqueada)
+        if (inventario.TieneObjeto("Llave") || inventario.TieneObjeto("Fusible"))
+        {
+            panelPregunta.SetActive(true);
+            panelAbierto = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = false;
+        }
+        else
         {
             panelMensajeNo.SetActive(true);
             puertaBloqueada = true;
@@ -65,21 +69,13 @@ public class Puerta : MonoBehaviour
             else
                 textoPuertasCerradas.text = "Necesitas una llave para abrir esta puerta";
         }
-        else
-        {
-            panelPregunta.SetActive(true);
-            panelAbierto = true;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            puertaBloqueada = false;
-            PuertasIDControler.Instance.NotificarDestruccionPuerta(this);
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
             jugadorTocando = true;
+            controladorPuertas.SetPuertaActual(this);
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -93,31 +89,25 @@ public class Puerta : MonoBehaviour
 
     public void ActualizarEstadoPuerta()
     {
-        if (inventario.TieneObjeto("Llave") || inventario.TieneObjeto("Fusible"))
+        List<int> llavesIDs = inventario.BuscaIDsLlaves();
+
+        bool llaveCorrectaEncontrada = false;
+        foreach (int idLlave in llavesIDs)
         {
-            List<int> llavesIDs = inventario.BuscaIDsLlaves();
-
-            bool llaveCorrectaEncontrada = false;
-            foreach (int idLlave in llavesIDs)
+            if (CompararIDs(idLlave))
             {
-                if (CompararIDs(idLlave))
-                {
-                    puertaAsociada.puertaBloqueada = false;
-                    llaveCorrectaEncontrada = true;
-                    inventario.EliminarLlavePorID(idLlave);
-                    break;
-                }
-            }
-
-            if (!llaveCorrectaEncontrada)
-            {
-                puertaAsociada.puertaBloqueada = true;
+                llaveCorrectaEncontrada = true;
+                puertaAsociada.puertaBloqueada = false;
+                inventario.EliminarLlavePorID(idLlave);
+                break;
             }
         }
-        else
+
+        if (!llaveCorrectaEncontrada)
         {
             puertaAsociada.puertaBloqueada = true;
         }
+        
         Debug.Log("La puerta está: " + (puertaAsociada.puertaBloqueada ? "bloqueada" : "desbloqueada"));
     }
 

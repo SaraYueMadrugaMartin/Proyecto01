@@ -7,30 +7,15 @@ public class PuertasIDControler : MonoBehaviour
     [SerializeField] private GameObject panelPregunta;
     [SerializeField] private Inventario inventario;
     [SerializeField] private FadeAnimation fadeAnimation;
-    [SerializeField] private Puerta[] puertas;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject cadenas;
     [SerializeField] private Vector2 posicionTransicion02;
 
     public static bool destruye = false;
 
-    public static PuertasIDControler Instance;
-
     private Puerta puertaActual;
 
     SFXManager sfxManager;
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
     private void Start()
     {
@@ -39,30 +24,31 @@ public class PuertasIDControler : MonoBehaviour
 
     public void UsarLlave()
     {
-        if (puertaActual != null)
+        Debug.Log("Click SÍ");
+
+        puertaActual.ActualizarEstadoPuerta();
+
+        if (!puertaActual.puertaAsociada.puertaBloqueada)
         {
             sfxManager.PlaySFX(sfxManager.clipsDeAudio[13]);
             panelPregunta.SetActive(false);
             Puerta.panelAbierto = false;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            inventario.VaciarHueco("Llave", puertaActual.puertaAsociada.puertasID);
+            NotificarDestruccionPuerta(puertaActual);
 
-            if (!puertaActual.puertaBloqueada)
+            if (puertaActual.idPuerta != 3)
             {
-                if (puertaActual.idPuerta != 3)
-                {
-                    fadeAnimation.FadeOut();
-                    puertaActual.CambioPosicionPlayer();
-                }
-                else
-                {
-                    fadeAnimation.FadeOut();
-                    cadenas.SetActive(false);
-                    puertaActual.CambioPosicionPlayer();
-                }
+                fadeAnimation.FadeOut();
+                puertaActual.CambioPosicionPlayer();
             }
-        }
+            else
+            {
+                fadeAnimation.FadeOut();
+                cadenas.SetActive(false);
+                puertaActual.CambioPosicionPlayer();
+            }
+        }        
     }
 
     public void SetPuertaActual(Puerta puerta)
@@ -72,6 +58,7 @@ public class PuertasIDControler : MonoBehaviour
 
     public void NoUsarLlave()
     {
+        Debug.Log("Click NO");
         panelPregunta.SetActive(false);
         Puerta.panelAbierto = false;
         Cursor.lockState = CursorLockMode.Locked;
