@@ -83,20 +83,26 @@ public class MostrarPuzleValvula : MonoBehaviour
 
     private IEnumerator DesactivarPanelGirarValvula()
     {
-        fadeAnimation.FadeOut();
+        fadeAnimation.FadeOutNivel();
         sfxManager.PlaySFX(sfxManager.clipsDeAudio[19]);
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(1f);
         puzleGirarValvula.SetActive(false);
         puertaLaberinto.AbrirPuertaLaberinto();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void SalirPanelMoverValvula()
     {
         puzleMoverPiezasValvula.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void SalirPanelGirarValvula()
     {
         puzleGirarValvula.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

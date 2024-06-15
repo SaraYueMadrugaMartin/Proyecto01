@@ -40,12 +40,14 @@ public class Puerta : MonoBehaviour
         if (jugadorTocando && Input.GetKeyDown("e"))
         {
             InteractuarConPuerta();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         if(panelAbierto && Input.GetKeyDown(KeyCode.Escape))
         {
             panelPregunta.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = true;
+            Cursor.visible = false;
         }
     }
 

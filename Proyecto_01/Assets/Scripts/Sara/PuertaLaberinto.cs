@@ -89,6 +89,8 @@ public class PuertaLaberinto : MonoBehaviour
         yield return new WaitForSecondsRealtime(0f);
         fadeAnimation.FadeOut();
         puzleValvula.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Time.timeScale = 0f;
     }
 

@@ -48,6 +48,8 @@ public class PuertasIDControler : MonoBehaviour
                 cadenas.SetActive(false);
                 puertaActual.CambioPosicionPlayer();
             }
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }        
     }
 
