@@ -111,3 +111,9 @@ MonoBehaviour:
     tono: 1
     loop: 1
     source: {fileID: 0}
+  - nombre: CampoMaiz
+    clip: {fileID: 8300000, guid: 3e54dc912769b594eb22a1239a01424c, type: 3}
+    volumen: 0.5
+    tono: 1
+    loop: 1
+    source: {fileID: 0}

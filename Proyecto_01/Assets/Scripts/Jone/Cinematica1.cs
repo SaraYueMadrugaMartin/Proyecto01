@@ -47,6 +47,7 @@ public class Cinematica : MonoBehaviour
         int escenaActual = SceneManager.GetActiveScene().buildIndex;
         int siguienteEscena = escenaActual + 1;
         SceneManager.LoadScene(siguienteEscena);
+        AudioManager.instance.Play("EscenaCab");
     }
 
     private void Pausar()

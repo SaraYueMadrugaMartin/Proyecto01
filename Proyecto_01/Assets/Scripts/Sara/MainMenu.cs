@@ -8,10 +8,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject panelAjustes;
     [SerializeField] private GameObject panelCreditos;
 
+    private AudioManager audioManager;
+
     AudioMainMenu audioMainMenu;
 
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         audioMainMenu = FindObjectOfType<AudioMainMenu>();
     }
 
@@ -25,7 +28,8 @@ public class MainMenu : MonoBehaviour
             SceneManager.LoadScene(siguienteEscena);
 
         audioMainMenu.PlaySFX(audioMainMenu.seleccionBoton01);
-        audioMainMenu.StopMusic();
+        //audioMainMenu.StopMusic();
+        audioManager.Stop("MainTheme");
     }
 
     public void CargarPartida()

@@ -11,13 +11,20 @@ public class CambiaEscena : MonoBehaviour
     {
         if (estaTocando && Input.GetKeyDown(KeyCode.E))
         {
-            cargarEscena();
+            CargarEscena();
         }
     }
-    private void cargarEscena()
+    private void CargarEscena()
     {
+        int contador = 0;
         int escenaActual = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(escenaActual + 1);
+        contador++;
+
+        if(contador == 1)
+            AudioManager.instance.Play("CampoMaiz");
+        else if(contador == 2)
+            AudioManager.instance.Play("Planta1");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -9,14 +9,14 @@ public class AudioMainMenu : MonoBehaviour
     [SerializeField] public AudioSource SFXScore;
     [SerializeField] public AudioSource musicSource;
 
-    public AudioClip cancionFondo;
+    //public AudioClip cancionFondo;
     public AudioClip seleccionBoton01;
     public AudioClip seleccionBoton02;
     public AudioClip seleccionBoton03;
 
     void Start()
     {
-        musicSource.clip = cancionFondo;
+        //musicSource.clip = cancionFondo;
         musicSource.Play();
     }
 
