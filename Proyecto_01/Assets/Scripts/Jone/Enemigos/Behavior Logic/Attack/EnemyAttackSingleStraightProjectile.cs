@@ -6,11 +6,11 @@ using UnityEngine;
 
 public class EnemyAttackSingleStraightProjectile : EnemyAttackSOBase
 {
-    [SerializeField] private Rigidbody2D BulletPrefab;
     [SerializeField] private float _timeBetweenShots = 2f;
     [SerializeField] private float _timeTillExit = 3f;
     [SerializeField] private float _distanceToCountExit = 3f;
     [SerializeField] private float _bulletSpeed = 10f;
+    private Transform _posSalida;
 
     private float _timer;
     private float _exitTimer;
@@ -18,6 +18,10 @@ public class EnemyAttackSingleStraightProjectile : EnemyAttackSOBase
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();
+
+        _posSalida = enemy.transform.Find("PosSalida");
+        if (_posSalida == null)
+            Debug.LogWarning("No se ha encontrado posición de salida para la botella");
     }
 
     public override void DoExitLogic()
@@ -35,13 +39,8 @@ public class EnemyAttackSingleStraightProjectile : EnemyAttackSOBase
         {
             _timer = 0f;
             enemy.anim.SetTrigger("ataca");
-            Vector2 posCentralJugador = new Vector2(playerTransform.position.x, playerTransform.position.y + 0.8f);
-            Vector2 posCentralEnemigo = new Vector2(enemy.transform.position.x, enemy.transform.position.y + 1.17f);
-            Vector2 dir = (posCentralJugador - posCentralEnemigo).normalized;
 
-            Rigidbody2D bullet = GameObject.Instantiate(BulletPrefab, posCentralEnemigo, Quaternion.identity);
-            bullet.velocity = dir * _bulletSpeed;
-
+            enemy.StartBotellaCoroutine(EsperaAnimacionBotella()); // Hay que llamar a la corrutina desde fuera del scriptable object
         }
 
         if (Vector2.Distance(playerTransform.position, enemy.transform.position) > _distanceToCountExit)
@@ -60,6 +59,19 @@ public class EnemyAttackSingleStraightProjectile : EnemyAttackSOBase
         }
 
         _timer += Time.deltaTime;
+    }
+
+    IEnumerator EsperaAnimacionBotella()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        Vector2 posCentralJugador = new Vector2(playerTransform.position.x, playerTransform.position.y + 0.8f);
+        Vector2 dir = (posCentralJugador - (Vector2)_posSalida.position).normalized;
+
+        GameObject objetoBotella = PoolingBotellas.instancia.GetBotella();
+        objetoBotella.transform.position = _posSalida.position;
+        objetoBotella.transform.rotation = enemy.transform.rotation;
+        Rigidbody2D botella = objetoBotella.GetComponent<Rigidbody2D>();
+        botella.velocity = dir * _bulletSpeed;
     }
 
     public override void DoPhysiscsLogic()

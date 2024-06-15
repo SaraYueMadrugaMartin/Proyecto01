@@ -97,6 +97,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     // Función de muerte del enemigo que se llama al recibir daño, cuando le baja la salud a 0
     public void Die()
     {
+        MoveEnemy(Vector2.zero);
         anim.SetBool("seMuere", true);
         // Sonido muerte
         //sfxManager.PlaySFX(sfxManager.audiosEnemigos[2]);
@@ -152,4 +153,9 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     }
 
     #endregion
+
+    public void StartBotellaCoroutine(IEnumerator coroutine)
+    {
+        StartCoroutine(coroutine);
+    }
 }

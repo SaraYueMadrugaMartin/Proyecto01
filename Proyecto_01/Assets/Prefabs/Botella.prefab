@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 999770187659465248}
   - component: {fileID: 3059154101796821624}
   - component: {fileID: 8955368779359188751}
+  - component: {fileID: 5959119510449763506}
   m_Layer: 0
   m_Name: Botella
   m_TagString: Untagged
@@ -148,3 +149,17 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0049101715, y: -0.0000015205039}
   m_Size: {x: 0.71779114, y: 0.26378423}
   m_Direction: 1
+--- !u!114 &5959119510449763506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3157379362887724900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b16022193182044896a722ba4e8bd40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duracion: 2
+  damage: 20

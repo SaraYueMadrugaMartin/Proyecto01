@@ -299,29 +299,36 @@ public class Player : MonoBehaviour
                 sfxManager.PlayRandomAlexHit();
                 sfxManager.PlaySFX(sfxManager.clipsDeAudio[5]);
 
-                // Detecta los enemigos en el rango de ataque 
-                Collider2D[] golpeaEnemigos = Physics2D.OverlapCircleAll(puntoAtaque.position, rangoAtaque, enemigos);
-
-                // Hacerles daño a los enemigos
-                foreach (Collider2D enemigo in golpeaEnemigos)
-                {
-                    Enemigo enemigoScript = enemigo.GetComponent<Enemigo>();
-                    if (enemigoScript != null)
-                    {
-                        enemigoScript.recibeDamage(dañoAtaque);
-                    }
-                    else
-                    {
-                        // Para que funcione también con Xela:
-                        Xela xela = enemigo.GetComponent<Xela>();
-                        if (xela != null)
-                        {
-                            xela.recibeDamage(dañoAtaque);
-                        }
-                    }
-                }
+                StartCoroutine(EsperaGolpeBate());
 
                 tiempoSiguienteAtaque = Time.time + 1f / ratioAtaque;
+            }
+        }
+    }
+
+    IEnumerator EsperaGolpeBate()
+    {
+        yield return new WaitForSecondsRealtime(0.4f);
+        // Detecta los enemigos en el rango de ataque 
+        Collider2D[] golpeaEnemigos = Physics2D.OverlapCircleAll(puntoAtaque.position, rangoAtaque, enemigos);
+
+        // Hacerles daño a los enemigos
+        foreach (Collider2D enemigo in golpeaEnemigos)
+        {
+            Enemigo enemigoScript = enemigo.GetComponent<Enemigo>();
+            Xela xela = enemigo.GetComponent<Xela>(); // Para que funcione también con Xela
+            Enemy enemy = enemigo.GetComponent<Enemy>();
+            if (enemigoScript != null)
+            {
+                enemigoScript.recibeDamage(dañoAtaque);
+            }
+            else if (xela != null)
+            {
+                xela.recibeDamage(dañoAtaque);
+            }
+            else if (enemy != null)
+            {
+                enemy.Damage(dañoAtaque);
             }
         }
     }

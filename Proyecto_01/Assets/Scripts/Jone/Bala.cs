@@ -38,7 +38,7 @@ public class Bala : MonoBehaviour
     }   
 
     private void OnTriggerEnter2D(Collider2D otro)
-    {
+    {     
         // Verificar si el collider pertenece a la capa que queremos evitar
         if (capaEvitar == (capaEvitar | (1 << otro.gameObject.layer)))
         {
@@ -46,27 +46,28 @@ public class Bala : MonoBehaviour
             Physics2D.IgnoreLayerCollision(gameObject.layer, otro.gameObject.layer, true);
         }
 
-        Debug.Log("Ha colisionado con algo");
-
         // Comprueba que sea enemigo y le hace daño
-        Enemigo enemigo = otro.GetComponent<Enemigo>();
+        Enemigo enemigo = otro.GetComponent<Enemigo>();       
+        Xela xela = otro.GetComponent<Xela>(); // Para que funcione también con Xela
+        Enemy enemy = otro.GetComponent<Enemy>();
         if (enemigo != null)
         {
             enemigo.recibeDamage(daño);
             gameObject.SetActive(false); // Desactivar el objeto cuando entra en contacto con el enemigo. Destruir no porque sino solo se dispara 1 bala.
-        } else
+        }
+        else if (xela != null)
         {
-            // Para que funcione también con Xela:
-            Xela xela = otro.GetComponent<Xela>();
-            if(xela != null)
-            {
-                xela.recibeDamage(daño);
-                gameObject.SetActive(false);
-            }
+            xela.recibeDamage(daño);
+            gameObject.SetActive(false); // Desactivar el objeto cuando entra en contacto con el enemigo. Destruir no porque sino solo se dispara 1 bala.
+        }
+        else if (enemy != null)
+        {
+            enemy.Damage(daño);
+            gameObject.SetActive(false); // Desactivar el objeto cuando entra en contacto con el enemigo. Destruir no porque sino solo se dispara 1 bala.
         }
 
+        Debug.Log("Ha colisionado con algo");
         // Incluir un efecto de colisión
-
-        //Destroy(gameObject);
+        // Sonido impacto        
     }
 }
