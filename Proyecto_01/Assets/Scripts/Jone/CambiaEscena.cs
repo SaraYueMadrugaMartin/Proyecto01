@@ -22,9 +22,18 @@ public class CambiaEscena : MonoBehaviour
         contador++;
 
         if(contador == 1)
+        {
             AudioManager.instance.Play("CampoMaiz");
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
         else if(contador == 2)
+        {
             AudioManager.instance.Play("Planta1");
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

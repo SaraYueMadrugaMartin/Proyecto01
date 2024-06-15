@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3702129096829917227}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.47, y: -0.29, z: 0.0000000097102}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4.749388, y: 4.749388, z: 4.749388}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -151,7 +151,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 6.064469, y: -0.8273468}
+  m_Offset: {x: -0.14936042, y: -0.34202567}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -162,7 +162,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7787352, y: 2.0726151}
+  m_Size: {x: 1.4216571, y: 1.714067}
   m_EdgeRadius: 0
 --- !u!114 &4461886511892942426
 MonoBehaviour:
@@ -178,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombreItem: Tinta
   sprite: {fileID: 21300000, guid: 59f2b86aa9758fb48bf0fb3d79fb56e0, type: 3}
+  panelTutoLinterna: {fileID: 0}
   idsItems: {fileID: 11400000, guid: 330c5a8c69d33074ea305b32819ce924, type: 2}
   posicionInicial: {x: 0, y: 0}
   objetoRecogido: 0
@@ -207,11 +208,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7308475168362555382, guid: 712fb242e9b57304caa44b08bd2446c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.486
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 7308475168362555382, guid: 712fb242e9b57304caa44b08bd2446c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.258
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 7308475168362555382, guid: 712fb242e9b57304caa44b08bd2446c1, type: 3}
       propertyPath: m_LocalPosition.z

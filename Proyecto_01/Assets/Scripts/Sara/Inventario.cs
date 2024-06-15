@@ -64,6 +64,7 @@ public class Inventario : MonoBehaviour
             sfxManager.PlaySFX(sfxManager.clipsDeAudio[9]);
             StopCorazonSound();
             inventario.SetActive(false);
+            DesactivarPanelesInformacion();
             estadoInvent = false;
             DeseleccionarObjetos();
             Cursor.lockState = CursorLockMode.Locked;
@@ -197,7 +198,7 @@ public class Inventario : MonoBehaviour
         }
     }
 
-    public void QuitarPanelesInformacion()
+    public void BotonQuitarPanelesInformacion()
     {
         foreach (ObjetoPanelInfo objetoPanelInfo in objetosPanelesInformacion)
         {
