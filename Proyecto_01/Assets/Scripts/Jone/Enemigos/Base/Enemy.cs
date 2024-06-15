@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable
 {
@@ -22,16 +23,23 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
     #endregion
 
-    #region Idle Variables
+    #region Variables ScriptableObjects
 
-    public Rigidbody2D BulletPrefab;
-    public float RandomMovementRange = 2f;
-    public float RandomMovementSpeed = 1f;
+    [SerializeField] private EnemyIdleSOBase EnemyIdleBase;
+    [SerializeField] private EnemyChaseSOBase EnemyChaseBase;
+    [SerializeField] private EnemyAttackSOBase EnemyAttackBase;
 
+    public EnemyIdleSOBase EnemyIdleBaseInstance { get; set; }
+    public EnemyChaseSOBase EnemyChaseBaseInstance { get; set; }
+    public EnemyAttackSOBase EnemyAttackBaseInstance { get; set; }
     #endregion
 
     private void Awake()
     {
+        EnemyIdleBaseInstance = Instantiate(EnemyIdleBase);
+        EnemyChaseBaseInstance = Instantiate(EnemyChaseBase);
+        EnemyAttackBaseInstance = Instantiate(EnemyAttackBase);
+        
         StateMachine = new EnemyStateMachine();
 
         IdleState = new EnemyIdleState(this, StateMachine);
@@ -44,6 +52,10 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
         CurrentHealth = MaxHealth;
 
         RB = GetComponent<Rigidbody2D>();
+
+        EnemyIdleBaseInstance.Initialize(gameObject, this);
+        EnemyChaseBaseInstance.Initialize(gameObject, this);
+        EnemyAttackBaseInstance.Initialize(gameObject, this);
 
         StateMachine.Initialize(IdleState);
     }
@@ -62,6 +74,8 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     public void Damage(float damageAmount)
     {
         CurrentHealth -= damageAmount;
+        //anim.SetTrigger("recibeDaño");
+        // Sonido recibir daño
 
         if (CurrentHealth <= 0f)
         {
@@ -71,6 +85,18 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
     public void Die()
     {
+        //anim.SetBool("seMuere", true);
+        // Sonido muerte
+        //sfxManager.PlaySFX(sfxManager.audiosEnemigos[2]);
+        // Destroy(this.gameObject, 1f);    // Si decidimos que queremos directamente eliminar al enemigo
+        //GetComponent<Collider2D>().enabled = false;
+        //this.enabled = false;
+        //contadorEnemigosMuertos++;
+
+        // Corrupcion jugador
+        //Player.contadorCorr += 1;
+        //Player.corrupcion += corrEnemigo;
+        //Debug.Log("Corrupción: " + Player.corrupcion + "%");
         Destroy(gameObject);
     }
     #endregion
@@ -101,7 +127,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     }
     #endregion
 
-    #region
+    #region Checks Distancia
 
     public void SetAggroStatus(bool isAggroed)
     {
