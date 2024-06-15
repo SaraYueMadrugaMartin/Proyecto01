@@ -10,6 +10,7 @@ public class MostrarPuzleValvula : MonoBehaviour
 
     [SerializeField] private GameObject panelSiguientePaso;
     [SerializeField] private ValvulaRotar rotarValvula;
+    [SerializeField] private GameObject puzleMoverPiezasValvula;
     [SerializeField] private GameObject puzleGirarValvula;
 
     private void Awake()
@@ -63,8 +64,21 @@ public class MostrarPuzleValvula : MonoBehaviour
         yield return new WaitForSecondsRealtime(5f);
         if (panelSiguientePaso != null)
         {
+            puzleMoverPiezasValvula.SetActive(false);
             panelSiguientePaso.SetActive(false);
             puzleGirarValvula.SetActive(true);
         }
+    }
+
+    public void GiroCompletado()
+    {
+        StartCoroutine(DesactivarPanelGirarValvula());
+    }
+
+    private IEnumerator DesactivarPanelGirarValvula()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        // Sonido de giro de válvula
+        puzleGirarValvula.SetActive(false);
     }
 }

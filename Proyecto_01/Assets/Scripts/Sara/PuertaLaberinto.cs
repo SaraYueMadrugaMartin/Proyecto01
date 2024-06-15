@@ -14,6 +14,8 @@ public class PuertaLaberinto : MonoBehaviour
     [SerializeField] private GameObject puertaSinLlave;
     [SerializeField] private Player player;
 
+    //[SerializeField] private MostrarPuzleValvula mostrarPuzleValvula;
+
     SFXManager sfxManager;
 
     private bool jugadorTocando = false;
@@ -96,8 +98,8 @@ public class PuertaLaberinto : MonoBehaviour
         //player.transform.position = posNueva;
         puzleValvula.SetActive(true);
         //gameObject.SetActive(false);
-        inventario.VaciarHueco("ValvulaCabeza");
-        inventario.VaciarHueco("ValvulaCuerpo");
+        //inventario.VaciarHueco("ValvulaCabeza");
+        //inventario.VaciarHueco("ValvulaCuerpo");
         Time.timeScale = 0f;
     }
 

@@ -5,19 +5,17 @@ using UnityEngine.EventSystems;
 public class ValvulaRotar : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
     private RectTransform rectTransform;
-    private Vector2 screenPos;
-    private float startAngle;
+    private Vector2 initialPosition;
+    private Vector2 initialDirection;
     private bool isRotating;
-    private float angulosGirados = 0f;
+    private float totalAngleRotated = 0f;
+    private float lastAngle = 0f;
 
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
-    }
-
-    private void Update()
-    {
-        
+        initialPosition = rectTransform.position;
+        initialDirection = Vector2.right;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -25,8 +23,9 @@ public class ValvulaRotar : MonoBehaviour, IPointerDownHandler, IDragHandler, IP
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             isRotating = true;
-            screenPos = eventData.position;
-            startAngle = Mathf.Atan2(screenPos.y - rectTransform.position.y, screenPos.x - rectTransform.position.x) * Mathf.Rad2Deg;
+            Vector2 screenPos = eventData.position;
+            float angle = Mathf.Atan2(screenPos.y - initialPosition.y, screenPos.x - initialPosition.x) * Mathf.Rad2Deg;
+            lastAngle = angle; // No necesitamos usar Mathf.Repeat para el ángulo inicial
         }
     }
 
@@ -35,17 +34,29 @@ public class ValvulaRotar : MonoBehaviour, IPointerDownHandler, IDragHandler, IP
         if (isRotating)
         {
             Vector2 currentMousePosition = eventData.position;
-            float angle = Mathf.Atan2(currentMousePosition.y - rectTransform.position.y, currentMousePosition.x - rectTransform.position.x) * Mathf.Rad2Deg;
-            float angleOffset = angle - startAngle;
+            float angle = Mathf.Atan2(currentMousePosition.y - initialPosition.y, currentMousePosition.x - initialPosition.x) * Mathf.Rad2Deg;
+            float angleOffset = angle - lastAngle;
 
-            rectTransform.rotation = Quaternion.Euler(0, 0, angleOffset);
-        }
+            if (angleOffset > 180f)
+            {
+                angleOffset -= 360f;
+            }
+            else if (angleOffset < -180f)
+            {
+                angleOffset += 360f;
+            }
 
-        if (angulosGirados >= 360f)
-        {
-            Debug.Log("Has abierto la puerta");
-            angulosGirados = 0f;
-            PuertaAbierta();
+            rectTransform.rotation = Quaternion.Euler(0, 0, rectTransform.eulerAngles.z + angleOffset);
+            totalAngleRotated += angleOffset;
+            lastAngle = angle;
+            Debug.Log("Ángulo girado: " + totalAngleRotated);
+
+            if (Mathf.Abs(totalAngleRotated) >= 720f)
+            {
+                Debug.Log("Has abierto la puerta");
+                isRotating = false;
+                MostrarPuzleValvula.Instance.GiroCompletado();
+            }
         }
     }
 
@@ -55,11 +66,5 @@ public class ValvulaRotar : MonoBehaviour, IPointerDownHandler, IDragHandler, IP
         {
             isRotating = false;
         }
-    }
-
-    IEnumerator PuertaAbierta()
-    {
-        yield return new WaitForSecondsRealtime(1f);
-        gameObject.SetActive(false);
     }
 }
