@@ -12,6 +12,7 @@ public class MostrarPuzleValvula : MonoBehaviour
     [SerializeField] private ValvulaRotar rotarValvula;
     [SerializeField] private GameObject puzleMoverPiezasValvula;
     [SerializeField] private GameObject puzleGirarValvula;
+    [SerializeField] private PuertaLaberinto puertaLaberinto;
 
     private void Awake()
     {
@@ -77,6 +78,8 @@ public class MostrarPuzleValvula : MonoBehaviour
 
     private IEnumerator DesactivarPanelGirarValvula()
     {
+        puertaLaberinto.AbrirPuertaLaberinto();
+
         yield return new WaitForSecondsRealtime(1f);
         // Sonido de giro de válvula
         puzleGirarValvula.SetActive(false);

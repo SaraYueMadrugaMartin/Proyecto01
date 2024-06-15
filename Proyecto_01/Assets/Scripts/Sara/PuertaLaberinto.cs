@@ -103,16 +103,21 @@ public class PuertaLaberinto : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    /*IEnumerator AbrirPuerta()
+    public void AbrirPuertaLaberinto()
+    {
+        StartCoroutine(AbrirPuerta());
+    }
+
+    IEnumerator AbrirPuerta()
     {
         yield return new WaitForSecondsRealtime(0.5f);
         fadeAnimation.FadeOut();
         sfxManager.PlaySFX(sfxManager.clipsDeAudio[19]);
         player.transform.position = posNueva;
-        panelAdvertencia.SetActive(false);
+        //panelAdvertencia.SetActive(false);
         gameObject.SetActive(false);
         inventario.VaciarHueco("ValvulaCabeza");
         inventario.VaciarHueco("ValvulaCuerpo");
         Time.timeScale = 1f;
-    }*/
+    }
 }
