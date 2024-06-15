@@ -9,12 +9,9 @@ public class PuertaLaberinto : MonoBehaviour
     [SerializeField] private FadeAnimation fadeAnimation;
     [SerializeField] private GameObject panelFaltanPiezas;
     [SerializeField] private TextMeshProUGUI textoPiezas;
-    //[SerializeField] private GameObject panelAdvertencia;
     [SerializeField] private GameObject puzleValvula;
     [SerializeField] private GameObject puertaSinLlave;
     [SerializeField] private Player player;
-
-    //[SerializeField] private MostrarPuzleValvula mostrarPuzleValvula;
 
     SFXManager sfxManager;
 
@@ -22,7 +19,7 @@ public class PuertaLaberinto : MonoBehaviour
     private bool todasPiezas = false;
     private bool valvulaCabeza = false;
     private bool valvulaCuerpo = false;
-    private Vector2 posNueva = new Vector2(7.51f, 65.7f);
+    //private Vector2 posNueva = new Vector2(7.51f, 65.7f);
 
     void Start()
     {
@@ -58,9 +55,6 @@ public class PuertaLaberinto : MonoBehaviour
             }
             else
             {
-                //puertaSinLlave.SetActive(true);
-                //Time.timeScale = 0f;
-                //puzleValvula.SetActive(true);
                 StartCoroutine(PuzleLaberinto());
             }
         }
@@ -94,12 +88,7 @@ public class PuertaLaberinto : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(0f);
         fadeAnimation.FadeOut();
-        //sfxManager.PlaySFX(sfxManager.clipsDeAudio[19]);
-        //player.transform.position = posNueva;
         puzleValvula.SetActive(true);
-        //gameObject.SetActive(false);
-        //inventario.VaciarHueco("ValvulaCabeza");
-        //inventario.VaciarHueco("ValvulaCuerpo");
         Time.timeScale = 0f;
     }
 
@@ -110,12 +99,10 @@ public class PuertaLaberinto : MonoBehaviour
 
     IEnumerator AbrirPuerta()
     {
-        yield return new WaitForSecondsRealtime(0.5f);
-        fadeAnimation.FadeOut();
-        sfxManager.PlaySFX(sfxManager.clipsDeAudio[19]);
-        player.transform.position = posNueva;
-        //panelAdvertencia.SetActive(false);
+        yield return new WaitForSecondsRealtime(0f);
+        //player.transform.position = posNueva;
         gameObject.SetActive(false);
+        puertaSinLlave.SetActive(true);
         inventario.VaciarHueco("ValvulaCabeza");
         inventario.VaciarHueco("ValvulaCuerpo");
         Time.timeScale = 1f;

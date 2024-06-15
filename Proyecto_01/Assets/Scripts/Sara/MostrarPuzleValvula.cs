@@ -13,6 +13,9 @@ public class MostrarPuzleValvula : MonoBehaviour
     [SerializeField] private GameObject puzleMoverPiezasValvula;
     [SerializeField] private GameObject puzleGirarValvula;
     [SerializeField] private PuertaLaberinto puertaLaberinto;
+    [SerializeField] private FadeAnimation fadeAnimation;
+
+    SFXManager sfxManager;
 
     private void Awake()
     {
@@ -28,6 +31,8 @@ public class MostrarPuzleValvula : MonoBehaviour
 
     private void Start()
     {
+        sfxManager = FindObjectOfType<SFXManager>();
+
         if (panelSiguientePaso != null)
         {
             panelSiguientePaso.SetActive(false);
@@ -50,7 +55,7 @@ public class MostrarPuzleValvula : MonoBehaviour
     {
         if (cabezaColocada && cuerpoColocado)
         {
-            // Sonido de piezas encajando
+            sfxManager.PlaySFX(sfxManager.clipsDeAudio[11]);
             if (panelSiguientePaso != null)
             {
                 panelSiguientePaso.SetActive(true);
@@ -78,10 +83,20 @@ public class MostrarPuzleValvula : MonoBehaviour
 
     private IEnumerator DesactivarPanelGirarValvula()
     {
+        fadeAnimation.FadeOut();
+        sfxManager.PlaySFX(sfxManager.clipsDeAudio[19]);
+        yield return new WaitForSecondsRealtime(0.5f);
+        puzleGirarValvula.SetActive(false);
         puertaLaberinto.AbrirPuertaLaberinto();
+    }
 
-        yield return new WaitForSecondsRealtime(1f);
-        // Sonido de giro de válvula
+    public void SalirPanelMoverValvula()
+    {
+        puzleMoverPiezasValvula.SetActive(false);
+    }
+
+    public void SalirPanelGirarValvula()
+    {
         puzleGirarValvula.SetActive(false);
     }
 }

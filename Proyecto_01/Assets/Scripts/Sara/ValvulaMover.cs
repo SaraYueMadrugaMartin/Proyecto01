@@ -9,12 +9,14 @@ public class ValvulaMover : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     private Canvas canvas;
     private CanvasGroup canvasGroup;
 
+    SFXManager sfxManager;
+
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
         canvasGroup = GetComponent<CanvasGroup>();
-
+        sfxManager = FindObjectOfType<SFXManager>();
         posInicial = rectTransform.anchoredPosition;
     }
 
@@ -48,6 +50,7 @@ public class ValvulaMover : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             if (gameObject.CompareTag("ValvulaCuerpo"))
             {
                 rectTransform.anchoredPosition = posValvula.anchoredPosition;
+                sfxManager.PlaySFX(sfxManager.clipsDeAudio[0]);
                 gameObject.SetActive(false);
                 MostrarPuzleValvula.Instance.ColocarCuerpo();
             }
@@ -56,11 +59,13 @@ public class ValvulaMover : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
                 if (!MostrarPuzleValvula.Instance.cuerpoColocado)
                 {
                     rectTransform.anchoredPosition = posInicial;
+                    sfxManager.PlaySFX(sfxManager.clipsDeAudio[2]);
                     Debug.Log("Antes de poner esta pieza necesitas poner la otra");
                 }
                 else
                 {
                     rectTransform.anchoredPosition = posValvula.anchoredPosition;
+                    sfxManager.PlaySFX(sfxManager.clipsDeAudio[0]);
                     gameObject.SetActive(false);
                     MostrarPuzleValvula.Instance.ColocarCabeza();
                 }
@@ -69,6 +74,7 @@ public class ValvulaMover : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         else
         {
             rectTransform.anchoredPosition = posInicial;
+            sfxManager.PlaySFX(sfxManager.clipsDeAudio[2]);
         }
     }
 }
