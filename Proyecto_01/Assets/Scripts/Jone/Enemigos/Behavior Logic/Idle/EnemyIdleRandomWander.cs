@@ -12,11 +12,6 @@ public class EnemyIdleRandomWander : EnemyIdleSOBase
     private Vector3 _targetPos;
     private Vector3 _direction;
 
-    public override void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType)
-    {
-        base.DoAnimationTriggerEventLogic(triggerType);
-    }
-
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();

@@ -8,11 +8,6 @@ public class EnemyChaseRunAway : EnemyChaseSOBase
 {
     [SerializeField] private float _runAwaySpeed = 1.5f;
 
-    public override void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType)
-    {
-        base.DoAnimationTriggerEventLogic(triggerType);
-    }
-
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();

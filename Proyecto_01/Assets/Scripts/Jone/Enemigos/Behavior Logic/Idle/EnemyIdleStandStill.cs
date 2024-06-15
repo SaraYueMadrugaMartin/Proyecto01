@@ -6,11 +6,6 @@ using UnityEngine;
 
 public class EnemyIdleStandStill : EnemyIdleSOBase
 {
-    public override void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType)
-    {
-        base.DoAnimationTriggerEventLogic(triggerType);
-    }
-
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();

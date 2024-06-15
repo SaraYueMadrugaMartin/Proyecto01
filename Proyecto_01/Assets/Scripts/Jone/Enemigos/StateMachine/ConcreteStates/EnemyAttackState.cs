@@ -9,13 +9,6 @@ public class EnemyAttackState : EnemyState
     {
     }
 
-    public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
-    {
-        base.AnimationTriggerEvent(triggerType);
-
-        enemy.EnemyAttackBaseInstance.DoAnimationTriggerEventLogic(triggerType);
-    }
-
     public override void EnterState()
     {
         base.EnterState();

@@ -7,10 +7,6 @@ using UnityEngine;
 public class EnemyChaseDirectToPlayer : EnemyChaseSOBase
 {
     [SerializeField] private float _movementSpeed = 1.75f;
-    public override void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType)
-    {
-        base.DoAnimationTriggerEventLogic(triggerType);
-    }
 
     public override void DoEnterLogic()
     {

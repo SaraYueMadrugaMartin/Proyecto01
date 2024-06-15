@@ -15,11 +15,6 @@ public class EnemyAttackSingleStraightProjectile : EnemyAttackSOBase
     private float _timer;
     private float _exitTimer;
 
-    public override void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType)
-    {
-        base.DoAnimationTriggerEventLogic(triggerType);
-    }
-
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();
@@ -39,7 +34,7 @@ public class EnemyAttackSingleStraightProjectile : EnemyAttackSOBase
         if (_timer > _timeBetweenShots)
         {
             _timer = 0f;
-
+            enemy.anim.SetTrigger("ataca");
             Vector2 posCentralJugador = new Vector2(playerTransform.position.x, playerTransform.position.y + 0.8f);
             Vector2 posCentralEnemigo = new Vector2(enemy.transform.position.x, enemy.transform.position.y + 1.17f);
             Vector2 dir = (posCentralJugador - posCentralEnemigo).normalized;
