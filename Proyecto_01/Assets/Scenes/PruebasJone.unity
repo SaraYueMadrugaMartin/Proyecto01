@@ -2852,11 +2852,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.69
+      value: -7.39
       objectReference: {fileID: 0}
     - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.18
+      value: 15.2
       objectReference: {fileID: 0}
     - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2894,10 +2894,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 914740022}
-    - target: {fileID: 7405007839236046643, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 914740011}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3333,6 +3329,14 @@ PrefabInstance:
       propertyPath: panelBotonesDocumentos
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4582909433825413291, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+      propertyPath: panelBotonesValvulaCabeza
+      value: 
+      objectReference: {fileID: 681857043}
+    - target: {fileID: 4582909433825413291, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+      propertyPath: panelBotonesValvulaCuerpo
+      value: 
+      objectReference: {fileID: 681857043}
     - target: {fileID: 8430805985624622459, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.24560547
@@ -5419,6 +5423,14 @@ PrefabInstance:
       propertyPath: panelBotonesDocumentos
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4582909433825413291, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+      propertyPath: panelBotonesValvulaCabeza
+      value: 
+      objectReference: {fileID: 681857043}
+    - target: {fileID: 4582909433825413291, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+      propertyPath: panelBotonesValvulaCuerpo
+      value: 
+      objectReference: {fileID: 681857043}
     - target: {fileID: 8710135131023246384, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -7259,6 +7271,14 @@ PrefabInstance:
       propertyPath: panelBotonesDocumentos
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4582909433825413291, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+      propertyPath: panelBotonesValvulaCabeza
+      value: 
+      objectReference: {fileID: 681857043}
+    - target: {fileID: 4582909433825413291, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+      propertyPath: panelBotonesValvulaCuerpo
+      value: 
+      objectReference: {fileID: 681857043}
     - target: {fileID: 8430805985624622459, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.24560547
@@ -9695,6 +9715,14 @@ PrefabInstance:
       propertyPath: panelBotonesMunicion
       value: 
       objectReference: {fileID: 1406230091}
+    - target: {fileID: 4582909433825413291, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+      propertyPath: panelBotonesValvulaCabeza
+      value: 
+      objectReference: {fileID: 681857043}
+    - target: {fileID: 4582909433825413291, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+      propertyPath: panelBotonesValvulaCuerpo
+      value: 
+      objectReference: {fileID: 681857043}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -128262,6 +128290,14 @@ PrefabInstance:
       propertyPath: panelBotonesDocumentos
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4582909433825413291, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+      propertyPath: panelBotonesValvulaCabeza
+      value: 
+      objectReference: {fileID: 681857043}
+    - target: {fileID: 4582909433825413291, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+      propertyPath: panelBotonesValvulaCuerpo
+      value: 
+      objectReference: {fileID: 681857043}
     - target: {fileID: 8430805985624622459, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.24560547
@@ -129239,6 +129275,14 @@ PrefabInstance:
       propertyPath: panelBotonesDocumentos
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4582909433825413291, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+      propertyPath: panelBotonesValvulaCabeza
+      value: 
+      objectReference: {fileID: 681857043}
+    - target: {fileID: 4582909433825413291, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+      propertyPath: panelBotonesValvulaCuerpo
+      value: 
+      objectReference: {fileID: 681857043}
     - target: {fileID: 8430805985624622459, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.24560547
@@ -130159,6 +130203,14 @@ PrefabInstance:
       propertyPath: panelBotonesDocumentos
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4582909433825413291, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+      propertyPath: panelBotonesValvulaCabeza
+      value: 
+      objectReference: {fileID: 681857043}
+    - target: {fileID: 4582909433825413291, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+      propertyPath: panelBotonesValvulaCuerpo
+      value: 
+      objectReference: {fileID: 681857043}
     - target: {fileID: 8710135131023246384, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -135507,6 +135559,14 @@ PrefabInstance:
       propertyPath: panelBotonesDocumentos
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4582909433825413291, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+      propertyPath: panelBotonesValvulaCabeza
+      value: 
+      objectReference: {fileID: 681857043}
+    - target: {fileID: 4582909433825413291, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+      propertyPath: panelBotonesValvulaCuerpo
+      value: 
+      objectReference: {fileID: 681857043}
     - target: {fileID: 8710135131023246384, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -137751,7 +137811,10 @@ MonoBehaviour:
   cuerpoColocado: 0
   panelSiguientePaso: {fileID: 1749997965}
   rotarValvula: {fileID: 91538796}
+  puzleMoverPiezasValvula: {fileID: 0}
   puzleGirarValvula: {fileID: 897695016}
+  puertaLaberinto: {fileID: 0}
+  fadeAnimation: {fileID: 0}
 --- !u!1 &1922785204
 GameObject:
   m_ObjectHideFlags: 0
@@ -138604,6 +138667,14 @@ PrefabInstance:
       propertyPath: panelBotonesDocumentos
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4582909433825413291, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+      propertyPath: panelBotonesValvulaCabeza
+      value: 
+      objectReference: {fileID: 681857043}
+    - target: {fileID: 4582909433825413291, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
+      propertyPath: panelBotonesValvulaCuerpo
+      value: 
+      objectReference: {fileID: 681857043}
     - target: {fileID: 8710135131023246384, guid: 20d19708a54b8d348910a0e410b3b53b, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -139513,7 +139584,7 @@ Transform:
   m_GameObject: {fileID: 2011914855}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.4995, y: 3.16, z: 0}
+  m_LocalPosition: {x: -10.4995, y: 16.14, z: 0}
   m_LocalScale: {x: 0.6032, y: 2.8424213, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -140912,7 +140983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1419816159403953111, guid: 8b6f408160dfa2d4a9388338bf4d1a6e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1600968484021895954, guid: 8b6f408160dfa2d4a9388338bf4d1a6e, type: 3}
       propertyPath: player
@@ -140961,6 +141032,10 @@ PrefabInstance:
     - target: {fileID: 5323884824696535140, guid: 8b6f408160dfa2d4a9388338bf4d1a6e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799864175252150727, guid: 8b6f408160dfa2d4a9388338bf4d1a6e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
