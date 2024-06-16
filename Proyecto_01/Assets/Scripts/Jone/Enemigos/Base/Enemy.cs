@@ -1,6 +1,8 @@
+using BBUnity.Actions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckable
 {
@@ -8,7 +10,6 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     public float CurrentHealth { get; set; }
     public Rigidbody2D RB { get; set; }
     public bool IsFacingRight { get; set; } = true;
-
     public bool IsAggroed { get; set; }
     public bool IsWithinStrikingDistance { get; set; }
 
@@ -22,28 +23,48 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
     #endregion
 
-    #region Idle Variables
+    #region Variables ScriptableObjects
 
-    public Rigidbody2D BulletPrefab;
-    public float RandomMovementRange = 2f;
-    public float RandomMovementSpeed = 1f;
+    [SerializeField] private EnemyIdleSOBase EnemyIdleBase;
+    [SerializeField] private EnemyChaseSOBase EnemyChaseBase;
+    [SerializeField] private EnemyAttackSOBase EnemyAttackBase;
 
+    public EnemyIdleSOBase EnemyIdleBaseInstance { get; set; }
+    public EnemyChaseSOBase EnemyChaseBaseInstance { get; set; }
+    public EnemyAttackSOBase EnemyAttackBaseInstance { get; set; }
     #endregion
+
+    public Animator anim;
+
+    public static int contadorEnemigosMuertos = 0;
+    [SerializeField] int corrEnemigo = 20;
+    public Player player;
 
     private void Awake()
     {
+        EnemyIdleBaseInstance = Instantiate(EnemyIdleBase);
+        EnemyChaseBaseInstance = Instantiate(EnemyChaseBase);
+        EnemyAttackBaseInstance = Instantiate(EnemyAttackBase);
+        
         StateMachine = new EnemyStateMachine();
 
         IdleState = new EnemyIdleState(this, StateMachine);
         ChaseState = new EnemyChaseState(this, StateMachine);
         AttackState = new EnemyAttackState(this, StateMachine);
+
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     private void Start()
     {
         CurrentHealth = MaxHealth;
 
+        anim = GetComponent<Animator>();
         RB = GetComponent<Rigidbody2D>();
+
+        EnemyIdleBaseInstance.Initialize(gameObject, this);
+        EnemyChaseBaseInstance.Initialize(gameObject, this);
+        EnemyAttackBaseInstance.Initialize(gameObject, this);
 
         StateMachine.Initialize(IdleState);
     }
@@ -59,9 +80,13 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     }
 
     #region Funciones de Salud/Muerte
+    
+    // Función de recibir daño que se llama desde Player y desde Bala
     public void Damage(float damageAmount)
     {
         CurrentHealth -= damageAmount;
+        anim.SetTrigger("recibeDamage");
+        // Sonido recibir daño
 
         if (CurrentHealth <= 0f)
         {
@@ -69,9 +94,23 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
         }
     }
 
+    // Función de muerte del enemigo que se llama al recibir daño, cuando le baja la salud a 0
     public void Die()
     {
-        Destroy(gameObject);
+        MoveEnemy(Vector2.zero);
+        anim.SetBool("seMuere", true);
+        // Sonido muerte
+        //sfxManager.PlaySFX(sfxManager.audiosEnemigos[2]);
+        GetComponent<Collider2D>().enabled = false;
+        this.enabled = false;
+        contadorEnemigosMuertos++;
+
+        // Corrupcion jugador
+        Player.contadorCorr += 1;
+        Player.corrupcion += corrEnemigo;
+        Debug.Log("Corrupción: " + Player.corrupcion + "%");
+
+        // Destroy(this.gameObject, 1f);    // Si decidimos que queremos directamente eliminar al enemigo
     }
     #endregion
 
@@ -101,7 +140,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     }
     #endregion
 
-    #region
+    #region Checks Distancia
 
     public void SetAggroStatus(bool isAggroed)
     {
@@ -115,23 +154,18 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
     #endregion
 
-    #region Animaciones
-
-    private void AnimationTriggerEvent(AnimationTriggerType triggerType)
+    public void Coroutine(IEnumerator coroutine)
     {
-        StateMachine.CurrentEnemyState.AnimationTriggerEvent(triggerType);
+        StartCoroutine(coroutine);
     }
 
-    public void SetStrikingDistance(bool isWithinStrikingDistance)
+    public int GetNumEnemMuertos()
     {
-        throw new System.NotImplementedException();
+        return contadorEnemigosMuertos;
     }
 
-    public enum AnimationTriggerType
+    public void SetNumEnemMuertos(int enemMuertos)
     {
-        EnemyDamaged,
-        PlayFootsepSound
+        contadorEnemigosMuertos = enemMuertos;
     }
-
-    #endregion
 }

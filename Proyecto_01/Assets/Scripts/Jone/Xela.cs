@@ -33,7 +33,7 @@ public class Xela : MonoBehaviour
 
     // Para atacar al jugador
     [SerializeField] float rangoAtaque = 2f;
-    float tiempoEspera = 2f;
+    float tiempoEspera = 2.5f;
     float tiempoSiguienteAtaque = 0f;
     float damageAtaque = 20f;
 
@@ -161,6 +161,9 @@ public class Xela : MonoBehaviour
 
     private void EstadoAtaque()
     {
+        // Si está en defensa, no puede atacar
+        if (defiende) return;
+
         // El enemigo tiene un tiempo fijo entre ataques
         if (Time.time >= tiempoSiguienteAtaque)
         {
@@ -189,10 +192,10 @@ public class Xela : MonoBehaviour
         StartCoroutine(MantenerDefensa());
     }
 
-    // Tiempo de defensa aleatorio entre 2 y 7 segundos
+    // Tiempo de defensa aleatorio entre 3 y 7 segundos
     private IEnumerator MantenerDefensa()
     {
-        float tiempoDefensa = UnityEngine.Random.Range(3f, 8f);
+        float tiempoDefensa = UnityEngine.Random.Range(3f, 7f);
         yield return new WaitForSeconds(tiempoDefensa);
         SaleEstadoDefensa();
     }
@@ -210,8 +213,10 @@ public class Xela : MonoBehaviour
 
     public void recibeDamage(float damage)
     {
+        Debug.Log("entro en recibe daño");
         if (!defiende) // Si se está defendiendo no recibe daño
         {
+            Debug.Log("xela recibe el daño");
             saludActual -= (int)damage;
             XelaHealthAnim.CambiaValue();
             anim.SetTrigger("recibeDaño");
@@ -223,6 +228,7 @@ public class Xela : MonoBehaviour
         }
         else 
         {
+            Debug.Log("xela no recibe el daño");
             // Sonido defensa
         }
     }

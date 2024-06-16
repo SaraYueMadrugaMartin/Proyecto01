@@ -18,7 +18,8 @@ public class EnemyAggroCheck : MonoBehaviour
     {
         if (collision.gameObject == PlayerTarget)
         {
-            _enemy.SetAggroStatus(true);
+            // Jugador entra en la zona agresiva del enemigo
+            _enemy.SetAggroStatus(true); // Con esto el enemigo cambiará a estado de seguimiento
         }
     }
 
@@ -26,7 +27,8 @@ public class EnemyAggroCheck : MonoBehaviour
     {
         if (collision.gameObject == PlayerTarget)
         {
-            _enemy.SetAggroStatus(false);
+            //Jugador sale de la zona agresiva del enemigo
+            _enemy.SetAggroStatus(false); // Con esto el enemigo cambiará a estado de idle
         }
     }
 }

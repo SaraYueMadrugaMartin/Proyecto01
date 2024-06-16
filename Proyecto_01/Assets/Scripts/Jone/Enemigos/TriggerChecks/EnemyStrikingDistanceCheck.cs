@@ -18,7 +18,8 @@ public class EnemyStrikingDistanceCheck : MonoBehaviour
     {
         if (collision.gameObject == PlayerTarget)
         {
-            _enemy.SetStrikingDistanceBool(true);
+            // Jugador entra en la zona de ataque del enemigo
+            _enemy.SetStrikingDistanceBool(true); // Con esto el enemigo cambiará a estado de ataque
         }
     }
 
@@ -26,7 +27,8 @@ public class EnemyStrikingDistanceCheck : MonoBehaviour
     {
         if (collision.gameObject == PlayerTarget)
         {
-            _enemy.SetStrikingDistanceBool(false);
+            //Jugador sale de la zona de ataque del enemigo
+            _enemy.SetStrikingDistanceBool(false); // Con esto el enemigo cambiará a estado de seguimiento
         }
     }
 }
