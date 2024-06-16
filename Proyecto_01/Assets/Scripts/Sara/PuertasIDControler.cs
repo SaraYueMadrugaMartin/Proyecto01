@@ -30,7 +30,7 @@ public class PuertasIDControler : MonoBehaviour
 
         if (!puertaActual.puertaAsociada.puertaBloqueada)
         {
-            sfxManager.PlaySFX(sfxManager.clipsDeAudio[13]);
+            
             panelPregunta.SetActive(false);
             Puerta.panelAbierto = false;
             Cursor.lockState = CursorLockMode.Locked;
@@ -39,11 +39,13 @@ public class PuertasIDControler : MonoBehaviour
 
             if (puertaActual.idPuerta != 3)
             {
+                sfxManager.PlaySFX(sfxManager.clipsDeAudio[13]);
                 fadeAnimation.FadeOut();
                 puertaActual.CambioPosicionPlayer();
             }
             else
             {
+                sfxManager.PlaySFX(sfxManager.clipsDeAudio[20]);
                 fadeAnimation.FadeOut();
                 cadenas.SetActive(false);
                 puertaActual.CambioPosicionPlayer();
