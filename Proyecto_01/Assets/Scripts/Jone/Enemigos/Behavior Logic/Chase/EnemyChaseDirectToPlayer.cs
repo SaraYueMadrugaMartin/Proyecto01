@@ -7,6 +7,7 @@ public class EnemyChaseDirectToPlayer : EnemyChaseSOBase
 {
     [SerializeField] private float _movementSpeed = 1.75f;
     [SerializeField] private float _stuckTimeThreshold = 2f;
+    [SerializeField] private float _stuckDuration = 3f;
 
     private Vector3 _lastPosition;
     private float _stuckTimer;
@@ -46,8 +47,7 @@ public class EnemyChaseDirectToPlayer : EnemyChaseSOBase
         // Si el enemigo ha estado atascado más del tiempo permitido, vuelve al estado de idle
         if (_stuckTimer >= _stuckTimeThreshold)
         {
-            Debug.Log("Lleva mucho tiempo quieto, vuelve a idle");
-            enemy.StateMachine.ChangeState(enemy.IdleState);
+            EnemyStuck();
         }
     }
 
@@ -64,5 +64,35 @@ public class EnemyChaseDirectToPlayer : EnemyChaseSOBase
     public override void ResetValues()
     {
         base.ResetValues();
+    }
+
+    private void EnemyStuck()
+    {
+        enemy.Coroutine(HandleStuck());
+    }
+
+    private IEnumerator HandleStuck()
+    {
+        // Retroceder
+        Vector2 backwardDirection = -(playerTransform.position - enemy.transform.position).normalized;
+        float timer = 0f;
+
+        while (timer < _stuckDuration / 2)
+        {
+            enemy.MoveEnemy(backwardDirection * _movementSpeed);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        // Moverse en una dirección aleatoria
+        Vector2 randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+        timer = 0f;
+
+        while (timer < _stuckDuration / 2)
+        {
+            enemy.MoveEnemy(randomDirection * _movementSpeed);
+            timer += Time.deltaTime;
+            yield return null;
+        }
     }
 }

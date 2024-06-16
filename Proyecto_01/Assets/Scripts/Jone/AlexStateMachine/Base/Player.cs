@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
 
     #region Variables Player Combat
     // Daño
-    [SerializeField] public float dañoAtaque = 20f;
+    [SerializeField] public float damageAtaque = 20f;
     static public float multiplicadorAtaque = 1f;
     static public int armaEquipada = 0;
 
@@ -315,20 +315,16 @@ public class Player : MonoBehaviour
         // Hacerles daño a los enemigos
         foreach (Collider2D enemigo in golpeaEnemigos)
         {
-            Enemigo enemigoScript = enemigo.GetComponent<Enemigo>();
-            Xela xela = enemigo.GetComponent<Xela>(); // Para que funcione también con Xela
             Enemy enemy = enemigo.GetComponent<Enemy>();
-            if (enemigoScript != null)
+            Xela xela = enemigo.GetComponent<Xela>(); // Para que funcione también con Xela
+            if (enemy != null)
             {
-                enemigoScript.recibeDamage(dañoAtaque);
+                enemy.Damage(damageAtaque);
             }
             else if (xela != null)
             {
-                xela.recibeDamage(dañoAtaque);
-            }
-            else if (enemy != null)
-            {
-                enemy.Damage(dañoAtaque);
+                Debug.Log("xela no es null");
+                xela.recibeDamage(damageAtaque);
             }
         }
     }

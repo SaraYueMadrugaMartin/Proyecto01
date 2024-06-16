@@ -40,7 +40,7 @@ public class EnemyAttackSingleStraightProjectile : EnemyAttackSOBase
             _timer = 0f;
             enemy.anim.SetTrigger("ataca");
 
-            enemy.StartBotellaCoroutine(EsperaAnimacionBotella()); // Hay que llamar a la corrutina desde fuera del scriptable object
+            enemy.Coroutine(EsperaAnimacionBotella()); // Hay que llamar a la corrutina desde fuera del scriptable object
         }
 
         if (Vector2.Distance(playerTransform.position, enemy.transform.position) > _distanceToCountExit)

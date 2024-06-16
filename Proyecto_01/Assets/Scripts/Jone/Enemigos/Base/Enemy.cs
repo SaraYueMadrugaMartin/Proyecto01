@@ -154,7 +154,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
     #endregion
 
-    public void StartBotellaCoroutine(IEnumerator coroutine)
+    public void Coroutine(IEnumerator coroutine)
     {
         StartCoroutine(coroutine);
     }
