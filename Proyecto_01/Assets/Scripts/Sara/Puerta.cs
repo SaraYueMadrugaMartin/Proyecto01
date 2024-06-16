@@ -15,18 +15,18 @@ public class Puerta : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textoPuertasCerradas;
     [SerializeField] private GameObject panelPregunta;
     [SerializeField] public GameObject puertasSinLlave; // Asociamos las puertas sin llave que deben activarse cuando se desbloqueen las puertas con llave.
-
     [SerializeField] private Vector2 posNueva;
-
     public PuertasIDControler controladorPuertas;
 
     public bool jugadorTocando;
 
+    #region Variables para el SaveSystem
+
     public int idPuerta;
-
     public bool puertaBloqueada;
-
     public Collider2D[] puertaColliders;
+
+    #endregion
 
     private void Awake()
     {
@@ -100,6 +100,7 @@ public class Puerta : MonoBehaviour
             {
                 llaveCorrectaEncontrada = true;
                 puertaAsociada.puertaBloqueada = false;
+                puertaBloqueada = false;
                 inventario.EliminarLlavePorID(idLlave);
                 break;
             }
@@ -136,8 +137,7 @@ public class Puerta : MonoBehaviour
 
     public void CambioPosicionPlayer()
     {
-        //if(idPuerta != 3)
-            StartCoroutine(EsperarCambioPos());
+        StartCoroutine(EsperarCambioPos());
     }
 
     IEnumerator EsperarCambioPos()
@@ -160,6 +160,15 @@ public class Puerta : MonoBehaviour
     public void SetPuertaBloqueada(bool value)
     {
         puertaBloqueada = value;
-        //puertaAsociada.puertaBloqueada = value;
+    }
+
+    public bool GetPuertaSinLlaveActivada()
+    {
+        return puertasSinLlave.activeSelf;
+    }
+
+    public void SetPuertaSinLlaveActivada(bool value)
+    {
+        puertasSinLlave.SetActive(value);
     }
 }

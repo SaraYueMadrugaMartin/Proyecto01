@@ -15,6 +15,23 @@ public struct PuertaState
 }
 
 [System.Serializable]
+public struct PuertaLaberintoState
+{
+    public bool puertaLaberinto;
+    public bool puertaSinLlaveLaberinto;
+    public bool colliderPuertaLaberintoActivo;
+}
+
+[System.Serializable]
+public struct PuertaFinalState
+{
+    public bool puertaFinal;
+    public bool puertaSinLlaveFinal;
+    public bool colliderPuertaFinalActivo;
+    public bool spritePuertaFinal;
+}
+
+[System.Serializable]
 public struct ItemState
 {
     public int idItem;
@@ -44,9 +61,14 @@ public struct SceneState
     public Vector2 posicionPlayer;
     public bool playerMiraDerecha;
 
+    public bool cadenasActivas;
+    
     public int enemigosMuertos;
 
+
     public List<PuertaState> puertasState; // Lista para guardar la información de PuertaState.
+    public PuertaLaberintoState puertaLaberintoState;
+    public PuertaFinalState puertaFinalState;
     public List<ItemState> itemsState; // Lista para guardar la información de ItemState.
     public List<InventarioState> inventarioState;
 }
@@ -54,7 +76,6 @@ public struct SceneState
 public class SaveManager: MonoBehaviour
 {
     public static SaveManager instance;
-
     private SceneState savedSceneState;
 
     private int indiceEscenaGuardada;
@@ -62,6 +83,9 @@ public class SaveManager: MonoBehaviour
     [SerializeField] private GameObject botonCargarPartida;
 
     Player infoPlayer;
+
+    PuertasIDControler infoCadenas;
+    
 
     Items[] items;
 
@@ -110,6 +134,60 @@ public class SaveManager: MonoBehaviour
         sceneState.posicionPlayer = infoPlayer.GetPosition();
         sceneState.playerMiraDerecha = infoPlayer.GetMiraDerecha();
         Debug.Log("El jugador mira hacia la: " + sceneState.playerMiraDerecha);
+        #endregion
+
+        #region Guardado Puertas Desbloqueadas
+        //PUERTAS
+        Puerta[] puertas = FindObjectsOfType<Puerta>(); // Creamos un array de Puertas y buscamos todos los objetos de tipo "Puerta". 
+        sceneState.puertasState = new List<PuertaState>();
+
+        foreach (Puerta puerta in puertas) // Recorremos cada elemento "puerta" en el array creado antes de Puertas.
+        {
+            PuertaState puertaState = new PuertaState();
+
+            puertaState.idPuerta = puerta.idPuerta;
+            puertaState.puertaBloqueada = puerta.GetPuertaBloqueada();
+            puertaState.puertaActivada = puerta.gameObject.activeSelf;
+            puertaState.puertasSinLlaveActivadas = puerta.GetPuertaSinLlaveActivada();
+            puertaState.collidersActivos = new bool[puerta.puertaColliders.Length];
+
+            for (int i = 0; i < puerta.puertaColliders.Length; i++)
+            {
+                puertaState.collidersActivos[i] = puerta.puertaColliders[i].enabled;
+            }
+
+            sceneState.puertasState.Add(puertaState);
+
+            Debug.Log("Puerta ID: " + puerta.idPuerta + ", Bloqueada: " + puertaState.puertaBloqueada + ", Activada: " + puertaState.puertaActivada);
+        }
+
+        //Estado CADENAS Planta 1
+        infoCadenas = FindObjectOfType<PuertasIDControler>();
+        sceneState.cadenasActivas = infoCadenas.GetCadenasActivadas();
+        Debug.Log("Las cadenas de la Planta 1 están: " +  sceneState.cadenasActivas);
+
+        //Estado Puerta del Laberinto Planta 2
+        PuertaLaberinto infoPuertaLaberinto = FindObjectOfType<PuertaLaberinto>();
+        if(infoPuertaLaberinto != null)
+        {
+            sceneState.puertaLaberintoState.puertaLaberinto = infoPuertaLaberinto.GetPuertaLaberintoBloqueada();
+            sceneState.puertaLaberintoState.puertaSinLlaveLaberinto = infoPuertaLaberinto.GetPuertaSinLlaveLaberintoActivada();
+            sceneState.puertaLaberintoState.colliderPuertaLaberintoActivo = infoPuertaLaberinto.colliderPuertaLaberinto.enabled;
+        }
+        Debug.Log("La puerta del laberinto está: " + sceneState.puertaLaberintoState.puertaLaberinto);
+        Debug.Log("Estado de la puerta sin llave laberinto al guardar: " + sceneState.puertaLaberintoState.puertaSinLlaveLaberinto);
+
+        //Estado Puerta Final Planta 2
+        PuertaFinal infoPuertaFinal = FindObjectOfType<PuertaFinal>();
+        if (infoPuertaFinal != null)
+        {
+            sceneState.puertaFinalState.puertaFinal = infoPuertaFinal.GetPuertaFinalBloqueada();
+            sceneState.puertaFinalState.puertaSinLlaveFinal = infoPuertaFinal.GetPuertaSinLlaveFinalActivada();
+            sceneState.puertaFinalState.spritePuertaFinal = infoPuertaFinal.spritePuertaFinal.enabled;
+            sceneState.puertaFinalState.colliderPuertaFinalActivo = infoPuertaFinal.colliderPuertaFinal.enabled;
+        }
+        Debug.Log("La puerta final está: " + sceneState.puertaFinalState.puertaFinal);
+        Debug.Log("Estado de la puerta sin llave final al guardar: " + sceneState.puertaFinalState.puertaSinLlaveFinal);
         #endregion
 
         #region Guardar Numero Enemigos Muertos
@@ -172,31 +250,6 @@ public class SaveManager: MonoBehaviour
         }
         #endregion
 
-        #region Guardado Puertas Desbloqueadas
-        //PUERTAS
-        Puerta[] puertas = FindObjectsOfType<Puerta>(); // Creamos un array de Puertas y buscamos todos los objetos de tipo "Puerta". 
-        sceneState.puertasState = new List<PuertaState>();
-
-        foreach (Puerta puerta in puertas) // Recorremos cada elemento "puerta" en el array creado antes de Puertas.
-        {
-            PuertaState puertaState = new PuertaState();
-
-            puertaState.idPuerta = puerta.idPuerta;
-            puertaState.puertaBloqueada = puerta.GetPuertaBloqueada();
-            puertaState.puertaActivada = puerta.gameObject.activeSelf;
-            puertaState.puertasSinLlaveActivadas = puerta.puertasSinLlave.activeSelf;
-            puertaState.collidersActivos = new bool[puerta.puertaColliders.Length];
-
-            for (int i = 0; i < puerta.puertaColliders.Length; i++)
-            {
-                puertaState.collidersActivos[i] = puerta.puertaColliders[i].enabled;
-            }
-
-            sceneState.puertasState.Add(puertaState);
-
-            Debug.Log("Puerta ID: " + puerta.idPuerta + ", Bloqueada: " + puertaState.puertaBloqueada + ", Activada: " + puertaState.puertaActivada);
-        }
-        #endregion
 
         // Guardamos el estado de la escena en formato JSON
         string sceneStateJson = JsonUtility.ToJson(sceneState);
@@ -222,16 +275,64 @@ public class SaveManager: MonoBehaviour
                 playerMovement.SetMiraDerecha(savedSceneState.playerMiraDerecha);
             }
             #endregion
-            Enemigo.contadorEnemigosMuertos = savedSceneState.enemigosMuertos;
-            Debug.Log("Enemigos eliminados hasta ahora: " + savedSceneState.enemigosMuertos);
+
+            #region Cargar Datos Estado Puertas Bloqueadas
+            //PUERTAS
+            foreach (PuertaState puertaBloqueada in savedSceneState.puertasState)
+            {
+                Puerta puerta = GetPuertaID(puertaBloqueada.idPuerta);
+                if (puerta != null)
+                {
+                    puerta.SetPuertaBloqueada(puertaBloqueada.puertaBloqueada);
+                    puerta.gameObject.SetActive(puertaBloqueada.puertaActivada);
+                    puerta.SetPuertaSinLlaveActivada(puertaBloqueada.puertasSinLlaveActivadas);
+
+                    for (int i = 0; i < puerta.puertaColliders.Length; i++) // Recorremos los colliders de las puertas para saber si deben activarse de nuevo o no.
+                    {
+                        puerta.puertaColliders[i].enabled = puertaBloqueada.collidersActivos[i];
+                    }
+
+                    Debug.Log("Puerta ID " + puertaBloqueada.idPuerta + " - Bloqueada: " + puertaBloqueada.puertaBloqueada + ", Activada: " + puertaBloqueada.puertaActivada);
+                }
+            }
+
+            //Estado CADENAS Planta 1
+            PuertasIDControler cadenasEstado = FindObjectOfType<PuertasIDControler>();
+            if(cadenasEstado != null)
+                cadenasEstado.SetCadenasActivadas(savedSceneState.cadenasActivas);
+            Debug.Log("Se ha cargado la información de que las cadenas de la Planta 1 están: " + savedSceneState.cadenasActivas);
+
+            //Estado de Puerta Laberinto Planta2
+            PuertaLaberinto puertaLaberinto = FindObjectOfType<PuertaLaberinto>();
+            if(puertaLaberinto != null)
+            {
+                puertaLaberinto.SetPuertaLaberintoBloqueada(savedSceneState.puertaLaberintoState.puertaLaberinto);
+                puertaLaberinto.SetPuertaSinLlaveLaberintoActivada(savedSceneState.puertaLaberintoState.puertaSinLlaveLaberinto);
+                puertaLaberinto.colliderPuertaLaberinto.enabled = savedSceneState.puertaLaberintoState.colliderPuertaLaberintoActivo;
+            }
+            Debug.Log("Se ha cargado la información de que la puerta del laberinto está: " + savedSceneState.puertaLaberintoState.puertaLaberinto);
+            Debug.Log("Estado de la puerta sin llave laberinto al cargar: " + savedSceneState.puertaLaberintoState.puertaSinLlaveLaberinto);
+
+            //Estado Puerta Final Planta 2
+            PuertaFinal puertaFinal = FindObjectOfType<PuertaFinal>();
+            if (puertaFinal != null)
+            {
+                puertaFinal.SetPuertaFinalBloqueada(savedSceneState.puertaFinalState.puertaFinal);
+                puertaFinal.SetPuertaSinLlaveFinalActivada(savedSceneState.puertaFinalState.puertaSinLlaveFinal);
+                puertaFinal.colliderPuertaFinal.enabled = savedSceneState.puertaFinalState.colliderPuertaFinalActivo;
+                puertaFinal.spritePuertaFinal.enabled = savedSceneState.puertaFinalState.spritePuertaFinal;
+            }
+            #endregion
+
             #region Cargar Numero Enemigos Muertos
             //ENEMIGOS
-
+            Enemigo.contadorEnemigosMuertos = savedSceneState.enemigosMuertos;
+            Debug.Log("Enemigos eliminados hasta ahora: " + savedSceneState.enemigosMuertos);
             #endregion
 
             #region Cargar Datos Items
             //ITEMS
-            Items[] itemsGuardados = FindObjectsOfType<Items>();
+            /*Items[] itemsGuardados = FindObjectsOfType<Items>();
 
             if (itemsGuardados != null)
             {
@@ -285,7 +386,7 @@ public class SaveManager: MonoBehaviour
 
             #region Cargar Datos Estado Inventario
             // INVENTARIO
-            Inventario inventario = FindObjectOfType<Inventario>();
+            /*Inventario inventario = FindObjectOfType<Inventario>();
             if (inventario != null && savedSceneState.inventarioState != null)
             {
                 for (int i = 0; i < savedSceneState.inventarioState.Count; i++)
@@ -308,29 +409,9 @@ public class SaveManager: MonoBehaviour
                         }
                     }
                 }
-            }
+            }*/
             #endregion
 
-            #region Cargar Datos Estado Puertas Bloqueadas
-            //PUERTAS
-            foreach (PuertaState puertaState in savedSceneState.puertasState)
-            {
-                Puerta puerta = GetPuertaID(puertaState.idPuerta);
-                if (puerta != null)
-                {
-                    puerta.SetPuertaBloqueada(puertaState.puertaBloqueada);
-                    puerta.gameObject.SetActive(puertaState.puertaActivada);
-                    puerta.puertasSinLlave.SetActive(puertaState.puertasSinLlaveActivadas);
-
-                    for (int i = 0; i < puerta.puertaColliders.Length; i++) // Recorremos los colliders de las puertas para saber si deben activarse de nuevo o no.
-                    {
-                        puerta.puertaColliders[i].enabled = puertaState.collidersActivos[i];
-                    }
-
-                    Debug.Log("Puerta ID " + puertaState.idPuerta + " - Bloqueada: " + puertaState.puertaBloqueada + ", Activada: " + puertaState.puertaActivada);
-                }
-            }
-            #endregion
         }
     }
     #endregion

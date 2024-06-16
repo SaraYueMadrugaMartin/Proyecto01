@@ -50,6 +50,9 @@ public class GameManager : MonoBehaviour
                     Pausa.TriggerResume();
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.C))
+            saveManager.CargarEstadoEscena();
     }
 
     public void GuardarDatosEscena()
