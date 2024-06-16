@@ -23,7 +23,7 @@ public class PuertaLaberinto : MonoBehaviour
 
     #region Variables para el Save System
     public Collider2D colliderPuertaLaberinto;
-    private bool puertaLaberintoBloqueada = false;
+    private bool puertaLaberintoBloqueada = true;
     #endregion
 
     void Start()

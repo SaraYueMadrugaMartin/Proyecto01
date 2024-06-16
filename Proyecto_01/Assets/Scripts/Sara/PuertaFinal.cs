@@ -10,6 +10,7 @@ public class PuertaFinal : MonoBehaviour
     [SerializeField] private FadeAnimation fadeAnimation;
     [SerializeField] private GameObject panelFaltanLlaves;
     [SerializeField] private TextMeshProUGUI textoLlaves;
+    [SerializeField] private GameObject puertaSinLlaveFinal;
 
     SFXManager sfxManager;
 
@@ -19,7 +20,8 @@ public class PuertaFinal : MonoBehaviour
 
     #region Variables para el Save System
     public Collider2D colliderPuertaFinal;
-    private bool puertaFinalBloqueada = false;
+    public SpriteRenderer spritePuertaFinal;
+    private bool puertaFinalBloqueada = true;
     #endregion
 
     // Start is called before the first frame update
@@ -27,6 +29,7 @@ public class PuertaFinal : MonoBehaviour
     {
         sfxManager = FindObjectOfType<SFXManager>();
         colliderPuertaFinal = GetComponent<Collider2D>();
+        spritePuertaFinal = GetComponent<SpriteRenderer>();
         panelFaltanLlaves.SetActive(false);
         contadorLlaves = 3;
     }
@@ -96,10 +99,36 @@ public class PuertaFinal : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.5f);
         
         sfxManager.PlaySFX(sfxManager.clipsDeAudio[13]);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        colliderPuertaFinal.enabled = false;
+        spritePuertaFinal.enabled = false;
+        puertaSinLlaveFinal.SetActive(true);
+        puertaFinalBloqueada = false;
         inventario.VaciarHueco("LlaveX");
         inventario.VaciarHueco("LlaveY");
         inventario.VaciarHueco("LlaveZ");
         Time.timeScale = 1f;
     }
+
+    #region Metodos para el SaveSystem
+    public bool GetPuertaFinalBloqueada()
+    {
+        return puertaFinalBloqueada;
+    }
+
+    public void SetPuertaFinalBloqueada(bool value)
+    {
+        puertaFinalBloqueada = value;
+    }
+
+    public bool GetPuertaSinLlaveFinalActivada()
+    {
+        return puertaSinLlaveFinal.activeSelf;
+    }
+
+    public void SetPuertaSinLlaveFinalActivada(bool value)
+    {
+        puertaSinLlaveFinal.SetActive(value);
+    }
+    #endregion
 }

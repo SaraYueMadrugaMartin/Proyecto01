@@ -23,6 +23,15 @@ public struct PuertaLaberintoState
 }
 
 [System.Serializable]
+public struct PuertaFinalState
+{
+    public bool puertaFinal;
+    public bool puertaSinLlaveFinal;
+    public bool colliderPuertaFinalActivo;
+    public bool spritePuertaFinal;
+}
+
+[System.Serializable]
 public struct ItemState
 {
     public int idItem;
@@ -59,6 +68,7 @@ public struct SceneState
 
     public List<PuertaState> puertasState; // Lista para guardar la información de PuertaState.
     public PuertaLaberintoState puertaLaberintoState;
+    public PuertaFinalState puertaFinalState;
     public List<ItemState> itemsState; // Lista para guardar la información de ItemState.
     public List<InventarioState> inventarioState;
 }
@@ -164,9 +174,20 @@ public class SaveManager: MonoBehaviour
             sceneState.puertaLaberintoState.puertaSinLlaveLaberinto = infoPuertaLaberinto.GetPuertaSinLlaveLaberintoActivada();
             sceneState.puertaLaberintoState.colliderPuertaLaberintoActivo = infoPuertaLaberinto.colliderPuertaLaberinto.enabled;
         }
-
         Debug.Log("La puerta del laberinto está: " + sceneState.puertaLaberintoState.puertaLaberinto);
         Debug.Log("Estado de la puerta sin llave laberinto al guardar: " + sceneState.puertaLaberintoState.puertaSinLlaveLaberinto);
+
+        //Estado Puerta Final Planta 2
+        PuertaFinal infoPuertaFinal = FindObjectOfType<PuertaFinal>();
+        if (infoPuertaFinal != null)
+        {
+            sceneState.puertaFinalState.puertaFinal = infoPuertaFinal.GetPuertaFinalBloqueada();
+            sceneState.puertaFinalState.puertaSinLlaveFinal = infoPuertaFinal.GetPuertaSinLlaveFinalActivada();
+            sceneState.puertaFinalState.spritePuertaFinal = infoPuertaFinal.spritePuertaFinal.enabled;
+            sceneState.puertaFinalState.colliderPuertaFinalActivo = infoPuertaFinal.colliderPuertaFinal.enabled;
+        }
+        Debug.Log("La puerta final está: " + sceneState.puertaFinalState.puertaFinal);
+        Debug.Log("Estado de la puerta sin llave final al guardar: " + sceneState.puertaFinalState.puertaSinLlaveFinal);
         #endregion
 
         #region Guardar Numero Enemigos Muertos
@@ -291,6 +312,16 @@ public class SaveManager: MonoBehaviour
             }
             Debug.Log("Se ha cargado la información de que la puerta del laberinto está: " + savedSceneState.puertaLaberintoState.puertaLaberinto);
             Debug.Log("Estado de la puerta sin llave laberinto al cargar: " + savedSceneState.puertaLaberintoState.puertaSinLlaveLaberinto);
+
+            //Estado Puerta Final Planta 2
+            PuertaFinal puertaFinal = FindObjectOfType<PuertaFinal>();
+            if (puertaFinal != null)
+            {
+                puertaFinal.SetPuertaFinalBloqueada(savedSceneState.puertaFinalState.puertaFinal);
+                puertaFinal.SetPuertaSinLlaveFinalActivada(savedSceneState.puertaFinalState.puertaSinLlaveFinal);
+                puertaFinal.colliderPuertaFinal.enabled = savedSceneState.puertaFinalState.colliderPuertaFinalActivo;
+                puertaFinal.spritePuertaFinal.enabled = savedSceneState.puertaFinalState.spritePuertaFinal;
+            }
             #endregion
 
             #region Cargar Numero Enemigos Muertos
