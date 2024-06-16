@@ -9,11 +9,15 @@ public class EnemyIdleStandStill : EnemyIdleSOBase
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();
+
+        enemy.anim.SetBool("seMueve", false);
     }
 
     public override void DoExitLogic()
     {
         base.DoExitLogic();
+
+        enemy.anim.SetBool("seMueve", true);
     }
 
     public override void DoFrameUpdateLogic()

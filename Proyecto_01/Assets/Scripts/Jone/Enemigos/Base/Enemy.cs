@@ -158,4 +158,14 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     {
         StartCoroutine(coroutine);
     }
+
+    public int GetNumEnemMuertos()
+    {
+        return contadorEnemigosMuertos;
+    }
+
+    public void SetNumEnemMuertos(int enemMuertos)
+    {
+        contadorEnemigosMuertos = enemMuertos;
+    }
 }

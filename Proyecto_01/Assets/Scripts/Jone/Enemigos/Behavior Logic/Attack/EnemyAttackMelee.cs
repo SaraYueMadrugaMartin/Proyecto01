@@ -8,7 +8,7 @@ using UnityEngine.VFX;
 public class EnemyAttackMelee : EnemyAttackSOBase
 {
     [SerializeField] private float _timeBetweenHits = 2f;
-    [SerializeField] private float _distanceToCountExit = 3f;
+    [SerializeField] private float _distanceToCountExit = 2f;
     [SerializeField] private float _attackDamage = 20f;
 
     private float _timer;
@@ -39,7 +39,7 @@ public class EnemyAttackMelee : EnemyAttackSOBase
 
         }
 
-        if (Vector2.Distance(playerTransform.position, enemy.transform.position) > _distanceToCountExit)
+        if (!enemy.IsWithinStrikingDistance)
         {
             enemy.StateMachine.ChangeState(enemy.ChaseState);
         }

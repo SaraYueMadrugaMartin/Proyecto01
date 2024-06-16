@@ -30,6 +30,10 @@ public class EnemyChaseSOBase : ScriptableObject
         {
             enemy.StateMachine.ChangeState(enemy.AttackState);
         }
+        else if (!enemy.IsAggroed)
+        {
+            enemy.StateMachine.ChangeState(enemy.IdleState);
+        }
     }
     public virtual void DoPhysiscsLogic() { }
     public virtual void ResetValues() { }
