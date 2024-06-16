@@ -13,17 +13,20 @@ public class PuertaFinal : MonoBehaviour
 
     SFXManager sfxManager;
 
-
-
     private bool jugadorTocando = false;
     private bool todasLlaves = false;
-
     private int contadorLlaves;
+
+    #region Variables para el Save System
+    public Collider2D colliderPuertaFinal;
+    private bool puertaFinalBloqueada = false;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
     {
         sfxManager = FindObjectOfType<SFXManager>();
+        colliderPuertaFinal = GetComponent<Collider2D>();
         panelFaltanLlaves.SetActive(false);
         contadorLlaves = 3;
     }

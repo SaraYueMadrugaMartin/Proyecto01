@@ -21,12 +21,17 @@ public class PuertaLaberinto : MonoBehaviour
     private bool valvulaCuerpo = false;
     //private Vector2 posNueva = new Vector2(7.51f, 65.7f);
 
+    #region Variables para el Save System
+    public Collider2D colliderPuertaLaberinto;
+    private bool puertaLaberintoBloqueada = false;
+    #endregion
+
     void Start()
     {
         sfxManager = FindObjectOfType<SFXManager>();
+        colliderPuertaLaberinto = GetComponent<Collider2D>();
         panelFaltanPiezas.SetActive(false);
         puzleValvula.SetActive(false);
-        puertaSinLlave.SetActive(false);
     }
 
     void Update()
@@ -103,10 +108,34 @@ public class PuertaLaberinto : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(0f);
         //player.transform.position = posNueva;
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        colliderPuertaLaberinto.enabled = false;
         puertaSinLlave.SetActive(true);
+        puertaLaberintoBloqueada = false;
         inventario.VaciarHueco("ValvulaCabeza");
         inventario.VaciarHueco("ValvulaCuerpo");
         Time.timeScale = 1f;
     }
+
+    #region Metodos para el SaveSystem
+    public bool GetPuertaLaberintoBloqueada()
+    {
+        return puertaLaberintoBloqueada;
+    }
+
+    public void SetPuertaLaberintoBloqueada(bool value)
+    {
+        puertaLaberintoBloqueada = value;
+    }
+
+    public bool GetPuertaSinLlaveLaberintoActivada()
+    {
+        return puertaSinLlave.activeSelf;
+    }
+
+    public void SetPuertaSinLlaveLaberintoActivada(bool value)
+    {
+        puertaSinLlave.SetActive(value);
+    }
+    #endregion
 }

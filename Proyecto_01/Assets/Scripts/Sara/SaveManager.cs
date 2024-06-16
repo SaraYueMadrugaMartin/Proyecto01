@@ -15,6 +15,14 @@ public struct PuertaState
 }
 
 [System.Serializable]
+public struct PuertaLaberintoState
+{
+    public bool puertaLaberinto;
+    public bool puertaSinLlaveLaberinto;
+    public bool colliderPuertaLaberintoActivo;
+}
+
+[System.Serializable]
 public struct ItemState
 {
     public int idItem;
@@ -45,10 +53,12 @@ public struct SceneState
     public bool playerMiraDerecha;
 
     public bool cadenasActivas;
-
+    
     public int enemigosMuertos;
 
+
     public List<PuertaState> puertasState; // Lista para guardar la información de PuertaState.
+    public PuertaLaberintoState puertaLaberintoState;
     public List<ItemState> itemsState; // Lista para guardar la información de ItemState.
     public List<InventarioState> inventarioState;
 }
@@ -56,7 +66,6 @@ public struct SceneState
 public class SaveManager: MonoBehaviour
 {
     public static SaveManager instance;
-
     private SceneState savedSceneState;
 
     private int indiceEscenaGuardada;
@@ -66,6 +75,7 @@ public class SaveManager: MonoBehaviour
     Player infoPlayer;
 
     PuertasIDControler infoCadenas;
+    
 
     Items[] items;
 
@@ -145,6 +155,18 @@ public class SaveManager: MonoBehaviour
         infoCadenas = FindObjectOfType<PuertasIDControler>();
         sceneState.cadenasActivas = infoCadenas.GetCadenasActivadas();
         Debug.Log("Las cadenas de la Planta 1 están: " +  sceneState.cadenasActivas);
+
+        //Estado Puerta del Laberinto Planta 2
+        PuertaLaberinto infoPuertaLaberinto = FindObjectOfType<PuertaLaberinto>();
+        if(infoPuertaLaberinto != null)
+        {
+            sceneState.puertaLaberintoState.puertaLaberinto = infoPuertaLaberinto.GetPuertaLaberintoBloqueada();
+            sceneState.puertaLaberintoState.puertaSinLlaveLaberinto = infoPuertaLaberinto.GetPuertaSinLlaveLaberintoActivada();
+            sceneState.puertaLaberintoState.colliderPuertaLaberintoActivo = infoPuertaLaberinto.colliderPuertaLaberinto.enabled;
+        }
+
+        Debug.Log("La puerta del laberinto está: " + sceneState.puertaLaberintoState.puertaLaberinto);
+        Debug.Log("Estado de la puerta sin llave laberinto al guardar: " + sceneState.puertaLaberintoState.puertaSinLlaveLaberinto);
         #endregion
 
         #region Guardar Numero Enemigos Muertos
@@ -257,7 +279,18 @@ public class SaveManager: MonoBehaviour
             PuertasIDControler cadenasEstado = FindObjectOfType<PuertasIDControler>();
             if(cadenasEstado != null)
                 cadenasEstado.SetCadenasActivadas(savedSceneState.cadenasActivas);
-            Debug.Log("Se ha cargado la información de que las cadenas de la Planta 1 están: " + cadenasEstado);
+            Debug.Log("Se ha cargado la información de que las cadenas de la Planta 1 están: " + savedSceneState.cadenasActivas);
+
+            //Estado de Puerta Laberinto Planta2
+            PuertaLaberinto puertaLaberinto = FindObjectOfType<PuertaLaberinto>();
+            if(puertaLaberinto != null)
+            {
+                puertaLaberinto.SetPuertaLaberintoBloqueada(savedSceneState.puertaLaberintoState.puertaLaberinto);
+                puertaLaberinto.SetPuertaSinLlaveLaberintoActivada(savedSceneState.puertaLaberintoState.puertaSinLlaveLaberinto);
+                puertaLaberinto.colliderPuertaLaberinto.enabled = savedSceneState.puertaLaberintoState.colliderPuertaLaberintoActivo;
+            }
+            Debug.Log("Se ha cargado la información de que la puerta del laberinto está: " + savedSceneState.puertaLaberintoState.puertaLaberinto);
+            Debug.Log("Estado de la puerta sin llave laberinto al cargar: " + savedSceneState.puertaLaberintoState.puertaSinLlaveLaberinto);
             #endregion
 
             #region Cargar Numero Enemigos Muertos
