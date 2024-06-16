@@ -19,7 +19,7 @@ public class Tutoriales : MonoBehaviour
 
     private void Update()
     {
-        if(tutoAbierto && Input.GetKeyDown(KeyCode.Escape))
+        if(tutoAbierto && Input.anyKeyDown)
         {
             SalirTuto();
         }

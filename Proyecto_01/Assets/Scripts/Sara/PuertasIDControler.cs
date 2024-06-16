@@ -45,7 +45,7 @@ public class PuertasIDControler : MonoBehaviour
             }
             else
             {
-                sfxManager.PlaySFX(sfxManager.clipsDeAudio[20]);
+                sfxManager.PlaySFX(sfxManager.clipsDeAudio[20]); // da error
                 fadeAnimation.FadeOut();
                 cadenas.SetActive(false);
                 puertaActual.CambioPosicionPlayer();

@@ -11,9 +11,11 @@ public class PuzzleDeslizable : MonoBehaviour
     //private TilesScript tile;
     //[SerializeField] private Vector2[] posicionesCorrectas;
 
-    private Camera camara;
+    [SerializeField] private GameObject canvas;
     private GraphicRaycaster raycaster;
+    [SerializeField] private GameObject eventSystemGO;
     private EventSystem eventSystem;
+    [SerializeField] private GameObject mostrarPuzzle;
     private MostrarPuzzle01 mostrarPuzzle01;
     //private List<bool> posicionPiezaCorrecta;
 
@@ -25,10 +27,9 @@ public class PuzzleDeslizable : MonoBehaviour
 
     void Start()
     {
-        camara = Camera.main;
-        raycaster = FindObjectOfType<GraphicRaycaster>();
-        eventSystem = FindObjectOfType<EventSystem>();
-        mostrarPuzzle01 = FindObjectOfType<MostrarPuzzle01>();
+        raycaster = canvas.GetComponent<GraphicRaycaster>();
+        eventSystem = eventSystemGO.GetComponent<EventSystem>();
+        mostrarPuzzle01 = mostrarPuzzle.GetComponent<MostrarPuzzle01>();
         //posicionPiezaCorrecta = new List<bool>();
         piezasEncajadas = 0;
     }
@@ -47,7 +48,6 @@ public class PuzzleDeslizable : MonoBehaviour
 
             List<RaycastResult> results = new List<RaycastResult>();
             raycaster.Raycast(pointerEventData, results);
-
             if (results.Count > 0)
             {
                 foreach (RaycastResult result in results)

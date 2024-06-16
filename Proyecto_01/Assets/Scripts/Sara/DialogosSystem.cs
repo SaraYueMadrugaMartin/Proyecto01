@@ -30,7 +30,7 @@ public class DialogosSystem : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) || Input.anyKeyDown)
         {
             // Si el texto que se está mostrando coincide con el índice de la frase actual
             if(dialogoAlex01.text == frasesDialogoAlex01[index])

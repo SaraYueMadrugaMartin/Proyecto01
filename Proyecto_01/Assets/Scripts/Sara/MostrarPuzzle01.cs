@@ -6,9 +6,9 @@ public class MostrarPuzzle01 : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private PuzzleDeslizable puzzle01Deslizable;
+    [SerializeField] private GameObject panelPuzzle01;
     [SerializeField] private GameObject panelResultado;
     [SerializeField] private FadeAnimation fadeAnimation;
-    private static GameObject panelPuzzle01;
 
     private bool jugadorTocando;
 
@@ -16,18 +16,6 @@ public class MostrarPuzzle01 : MonoBehaviour
 
     void Start()
     {
-        Canvas canvas = FindObjectOfType<Canvas>();
-        if (canvas != null)
-        {
-            Transform panelTransform = canvas.transform.Find("Puzzle01");
-            if (panelTransform != null)
-            {
-                panelPuzzle01 = panelTransform.gameObject;
-            } else
-            {
-                Debug.LogWarning("No ha encontrado panel puzzle");
-            }
-        }
         panelResultado.SetActive(false);
     }
 
