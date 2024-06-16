@@ -9,6 +9,8 @@ public class Tutoriales : MonoBehaviour
     private bool colliderDesactivado = false;
     private bool tutoAbierto = false;
 
+    private bool panelAbierto = false;
+
     void Start()
     {
         collidersTuto = GetComponent<Collider2D>();
@@ -27,11 +29,15 @@ public class Tutoriales : MonoBehaviour
     {
         if (other.CompareTag("Player") && !colliderDesactivado)
         {
+            panelAbierto = true;
             Time.timeScale = 0f;
             panelTutoriales.SetActive(true);
             tutoAbierto = true;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
+            if(panelAbierto)
+                SFXManager.instance.StopAudios();
         }
     }
 

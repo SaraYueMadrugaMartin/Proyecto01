@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SFXManager : MonoBehaviour
 {
-    //public static SFXManager instance;
+    public static SFXManager instance;
 
     [SerializeField] public AudioSource SFXScore;
 
@@ -14,41 +14,24 @@ public class SFXManager : MonoBehaviour
 
     [Range(0f, 1f)] public float volumen;
 
-    //public AudioClip[] audiosXela;
-
-    /*
-    public AudioClip seleccionBoton01;
-    public AudioClip seleccionBoton02;
-    public AudioClip seleccionBoton03;
-    public AudioClip pasosAlex;
-    public AudioClip correrAlex;
-    public AudioClip ataqueBate;
-    public AudioClip disparoPistola;
-    public AudioClip recargaPistola;
-    public AudioClip abrirInventario;
-    public AudioClip cerrarInventario;
-    public AudioClip seleccionarObjetos;
-    public AudioClip abrirCerradura;
-    public AudioClip abrirPuerta;
-    public AudioClip abrirPuertaCerrada;
-    public AudioClip corazonLatir;
-    public AudioClip guardarPartida;
-    public AudioClip meterMoneda;
-    public AudioClip movBate;
-    public AudioClip AlexMuerte;
-    /*public AudioClip AlexHit01;
-    public AudioClip AlexHit02;
-    public AudioClip AlexHit03;   
-    public AudioClip AlexHerida01;
-    public AudioClip AlexHerida02;
-    public AudioClip AlexHerida03;*/
-
     public AudioClip[] AlexHitClips;
     public AudioClip[] AlexHeridaClips;
 
+    private List<GameObject> tempAudioObjects = new List<GameObject>();
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            Destroy(gameObject);
+    }
+
     private void Start()
     {
-        SFXScore.ignoreListenerPause = true; // Para que no le afecte el timeScale 0.
         
     }
 
@@ -67,7 +50,7 @@ public class SFXManager : MonoBehaviour
             tempAudioSource.clip = efecto;
             tempAudioSource.volume = volumen;
             tempAudioSource.Play();
-
+            tempAudioObjects.Add(tempGO);
             Destroy(tempGO, efecto.length); // Cuando acabe, se destruye el GameObjectTemporal.
         }
     }
@@ -90,5 +73,22 @@ public class SFXManager : MonoBehaviour
             AudioClip randomClip = AlexHeridaClips[randomIndex];
             PlaySFX(randomClip);
         }
+    }
+
+    public void StopAudios()
+    {
+        foreach (GameObject tempGO in tempAudioObjects)
+        {
+            if (tempGO != null)
+            {
+                AudioSource tempAudioSource = tempGO.GetComponent<AudioSource>();
+                if (tempAudioSource != null)
+                {
+                    tempAudioSource.Stop();
+                }
+                Destroy(tempGO);
+            }
+        }
+        tempAudioObjects.Clear();
     }
 }
