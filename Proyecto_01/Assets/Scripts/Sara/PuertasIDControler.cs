@@ -92,4 +92,16 @@ public class PuertasIDControler : MonoBehaviour
             }
         }
     }
+
+    #region Metodos para el Save System
+    public bool GetCadenasActivadas()
+    {
+        return cadenas.activeSelf;
+    }
+
+    public void SetCadenasActivadas(bool value)
+    {
+        cadenas.SetActive(value);
+    }
+    #endregion
 }
