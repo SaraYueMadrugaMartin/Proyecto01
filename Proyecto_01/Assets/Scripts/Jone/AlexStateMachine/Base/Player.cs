@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
@@ -219,8 +220,7 @@ public class Player : MonoBehaviour
     #region Funciones Ataque
 
     public void EquiparArma(int arma)
-    {
-        MostrarArmaEquipada.ArmaEquipada(arma);
+    {       
         switch (arma)
         {
             case 0:
@@ -237,12 +237,60 @@ public class Player : MonoBehaviour
                 break;
             case 2:
                 Debug.Log("Equipo pistola");
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 anim.SetBool("tieneBate", false);
                 anim.SetBool("tienePistola", true);
                 armaEquipada = 2;
                 break;
         }
-        //ControladorAnimaciones.corrAnimaciones(estadoCorr, armaEquipada);
+        MostrarArmaEquipada.ArmaEquipada(arma);
+    }
+
+    public void DesequiparArma(int armaDesequipar)
+    {
+        sePuedeMover = true;
+
+        if (armaDesequipar == 1)
+        {
+            // Desactivar todo lo de bate
+            Debug.Log("Desequipo bate");
+            anim.SetBool("tieneBate", false);
+            if (armaEquipada == 1)
+            {
+                MostrarArmaEquipada.ArmaEquipada(0);
+            }
+        }
+        else if (armaDesequipar == 2)
+        {
+            // Desactivar todo lo de pistola
+            Debug.Log("Desequipo pistola");
+            apuntando = false;
+            recargando = false;
+            puntero.enabled = false;
+            pistola.SetActive(false);
+            anim.SetBool("tienePistola", false);
+            if(armaEquipada == 2)
+            {
+                MostrarArmaEquipada.ArmaEquipada(0);
+            }
+        }
+        else
+        {
+            armaEquipada = 0;
+            // Desactivar todo
+            Debug.Log("Desequipo armas");
+            // Desactivar todo lo de bate
+            anim.SetBool("tieneBate", false);
+
+            // Desactivar todo lo de pistola
+            apuntando = false;
+            recargando = false;
+            puntero.enabled = false;
+            pistola.SetActive(false);
+            anim.SetBool("tienePistola", false);
+            MostrarArmaEquipada.ArmaEquipada(0);
+        }
     }
     private void Ataque()
     {
@@ -253,7 +301,7 @@ public class Player : MonoBehaviour
                 AtaqueBate();
             }
             else if (armaEquipada == 2)
-            {
+            {               
                 AtaquePistola();
                 if (!apuntando && !recargando)
                 {
@@ -279,8 +327,6 @@ public class Player : MonoBehaviour
                     puntero.enabled = true;
                     anim.SetBool("estaApuntando", true);
                     anim.SetBool("estaRecargando", false);
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
                 }
             }
         }
@@ -364,8 +410,6 @@ public class Player : MonoBehaviour
         {
             apuntando = false;
             anim.SetBool("estaApuntando", false);
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
         }
     }
 

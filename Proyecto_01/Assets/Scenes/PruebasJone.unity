@@ -342,6 +342,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 914740022}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: DesequiparArma
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 914740022}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: EquiparArma
         m_Mode: 3
         m_Arguments:
@@ -2800,6 +2812,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 914740022}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: DesequiparArma
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &142965009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2849,6 +2873,10 @@ PrefabInstance:
     - target: {fileID: 161334661863240179, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
       propertyPath: m_Name
       value: LolitaCage
+      objectReference: {fileID: 0}
+    - target: {fileID: 161334661863240179, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3201668720541615258, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19001,6 +19029,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 914740022}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: DesequiparArma
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -125548,9 +125588,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 914740022}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: EquiparArma
+        m_MethodName: DesequiparArma
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -129610,6 +129650,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 914740022}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: DesequiparArma
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 914740022}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: EquiparArma
