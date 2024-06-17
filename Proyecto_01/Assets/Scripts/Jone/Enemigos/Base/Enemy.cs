@@ -43,6 +43,10 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     public Player player;
     public Collider2D[] colliderEnemigo;
     public bool estaMuerto = false;
+    public int tipoEnemigo;
+    // 0: Lolita
+    // 1: Rabit
+    // 2: Boozy
 
 
     private void Awake()
@@ -92,7 +96,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     {
         CurrentHealth -= damageAmount;
         anim.SetTrigger("recibeDamage");
-        // Sonido recibir daño
+        PlaySonidosEnem(2); // Sonido recibir daño
 
         if (CurrentHealth <= 0f)
         {
@@ -103,10 +107,10 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     // Función de muerte del enemigo que se llama al recibir daño, cuando le baja la salud a 0
     public void Die()
     {
+        SFXManager.instance.StopSFXLoop();
         MoveEnemy(Vector2.zero);
         anim.SetBool("seMuere", true);
-        // Sonido muerte
-        //sfxManager.PlaySFX(sfxManager.audiosEnemigos[2]);
+        PlaySonidosEnem(3); // Sonido muerte
         //GetComponent<Collider2D>().enabled = false;
         for (int i = 0; i < colliderEnemigo.Length; i++)
             colliderEnemigo[i].enabled = false;
@@ -177,6 +181,76 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
         IsWithinStrikingDistance = isWithinStrikingDistance;
     }
 
+    #endregion
+
+    #region Control Sonidos Enemigos
+    public void PlaySonidosEnem (int numAnim)
+    {
+        switch (numAnim)
+        {
+            case 0:
+                // IDLE
+                switch (tipoEnemigo)
+                {
+                    case 0:
+                        SFXManager.instance.PlaySFXLoop(SFXManager.instance.audiosEnemigos[0]);
+                        break;
+                    case 1:
+                        SFXManager.instance.PlaySFXLoop(SFXManager.instance.audiosEnemigos[1]);
+                        break;
+                    case 2:
+                        SFXManager.instance.PlaySFXLoop(SFXManager.instance.audiosEnemigos[2]);
+                        break;
+                }
+                break;
+            case 1:
+                // ATTACK
+                switch (tipoEnemigo)
+                {
+                    case 0:
+                        SFXManager.instance.PlaySFX(SFXManager.instance.audiosEnemigos[3]);
+                        break;
+                    case 1:
+                        SFXManager.instance.PlaySFX(SFXManager.instance.audiosEnemigos[4]);
+                        break;
+                    case 2:
+                        SFXManager.instance.PlaySFX(SFXManager.instance.audiosEnemigos[5]);
+                        break;
+                }
+                break;
+            case 2:
+                // HURT
+                switch (tipoEnemigo)
+                {
+                    case 0:
+                        SFXManager.instance.PlaySFX(SFXManager.instance.audiosEnemigos[6]);
+                        break;
+                    case 1:
+                        SFXManager.instance.PlaySFX(SFXManager.instance.audiosEnemigos[7]);
+                        break;
+                    case 2:
+                        SFXManager.instance.PlaySFX(SFXManager.instance.audiosEnemigos[8]);
+                        break;
+                }
+                break;
+            case 3:
+                // DIE
+                switch (tipoEnemigo)
+                {
+                    case 0:
+                        SFXManager.instance.PlaySFX(SFXManager.instance.audiosEnemigos[9]);
+                        break;
+                    case 1:
+                        SFXManager.instance.PlaySFX(SFXManager.instance.audiosEnemigos[10]);
+                        break;
+                    case 2:
+                        SFXManager.instance.PlaySFX(SFXManager.instance.audiosEnemigos[11]);
+                        break;
+                }
+                break;
+        }
+        
+    }
     #endregion
 
     public void Coroutine(IEnumerator coroutine)
