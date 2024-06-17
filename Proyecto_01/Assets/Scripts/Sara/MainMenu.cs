@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.VFX;
 
 public class MainMenu : MonoBehaviour
 {
@@ -10,16 +11,18 @@ public class MainMenu : MonoBehaviour
 
     private AudioManager audioManager;
 
-    AudioMainMenu audioMainMenu;
+    SFXManager sfxManager;
 
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
-        audioMainMenu = FindObjectOfType<AudioMainMenu>();
+        sfxManager = FindObjectOfType<SFXManager>();
     }
 
     public void ComenzarJuego()
     {
+        sfxManager.PlaySFX(sfxManager.clipsDeAudio[0]);
+
         int escenaActual = SceneManager.GetActiveScene().buildIndex;
         int siguienteEscena = escenaActual + 1;
         if (siguienteEscena == 2)
@@ -27,8 +30,6 @@ public class MainMenu : MonoBehaviour
         else
             SceneManager.LoadScene(siguienteEscena);
 
-        audioMainMenu.PlaySFX(audioMainMenu.seleccionBoton01);
-        //audioMainMenu.StopMusic();
         audioManager.Stop("MainTheme");
     }
 
@@ -43,14 +44,14 @@ public class MainMenu : MonoBehaviour
     {
         gameObject.SetActive(false);
         panelAjustes.SetActive(true);
-        audioMainMenu.PlaySFX(audioMainMenu.seleccionBoton02);
+        sfxManager.PlaySFX(sfxManager.clipsDeAudio[1]);
     }
 
     public void IrCreditos()
     {
         gameObject.SetActive(false);
         panelCreditos.SetActive(true);
-        audioMainMenu.PlaySFX(audioMainMenu.seleccionBoton02);
+        sfxManager.PlaySFX(sfxManager.clipsDeAudio[1]);
     }
 
     public void VolverAtras()
@@ -58,13 +59,13 @@ public class MainMenu : MonoBehaviour
         gameObject.SetActive(true);
         panelAjustes.SetActive(false);
         panelCreditos.SetActive(false);
-        audioMainMenu.PlaySFX(audioMainMenu.seleccionBoton03);
+        sfxManager.PlaySFX(sfxManager.clipsDeAudio[2]);
     }
 
     public void SalirJuego()
     {
         Application.Quit();
         Debug.Log("Has salido del juego.");
-        audioMainMenu.PlaySFX(audioMainMenu.seleccionBoton01);
+        sfxManager.PlaySFX(sfxManager.clipsDeAudio[0]);
     }
 }
