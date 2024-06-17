@@ -21,9 +21,12 @@ public class SFXManager : MonoBehaviour
 
     private float volumenEfectos = 1.0f; // Multiplicador de volumen de efectos
 
+    private bool isPlayingLoop = false;
+    private AudioSource loopAudioSource;
+
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -49,6 +52,35 @@ public class SFXManager : MonoBehaviour
             tempAudioSource.Play();
             tempAudioObjects.Add(tempGO);
             Destroy(tempGO, efecto.length); // Cuando acabe, se destruye el GameObjectTemporal.
+        }
+    }
+
+    public void PlaySFXLoop(AudioClip efecto)
+    {
+        if (efecto != null && !isPlayingLoop)
+        {
+            if (loopAudioSource == null)
+            {
+                GameObject tempGO = new GameObject("LoopAudio");
+                loopAudioSource = tempGO.AddComponent<AudioSource>();
+            }
+
+            loopAudioSource.clip = efecto;
+            loopAudioSource.volume = volumen * volumenEfectos;
+            loopAudioSource.loop = true;
+            loopAudioSource.Play();
+            isPlayingLoop = true;
+        }
+    }
+
+    public void StopSFXLoop()
+    {
+        if (loopAudioSource == null)
+            Debug.LogWarning("No encuentra audio loop");
+        if (loopAudioSource != null && isPlayingLoop)
+        {
+            loopAudioSource.Stop();
+            isPlayingLoop = false;
         }
     }
 

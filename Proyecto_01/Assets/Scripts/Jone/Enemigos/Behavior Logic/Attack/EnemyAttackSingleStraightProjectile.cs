@@ -39,7 +39,7 @@ public class EnemyAttackSingleStraightProjectile : EnemyAttackSOBase
         {
             _timer = 0f;
             enemy.anim.SetTrigger("ataca");
-
+            enemy.PlaySonidosEnem(1); // Sonido ataque enemigo
             enemy.Coroutine(EsperaAnimacionBotella()); // Hay que llamar a la corrutina desde fuera del scriptable object
         }
 

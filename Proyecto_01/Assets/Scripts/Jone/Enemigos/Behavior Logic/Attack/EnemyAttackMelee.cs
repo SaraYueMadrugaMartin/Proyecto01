@@ -32,8 +32,7 @@ public class EnemyAttackMelee : EnemyAttackSOBase
         {
             _timer = 0f;
             enemy.anim.SetTrigger("ataca");
-            // Sonido ataque enemigo
-            //sfxManager.PlaySFX(sfxManager.audiosEnemigos[1]);
+            enemy.PlaySonidosEnem(1); // Sonido ataque enemigo
             enemy.player.GetComponent<Player>().recibeDamage(_attackDamage);
 
         }

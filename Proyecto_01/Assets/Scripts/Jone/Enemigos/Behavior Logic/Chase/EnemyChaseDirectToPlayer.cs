@@ -49,6 +49,11 @@ public class EnemyChaseDirectToPlayer : EnemyChaseSOBase
         {
             EnemyStuck();
         }
+
+        if (enemy.IsAggroed)
+            enemy.PlaySonidosEnem(0); // Sonido idle
+        else
+            SFXManager.instance.StopSFXLoop();
     }
 
     public override void DoPhysiscsLogic()

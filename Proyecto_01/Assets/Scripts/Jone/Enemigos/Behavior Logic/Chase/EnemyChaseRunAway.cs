@@ -24,6 +24,11 @@ public class EnemyChaseRunAway : EnemyChaseSOBase
 
         Vector2 runDir = -(playerTransform.position - transform.position).normalized;
         enemy.MoveEnemy(runDir * _runAwaySpeed);
+
+        if(enemy.IsAggroed)
+            enemy.PlaySonidosEnem(0); // Sonido idle
+        else
+            SFXManager.instance.StopSFXLoop();
     }
 
     public override void DoPhysiscsLogic()

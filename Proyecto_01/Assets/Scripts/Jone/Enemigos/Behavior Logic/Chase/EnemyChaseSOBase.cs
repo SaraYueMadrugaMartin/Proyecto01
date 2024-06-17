@@ -23,7 +23,11 @@ public class EnemyChaseSOBase : ScriptableObject
     }
 
     public virtual void DoEnterLogic() { }
-    public virtual void DoExitLogic() { ResetValues(); }
+    public virtual void DoExitLogic()
+    {       
+        ResetValues();
+        SFXManager.instance.StopSFXLoop();
+    }
     public virtual void DoFrameUpdateLogic()
     {
         if (enemy.IsWithinStrikingDistance)
@@ -31,7 +35,7 @@ public class EnemyChaseSOBase : ScriptableObject
             enemy.StateMachine.ChangeState(enemy.AttackState);
         }
         else if (!enemy.IsAggroed)
-        {
+        {            
             enemy.StateMachine.ChangeState(enemy.IdleState);
         }
     }

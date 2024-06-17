@@ -4293,9 +4293,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fbab57134715a1740b7d21953b539788, type: 3}
   audiosEnemigos:
   - {fileID: 8300000, guid: 08c653d9855a8824295e2f7b7b4cccbf, type: 3}
+  - {fileID: 8300000, guid: 6d1e997eabef1d847a98ca3529b06fb6, type: 3}
+  - {fileID: 8300000, guid: 293e5591fb4088946a58ac47eb095deb, type: 3}
   - {fileID: 8300000, guid: 86d47f7613f9e884785720c08a774e49, type: 3}
-  - {fileID: 8300000, guid: 06aaca9335a31c0439945d4e2f43387b, type: 3}
+  - {fileID: 8300000, guid: 0ceb0b7f60e04f44a99ddc4fa203a299, type: 3}
+  - {fileID: 8300000, guid: 4377bad7eb3502841aec06819451b6df, type: 3}
   - {fileID: 8300000, guid: a37c2d83351d6484dac7e710ab3282f4, type: 3}
+  - {fileID: 8300000, guid: eca23cfa194bb024683209067023cf0f, type: 3}
+  - {fileID: 8300000, guid: ad1698c81a96a6744aba1a5fa6d4719c, type: 3}
+  - {fileID: 8300000, guid: 06aaca9335a31c0439945d4e2f43387b, type: 3}
+  - {fileID: 8300000, guid: 421e543923b7a98499e3087cd8d48675, type: 3}
+  - {fileID: 8300000, guid: 10cef2d1a1c4b9145a605ce65dc4f8bd, type: 3}
   volumen: 0.439
   AlexHitClips:
   - {fileID: 8300000, guid: f4ae0df054cc41841887eb92ff149c80, type: 3}
