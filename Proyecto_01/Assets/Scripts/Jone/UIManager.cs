@@ -10,7 +10,10 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] GameObject panelPausa;
     [SerializeField] GameObject panelAvisoSalir;
+    [SerializeField] GameObject panelAjustes;
     [SerializeField] TextMeshProUGUI textoAviso;
+
+    private bool panelAjustesAbierto = false;
 
     // Gestión de eventos
     private void OnEnable()
@@ -42,6 +45,14 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         BuscarReferenciasUI();
+    }
+
+    private void Update()
+    {
+        if(panelAjustesAbierto && Input.GetKeyDown(KeyCode.Escape))
+        {
+            CerrarPantallaAjustes();
+        }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -115,6 +126,27 @@ public class UIManager : MonoBehaviour
     public void ActualizarTextoAviso(string aviso)
     {
         textoAviso.text = aviso;
+    }
+
+    public void AbrirPantallaAjustes()
+    {
+        // Primero cerrar otros paneles
+        panelPausa.SetActive(false);
+        panelAvisoSalir.SetActive(false);
+
+        // Abrir panel de pausa
+        panelAjustes.SetActive(true);
+        panelAjustesAbierto = true;
+    }
+
+    public void CerrarPantallaAjustes()
+    {
+        // Quita el panel de ajustes
+        panelAjustes.SetActive(false);
+        panelAjustesAbierto = false;
+
+        // Vuelve a poner el panel de pausa
+        panelPausa.SetActive(true);
     }
 }
 

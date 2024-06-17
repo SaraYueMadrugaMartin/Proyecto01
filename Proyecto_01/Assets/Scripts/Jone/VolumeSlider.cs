@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 public class VolumeSlider : MonoBehaviour
 {
-    [SerializeField] private Slider volumeSlider;
+    [SerializeField] private Slider volumeSliderMusica;
+    [SerializeField] private Slider volumeSliderEfectos;
 
     private void Start()
     {
@@ -13,19 +15,35 @@ public class VolumeSlider : MonoBehaviour
         if (AudioManager.instance != null)
         {
             float savedVolume = PlayerPrefs.GetFloat("VolumenGeneral", 1.0f);
-            volumeSlider.value = savedVolume;
+            volumeSliderMusica.value = savedVolume;
             AudioManager.instance.ActualizarVolumenGeneral(savedVolume);
         }
 
+        if (SFXManager.instance != null)
+        {
+            float savedVolumeSFX = PlayerPrefs.GetFloat("VolumenGeneral", 1.0f);
+            volumeSliderEfectos.value = savedVolumeSFX;
+            SFXManager.instance.ActualizarVolumenEfectos(savedVolumeSFX);
+        }
+
         // Añadir listener al slider para cambiar el volumen
-        volumeSlider.onValueChanged.AddListener(HandleSliderValueChanged);
+        volumeSliderMusica.onValueChanged.AddListener(HandleSliderValueChangedGeneral);
+        volumeSliderEfectos.onValueChanged.AddListener(HandleSliderValueChangedEfectos);
     }
 
-    private void HandleSliderValueChanged(float value)
+    private void HandleSliderValueChangedGeneral(float value)
     {
         if (AudioManager.instance != null)
         {
             AudioManager.instance.ActualizarVolumenGeneral(value);
+        }
+    }
+    private void HandleSliderValueChangedEfectos(float value)
+    {
+        if (SFXManager.instance != null)
+        {
+            SFXManager.instance.PlaySFX(SFXManager.instance.clipsDeAudio[0]);
+            SFXManager.instance.ActualizarVolumenEfectos(value);
         }
     }
 }

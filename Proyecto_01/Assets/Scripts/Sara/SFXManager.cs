@@ -19,6 +19,8 @@ public class SFXManager : MonoBehaviour
 
     private List<GameObject> tempAudioObjects = new List<GameObject>();
 
+    private float volumenEfectos = 1.0f; // Multiplicador de volumen de efectos
+
     private void Awake()
     {
         if(instance == null)
@@ -30,14 +32,9 @@ public class SFXManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void Start()
-    {
-        
-    }
-
     private void Update()
     {
-        SFXScore.volume = volumen;
+        SFXScore.volume = volumen * volumenEfectos;
     }
 
     public void PlaySFX(AudioClip efecto)
@@ -48,7 +45,7 @@ public class SFXManager : MonoBehaviour
             GameObject tempGO = new GameObject("TempAudio");
             AudioSource tempAudioSource = tempGO.AddComponent<AudioSource>();
             tempAudioSource.clip = efecto;
-            tempAudioSource.volume = volumen;
+            tempAudioSource.volume = volumen * volumenEfectos;
             tempAudioSource.Play();
             tempAudioObjects.Add(tempGO);
             Destroy(tempGO, efecto.length); // Cuando acabe, se destruye el GameObjectTemporal.
@@ -91,4 +88,28 @@ public class SFXManager : MonoBehaviour
         }
         tempAudioObjects.Clear();
     }
+
+    #region AjusteVolumen
+    public void ActualizarVolumenEfectos(float nuevoVolumen)
+    {
+        volumenEfectos = nuevoVolumen;
+        // Guardar el volumen de los efectos
+        GuardarVolumen();
+    }
+
+    private void GuardarVolumen()
+    {
+        PlayerPrefs.SetFloat("VolumenEfectos", volumenEfectos);
+        PlayerPrefs.Save();
+    }
+
+    private void CargarVolumen()
+    {
+        if (PlayerPrefs.HasKey("VolumenEfectos"))
+        {
+            volumenEfectos = PlayerPrefs.GetFloat("VolumenEfectos");
+            ActualizarVolumenEfectos(volumenEfectos);
+        }
+    }
+    #endregion
 }
