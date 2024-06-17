@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-#region Toda informacion a guardar
+#region Todas Variables a guardar
 [System.Serializable]
 public struct AlexState
 {

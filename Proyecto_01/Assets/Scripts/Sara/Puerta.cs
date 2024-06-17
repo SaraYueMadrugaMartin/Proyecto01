@@ -17,6 +17,7 @@ public class Puerta : MonoBehaviour
     [SerializeField] public GameObject puertasSinLlave; // Asociamos las puertas sin llave que deben activarse cuando se desbloqueen las puertas con llave.
     [SerializeField] private Vector2 posNueva;
     public PuertasIDControler controladorPuertas;
+    private bool yaTienesLlave = false;
 
     public bool jugadorTocando;
 
@@ -59,20 +60,20 @@ public class Puerta : MonoBehaviour
 
             foreach (int idLlave in llavesIDs)
             {
-                if (!CompararIDs(idLlave))
-                {
-                    panelMensajeNo.SetActive(true);
-                    textoPuertasCerradas.text = "Esta llave no abre esta puerta, necesito otra";
-                }
-                else
+                if (CompararIDs(idLlave))
                 {
                     panelPregunta.SetActive(true);
                     panelAbierto = true;
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = false;
+                    yaTienesLlave = true;
                 }
-            }
-            
+                else if(!yaTienesLlave)
+                {
+                    panelMensajeNo.SetActive(true);
+                    textoPuertasCerradas.text = "Esta llave no abre esta puerta, necesito otra";
+                }
+            }            
         }
         else
         {

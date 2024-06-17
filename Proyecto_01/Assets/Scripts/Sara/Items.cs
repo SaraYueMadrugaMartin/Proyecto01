@@ -14,12 +14,14 @@ public class Items : MonoBehaviour
 
     private PanelesInteracciones panelesInteracciones, panelAvisoInventarioCompleto;
 
-    public Vector2 posicionInicial;
+    private List<bool> objetoHaSidoRecogido;
+
+    #region Variables para Save System
     public bool objetoRecogido = false;
     public SpriteRenderer[] spriteRenderers;
     public Collider2D[] collidersItems;
+    #endregion
 
-    private List<bool> objetoHaSidoRecogido;
 
     SFXManager sfxManager;
 
@@ -31,7 +33,6 @@ public class Items : MonoBehaviour
         inventario = GameObject.Find("Canvas").GetComponent<Inventario>();
         panelesInteracciones = FindObjectOfType<PanelesInteracciones>();
         panelAvisoInventarioCompleto = FindObjectOfType<PanelesInteracciones>();
-        posicionInicial = transform.position;
         objetoHaSidoRecogido = new List<bool>();
     }
 
@@ -79,7 +80,7 @@ public class Items : MonoBehaviour
             else
             {
                 panelAvisoInventarioCompleto.AparecerPanelAvisoInventarioCompleto();
-                Debug.Log("¡El inventario está lleno! No se puede recoger el objeto.");
+                Debug.Log("El inventario está lleno. No se puede recoger el objeto.");
             }
         }
         if (tutoAbierto && Input.GetKeyDown(KeyCode.Escape))
@@ -118,36 +119,6 @@ public class Items : MonoBehaviour
         objetoHaSidoRecogido.Add(value);
     }
 
-    public bool GetObjetoRecogido()
-    {
-        return objetoRecogido;
-    }
-
-    public void SetObjetoRecogido(bool value)
-    {
-        objetoRecogido = value;
-    }
-
-    /*public Sprite GetSpriteItems()
-    {
-        return sprite;
-    }*/
-
-    public Vector3 GetPosition()
-    {
-        return transform.position;
-    }
-
-    public void SetPosition(Vector2 newPosition)
-    {
-        transform.position = newPosition;
-    }
-
-    /*public SpriteRenderer[] GetSpriteRenderers()
-    {
-        return spriteRenderers;
-    }*/
-
     public void MoverYActivar(Vector3 nuevaPosicion)
     {
         transform.position = nuevaPosicion;
@@ -155,6 +126,7 @@ public class Items : MonoBehaviour
         Debug.Log("Objeto movido y activado en la posición: " + nuevaPosicion);
     }
 
+    #region Des/Activar Sprites y Colliders Items
     public void DesactivarItem()
     {
         objetoRecogido = true;
@@ -188,6 +160,29 @@ public class Items : MonoBehaviour
         foreach (Collider2D colliderItem in collidersItems)
             colliderItem.enabled = true;
     }
+    #endregion
+
+    #region Metodos para Save System
+    public bool GetObjetoRecogido()
+    {
+        return objetoRecogido;
+    }
+
+    public void SetObjetoRecogido(bool value)
+    {
+        objetoRecogido = value;
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+
+    public void SetPosition(Vector2 newPosition)
+    {
+        transform.position = newPosition;
+    }
+    #endregion
 
     // Método para apagar todas las luces al quitar el fusible
     private void ApagaLuces()

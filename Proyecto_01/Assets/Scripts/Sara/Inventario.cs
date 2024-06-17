@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.VFX;
@@ -19,6 +20,8 @@ public class Inventario : MonoBehaviour
     [SerializeField] private GameObject botonAtrasInfo;
     [SerializeField] private GameObject fondoPanelInfo;
     [SerializeField] private GameObject panelVidaXela;
+    [SerializeField] private GameObject panelAviso;
+    [SerializeField] private TextMeshProUGUI textoAviso;
 
     private Items[] items;
 
@@ -242,8 +245,6 @@ public class Inventario : MonoBehaviour
 
     public void DejarObjeto()
     {
-        Debug.Log("Intentando dejar objeto...");
-
         for (int i = 0; i < huecosInventario.Length; i++)
         {
             if (huecosInventario[i].objetoSeleccionado)
@@ -254,6 +255,14 @@ public class Inventario : MonoBehaviour
 
                 if (!string.IsNullOrEmpty(nombreObjeto))
                 {
+                    if (nombreObjeto == "Llave" || nombreObjeto == "Fusible")
+                    {
+                        Debug.Log("Hasta los huevos");
+                        textoAviso.text = "Este objeto no se puede dejar";
+                        StartCoroutine(EsperaSegundosPanelAviso());
+                        return;
+                    }
+
                     // Buscamos el objeto en la lista de objetos registrados
                     Items objeto = objetosRegistrados.FirstOrDefault(item => item.nombreItem == nombreObjeto);
 
@@ -263,7 +272,6 @@ public class Inventario : MonoBehaviour
                         {
                             item.objetoRecogido = false;
                             item.ObjetoRecogido(false);
-                            EliminarObjeto(item);
                         }
 
                         Vector3 posicionJugador = GameObject.FindWithTag("Player").transform.position;
@@ -284,19 +292,18 @@ public class Inventario : MonoBehaviour
         }
     }
 
+    IEnumerator EsperaSegundosPanelAviso()
+    {
+        panelAviso.SetActive(true);
+        yield return new WaitForSecondsRealtime(2f);
+        panelAviso.SetActive(false);
+    }
+
     public void RegistrarObjeto(Items item)
     {
         if (!objetosRegistrados.Contains(item))
         {
             objetosRegistrados.Add(item);
-        }
-    }
-
-    public void EliminarObjeto(Items item)
-    {
-        if (objetosRegistrados.Contains(item))
-        {
-            objetosRegistrados.Remove(item);
         }
     }
 

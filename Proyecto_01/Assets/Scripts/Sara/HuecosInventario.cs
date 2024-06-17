@@ -78,6 +78,7 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
         fotoItem.enabled = false;
     }
 
+    #region Eventos del raton
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
@@ -121,4 +122,5 @@ public class HuecosInventario : MonoBehaviour, IPointerClickHandler
             panelesBotones[nombreItem].transform.position = panelPosicion;
         }
     }
+    #endregion
 }
