@@ -612,5 +612,15 @@ public class Player : MonoBehaviour
     {
         armaEquipada = arma;
     }
+
+    public int GetCorrupcionTotal()
+    {
+        return contadorCorr;
+    }
+
+    public void SetCorrupcionTotal(int corrupcion)
+    {
+        contadorCorr = corrupcion;
+    }
     #endregion
 }

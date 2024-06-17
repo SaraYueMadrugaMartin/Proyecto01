@@ -14,6 +14,7 @@ public struct AlexState
     public bool playerMiraDerecha;
     public float corrupcionPlayer;
     public int armaEquipadaPlayer;
+    public int corrupcionTotal;
 }
 
 [System.Serializable]
@@ -146,6 +147,7 @@ public class SaveManager: MonoBehaviour
         Debug.Log("El jugador mira hacia la: " + sceneState.playerState.playerMiraDerecha);
         sceneState.playerState.corrupcionPlayer = infoPlayer.GetNivelCorrupcion();
         sceneState.playerState.armaEquipadaPlayer = infoPlayer.GetArmaEquipada();
+        sceneState.playerState.corrupcionTotal = infoPlayer.GetCorrupcionTotal();
         #endregion
 
         #region Guardado Puertas Desbloqueadas
@@ -305,6 +307,8 @@ public class SaveManager: MonoBehaviour
                 playerGuardado.SetMiraDerecha(savedSceneState.playerState.playerMiraDerecha);
                 playerGuardado.SetNivelCorrupcion(savedSceneState.playerState.corrupcionPlayer);
                 playerGuardado.SetArmaEquipada(savedSceneState.playerState.armaEquipadaPlayer);
+                playerGuardado.SetCorrupcionTotal(savedSceneState.playerState.corrupcionTotal);
+                Debug.Log("La corrupción total es de: " + savedSceneState.playerState.corrupcionTotal);
             }
             #endregion
 
