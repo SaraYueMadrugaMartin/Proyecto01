@@ -99,8 +99,11 @@ MonoBehaviour:
   idsItems: {fileID: 0}
   posicionInicial: {x: 0, y: 0}
   objetoRecogido: 0
-  spriteRenderers: []
-  collidersItems: []
+  spriteRenderers:
+  - {fileID: 89008825345055956}
+  - {fileID: 7967864065489946563}
+  collidersItems:
+  - {fileID: 45555885186923514}
 --- !u!114 &2139003112556993243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,5 +261,10 @@ PrefabInstance:
 --- !u!4 &3983920910257526560 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7308475168362555382, guid: 712fb242e9b57304caa44b08bd2446c1, type: 3}
+  m_PrefabInstance: {fileID: 5919226914121576662}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &7967864065489946563 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4374925579871663893, guid: 712fb242e9b57304caa44b08bd2446c1, type: 3}
   m_PrefabInstance: {fileID: 5919226914121576662}
   m_PrefabAsset: {fileID: 0}

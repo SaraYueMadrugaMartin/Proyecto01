@@ -179,6 +179,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombreItem: Llave
   sprite: {fileID: 21300000, guid: db84524c43bec304889f568cc89f3ad9, type: 3}
+  panelTutoLinterna: {fileID: 0}
+  idsItems: {fileID: 0}
+  posicionInicial: {x: 0, y: 0}
+  objetoRecogido: 0
+  spriteRenderers:
+  - {fileID: 9138346406025008605}
+  - {fileID: 4474585820857618442}
+  collidersItems:
+  - {fileID: 275967482735169668}
 --- !u!114 &360952679934068120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +270,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 712fb242e9b57304caa44b08bd2446c1, type: 3}
+--- !u!212 &4474585820857618442 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4374925579871663893, guid: 712fb242e9b57304caa44b08bd2446c1, type: 3}
+  m_PrefabInstance: {fileID: 193153107942893343}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7476781099686920425 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7308475168362555382, guid: 712fb242e9b57304caa44b08bd2446c1, type: 3}

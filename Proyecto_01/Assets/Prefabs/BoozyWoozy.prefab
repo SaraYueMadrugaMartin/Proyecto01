@@ -418,8 +418,12 @@ MonoBehaviour:
   EnemyChaseBase: {fileID: 11400000, guid: 24cb6dc2c2053c546b595e0f8c085723, type: 2}
   EnemyAttackBase: {fileID: 11400000, guid: ca132d2f9add1db40a201be0f1e6c0a7, type: 2}
   anim: {fileID: 1423360068026149332}
+  idEnemigo: 0
   corrEnemigo: 20
   player: {fileID: 0}
+  colliderEnemigo:
+  - {fileID: 6144312858491822299}
+  - {fileID: 4219704927329194267}
 --- !u!50 &6152061721775043323
 Rigidbody2D:
   serializedVersion: 4

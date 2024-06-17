@@ -232,11 +232,11 @@ public class SaveManager: MonoBehaviour
                 Debug.Log("Item guardado: " + itemState.nombreItem + " con ID: " + itemState.idItem);
             }
 
-            /*itemState.spritesActivos = new bool[item.spriteRenderers.Length];
+            itemState.spritesActivos = new bool[item.spriteRenderers.Length];
             for (int i = 0; i < item.spriteRenderers.Length; i++)
             {
                 itemState.spritesActivos[i] = item.spriteRenderers[i].enabled; // Asignamos el estado del sprite del item y lo guardamos
-            }*/
+            }
 
 
             sceneState.itemsState.Add(itemState); // Añadimos toda esta información a nuestra lista de Items
@@ -371,18 +371,15 @@ public class SaveManager: MonoBehaviour
                     item.SetPosition(itemGuardado.posicionItem);
                     Debug.Log("Item: " + itemGuardado.nombreItem + " con ID: " + itemGuardado.idItem);
 
-                    // NO FUNCIONA
                     for (int i = 0; i < item.collidersItems.Length; i++)
                     {
                         item.collidersItems[i].enabled = itemGuardado.collidersItemsActivos[i];
                     }
 
-                    /*for (int i = 0; i < item.spriteRenderers.Length; i++)
+                    for (int i = 0; i < item.spriteRenderers.Length; i++)
                     {
-                        Debug.Log("HASTA AQUÍ LLEGAMOS");
                         item.spriteRenderers[i].enabled = itemGuardado.spritesActivos[i];
-                        Debug.Log(itemGuardado.nombreItem + itemGuardado.spritesActivos);
-                    }*/
+                    }
                 }
                 //Debug.Log("Se ha cargado - Nombre: " + itemGuardado.nombreItem + "ID del item: " + itemGuardado.idItem + ", Recogido: " + itemGuardado.objetoRecogido);
             }

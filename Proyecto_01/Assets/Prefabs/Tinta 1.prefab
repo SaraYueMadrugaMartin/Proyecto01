@@ -182,8 +182,11 @@ MonoBehaviour:
   idsItems: {fileID: 11400000, guid: 330c5a8c69d33074ea305b32819ce924, type: 2}
   posicionInicial: {x: 0, y: 0}
   objetoRecogido: 0
-  spriteRenderers: []
-  collidersItems: []
+  spriteRenderers:
+  - {fileID: 5639337157699503271}
+  - {fileID: 845545432151090188}
+  collidersItems:
+  - {fileID: 1710151474668157218}
 --- !u!1001 &3966862810823316249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -253,6 +256,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 712fb242e9b57304caa44b08bd2446c1, type: 3}
+--- !u!212 &845545432151090188 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4374925579871663893, guid: 712fb242e9b57304caa44b08bd2446c1, type: 3}
+  m_PrefabInstance: {fileID: 3966862810823316249}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5936249826857956591 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7308475168362555382, guid: 712fb242e9b57304caa44b08bd2446c1, type: 3}

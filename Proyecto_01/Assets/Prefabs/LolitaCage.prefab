@@ -108,8 +108,12 @@ MonoBehaviour:
   EnemyChaseBase: {fileID: 11400000, guid: 24cb6dc2c2053c546b595e0f8c085723, type: 2}
   EnemyAttackBase: {fileID: 11400000, guid: ea8cef0a1bb48414982103bae310eefb, type: 2}
   anim: {fileID: 6576803622483749201}
+  idEnemigo: 0
   corrEnemigo: 20
   player: {fileID: 0}
+  colliderEnemigo:
+  - {fileID: 9159351551780253222}
+  - {fileID: 8994306340449801689}
 --- !u!70 &9159351551780253222
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
