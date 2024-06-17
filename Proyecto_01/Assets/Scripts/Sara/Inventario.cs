@@ -296,6 +296,11 @@ public class Inventario : MonoBehaviour
         return objetoEnInventario;
     }
 
+    public List<Items> GetObjetosEnInventario()
+    {
+        return objetosRegistrados;
+    }
+
     public void QuitarInventario()
     {
         Time.timeScale = 1;

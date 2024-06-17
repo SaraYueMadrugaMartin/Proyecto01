@@ -260,25 +260,24 @@ public class SaveManager: MonoBehaviour
 
         #region Guardado Inventario
         // INVENTARIO
-        /*Inventario inventario = FindObjectOfType<Inventario>();
-        //sceneState.inventarioState = new SceneState();
-
+        Inventario inventario = FindObjectOfType<Inventario>();
         if (inventario != null)
         {
             sceneState.inventarioState = new List<InventarioState>();
 
-            foreach (var hueco in inventario.huecosInventario)
+            foreach (HuecosInventario hueco in inventario.huecosInventario)
             {
-                InventarioState inventarioState = new InventarioState();
+                if (hueco.estaCompleto)
+                {
+                    InventarioState inventarioState = new InventarioState();
+                    inventarioState.nombreItem = hueco.nombreItem;
+                    //inventarioState.idLlave = hueco.idLlave; // Si es necesario
+                    inventarioState.spriteItem = hueco.sprite; // Guardar el sprite del objeto
 
-                inventarioState.idItem = hueco.idItem; // Asigna el ID del objeto
-                inventarioState.objetoEnInventario = hueco.estaCompleto; // Verifica si el hueco está completo
-                inventarioState.nombreItem = hueco.nombreItem; // Asigna el nombre del objeto
-                inventarioState.spriteItem = hueco.sprite; // Asigna el sprite del objeto
-
-                sceneState.inventarioState.Add(inventarioState); // Agrega el estado del objeto al estado de la escena
+                    sceneState.inventarioState.Add(inventarioState);
+                }
             }
-        }*/
+        }
         #endregion
 
 
@@ -469,20 +468,20 @@ public class SaveManager: MonoBehaviour
 
             #region Cargar Datos Inventario
             // INVENTARIO
-            /*Inventario inventario = FindObjectOfType<Inventario>();
-
+            Inventario inventario = FindObjectOfType<Inventario>();
             if (inventario != null && savedSceneState.inventarioState != null)
             {
-                for (int i = 0; i < savedSceneState.inventarioState.Count; i++)
+                foreach (InventarioState inventarioState in savedSceneState.inventarioState)
                 {
-                    var inventarioState = savedSceneState.inventarioState[i];
-                    Items item = GetItemsID(inventarioState.idItem);
+                    // Añadir el objeto al inventario
+                    Items item = FindObjectsOfType<Items>().FirstOrDefault(obj => obj.nombreItem == inventarioState.nombreItem);
                     if (item != null)
                     {
-                        inventario.AñadirObjeto(inventarioState.nombreItem, inventarioState.spriteItem);
+                        // Cargar el objeto en el inventario con su sprite
+                        inventario.AñadirObjeto(inventarioState.nombreItem, inventarioState.spriteItem, inventarioState.idItem);
                     }
                 }
-            }*/
+            }
             #endregion
 
         }
