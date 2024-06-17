@@ -10,7 +10,8 @@ public class AjusteBrillo : MonoBehaviour
     public static AjusteBrillo Instance { get; private set; }
 
     public Volume postProcessingVolume;
-    public Slider brightnessSlider;
+    [SerializeField] Slider brightnessSlider1;
+    [SerializeField] Slider brightnessSlider2;
     private ColorAdjustments colorAdjustments;
     private const string BrightnessKey = "Brightness";
 
@@ -28,7 +29,8 @@ public class AjusteBrillo : MonoBehaviour
 
             if (postProcessingVolume.profile.TryGet<ColorAdjustments>(out colorAdjustments))
             {
-                brightnessSlider.onValueChanged.AddListener(AdjustBrightness);
+                brightnessSlider1.onValueChanged.AddListener(AdjustBrightness);
+                brightnessSlider2.onValueChanged.AddListener(AdjustBrightness);
                 LoadBrightness();
             }
             else
@@ -53,7 +55,8 @@ public class AjusteBrillo : MonoBehaviour
         if (PlayerPrefs.HasKey(BrightnessKey))
         {
             float savedBrightness = PlayerPrefs.GetFloat(BrightnessKey);
-            brightnessSlider.value = savedBrightness;
+            brightnessSlider1.value = savedBrightness;
+            brightnessSlider2.value = savedBrightness;
             colorAdjustments.postExposure.value = savedBrightness;
         }
     }
