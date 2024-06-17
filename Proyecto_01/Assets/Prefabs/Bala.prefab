@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2506831070430944115}
   - component: {fileID: 8178732387486547375}
   - component: {fileID: 7045894700721361436}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bala
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 20
   duracion: 2
-  "da\xF1o": 50
+  damage: 20
   capaEvitar:
     serializedVersion: 2
     m_Bits: 8
