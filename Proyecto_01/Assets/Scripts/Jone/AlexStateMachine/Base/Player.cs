@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Burst.Intrinsics;
 using Unity.IO.LowLevel.Unsafe;
+using Unity.VisualScripting;
 using UnityEngine;
 
 // En esta clase se gestiona todo lo que tiene que ver con Alex y sus estados
@@ -64,6 +66,10 @@ public class Player : MonoBehaviour
 
     #region Paneles
     [SerializeField] private GameObject panelMuerte;
+    [SerializeField] private GameObject panelCargador;
+    [SerializeField] private GameObject panelAviso;
+    private TextMeshProUGUI textoCargador;
+    private TextMeshProUGUI textoAviso;
     #endregion
 
     #region Variables Animaciones
@@ -109,6 +115,22 @@ public class Player : MonoBehaviour
 
         pistola.SetActive(false);
         puntero.enabled = false;
+
+        if(panelCargador != null)
+        {
+            textoCargador = panelCargador.GetComponentInChildren<TextMeshProUGUI>();
+        } else
+        {
+            Debug.LogWarning("No tengo panelCargador");
+        }
+        if (panelAviso != null)
+        {
+            textoAviso = panelAviso.GetComponentInChildren<TextMeshProUGUI>();
+        }
+        else
+        {
+            Debug.LogWarning("No tengo panelAviso");
+        }
 
         StateMachine.Initialize(Corr0State);
     }
@@ -379,8 +401,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButton("Fire2"))
         {
-            // Implementación visual de número de balas
-
+            textoCargador.text = ("Cargador: " + cargador);
+            panelCargador.SetActive(true);
             pistola.SetActive(true);
             puntero.enabled = true;
             apuntando = true;
@@ -396,8 +418,8 @@ public class Player : MonoBehaviour
 
                 else
                 {
-                    // Hay que mostrar un mensaje en pantalla
-                    Debug.Log("Sin munición, pulsa R mientras apuntas para recargar");
+                    textoAviso.text = ("Sin munición, pulsa R mientras apuntas para recargar.");
+                    StartCoroutine(EsperaSegundosPanelAviso());
                 }
             }
             if (Input.GetKeyDown("r"))
@@ -410,6 +432,7 @@ public class Player : MonoBehaviour
         {
             apuntando = false;
             anim.SetBool("estaApuntando", false);
+            panelCargador.SetActive(false);
         }
     }
 
@@ -431,6 +454,7 @@ public class Player : MonoBehaviour
         objetoBala.transform.rotation = puntoDisparo.rotation;
 
         --cargador;
+        textoCargador.text = ("Cargador: " + cargador);
     }
 
     private void Recarga()
@@ -449,8 +473,8 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Debug.Log("No hay suficiente munición");
-            // Implementar texto de aviso
+            textoAviso.text = ("No hay suficiente munición para recargar.");
+            StartCoroutine(EsperaSegundosPanelAviso());
         }
     }
 
@@ -567,6 +591,15 @@ public class Player : MonoBehaviour
                 anim.SetBool("tienePistola", true);
                 break;
         }
+    }
+    #endregion
+
+    #region Funciones Avisos
+    IEnumerator EsperaSegundosPanelAviso()
+    {
+        panelAviso.SetActive(true);
+        yield return new WaitForSecondsRealtime(2f);
+        panelAviso.SetActive(false);
     }
     #endregion
 
