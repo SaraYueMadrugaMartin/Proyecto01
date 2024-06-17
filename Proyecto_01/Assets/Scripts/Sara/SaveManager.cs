@@ -5,6 +5,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using static UnityEditor.Progress;
 
+
+#region Toda informacion a guardar
+[System.Serializable]
+public struct AlexState
+{
+    public Vector2 posicionPlayer;
+    public bool playerMiraDerecha;
+    public float corrupcionPlayer;
+}
+
 [System.Serializable]
 public struct PuertaState
 {
@@ -57,15 +67,15 @@ public struct EnemigosState
     public int idEnemigo;
     public bool[] colliderEnemigosActivos;
     public int enemigosMuertosTotal;
+    // Hay que guardar el estado de la animación
 }
 
 [System.Serializable]
 public struct SceneState
-{    
-    public Vector2 posicionPlayer;
-    public bool playerMiraDerecha;
+{
     public bool cadenasActivas;
 
+    public AlexState playerState;
     public List<PuertaState> puertasState; // Lista para guardar la información de PuertaState.
     public PuertaLaberintoState puertaLaberintoState;
     public PuertaFinalState puertaFinalState;
@@ -73,6 +83,7 @@ public struct SceneState
     public List<EnemigosState> enemigosState;
     public List<InventarioState> inventarioState;
 }
+#endregion
 
 public class SaveManager: MonoBehaviour
 {
@@ -129,10 +140,11 @@ public class SaveManager: MonoBehaviour
 
         #region Guardado Player
         // JUGADOR
-        infoPlayer = FindObjectOfType<Player>();
-        sceneState.posicionPlayer = infoPlayer.GetPosition();
-        sceneState.playerMiraDerecha = infoPlayer.GetMiraDerecha();
-        Debug.Log("El jugador mira hacia la: " + sceneState.playerMiraDerecha);
+        Player infoPlayer = FindObjectOfType<Player>();
+        sceneState.playerState.posicionPlayer = infoPlayer.GetPosition();
+        sceneState.playerState.playerMiraDerecha = infoPlayer.GetMiraDerecha();
+        Debug.Log("El jugador mira hacia la: " + sceneState.playerState.playerMiraDerecha);
+        sceneState.playerState.corrupcionPlayer = infoPlayer.GetNivelCorrupcion();
         #endregion
 
         #region Guardado Puertas Desbloqueadas
@@ -187,6 +199,7 @@ public class SaveManager: MonoBehaviour
         }
         Debug.Log("La puerta final está: " + sceneState.puertaFinalState.puertaFinal);
         Debug.Log("Estado de la puerta sin llave final al guardar: " + sceneState.puertaFinalState.puertaSinLlaveFinal);
+        
         #endregion
 
         #region Guardar Numero Enemigos Muertos
@@ -285,11 +298,12 @@ public class SaveManager: MonoBehaviour
 
             #region Cargar Datos Player
             //PLAYER
-            Player playerMovement = FindObjectOfType<Player>();
-            if (playerMovement != null)
+            Player playerGuardado = FindObjectOfType<Player>();
+            if (playerGuardado != null)
             {
-                playerMovement.SetPosition(savedSceneState.posicionPlayer);
-                playerMovement.SetMiraDerecha(savedSceneState.playerMiraDerecha);
+                playerGuardado.SetPosition(savedSceneState.playerState.posicionPlayer);
+                playerGuardado.SetMiraDerecha(savedSceneState.playerState.playerMiraDerecha);
+                playerGuardado.SetNivelCorrupcion(savedSceneState.playerState.corrupcionPlayer);
             }
             #endregion
 

@@ -592,5 +592,15 @@ public class Player : MonoBehaviour
             Flip(); // Si 'miraDerecha' es diferente de 'value', llamamos a la función 'Flip()'.
         }
     }
+
+    public float GetNivelCorrupcion()
+    {
+        return corrupcion;
+    }
+
+    public void SetNivelCorrupcion(float nivelCorrup)
+    {
+        corrupcion = nivelCorrup;
+    }
     #endregion
 }
