@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Progress;
 
 [System.Serializable]
 public struct PuertaState
@@ -39,6 +40,7 @@ public struct ItemState
     public bool objetoRecogido;
     public Vector2 posicionItem;
     public bool[] spritesActivos;
+    public bool[] collidersItemsActivos;
 }
 
 [System.Serializable]
@@ -52,7 +54,9 @@ public struct InventarioState
 [System.Serializable]
 public struct EnemigosState
 {
-    public GameObject enemigoActivo;
+    public int idEnemigo;
+    public bool[] colliderEnemigosActivos;
+    public int enemigosMuertosTotal;
 }
 
 [System.Serializable]
@@ -60,16 +64,13 @@ public struct SceneState
 {    
     public Vector2 posicionPlayer;
     public bool playerMiraDerecha;
-
     public bool cadenasActivas;
-    
-    public int enemigosMuertos;
-
 
     public List<PuertaState> puertasState; // Lista para guardar la información de PuertaState.
     public PuertaLaberintoState puertaLaberintoState;
     public PuertaFinalState puertaFinalState;
     public List<ItemState> itemsState; // Lista para guardar la información de ItemState.
+    public List<EnemigosState> enemigosState;
     public List<InventarioState> inventarioState;
 }
 
@@ -86,10 +87,8 @@ public class SaveManager: MonoBehaviour
 
     PuertasIDControler infoCadenas;
     
-
     Items[] items;
-
-    Enemigo[] infoEnemigos;
+    Enemy[] infoEnemigos;
 
     void Awake()
     {
@@ -192,15 +191,22 @@ public class SaveManager: MonoBehaviour
 
         #region Guardar Numero Enemigos Muertos
         // ENEMIGOS
-        /*infoEnemigos = FindObjectsOfType<Enemigo>();
-        foreach (Enemigo enemigo in infoEnemigos)
+        infoEnemigos = FindObjectsOfType<Enemy>();
+        sceneState.enemigosState = new List<EnemigosState>();
+        foreach(Enemy enemigo in infoEnemigos)
         {
-            sceneState.enemigosMuertos += enemigo.GetNumEnemMuertos();
-            Debug.Log("Número de enemigos muertos: " + sceneState.enemigosMuertos);
-        }*/
+            EnemigosState enemigosState = new EnemigosState();
 
-        sceneState.enemigosMuertos = Enemigo.contadorEnemigosMuertos;
-        Debug.Log("Numero de enemigos muertos total: " + sceneState.enemigosMuertos);
+            enemigosState.idEnemigo = enemigo.idEnemigo;
+            enemigosState.enemigosMuertosTotal = enemigo.GetNumEnemMuertos();
+            Debug.Log("Número de enemigos muertos: " + enemigosState.enemigosMuertosTotal);
+            enemigosState.colliderEnemigosActivos = new bool[enemigo.colliderEnemigo.Length];
+            for (int i = 0; i < enemigo.colliderEnemigo.Length; i++)
+            {
+                enemigosState.colliderEnemigosActivos[i] = enemigo.colliderEnemigo[i].enabled;
+            }
+            sceneState.enemigosState.Add(enemigosState);
+        }
         #endregion
 
         #region Guardado Items
@@ -212,24 +218,35 @@ public class SaveManager: MonoBehaviour
         {
             ItemState itemState = new ItemState();
 
+            itemState.idItem = item.idsItems.IDsItem; // Asignamos el ID del item y lo guardamos
             itemState.nombreItem = item.nombreItem; // Asignamos el nombre del item y guardamos
-            itemState.idItem = item.GetIDsItem(); // Asignamos el ID del item y lo guardamos
             itemState.objetoRecogido = item.GetObjetoRecogido(); // Asignamos si el item ha sido o no recogido y lo guardamos
             itemState.posicionItem = item.GetPosition(); // Asignamos la posición donde está el item y lo guardamos
+            Debug.Log("Item guardado: " + itemState.nombreItem + " con ID: " + itemState.idItem);
 
-            itemState.spritesActivos = new bool[item.GetSpriteRenderers().Length];
-            for (int i = 0; i < item.GetSpriteRenderers().Length; i++)
+            itemState.collidersItemsActivos = new bool[item.collidersItems.Length];
+
+            for (int i = 0; i < item.collidersItems.Length; i++)
             {
-                itemState.spritesActivos[i] = item.GetSpriteRenderers()[i].enabled; // Asignamos el estado del sprite del item y lo guardamos
+                itemState.collidersItemsActivos[i] = item.collidersItems[i].enabled;
+                Debug.Log("Item guardado: " + itemState.nombreItem + " con ID: " + itemState.idItem);
             }
 
+            /*itemState.spritesActivos = new bool[item.spriteRenderers.Length];
+            for (int i = 0; i < item.spriteRenderers.Length; i++)
+            {
+                itemState.spritesActivos[i] = item.spriteRenderers[i].enabled; // Asignamos el estado del sprite del item y lo guardamos
+            }*/
+
+
             sceneState.itemsState.Add(itemState); // Añadimos toda esta información a nuestra lista de Items
+            //Debug.Log("Guardado Item - Nombre: " + itemState.nombreItem + "ID del item: " + itemState.idItem + ", Recogido: " + itemState.objetoRecogido);
         }
         #endregion
 
         #region Guardado Inventario
         // INVENTARIO
-        Inventario inventario = FindObjectOfType<Inventario>(); // Buscamos el objeto que contiene el componente "Inventario".
+        /*Inventario inventario = FindObjectOfType<Inventario>(); // Buscamos el objeto que contiene el componente "Inventario".
         sceneState.inventarioState = new List<InventarioState>(); // Lista donde almacenamos el estado del inventario.
         if (inventario != null)
         {
@@ -247,7 +264,7 @@ public class SaveManager: MonoBehaviour
 
                 sceneState.inventarioState.Add(inventarioState);
             }
-        }
+        }*/
         #endregion
 
 
@@ -326,25 +343,50 @@ public class SaveManager: MonoBehaviour
 
             #region Cargar Numero Enemigos Muertos
             //ENEMIGOS
-            Enemigo.contadorEnemigosMuertos = savedSceneState.enemigosMuertos;
-            Debug.Log("Enemigos eliminados hasta ahora: " + savedSceneState.enemigosMuertos);
+            foreach (EnemigosState enemigoMuerto in savedSceneState.enemigosState)
+            {
+                Enemy enemigo = GetEnemigoID(enemigoMuerto.idEnemigo);
+                if (enemigo != null)
+                {
+                    enemigo.SetNumEnemMuertos(enemigoMuerto.enemigosMuertosTotal);
+                    Debug.Log("Has matado: " + enemigoMuerto.enemigosMuertosTotal);
+
+                    for (int i = 0; i < enemigo.colliderEnemigo.Length; i++) // Recorremos los colliders de las puertas para saber si deben activarse de nuevo o no.
+                    {
+                        enemigo.colliderEnemigo[i].enabled = enemigoMuerto.colliderEnemigosActivos[i];
+                    }
+                }
+            }
             #endregion
 
             #region Cargar Datos Items
             //ITEMS
-            /*Items[] itemsGuardados = FindObjectsOfType<Items>();
-
-            if (itemsGuardados != null)
+            foreach(ItemState itemGuardado in savedSceneState.itemsState)
             {
-                foreach (ItemState itemState in savedSceneState.itemsState)
+                Items item = GetItemsID(itemGuardado.idItem);
+                if (item != null)
                 {
-                    Items item = itemsGuardados.SingleOrDefault(x => x.GetIDsItem() == itemState.idItem);
-                    if (item != null)
+                    item.nombreItem = itemGuardado.nombreItem;
+                    item.SetObjetoRecogido(itemGuardado.objetoRecogido);
+                    item.SetPosition(itemGuardado.posicionItem);
+                    Debug.Log("Item: " + itemGuardado.nombreItem + " con ID: " + itemGuardado.idItem);
+
+                    // NO FUNCIONA
+                    for (int i = 0; i < item.collidersItems.Length; i++)
                     {
-                        Debug.Log("Hasta aquí");
+                        item.collidersItems[i].enabled = itemGuardado.collidersItemsActivos[i];
                     }
+
+                    /*for (int i = 0; i < item.spriteRenderers.Length; i++)
+                    {
+                        Debug.Log("HASTA AQUÍ LLEGAMOS");
+                        item.spriteRenderers[i].enabled = itemGuardado.spritesActivos[i];
+                        Debug.Log(itemGuardado.nombreItem + itemGuardado.spritesActivos);
+                    }*/
                 }
+                //Debug.Log("Se ha cargado - Nombre: " + itemGuardado.nombreItem + "ID del item: " + itemGuardado.idItem + ", Recogido: " + itemGuardado.objetoRecogido);
             }
+            
             /*Items[] itemsGuardados = FindObjectsOfType<Items>();
             if (itemsGuardados != null)
             {
@@ -381,7 +423,7 @@ public class SaveManager: MonoBehaviour
                         }
                     }
                 }
-            }*/
+            }
             #endregion
 
             #region Cargar Datos Estado Inventario
@@ -425,6 +467,33 @@ public class SaveManager: MonoBehaviour
             if (puerta.idPuerta == idPuerta)
             {
                 return puerta;
+            }
+        }
+        return null;
+    }
+
+    private Enemy GetEnemigoID(int idEnemigo)
+    {
+        Enemy[] enemigos = FindObjectsOfType<Enemy>();
+        foreach (Enemy enemigo in enemigos)
+        {
+            if (enemigo.idEnemigo == idEnemigo)
+            {
+                return enemigo;
+            }
+            Debug.Log(enemigo.name);
+        }
+        return null;
+    }
+
+    private Items GetItemsID(int idItem)
+    {
+        Items[] items = FindObjectsOfType<Items>();
+        foreach (Items item in items)
+        {
+            if (item.idsItems.GetIDsItem() == idItem)
+            {
+                return item;
             }
         }
         return null;
