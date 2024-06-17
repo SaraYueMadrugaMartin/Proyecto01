@@ -36,9 +36,13 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
     public Animator anim;
 
+    public int idEnemigo;
+
     public static int contadorEnemigosMuertos = 0;
     [SerializeField] int corrEnemigo = 20;
     public Player player;
+    public Collider2D[] colliderEnemigo;
+
 
     private void Awake()
     {
@@ -61,6 +65,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
         anim = GetComponent<Animator>();
         RB = GetComponent<Rigidbody2D>();
+        colliderEnemigo = GetComponents<Collider2D>();
 
         EnemyIdleBaseInstance.Initialize(gameObject, this);
         EnemyChaseBaseInstance.Initialize(gameObject, this);
@@ -101,7 +106,9 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
         anim.SetBool("seMuere", true);
         // Sonido muerte
         //sfxManager.PlaySFX(sfxManager.audiosEnemigos[2]);
-        GetComponent<Collider2D>().enabled = false;
+        //GetComponent<Collider2D>().enabled = false;
+        for (int i = 0; i < colliderEnemigo.Length; i++)
+            colliderEnemigo[i].enabled = false;
         this.enabled = false;
         contadorEnemigosMuertos++;
 

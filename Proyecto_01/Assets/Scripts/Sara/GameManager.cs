@@ -51,8 +51,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             saveManager.CargarEstadoEscena();
+        }
     }
 
     public void GuardarDatosEscena()

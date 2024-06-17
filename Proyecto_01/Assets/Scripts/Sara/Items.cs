@@ -16,7 +16,8 @@ public class Items : MonoBehaviour
 
     public Vector2 posicionInicial;
     public bool objetoRecogido = false;
-    private SpriteRenderer[] spriteRenderers;
+    public SpriteRenderer[] spriteRenderers;
+    public Collider2D[] collidersItems;
 
     private List<bool> objetoHaSidoRecogido;
 
@@ -24,24 +25,14 @@ public class Items : MonoBehaviour
 
     void Start()
     {
+        collidersItems = GetComponents<Collider2D>();
+        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         sfxManager = FindObjectOfType<SFXManager>();
         inventario = GameObject.Find("Canvas").GetComponent<Inventario>();
         panelesInteracciones = FindObjectOfType<PanelesInteracciones>();
         panelAvisoInventarioCompleto = FindObjectOfType<PanelesInteracciones>();
         posicionInicial = transform.position;
-        Transform[] hijosTransform = GetComponentsInChildren<Transform>(includeInactive: true);
-        List<GameObject> hijosGameObjects = new List<GameObject>();
         objetoHaSidoRecogido = new List<bool>();
-
-        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
-
-        foreach (Transform hijoTransform in hijosTransform)
-        {
-            if (hijoTransform.gameObject != this.gameObject)
-            {
-                hijosGameObjects.Add(hijoTransform.gameObject);
-            }
-        }
     }
 
     private void Update()
@@ -68,7 +59,7 @@ public class Items : MonoBehaviour
                 }
 
                 panelesInteracciones.AparecerPanelInteraccion(nombreItem);
-                objetoRecogido = true;
+                
                 ObjetoRecogido(true);
                 sfxManager.PlaySFX(sfxManager.clipsDeAudio[1]);
 
@@ -132,10 +123,15 @@ public class Items : MonoBehaviour
         return objetoRecogido;
     }
 
-    public Sprite GetSpriteItems()
+    public void SetObjetoRecogido(bool value)
+    {
+        objetoRecogido = value;
+    }
+
+    /*public Sprite GetSpriteItems()
     {
         return sprite;
-    }
+    }*/
 
     public Vector3 GetPosition()
     {
@@ -147,10 +143,10 @@ public class Items : MonoBehaviour
         transform.position = newPosition;
     }
 
-    public SpriteRenderer[] GetSpriteRenderers()
+    /*public SpriteRenderer[] GetSpriteRenderers()
     {
         return spriteRenderers;
-    }
+    }*/
 
     public void MoverYActivar(Vector3 nuevaPosicion)
     {
@@ -161,6 +157,8 @@ public class Items : MonoBehaviour
 
     public void DesactivarItem()
     {
+        objetoRecogido = true;
+
         SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         if (spriteRenderers != null)
         {
@@ -170,18 +168,14 @@ public class Items : MonoBehaviour
             }
         }
 
-        Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
-        if (colliders != null)
-        {
-            foreach (Collider2D collider in colliders)
-            {
-                collider.enabled = false;
-            }
-        }
+        foreach (Collider2D colliderItem in collidersItems)
+            colliderItem.enabled = false;
     }
 
     private void ActivarItem()
     {
+        objetoRecogido = false;
+
         SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         if (spriteRenderers != null)
         {
@@ -191,17 +185,11 @@ public class Items : MonoBehaviour
             }
         }
 
-        Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
-        if (colliders != null)
-        {
-            foreach (Collider2D collider in colliders)
-            {
-                collider.enabled = true;
-            }
-        }
+        foreach (Collider2D colliderItem in collidersItems)
+            colliderItem.enabled = false;
     }
 
-    public void SetIDsItem(int newID)
+    /*public void SetIDsItem(int newID)
     {
         if (idsItems != null)
         {
@@ -221,7 +209,7 @@ public class Items : MonoBehaviour
             Debug.LogError("idsItems es null en el objeto: " + nombreItem);
             return -1; // Valor por defecto o código de error
         }
-    }
+    }*/
 
     // Método para apagar todas las luces al quitar el fusible
     private void ApagaLuces()
