@@ -15,14 +15,16 @@ public class VisibilidadPuertasFrente : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Cuando un objeto entra en la zona de las puertas, estas se ponen más transparentes
-        CambiarTransparenciaColor(0.5f);
+        // Cuando player entra en la zona de las puertas, estas se ponen más transparentes
+        if(collision.CompareTag("Player"))
+            CambiarTransparenciaColor(0.5f);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        // Cuando un objeto sale de la zona de las puertas, estas vuelven a su transparencia original
-        CambiarTransparenciaColor(1f);
+        // Cuando player sale de la zona de las puertas, estas vuelven a su transparencia original
+        if (collision.CompareTag("Player"))
+            CambiarTransparenciaColor(1f);
     }
 
     void CambiarTransparenciaColor(float transparencia)

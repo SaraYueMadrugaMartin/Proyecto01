@@ -11,9 +11,10 @@ public class Cinematicas : MonoBehaviour
     [SerializeField] private GameObject cintaVHS;
     [SerializeField] private GameObject cintaFinBueno;
     [SerializeField] private GameObject cintaFinMalo;
+    [SerializeField] private GameObject cintaCreditos;
     private GameObject cinta;
     private VideoPlayer cinematica;
-
+    private int numCinem = 0;
     private bool pausado = false;
 
     public static bool CineReproduciendo { get; set; } = false;
@@ -56,13 +57,20 @@ public class Cinematicas : MonoBehaviour
         switch (cinem)
         {
             case 0:
+                numCinem = 0;
                 cinta = cintaVHS;
                 break;
             case 1:
+                numCinem = 1;
                 cinta = cintaFinBueno;
                 break;
             case 2:
+                numCinem = 2;
                 cinta = cintaFinMalo;
+                break;
+            default:
+                numCinem = 3;
+                cinta = cintaCreditos;
                 break;
         }
         cinematica = cinta.GetComponent<VideoPlayer>();
@@ -81,11 +89,22 @@ public class Cinematicas : MonoBehaviour
     void OnVideoEnd(VideoPlayer vp)
     {
         cinta.SetActive(false);
-        puerta.VHSVisto();
-        Debug.Log("puerta abre");
+        if(numCinem == 0)
+        {
+            puerta.VHSVisto();
+            Debug.Log("puerta abre");
+        }
         CineReproduciendo = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        if (numCinem == 1 || numCinem == 2)
+        {
+            Reproducir(3);
+        } else if (numCinem == 3)
+        {
+            GameManager.instance.GuardarDatosEscena();
+            GameManager.instance.VolverAlInicio();
+        }
     }
 
     public void Pausar()
