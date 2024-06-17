@@ -13,6 +13,7 @@ public struct AlexState
     public Vector2 posicionPlayer;
     public bool playerMiraDerecha;
     public float corrupcionPlayer;
+    public int armaEquipadaPlayer;
 }
 
 [System.Serializable]
@@ -56,6 +57,7 @@ public struct ItemState
 [System.Serializable]
 public struct InventarioState
 {
+    public int idItem;
     public bool objetoEnInventario;
     public string nombreItem;
     public Sprite spriteItem;
@@ -93,8 +95,6 @@ public class SaveManager: MonoBehaviour
     private int indiceEscenaGuardada;
 
     [SerializeField] private GameObject botonCargarPartida;
-
-    Player infoPlayer;
 
     PuertasIDControler infoCadenas;
     
@@ -145,6 +145,7 @@ public class SaveManager: MonoBehaviour
         sceneState.playerState.playerMiraDerecha = infoPlayer.GetMiraDerecha();
         Debug.Log("El jugador mira hacia la: " + sceneState.playerState.playerMiraDerecha);
         sceneState.playerState.corrupcionPlayer = infoPlayer.GetNivelCorrupcion();
+        sceneState.playerState.armaEquipadaPlayer = infoPlayer.GetArmaEquipada();
         #endregion
 
         #region Guardado Puertas Desbloqueadas
@@ -259,23 +260,23 @@ public class SaveManager: MonoBehaviour
 
         #region Guardado Inventario
         // INVENTARIO
-        /*Inventario inventario = FindObjectOfType<Inventario>(); // Buscamos el objeto que contiene el componente "Inventario".
-        sceneState.inventarioState = new List<InventarioState>(); // Lista donde almacenamos el estado del inventario.
+        /*Inventario inventario = FindObjectOfType<Inventario>();
+        //sceneState.inventarioState = new SceneState();
+
         if (inventario != null)
         {
+            sceneState.inventarioState = new List<InventarioState>();
+
             foreach (var hueco in inventario.huecosInventario)
             {
                 InventarioState inventarioState = new InventarioState();
 
-                inventarioState.objetoEnInventario = inventario.GetObjetoEnInventario();
+                inventarioState.idItem = hueco.idItem; // Asigna el ID del objeto
+                inventarioState.objetoEnInventario = hueco.estaCompleto; // Verifica si el hueco está completo
+                inventarioState.nombreItem = hueco.nombreItem; // Asigna el nombre del objeto
+                inventarioState.spriteItem = hueco.sprite; // Asigna el sprite del objeto
 
-                if (hueco.estaCompleto)
-                {
-                    inventarioState.nombreItem = hueco.nombreItem;
-                    inventarioState.spriteItem = hueco.sprite;
-                }
-
-                sceneState.inventarioState.Add(inventarioState);
+                sceneState.inventarioState.Add(inventarioState); // Agrega el estado del objeto al estado de la escena
             }
         }*/
         #endregion
@@ -304,6 +305,7 @@ public class SaveManager: MonoBehaviour
                 playerGuardado.SetPosition(savedSceneState.playerState.posicionPlayer);
                 playerGuardado.SetMiraDerecha(savedSceneState.playerState.playerMiraDerecha);
                 playerGuardado.SetNivelCorrupcion(savedSceneState.playerState.corrupcionPlayer);
+                playerGuardado.SetArmaEquipada(savedSceneState.playerState.armaEquipadaPlayer);
             }
             #endregion
 
@@ -397,7 +399,7 @@ public class SaveManager: MonoBehaviour
                 }
                 //Debug.Log("Se ha cargado - Nombre: " + itemGuardado.nombreItem + "ID del item: " + itemGuardado.idItem + ", Recogido: " + itemGuardado.objetoRecogido);
             }
-            
+
             /*Items[] itemsGuardados = FindObjectsOfType<Items>();
             if (itemsGuardados != null)
             {
@@ -465,10 +467,29 @@ public class SaveManager: MonoBehaviour
             }*/
             #endregion
 
+            #region Cargar Datos Inventario
+            // INVENTARIO
+            /*Inventario inventario = FindObjectOfType<Inventario>();
+
+            if (inventario != null && savedSceneState.inventarioState != null)
+            {
+                for (int i = 0; i < savedSceneState.inventarioState.Count; i++)
+                {
+                    var inventarioState = savedSceneState.inventarioState[i];
+                    Items item = GetItemsID(inventarioState.idItem);
+                    if (item != null)
+                    {
+                        inventario.AñadirObjeto(inventarioState.nombreItem, inventarioState.spriteItem);
+                    }
+                }
+            }*/
+            #endregion
+
         }
     }
     #endregion
 
+    #region Recibir IDs
     private Puerta GetPuertaID(int idPuerta)
     {
         // Iteramos sobre todas las puertas y devolvemos la puerta con el ID
@@ -509,4 +530,5 @@ public class SaveManager: MonoBehaviour
         }
         return null;
     }
+    #endregion
 }

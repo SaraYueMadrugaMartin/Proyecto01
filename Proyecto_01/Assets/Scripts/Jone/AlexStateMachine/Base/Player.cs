@@ -602,5 +602,15 @@ public class Player : MonoBehaviour
     {
         corrupcion = nivelCorrup;
     }
+
+    public int GetArmaEquipada()
+    {
+        return armaEquipada;
+    }
+
+    public void SetArmaEquipada(int arma)
+    {
+        armaEquipada = arma;
+    }
     #endregion
 }
