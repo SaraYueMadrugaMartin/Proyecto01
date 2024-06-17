@@ -1807,8 +1807,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.39509997, y: 0.75145, z: 0}
-    m_Extent: {x: 0.89839995, y: 0.92155, z: 0}
+    m_Center: {x: -0.39514998, y: 0.75115, z: 0}
+    m_Extent: {x: 0.89765, y: 0.92155004, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -2110,8 +2110,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -467085084, guid: d7a4f71946ddabb48b94ca0bb3ec927b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2867,8 +2867,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49225, y: 0.14604998, z: 0}
-    m_Extent: {x: 1.49185, y: 1.16405, z: 0}
+    m_Center: {x: 0.4926, y: 0.14690006, z: 0}
+    m_Extent: {x: 1.4917, y: 1.1638, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -5844,8 +5844,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -467085084, guid: d7a4f71946ddabb48b94ca0bb3ec927b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6093,7 +6093,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "INFORMACI\xD3N BATE"
+  m_text: "Un bate de beisbol. Con esto podr\xEDa defenderme."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3087e662e7ea6dc48aac5ee2de84230c, type: 2}
   m_sharedMaterial: {fileID: 3838294093393890528, guid: 3087e662e7ea6dc48aac5ee2de84230c, type: 2}
@@ -6159,7 +6159,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 138.10887}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &297912176
@@ -7543,8 +7543,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 342441389, guid: d7a4f71946ddabb48b94ca0bb3ec927b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -9533,11 +9533,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 0ad721e0a9359d74ca95072518d84d94, type: 2}
     - target: {fileID: 7621307403010707313, guid: 45cdac99eda295e4f98f9a08d25a3587, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.03
+      value: -2.21
       objectReference: {fileID: 0}
     - target: {fileID: 7621307403010707313, guid: 45cdac99eda295e4f98f9a08d25a3587, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.95
+      value: 13.62
       objectReference: {fileID: 0}
     - target: {fileID: 7621307403010707313, guid: 45cdac99eda295e4f98f9a08d25a3587, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10055,7 +10055,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1628018908}
         m_TargetAssemblyTypeName: Inventario, Assembly-CSharp
-        m_MethodName: QuitarPanelesInformacion
+        m_MethodName: BotonQuitarPanelesInformacion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10899,8 +10899,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -467085084, guid: d7a4f71946ddabb48b94ca0bb3ec927b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -46787,8 +46787,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -467085084, guid: d7a4f71946ddabb48b94ca0bb3ec927b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -46862,7 +46862,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "INFORMACI\xD3N LLAVE"
+  m_text: "Una llave. Me pregunto qu\xE9 puerta abrir\xE1."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3087e662e7ea6dc48aac5ee2de84230c, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -47042,8 +47042,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49105, y: 0.14660001, z: 0}
-    m_Extent: {x: 1.49195, y: 1.1633, z: 0}
+    m_Center: {x: 0.4913, y: 0.1469, z: 0}
+    m_Extent: {x: 1.4923, y: 1.1637001, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -48075,8 +48075,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 1166769610, guid: d7a4f71946ddabb48b94ca0bb3ec927b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -48251,7 +48251,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -49215,8 +49215,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 1503136315, guid: d7a4f71946ddabb48b94ca0bb3ec927b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -49841,8 +49841,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49165, y: 0.14750004, z: 0}
-    m_Extent: {x: 1.49155, y: 1.1637, z: 0}
+    m_Center: {x: 0.49215004, y: 0.1473, z: 0}
+    m_Extent: {x: 1.49165, y: 1.164, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -52391,8 +52391,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -467085084, guid: d7a4f71946ddabb48b94ca0bb3ec927b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -52609,7 +52609,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -53535,8 +53535,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.39485002, y: 0.75105, z: 0}
-    m_Extent: {x: 0.89695, y: 0.92104995, z: 0}
+    m_Center: {x: -0.39415002, y: 0.7507, z: 0}
+    m_Extent: {x: 0.89785004, y: 0.92219996, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -56109,8 +56109,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.3953, y: 0.75085, z: 0}
-    m_Extent: {x: 0.89769995, y: 0.92095, z: 0}
+    m_Center: {x: -0.3951, y: 0.7504, z: 0}
+    m_Extent: {x: 0.8972, y: 0.9215, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -56184,8 +56184,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -467085084, guid: d7a4f71946ddabb48b94ca0bb3ec927b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -57560,7 +57560,7 @@ Transform:
   m_GameObject: {fileID: 1548456779}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.03, y: 19.95, z: -10}
+  m_LocalPosition: {x: -2.21, y: 13.62, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -59760,8 +59760,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -467085084, guid: d7a4f71946ddabb48b94ca0bb3ec927b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -60330,8 +60330,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49189997, y: 0.14679998, z: 0}
-    m_Extent: {x: 1.4921, y: 1.1635001, z: 0}
+    m_Center: {x: 0.4918, y: 0.1462, z: 0}
+    m_Extent: {x: 1.4919, y: 1.164, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -61361,8 +61361,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.39485002, y: 0.75045, z: 0}
-    m_Extent: {x: 0.89765, y: 0.92174995, z: 0}
+    m_Center: {x: -0.39514998, y: 0.75055, z: 0}
+    m_Extent: {x: 0.89775, y: 0.92105, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -62016,8 +62016,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 761179681, guid: d7a4f71946ddabb48b94ca0bb3ec927b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -62226,8 +62226,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.49220002, y: 0.14640003, z: 0}
-    m_Extent: {x: 1.4916, y: 1.1640999, z: 0}
+    m_Center: {x: 0.4914, y: 0.14655, z: 0}
+    m_Extent: {x: 1.4919, y: 1.16325, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -62300,8 +62300,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 1503136315, guid: d7a4f71946ddabb48b94ca0bb3ec927b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -62718,8 +62718,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 1503136315, guid: d7a4f71946ddabb48b94ca0bb3ec927b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -63965,8 +63965,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.39534998, y: 0.75075, z: 0}
-    m_Extent: {x: 0.89745, y: 0.92105, z: 0}
+    m_Center: {x: -0.39565, y: 0.7508, z: 0}
+    m_Extent: {x: 0.89804995, y: 0.9218, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -64047,8 +64047,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.4913, y: 0.14670002, z: 0}
-    m_Extent: {x: 1.4916, y: 1.1644, z: 0}
+    m_Center: {x: 0.49190003, y: 0.14684999, z: 0}
+    m_Extent: {x: 1.4925001, y: 1.16315, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -64293,7 +64293,7 @@ Transform:
   m_GameObject: {fileID: 2014694498}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.03, y: 19.95, z: -10}
+  m_LocalPosition: {x: -2.21, y: 13.62, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -66015,8 +66015,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.3949, y: 0.75065005, z: 0}
-    m_Extent: {x: 0.898, y: 0.92125, z: 0}
+    m_Center: {x: -0.395, y: 0.75154996, z: 0}
+    m_Extent: {x: 0.89830005, y: 0.92135, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

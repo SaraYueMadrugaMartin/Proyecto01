@@ -55,10 +55,24 @@ public class Puerta : MonoBehaviour
     {
         if (inventario.TieneObjeto("Llave") || inventario.TieneObjeto("Fusible"))
         {
-            panelPregunta.SetActive(true);
-            panelAbierto = true;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = false;
+            List<int> llavesIDs = inventario.BuscaIDsLlaves();
+
+            foreach (int idLlave in llavesIDs)
+            {
+                if (!CompararIDs(idLlave))
+                {
+                    panelMensajeNo.SetActive(true);
+                    textoPuertasCerradas.text = "Esta llave no abre esta puerta, necesito otra";
+                }
+                else
+                {
+                    panelPregunta.SetActive(true);
+                    panelAbierto = true;
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = false;
+                }
+            }
+            
         }
         else
         {
