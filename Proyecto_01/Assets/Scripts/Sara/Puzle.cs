@@ -27,10 +27,6 @@ public class Puzle : MonoBehaviour
         numeros[0].SetActive(true);
     }
 
-    void Update()
-    {
-
-    }
 
     public void OnMouseDown()
     {

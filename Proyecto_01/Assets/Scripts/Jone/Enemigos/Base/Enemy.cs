@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     [SerializeField] int corrEnemigo = 20;
     public Player player;
     public Collider2D[] colliderEnemigo;
+    public bool estaMuerto = false;
 
 
     private void Awake()
@@ -109,6 +110,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
         //GetComponent<Collider2D>().enabled = false;
         for (int i = 0; i < colliderEnemigo.Length; i++)
             colliderEnemigo[i].enabled = false;
+        estaMuerto = true;
         this.enabled = false;
         contadorEnemigosMuertos++;
 
@@ -118,6 +120,12 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
         Debug.Log("Corrupción: " + Player.corrupcion + "%");
 
         // Destroy(this.gameObject, 1f);    // Si decidimos que queremos directamente eliminar al enemigo
+    }
+
+    public void GuardaMuerto()
+    {
+        anim.SetBool("isDead", true);
+        this.enabled = false;
     }
 
     public int GetNumEnemMuertos()

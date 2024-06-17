@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MostrarPuzzle02 : MonoBehaviour
@@ -10,6 +11,8 @@ public class MostrarPuzzle02 : MonoBehaviour
     //[SerializeField] private Player player;
     [SerializeField] private FadeAnimation fadeAnimation;
     [SerializeField] public GameObject puertaSinLlave;
+    [SerializeField] GameObject panelAviso;
+    [SerializeField] TextMeshProUGUI textoAviso;
 
     private Vector2 posNueva = new Vector2(-26.57f, 97.844f);
 
@@ -73,7 +76,16 @@ public class MostrarPuzzle02 : MonoBehaviour
         {
             //mostrarPuzzle02.puertaSinLlave.SetActive(false);
             Debug.Log("Este no es el código correcto");
+            textoAviso.text = "Este no es el código correcto";
+            StartCoroutine(EsperaSegundos());
         }
+    }
+
+    IEnumerator EsperaSegundos()
+    {
+        panelAviso.SetActive(true);
+        yield return new WaitForSecondsRealtime(2f);
+        panelAviso.SetActive(false);
     }
 
     IEnumerator CambioPosicion()

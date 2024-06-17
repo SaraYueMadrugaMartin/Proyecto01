@@ -61,7 +61,7 @@ public class MostrarPuzzle01 : MonoBehaviour
     {
         Debug.Log("Has resuelto el puzzle, algo está pasando.");
         puzzleYaResuelto = true;
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSecondsRealtime(0.5f);
         fadeAnimation.FadeOut();
         StartCoroutine(QuitarPanelPuzzle());
     }

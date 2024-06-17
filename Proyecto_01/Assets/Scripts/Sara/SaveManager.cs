@@ -70,6 +70,7 @@ public struct EnemigosState
     public int idEnemigo;
     public bool[] colliderEnemigosActivos;
     public int enemigosMuertosTotal;
+    public bool isDead;
     // Hay que guardar el estado de la animación
 }
 
@@ -215,6 +216,7 @@ public class SaveManager: MonoBehaviour
 
             enemigosState.idEnemigo = enemigo.idEnemigo;
             enemigosState.enemigosMuertosTotal = enemigo.GetNumEnemMuertos();
+            enemigosState.isDead = enemigo.estaMuerto;
             Debug.Log("Número de enemigos muertos: " + enemigosState.enemigosMuertosTotal);
             enemigosState.colliderEnemigosActivos = new bool[enemigo.colliderEnemigo.Length];
             for (int i = 0; i < enemigo.colliderEnemigo.Length; i++)
@@ -374,6 +376,9 @@ public class SaveManager: MonoBehaviour
                     {
                         enemigo.colliderEnemigo[i].enabled = enemigoMuerto.colliderEnemigosActivos[i];
                     }
+
+                    if (enemigoMuerto.isDead)
+                        enemigo.GuardaMuerto();
                 }
             }
             #endregion

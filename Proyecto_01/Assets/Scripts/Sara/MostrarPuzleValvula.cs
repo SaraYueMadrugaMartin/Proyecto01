@@ -67,7 +67,7 @@ public class MostrarPuzleValvula : MonoBehaviour
 
     private IEnumerator SiguientePaso()
     {
-        yield return new WaitForSecondsRealtime(5f);
+        yield return new WaitForSecondsRealtime(2f);
         if (panelSiguientePaso != null)
         {
             puzleMoverPiezasValvula.SetActive(false);
