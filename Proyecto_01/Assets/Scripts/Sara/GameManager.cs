@@ -41,14 +41,16 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!Cinematicas.CineReproduciendo && !Inventario.estadoInvent)
-            {
-                // Manejo normal del panel de pausa
-                if (Time.timeScale != 0)
-                    Pausa.TriggerPause();
-                else
-                    Pausa.TriggerResume();
-            }
+            int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+            if (sceneIndex != 0)
+                if (!Cinematicas.CineReproduciendo && !Inventario.estadoInvent)
+                {
+                    // Manejo normal del panel de pausa
+                    if (Time.timeScale != 0)
+                        Pausa.TriggerPause();
+                    else
+                        Pausa.TriggerResume();
+                }
         }
 
         if (Input.GetKeyDown(KeyCode.C))
