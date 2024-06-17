@@ -35,7 +35,6 @@ public class MainMenu : MonoBehaviour
 
     public void CargarPartida()
     {
-        SceneManager.LoadScene(4);
         GameManager.instance.ReiniciarEscena();
     }
 

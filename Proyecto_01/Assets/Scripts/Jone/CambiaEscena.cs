@@ -43,6 +43,7 @@ public class CambiaEscena : MonoBehaviour
         {
             sfxManager.PlaySFX(sfxManager.clipsDeAudio[12]);    
             AudioManager.instance.Play("Planta1");
+            GameManager.instance.ReiniciarEscena();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
