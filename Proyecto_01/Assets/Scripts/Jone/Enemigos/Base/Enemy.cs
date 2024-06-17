@@ -112,6 +112,16 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
 
         // Destroy(this.gameObject, 1f);    // Si decidimos que queremos directamente eliminar al enemigo
     }
+
+    public int GetNumEnemMuertos()
+    {
+        return contadorEnemigosMuertos;
+    }
+
+    public void SetNumEnemMuertos(int enemMuertos)
+    {
+        contadorEnemigosMuertos = enemMuertos;
+    }
     #endregion
 
     #region Funciones de Movimiento
@@ -157,15 +167,5 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckab
     public void Coroutine(IEnumerator coroutine)
     {
         StartCoroutine(coroutine);
-    }
-
-    public int GetNumEnemMuertos()
-    {
-        return contadorEnemigosMuertos;
-    }
-
-    public void SetNumEnemMuertos(int enemMuertos)
-    {
-        contadorEnemigosMuertos = enemMuertos;
     }
 }
