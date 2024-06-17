@@ -229,7 +229,7 @@ public class SaveManager: MonoBehaviour
             for (int i = 0; i < item.collidersItems.Length; i++)
             {
                 itemState.collidersItemsActivos[i] = item.collidersItems[i].enabled;
-                Debug.Log("Item guardado: " + itemState.nombreItem + " con ID: " + itemState.idItem);
+                Debug.Log("Tus muertos 2");
             }
 
             /*itemState.spritesActivos = new bool[item.spriteRenderers.Length];
@@ -304,6 +304,8 @@ public class SaveManager: MonoBehaviour
                     puerta.gameObject.SetActive(puertaBloqueada.puertaActivada);
                     puerta.SetPuertaSinLlaveActivada(puertaBloqueada.puertasSinLlaveActivadas);
 
+                    Debug.Log("Longitud PUERTAS: " +  puerta.puertaColliders.Length);
+
                     for (int i = 0; i < puerta.puertaColliders.Length; i++) // Recorremos los colliders de las puertas para saber si deben activarse de nuevo o no.
                     {
                         puerta.puertaColliders[i].enabled = puertaBloqueada.collidersActivos[i];
@@ -372,9 +374,11 @@ public class SaveManager: MonoBehaviour
                     Debug.Log("Item: " + itemGuardado.nombreItem + " con ID: " + itemGuardado.idItem);
 
                     // NO FUNCIONA
+                    Debug.Log("Longitud ITEMS: " + item.collidersItems.Length);
                     for (int i = 0; i < item.collidersItems.Length; i++)
                     {
                         item.collidersItems[i].enabled = itemGuardado.collidersItemsActivos[i];
+                        Debug.Log("Colliders asignar");
                     }
 
                     /*for (int i = 0; i < item.spriteRenderers.Length; i++)
