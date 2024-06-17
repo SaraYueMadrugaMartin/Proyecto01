@@ -93,8 +93,6 @@ public class SaveManager: MonoBehaviour
     public static SaveManager instance;
     private SceneState savedSceneState;
 
-    private int indiceEscenaGuardada;
-
     [SerializeField] private GameObject botonCargarPartida;
 
     PuertasIDControler infoCadenas;
@@ -274,8 +272,7 @@ public class SaveManager: MonoBehaviour
                 {
                     InventarioState inventarioState = new InventarioState();
                     inventarioState.nombreItem = hueco.nombreItem;
-                    //inventarioState.idLlave = hueco.idLlave; // Si es necesario
-                    inventarioState.spriteItem = hueco.sprite; // Guardar el sprite del objeto
+                    inventarioState.spriteItem = hueco.sprite;
 
                     sceneState.inventarioState.Add(inventarioState);
                 }
@@ -481,11 +478,9 @@ public class SaveManager: MonoBehaviour
             {
                 foreach (InventarioState inventarioState in savedSceneState.inventarioState)
                 {
-                    // Añadir el objeto al inventario
                     Items item = FindObjectsOfType<Items>().FirstOrDefault(obj => obj.nombreItem == inventarioState.nombreItem);
                     if (item != null)
                     {
-                        // Cargar el objeto en el inventario con su sprite
                         inventario.AñadirObjeto(inventarioState.nombreItem, inventarioState.spriteItem, inventarioState.idItem);
                     }
                 }

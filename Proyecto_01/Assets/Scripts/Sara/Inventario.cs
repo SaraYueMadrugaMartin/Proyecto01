@@ -263,6 +263,7 @@ public class Inventario : MonoBehaviour
                         {
                             item.objetoRecogido = false;
                             item.ObjetoRecogido(false);
+                            EliminarObjeto(item);
                         }
 
                         Vector3 posicionJugador = GameObject.FindWithTag("Player").transform.position;
@@ -288,6 +289,14 @@ public class Inventario : MonoBehaviour
         if (!objetosRegistrados.Contains(item))
         {
             objetosRegistrados.Add(item);
+        }
+    }
+
+    public void EliminarObjeto(Items item)
+    {
+        if (objetosRegistrados.Contains(item))
+        {
+            objetosRegistrados.Remove(item);
         }
     }
 

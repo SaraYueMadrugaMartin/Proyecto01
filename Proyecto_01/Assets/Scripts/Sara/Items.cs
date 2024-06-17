@@ -186,30 +186,8 @@ public class Items : MonoBehaviour
         }
 
         foreach (Collider2D colliderItem in collidersItems)
-            colliderItem.enabled = false;
+            colliderItem.enabled = true;
     }
-
-    /*public void SetIDsItem(int newID)
-    {
-        if (idsItems != null)
-        {
-            idsItems.SetIDsItem(newID);
-        }
-    }
-
-    // Método para obtener el ID del item
-    public int GetIDsItem()
-    {
-        if (idsItems != null)
-        {
-            return idsItems.GetIDsItem();
-        }
-        else
-        {
-            Debug.LogError("idsItems es null en el objeto: " + nombreItem);
-            return -1; // Valor por defecto o código de error
-        }
-    }*/
 
     // Método para apagar todas las luces al quitar el fusible
     private void ApagaLuces()
