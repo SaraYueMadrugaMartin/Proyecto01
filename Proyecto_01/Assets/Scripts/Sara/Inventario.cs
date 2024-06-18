@@ -257,7 +257,6 @@ public class Inventario : MonoBehaviour
                 {
                     if (nombreObjeto == "Llave" || nombreObjeto == "Fusible")
                     {
-                        Debug.Log("Hasta los huevos");
                         textoAviso.text = "Este objeto no se puede dejar";
                         StartCoroutine(EsperaSegundosPanelAviso());
                         return;

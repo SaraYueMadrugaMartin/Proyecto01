@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad2b8130f227c8a4287565e2165418ae, type: 3}
   m_Name: Chase-Direct Chase
   m_EditorClassIdentifier: 
-  _movementSpeed: 1.5
+  _movementSpeed: 1
   _stuckTimeThreshold: 2
   _stuckDuration: 3
