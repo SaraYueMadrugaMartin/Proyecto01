@@ -136,7 +136,6 @@ public class SaveManager: MonoBehaviour
     public void GuardarEstadoEscena()
     {
         SceneState sceneState = new SceneState();
-        sceneState.sceneName = SceneManager.GetActiveScene().name;
 
         #region Guardado Player
         // JUGADOR
@@ -296,13 +295,6 @@ public class SaveManager: MonoBehaviour
         {
             string sceneStateJson = PlayerPrefs.GetString("SavedSceneState");
             savedSceneState = JsonUtility.FromJson<SceneState>(sceneStateJson);
-
-            int sceneIndex = savedSceneState.escenaActiva;
-            if (SceneManager.GetActiveScene().buildIndex != sceneIndex)
-            {
-                SceneManager.LoadScene(sceneIndex);
-                return;
-            }
 
             #region Cargar Datos Player
             //PLAYER
