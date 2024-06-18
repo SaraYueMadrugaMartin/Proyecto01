@@ -3086,6 +3086,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 914740022}
+    - target: {fileID: 7822372868246767176, guid: b6278adce82efb5409ecaa2ef6f8d80c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4744,7 +4748,6 @@ GameObject:
   m_Component:
   - component: {fileID: 242619016}
   - component: {fileID: 242619015}
-  - component: {fileID: 242619017}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -4782,51 +4785,6 @@ Transform:
   - {fileID: 854629443}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &242619017
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242619014}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -1.5730224, y: -2.1460419}
-  - {x: -1.544463, y: 6.4727335}
-  - {x: 13.005335, y: 6.440029}
-  - {x: 13.006173, y: -6.0291905}
-  - {x: -1.7292252, y: -5.9960904}
-  - {x: -1.7200446, y: -3.959077}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &246605818
 GameObject:
   m_ObjectHideFlags: 0
@@ -4971,11 +4929,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6392035138950442572, guid: 982a670be4a1b75409dee816c5d676d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.72
+      value: 8.9
       objectReference: {fileID: 0}
     - target: {fileID: 6392035138950442572, guid: 982a670be4a1b75409dee816c5d676d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.19
+      value: 14.3
       objectReference: {fileID: 0}
     - target: {fileID: 6392035138950442572, guid: 982a670be4a1b75409dee816c5d676d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5044,11 +5002,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6436167666152522362, guid: 4485724b670e1e947b6d9978b078086f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.81
+      value: -4.6
       objectReference: {fileID: 0}
     - target: {fileID: 6436167666152522362, guid: 4485724b670e1e947b6d9978b078086f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.94
+      value: -5.23
       objectReference: {fileID: 0}
     - target: {fileID: 6436167666152522362, guid: 4485724b670e1e947b6d9978b078086f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17950,6 +17908,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 43de8f2830a9f3e45b3139863098307a, type: 3}
   - {fileID: 8300000, guid: 22a802d7448bb2c46823898a6b3f5ab1, type: 3}
   - {fileID: 8300000, guid: fbab57134715a1740b7d21953b539788, type: 3}
+  - {fileID: 8300000, guid: 54926aadda074bd4ea16efdb90169ac4, type: 3}
   audiosEnemigos:
   - {fileID: 8300000, guid: 08c653d9855a8824295e2f7b7b4cccbf, type: 3}
   - {fileID: 8300000, guid: 6d1e997eabef1d847a98ca3529b06fb6, type: 3}
@@ -17972,6 +17931,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dc6b3c700d86b8846ae8bea4afe1bcb5, type: 3}
   - {fileID: 8300000, guid: 9a79712269595ce478bbc059e20269c3, type: 3}
   - {fileID: 8300000, guid: c350dadec62eff64baa59ef4226360b9, type: 3}
+  volumenEfectos: 1
 --- !u!4 &883260595
 Transform:
   m_ObjectHideFlags: 0
@@ -126794,6 +126754,8 @@ MonoBehaviour:
   botonAtrasInfo: {fileID: 46031895}
   fondoPanelInfo: {fileID: 1891507091}
   panelVidaXela: {fileID: 335102123}
+  panelAviso: {fileID: 0}
+  textoAviso: {fileID: 0}
   huecosInventario:
   - {fileID: 544169134}
   - {fileID: 1975373081}
@@ -132395,7 +132357,7 @@ Transform:
   m_GameObject: {fileID: 1535819742}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.81, y: 15.94, z: -10}
+  m_LocalPosition: {x: -4.6, y: -5.23, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -140323,11 +140285,11 @@ PrefabInstance:
       objectReference: {fileID: 560458545}
     - target: {fileID: 7621307403010707313, guid: 45cdac99eda295e4f98f9a08d25a3587, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.81
+      value: -4.6
       objectReference: {fileID: 0}
     - target: {fileID: 7621307403010707313, guid: 45cdac99eda295e4f98f9a08d25a3587, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.37
+      value: -5.8
       objectReference: {fileID: 0}
     - target: {fileID: 7621307403010707313, guid: 45cdac99eda295e4f98f9a08d25a3587, type: 3}
       propertyPath: m_LocalPosition.z
@@ -141228,11 +141190,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 446069381971121288, guid: 6114d694b9d286348961d6aeafea25cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.62
+      value: 19.1
       objectReference: {fileID: 0}
     - target: {fileID: 446069381971121288, guid: 6114d694b9d286348961d6aeafea25cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.74
+      value: 15.1
       objectReference: {fileID: 0}
     - target: {fileID: 446069381971121288, guid: 6114d694b9d286348961d6aeafea25cc, type: 3}
       propertyPath: m_LocalPosition.z

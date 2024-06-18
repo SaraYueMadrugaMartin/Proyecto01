@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DeepCentipide : MonoBehaviour
@@ -13,11 +11,16 @@ public class DeepCentipide : MonoBehaviour
     bool quieto = false; // Para que deje de desplazarse una vez mate a Alex
     bool unaVez = true; // Para que solo haga una vez la animación de comer
 
+    public AudioClip[] DeepCentipideClips;
+    private AudioSource audioSource;
+    private bool isPlayingLoop = false;
+
     Animator anim;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         this.transform.position = puntoSalida.position; // Empieza en el punto de salida
     }
 
@@ -31,6 +34,12 @@ public class DeepCentipide : MonoBehaviour
             {
                 this.transform.position = puntoSalida.position; // Vuelve al inicio
             }
+
+            // Si el audio ha terminado, reproducir otro clip aleatorio
+            if (!audioSource.isPlaying)
+            {
+                PlayRandomDeepCentipide();
+            }
         }
     }
 
@@ -38,9 +47,11 @@ public class DeepCentipide : MonoBehaviour
     {
         if (collision.tag == "Player" && unaVez)
         {
+            SFXManager.instance.PlaySFX(SFXManager.instance.clipsDeAudio[21]); // Sonido comer Alex
             collision.transform.position = puntoComer.position; // Posición de Alex para que quede bien la animación
             collision.GetComponent<Player>().SePuedeMover(false); // Que Alex no se pueda mover
             anim.SetTrigger("eat");
+            StopSFXLoop();
             quieto = true;
             collision.GetComponent<Player>().recibeDamage(200); // Mata a Alex de un golpe
             StartCoroutine(Espera(collision));
@@ -55,5 +66,36 @@ public class DeepCentipide : MonoBehaviour
         yield return new WaitForSecondsRealtime(2f);
         collision.GetComponent<SpriteRenderer>().enabled = true;
         collision.GetComponent<Player>().SePuedeMover(true);
+    }
+
+    public void PlaySFXLoop(AudioClip efecto)
+    {
+        if (efecto != null)
+        {
+            audioSource.clip = efecto;
+            audioSource.volume = SFXManager.instance.volumen * SFXManager.instance.volumenEfectos;
+            audioSource.loop = false; // Porque tiene que intercalar audios
+            audioSource.Play();
+            isPlayingLoop = true;
+        }
+    }
+
+    public void StopSFXLoop()
+    {
+        if (isPlayingLoop)
+        {
+            audioSource.Stop();
+            isPlayingLoop = false;
+        }
+    }
+
+    public void PlayRandomDeepCentipide()
+    {
+        if (DeepCentipideClips != null && DeepCentipideClips.Length > 0)
+        {
+            int randomIndex = Random.Range(0, DeepCentipideClips.Length);
+            AudioClip randomClip = DeepCentipideClips[randomIndex];
+            PlaySFXLoop(randomClip);
+        }
     }
 }

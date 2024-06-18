@@ -19,7 +19,7 @@ public class SFXManager : MonoBehaviour
 
     private List<GameObject> tempAudioObjects = new List<GameObject>();
 
-    private float volumenEfectos = 1.0f; // Multiplicador de volumen de efectos
+    public float volumenEfectos = 1.0f; // Multiplicador de volumen de efectos
 
     private bool isPlayingLoop = false;
     private AudioSource loopAudioSource;

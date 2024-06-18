@@ -4291,6 +4291,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 43de8f2830a9f3e45b3139863098307a, type: 3}
   - {fileID: 8300000, guid: 22a802d7448bb2c46823898a6b3f5ab1, type: 3}
   - {fileID: 8300000, guid: fbab57134715a1740b7d21953b539788, type: 3}
+  - {fileID: 8300000, guid: 54926aadda074bd4ea16efdb90169ac4, type: 3}
   audiosEnemigos:
   - {fileID: 8300000, guid: 08c653d9855a8824295e2f7b7b4cccbf, type: 3}
   - {fileID: 8300000, guid: 6d1e997eabef1d847a98ca3529b06fb6, type: 3}
@@ -4313,6 +4314,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dc6b3c700d86b8846ae8bea4afe1bcb5, type: 3}
   - {fileID: 8300000, guid: 9a79712269595ce478bbc059e20269c3, type: 3}
   - {fileID: 8300000, guid: c350dadec62eff64baa59ef4226360b9, type: 3}
+  DeepCentipideClips:
+  - {fileID: 8300000, guid: 2a2f4ec83aa239343a7fb1012a9235cd, type: 3}
+  - {fileID: 8300000, guid: dd6a2c87fed42f14d9faf62da1536379, type: 3}
 --- !u!4 &770221556
 Transform:
   m_ObjectHideFlags: 0
