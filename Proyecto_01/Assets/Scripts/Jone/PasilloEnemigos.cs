@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class PasilloEnemigos : MonoBehaviour
 {
-    public int cantidadHijosActivar = 4; //Player.contadorCorr;
-
-    private void Start()
+    private void Update()
     {
         ActivarHijosSegunContador();
     }
@@ -20,7 +18,7 @@ public class PasilloEnemigos : MonoBehaviour
         foreach (Transform hijo in transform)
         {
             // Activamos el hijo si no hemos alcanzado la cantidad máxima
-            if (hijosActivados < cantidadHijosActivar)
+            if (hijosActivados < Player.contadorCorr)
             {
                 hijo.gameObject.SetActive(true);
                 hijosActivados++;

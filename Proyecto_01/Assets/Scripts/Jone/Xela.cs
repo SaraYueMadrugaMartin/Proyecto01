@@ -41,9 +41,7 @@ public class Xela : MonoBehaviour
 
     // Para reproducir cinemáticas finales
     [SerializeField] private GameObject cintaFinBueno;
-    [SerializeField] private VideoPlayer cinematicaFinBueno;
     [SerializeField] private GameObject cintaFinMalo;
-    [SerializeField] private VideoPlayer cinematicaFinMalo;
 
     void Start()
     {
@@ -53,10 +51,7 @@ public class Xela : MonoBehaviour
         anim = GetComponent<Animator>();
         rangoDeteccion = rangoDeteccionBase;
 
-        cinematicaFinBueno = cintaFinBueno.GetComponent<VideoPlayer>();
         cintaFinBueno.SetActive(false);
-
-        cinematicaFinMalo = cintaFinMalo.GetComponent<VideoPlayer>();
         cintaFinMalo.SetActive(false);
     }
     private void Update()
