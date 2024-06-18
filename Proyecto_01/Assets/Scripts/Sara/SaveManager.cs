@@ -14,6 +14,8 @@ public struct AlexState
     public float corrupcionPlayer;
     public int armaEquipadaPlayer;
     public int corrupcionTotal;
+    public int mostrarArmaEquipada;
+    public bool[] spritesArmas;
 }
 
 [System.Serializable]
@@ -146,6 +148,17 @@ public class SaveManager: MonoBehaviour
         sceneState.playerState.corrupcionPlayer = infoPlayer.GetNivelCorrupcion();
         sceneState.playerState.armaEquipadaPlayer = infoPlayer.GetArmaEquipada();
         sceneState.playerState.corrupcionTotal = infoPlayer.GetCorrupcionTotal();
+        //MostrarArmaEquipada infoArmaEquipada = FindObjectOfType<MostrarArmaEquipada>();
+        sceneState.playerState.mostrarArmaEquipada = MostrarArmaEquipada.GetMostrarArmaEquipada();
+        MostrarArmaEquipada infoArmaEquipada = FindObjectOfType<MostrarArmaEquipada>();
+        if (infoArmaEquipada != null)
+        {
+            sceneState.playerState.spritesArmas = new bool[infoArmaEquipada.imagenesArmas.Length];
+            for (int i = 0; i < infoArmaEquipada.imagenesArmas.Length; i++)
+            {
+                sceneState.playerState.spritesArmas[i] = infoArmaEquipada.imagenesArmas[i].enabled;
+            }
+        }
         #endregion
 
         #region Guardado Puertas Desbloqueadas
@@ -253,7 +266,6 @@ public class SaveManager: MonoBehaviour
                 itemState.spritesActivos[i] = item.spriteRenderers[i].enabled; // Asignamos el estado del sprite del item y lo guardamos
             }
 
-
             sceneState.itemsState.Add(itemState); // Añadimos toda esta información a nuestra lista de Items
             //Debug.Log("Guardado Item - Nombre: " + itemState.nombreItem + "ID del item: " + itemState.idItem + ", Recogido: " + itemState.objetoRecogido);
         }
@@ -306,7 +318,16 @@ public class SaveManager: MonoBehaviour
                 playerGuardado.SetNivelCorrupcion(savedSceneState.playerState.corrupcionPlayer);
                 playerGuardado.SetArmaEquipada(savedSceneState.playerState.armaEquipadaPlayer);
                 playerGuardado.SetCorrupcionTotal(savedSceneState.playerState.corrupcionTotal);
-                Debug.Log("La corrupción total es de: " + savedSceneState.playerState.corrupcionTotal);
+                Debug.Log("La corrupción total es de: " + savedSceneState.playerState.corrupcionTotal);                
+            }
+            MostrarArmaEquipada.SetMostrarArmaEquipada(savedSceneState.playerState.mostrarArmaEquipada);
+            MostrarArmaEquipada infoArmaEquipada = FindObjectOfType<MostrarArmaEquipada>();
+            if (infoArmaEquipada != null && savedSceneState.playerState.spritesArmas != null)
+            {
+                for (int i = 0; i < savedSceneState.playerState.spritesArmas.Length; i++)
+                {
+                    infoArmaEquipada.imagenesArmas[i].enabled = savedSceneState.playerState.spritesArmas[i];
+                }
             }
             #endregion
 

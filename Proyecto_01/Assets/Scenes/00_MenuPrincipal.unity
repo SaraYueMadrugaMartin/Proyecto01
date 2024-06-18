@@ -4314,9 +4314,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dc6b3c700d86b8846ae8bea4afe1bcb5, type: 3}
   - {fileID: 8300000, guid: 9a79712269595ce478bbc059e20269c3, type: 3}
   - {fileID: 8300000, guid: c350dadec62eff64baa59ef4226360b9, type: 3}
-  DeepCentipideClips:
-  - {fileID: 8300000, guid: 2a2f4ec83aa239343a7fb1012a9235cd, type: 3}
-  - {fileID: 8300000, guid: dd6a2c87fed42f14d9faf62da1536379, type: 3}
+  volumenEfectos: 1
 --- !u!4 &770221556
 Transform:
   m_ObjectHideFlags: 0
