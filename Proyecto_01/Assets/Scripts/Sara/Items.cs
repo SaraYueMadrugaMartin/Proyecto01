@@ -73,7 +73,8 @@ public class Items : MonoBehaviour
                     tutoAbierto = true;
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
-                }
+                } else if (nombreItem == "Moneda")
+                    Player.monedasCorr += 1;
 
                 DesactivarItem();
             }
