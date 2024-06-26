@@ -10,6 +10,7 @@ public class LucesTodas : MonoBehaviour
     
     private static bool apagaLuces = false;
     private float intensidadGlobal;
+    private float duracionTransicion = 5.0f; // Duración de la transición en segundos
 
     void Start()
     {
@@ -26,13 +27,29 @@ public class LucesTodas : MonoBehaviour
         {
             Debug.Log("apaga");
             luces.SetActive(false);
-            luzGlobal.intensity = 0f;
+            StartCoroutine(CambiarIntensidadLuz(0f, duracionTransicion));
         }
         else // Se encienden todas las luces
         {
             Debug.Log("enciende");
             luces.SetActive(true);
-            luzGlobal.intensity = intensidadGlobal;
+            StartCoroutine(CambiarIntensidadLuz(intensidadGlobal, duracionTransicion));
         }
+    }
+
+    // Para el cambio progresivo de la luz
+    private IEnumerator CambiarIntensidadLuz(float intensidadObjetivo, float duracion)
+    {
+        float intensidadInicial = luzGlobal.intensity;
+        float tiempoTranscurrido = 0f;
+
+        while (tiempoTranscurrido < duracion)
+        {
+            tiempoTranscurrido += Time.deltaTime;
+            luzGlobal.intensity = Mathf.Lerp(intensidadInicial, intensidadObjetivo, tiempoTranscurrido / duracion);
+            yield return null;
+        }
+
+        luzGlobal.intensity = intensidadObjetivo; // Asegurarse de que la intensidad final sea exacta
     }
 }
